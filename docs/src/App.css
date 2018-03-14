@@ -1,0 +1,87 @@
+@import url(https://cdn.rawgit.com/PrismJS/prism-themes/master/themes/prism-base16-ateliersulphurpool.light.css);
+
+body {
+  background: ghostwhite;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.app {
+  display: flex;
+  padding: 24px;
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.sidebar {
+  width: 150px;
+  padding-right: 16px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portal {
+  background: white;
+  box-shadow: 0 7px 14px 0 rgba(50,50,93,.1), 0 3px 6px 0 rgba(0,0,0,.07);
+  padding: 24px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  margin: 24px 0 4px;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 16px 0 4px;
+  font-size: 1.25rem;
+  color: #5759D6;
+  font-family: Consolas, monospace;
+}
+
+h1 + p {
+  font-size: 1.2rem;
+  margin-bottom: 24px;
+}
+
+.react-live {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.prism-code {
+  width: 50%;
+  padding: 16px 24px !important;
+  background: ghostwhite;
+}
+
+.react-live-error {
+  width: 100%;
+  background: lightpink;
+  color: darkred;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.react-live-preview {
+  width: 50%;
+  padding-right: 16px;
+}
+
+pre,
+code {
+  background: ghostwhite;
+  padding: 4px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: purple;
+  font-family: Consolas, monospace;
+}
+

@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "sappira",
+    "sappira/react"
+  ]
+}

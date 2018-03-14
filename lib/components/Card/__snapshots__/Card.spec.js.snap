@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card 1`] = `
+.c0 {
+  background: white;
+  box-shadow: 0 8px 30px rgba(0,29,54,0.1);
+  border-radius: 2px;
+}
+
+.c1 {
+  padding: 1rem;
+}
+
+.c2 {
+  padding: 1rem;
+}
+
+.c3 {
+  padding: 1rem;
+  background: #e9eef4;
+}
+
+<styled.div>
+  <div
+    className="c0"
+  >
+    <styled.div>
+      <div
+        className="c1"
+      >
+        Header
+      </div>
+    </styled.div>
+    <styled.div>
+      <div
+        className="c2"
+      >
+        Body
+      </div>
+    </styled.div>
+    <styled.div>
+      <div
+        className="c3"
+      >
+        Footer
+      </div>
+    </styled.div>
+  </div>
+</styled.div>
+`;

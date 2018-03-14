@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  border-bottom: 1px solid #dfe3e8;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.c3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  font-size: 14px;
+  position: relative;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 1px;
+  margin-bottom: -1px;
+  padding: 0 12px;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.c4 {
+  color: #212b36;
+  display: block;
+  padding: 12px 8px;
+  border-bottom: 4px solid #5759D6;
+}
+
+.c4::hover {
+  color: #212b36;
+  border-color: #5759D6;
+}
+
+.c5 {
+  color: #637381;
+  display: block;
+  padding: 12px 8px;
+  border-bottom: 4px solid transparent;
+}
+
+.c5::hover {
+  color: #212b36;
+  border-color: #d9dee3;
+}
+
+.c6 {
+  padding: 12px;
+}
+
+<Tabs
+  tabs={
+    Array [
+      Object {
+        "content": <TabContent
+          body="one"
+        />,
+        "id": "test-one",
+        "title": "Tab One",
+      },
+      Object {
+        "content": <TabContent
+          body="two"
+        />,
+        "id": "test-two",
+        "title": "Tab Two",
+      },
+    ]
+  }
+  vertical={false}
+>
+  <styled.div
+    vertical={false}
+  >
+    <div
+      className="c0"
+    >
+      <styled.ul
+        vertical={false}
+      >
+        <ul
+          className="c1"
+        >
+          <styled.li
+            key="test-one"
+          >
+            <li
+              className="c2"
+            >
+              <styled.button
+                onClick={[Function]}
+                vertical={false}
+              >
+                <button
+                  className="c3"
+                  onClick={[Function]}
+                >
+                  <styled.span
+                    active={true}
+                    vertical={false}
+                  >
+                    <span
+                      className="c4"
+                    >
+                      Tab One
+                    </span>
+                  </styled.span>
+                </button>
+              </styled.button>
+            </li>
+          </styled.li>
+          <styled.li
+            key="test-two"
+          >
+            <li
+              className="c2"
+            >
+              <styled.button
+                onClick={[Function]}
+                vertical={false}
+              >
+                <button
+                  className="c3"
+                  onClick={[Function]}
+                >
+                  <styled.span
+                    active={false}
+                    vertical={false}
+                  >
+                    <span
+                      className="c5"
+                    >
+                      Tab Two
+                    </span>
+                  </styled.span>
+                </button>
+              </styled.button>
+            </li>
+          </styled.li>
+        </ul>
+      </styled.ul>
+      <styled.div>
+        <div
+          className="c6"
+        >
+          <TabContent
+            body="one"
+          >
+            <div>
+              This is the content for Tab 
+              one
+            </div>
+          </TabContent>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</Tabs>
+`;

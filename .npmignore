@@ -1,0 +1,3 @@
+*.example.js
+*.spec.js
+__snapshots__
