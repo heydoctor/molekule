@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card 1`] = `
+exports[`<Tabs /> renders 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,12 +48,17 @@ exports[`Card 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  cursor: pointer;
   margin-top: 1px;
   margin-bottom: -1px;
   padding: 0 12px;
   outline: none;
   white-space: nowrap;
-  cursor: pointer;
+  opacity: 1;
+}
+
+.c3:active {
+  outline: none;
 }
 
 .c4 {
@@ -99,6 +104,7 @@ exports[`Card 1`] = `
           body="two"
         />,
         "id": "test-two",
+        "onActive": [MockFunction],
         "title": "Tab Two",
       },
     ]
@@ -124,11 +130,13 @@ exports[`Card 1`] = `
               className="c2"
             >
               <styled.button
+                id="test-one"
                 onClick={[Function]}
                 vertical={false}
               >
                 <button
                   className="c3"
+                  id="test-one"
                   onClick={[Function]}
                 >
                   <styled.span
@@ -152,11 +160,13 @@ exports[`Card 1`] = `
               className="c2"
             >
               <styled.button
+                id="test-two"
                 onClick={[Function]}
                 vertical={false}
               >
                 <button
                   className="c3"
+                  id="test-two"
                   onClick={[Function]}
                 >
                   <styled.span
