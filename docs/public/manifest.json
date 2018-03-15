@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Refractal",
+  "name": "Refractal: React Component Library",
   "icons": [
     {
       "src": "favicon.ico",
