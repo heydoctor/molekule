@@ -1,7 +1,7 @@
 {
   "name": "refractal",
   "description": "React component library builit on top of styled-components and styled-system",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "build/index.js",
   "files": [
     "build"
