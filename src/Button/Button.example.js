@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './Button';
-import LiveEdit from '../../live-edit';
+import LiveEdit from '../live-edit';
 
 export default {
   group: 'Button',

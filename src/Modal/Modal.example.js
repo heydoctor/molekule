@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import Box from '../Box';
 import Modal from './Modal';
-import LiveEdit from '../../live-edit';
+import LiveEdit from '../live-edit';
 
 const ModalCode = `
 class ModalDemo extends React.Component {

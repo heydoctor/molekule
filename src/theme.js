@@ -1,7 +1,7 @@
 export default {
   radius: 2,
   typography: {
-    fontSize: 14
+    fontSize: 14,
   },
   colors: {
     primary: '#5759D6',
@@ -11,20 +11,20 @@ export default {
     orange: '#feca57',
     grayLight: '#e9eef4',
     grayMid: '#8395a7',
-    grayDark: '#576574'
+    grayDark: '#576574',
   },
   variants: {
     success: 'green',
     danger: 'red',
     info: 'blue',
-    warning: 'orange'
+    warning: 'orange',
   },
   sizes: {
     xs: 20,
     sm: 28,
     md: 32,
     lg: 40,
-    xl: 44
+    xl: 44,
   },
-  breakpoints: [386, 768, 1024]
+  breakpoints: [386, 768, 1024],
 };

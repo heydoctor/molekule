@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '../Box';
 import Button from '../Button';
 import Dropdown from './Dropdown';
-import LiveEdit from '../../live-edit';
+import LiveEdit from '../live-edit';
 
 const DropdownCode = `<Dropdown
   trigger={<Button variant="success">Open Dropdown</Button>}

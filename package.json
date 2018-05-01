@@ -1,10 +1,10 @@
 {
   "name": "refractal",
-  "description": "React component library builit on top of styled-components and styled-system",
+  "description": "React component library built on top of styled-components and styled-system",
   "version": "0.2.4",
-  "main": "build/index.js",
+  "main": "lib/index.js",
   "files": [
-    "build"
+    "lib"
   ],
   "keywords": [
     "react",
@@ -14,27 +14,32 @@
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
-    "build": "rimraf build && babel lib -d build",
-    "docs:start": "cd docs && npm run start",
-    "docs:deploy": "cd docs && npm run build && gh-pages -d build",
+    "build": "rimraf build && babel src -d lib",
+    "docs": "parcel docs/index.html",
+    "docs:build": "parcel build docs/index.html",
+    "docs:deploy": "npm run docs:build && gh-pages -d dist",
     "prepublishOnly": "npm run docs:deploy && npm run build",
     "test": "jest",
-    "lint": "eslint lib"
+    "lint": "eslint src"
   },
   "dependencies": {
     "lodash.merge": "^4.6.1",
     "polished": "^1.9.0",
     "react-animations": "^1.0.0",
-    "styled-system": "^2.2.1"
+    "styled-system": "^2.2.4"
   },
   "peerDependencies": {
     "react": "^16.2.0",
-    "styled-components": "^3.2.3"
+    "styled-components": "^3.2.3",
+    "styled-system": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-jest": "^22.2.2",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-module-resolver": "^2.7.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -46,11 +51,13 @@
     "gh-pages": "^1.1.0",
     "jest": "^22.2.2",
     "jest-styled-components": "^5.0.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.10",
+    "parcel-bundler": "^1.7.1",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^0.14.x || ^15.x || ^16.x",
+    "react-dom": "^16.3.2",
     "react-live": "^1.10.1",
+    "react-router-dom": "^4.2.2",
     "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.2",
     "styled-components": "^3.2.3"

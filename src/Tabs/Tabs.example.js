@@ -1,6 +1,6 @@
 import React from 'react';
 import Tabs from './Tabs';
-import LiveEdit from '../../live-edit';
+import LiveEdit from '../live-edit';
 
 const TabsCode = `<Tabs
   tabs={[
