@@ -1,5 +1,5 @@
 export default {
-  radius: 2,
+  radii: [0, 2, 4],
   typography: {
     fontSize: 14,
   },
@@ -19,12 +19,19 @@ export default {
     info: 'blue',
     warning: 'orange',
   },
-  sizes: {
+  heights: {
     xs: 20,
     sm: 28,
     md: 32,
     lg: 40,
     xl: 44,
+  },
+  fontSizes: {
+    xs: 10,
+    sm: 10,
+    md: 12,
+    lg: 14,
+    xl: 16,
   },
   breakpoints: [386, 768, 1024],
 };

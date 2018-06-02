@@ -1,87 +1,93 @@
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
-import { space, themeGet } from 'styled-system';
+import styled, { css, keyframes } from 'styled-components';
+import { space, borderRadius, height, fontSize, themeGet } from 'styled-system';
 import { getLuminance } from 'polished';
 
-const spin = keyframes`
-from {
-  transform: rotate(0deg);
-}
+const spinKeyframes = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
 
-to {
-  transform: rotate(360deg);
+  to {
+    transform: rotate(360deg);
 }`;
 
+const loadingCss = height => css`
+  color: transparent !important;
+  pointer-events: none;
+  position: relative;
+  text-index: -9999px;
+  opacity: 0.75;
+
+  &::after {
+    display: block;
+    content: '';
+    border-color: white;
+    animation: ${spinKeyframes} 820ms infinite linear;
+    border-width: ${height / 12}px;
+    border-style: solid;
+    border-radius: 100%;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    height: ${height / 2}px;
+    left: 50%;
+    margin-left: -${height / 4}px;
+    margin-top: -${height / 4}px;
+    position: absolute;
+    top: 48%;
+    width: ${height / 2}px;
+  }
+`;
+
 const Button = styled.button`
-  font-family: inherit;
-  font-smoothing: antialiased;
-  display: inline-block;
-  text-align: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  textDecoration: none;
-  appearance: none;
+  ${({
+    variant = 'primary',
+    size = 'md',
+    theme,
+    outline = false,
+    block = false,
+    disabled = false,
+    loading = false,
+    transparent = false,
+    height = theme.heights[size],
+    backgroundColor = theme.colors[variant] || theme.colors[theme.variants[variant]],
+    fontColor = getLuminance(backgroundColor) < 0.5 ? 'white' : 'black',
+    fontSize = theme.fontSizes[size],
+  }) => css`
+    font-family: inherit;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    appearance: none;
+    pointer-events: ${disabled ? 'none' : 'auto'};
+    opacity: ${disabled ? '0.65' : '1'};
+    color: ${outline ? backgroundColor : fontColor};
+    height: ${height}px;
+    padding: 0 ${height / 2}px;
+    font-size: ${fontSize}px;
+    width: ${block ? '100%' : 'auto'};
+    background: ${outline || transparent ? 'transparent' : backgroundColor};
+    border: ${transparent ? 'none' : `1px solid ${backgroundColor}`};
 
-  ${themeGet('components.Button')};
-
-  ${({ variant = 'primary', size = 'md', outline = false, block = false, rounded = true, disabled = false, theme }) => {
-    const mainColor = theme.colors[variant] || theme.colors[theme.variants[variant]];
-    const elementSize = theme.sizes[size];
-    const luminance = getLuminance(mainColor);
-    const fontColor = luminance < 0.5 ? 'white' : 'black';
-
-    return `
-      pointer-events: ${disabled ? 'none' : 'auto'};
-      opacity: ${disabled ? '0.65' : '1'};
-      color: ${outline ? mainColor : fontColor};
-      font-size: ${elementSize / 3}px;
-      padding: ${elementSize / 4}px ${elementSize / 2}px;
-      background: ${outline ? 'transparent' : mainColor};
-      border: 1px solid ${mainColor};
-      width: ${block ? '100%' : 'auto'};
-      border-radius: ${rounded ? theme.radius : 0}px;
-    `;
-  }}
-
-  ${props => {
-    if (props.loading) {
-      return `
-        color: transparent !important;
-        pointer-events: none;
-        position: relative;
-        text-index: -9999px;
-        opacity: 0.75;
-
-        &::after {
-          display: block;
-          content: "";
-          border-color: white;
-          animation: ${spin} 820ms infinite linear;
-          border-width: .2rem;
-          border-style: solid;
-          border-radius: .8rem;
-          border-right-color: transparent;
-          border-top-color: transparent;
-          height: 1.2rem;
-          left: 50%;
-          margin-left: -.6rem;
-          margin-top: -.6rem;
-          position: absolute;
-          top: 48%;
-          width: 1.2rem;
-        }
-      `;
-    }
-    return '';
-  }}
-
-  ${space}
+    ${loading ? loadingCss(height) : ''} ${themeGet('components.Button')};
+  `};
+  ${space};
+  ${borderRadius};
+  ${fontSize};
+  ${height};
 `;
 
 Button.displayName = 'Button';
 Button.propTypes = {
   variant: PropTypes.string,
+  size: PropTypes.string,
+  ...space.propTypes,
+  ...borderRadius.propTypes,
+  ...fontSize.propTypes,
+  ...height.propTypes,
 };
 
 Button.Group = styled.div`

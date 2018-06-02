@@ -3,8 +3,18 @@ import { Link } from 'react-router-dom';
 import EXAMPLES from './examples';
 
 const Sidebar = () => (
-  <div className="sidebar">
-    <nav>
+  <nav className="sidebar">
+    <h6>Guides</h6>
+    <Link to="/theming">
+      <div>Theming</div>
+    </Link>
+
+    <Link to="/ssr">
+      <div>Server Side Rendering</div>
+    </Link>
+
+    <h6 style={{ marginTop: 12 }}>Components</h6>
+    <div>
       {Object.keys(EXAMPLES).map(key => {
         const eg = EXAMPLES[key];
         return (
@@ -13,8 +23,8 @@ const Sidebar = () => (
           </Link>
         );
       })}
-    </nav>
-  </div>
+    </div>
+  </nav>
 );
 
 export default Sidebar;

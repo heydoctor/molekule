@@ -2,6 +2,7 @@
 
 body {
   background: ghostwhite;
+  color: #43526D;
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
@@ -13,7 +14,7 @@ body {
 }
 
 .sidebar {
-  width: 150px;
+  width: 200px;
   padding-right: 16px;
 }
 
@@ -23,10 +24,15 @@ body {
   margin: 0;
 }
 
+.sidebar a {
+  color: inherit;
+}
+
 .portal {
   background: white;
-  box-shadow: 0 7px 14px 0 rgba(50,50,93,.1), 0 3px 6px 0 rgba(0,0,0,.07);
+  box-shadow: 0 7px 14px 0 rgba(50,50,93,.07), 0 3px 6px 0 rgba(0,0,0,.04);
   padding: 24px;
+  max-width: 100%;
 }
 
 h1 {
@@ -54,10 +60,12 @@ h1 + p {
   display: flex;
   flex-wrap: wrap;
   margin: 16px 0;
+  max-width: 100%;
 }
 
 .prism-code {
   width: 50%;
+  max-width: 50%;
   padding: 16px 24px !important;
   background: ghostwhite;
 }
@@ -72,6 +80,7 @@ h1 + p {
 
 .react-live-preview {
   width: 50%;
+  max-width: 50%;
   padding-right: 16px;
 }
 

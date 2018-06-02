@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from '../Box';
+import Flex from '../Flex';
 import Button from '../Button';
 import Dropdown from './Dropdown';
 import LiveEdit from '../live-edit';
@@ -55,20 +55,13 @@ export default {
         Use the <code>position</code> prop to position the dropdown menu around the trigger element. Valid values are{' '}
         <code>tl</code>, <code>tr</code>, <code>br</code>, and <code>tl</code>. Defaults to <code>bl</code>
       </p>
-      <Box mt={3} display="flex" justify="space-around">
-        <Box>
-          <DropdownDemo position="bl" triggerCopy="Bottom Left" />
-        </Box>
-        <Box>
-          <DropdownDemo position="tl" triggerCopy="Top Left" />
-        </Box>
-        <Box>
-          <DropdownDemo position="tr" triggerCopy="Top Right" />
-        </Box>
-        <Box>
-          <DropdownDemo position="bl" triggerCopy="Bottom Left" />
-        </Box>
-      </Box>
+
+      <Flex mt={3} justify="space-between">
+        <DropdownDemo position="bl" triggerCopy="Bottom Left" />
+        <DropdownDemo position="tl" triggerCopy="Top Left" />
+        <DropdownDemo position="tr" triggerCopy="Top Right" />
+        <DropdownDemo position="bl" triggerCopy="Bottom Left" />
+      </Flex>
     </React.Fragment>
   ),
 };

@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 import {
   display,
-  alignItems,
-  justifyContent,
-  flexWrap,
-  flexDirection,
-  flex,
-  alignSelf,
   space,
   color,
   width,
@@ -14,6 +8,7 @@ import {
   fontWeight,
   textAlign,
   lineHeight,
+  alignSelf,
 } from 'styled-system';
 
 const Box = styled.div`
@@ -25,12 +20,19 @@ const Box = styled.div`
   ${textAlign}
   ${lineHeight}
   ${width}
-  ${alignItems}
-  ${justifyContent}
-  ${flexWrap}
-  ${flexDirection}
-  ${flex}
   ${alignSelf}
 `;
+
+Box.propTypes = {
+  ...display.propTypes,
+  ...space.propTypes,
+  ...color.propTypes,
+  ...width.propTypes,
+  ...fontSize.propTypes,
+  ...fontWeight.propTypes,
+  ...textAlign.propTypes,
+  ...lineHeight.propTypes,
+  ...alignSelf.propTypes,
+}
 
 export default Box;

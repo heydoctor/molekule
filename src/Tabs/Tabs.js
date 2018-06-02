@@ -52,8 +52,8 @@ const Tab = styled.button`
 const TabTitle = styled.span`
   color: ${p => (p.active ? '#212b36' : '#637381')};
   display: block;
-  padding: ${p => (p.vertical ? '8px 12px 8px 0' : '12px 8px')};
-  border-${p => (p.vertical ? 'right' : 'bottom')}: 4px solid ${p =>
+  padding: ${p => (p.vertical ? '8px 12px 8px 8px' : '12px 8px')};
+  border-${p => (p.vertical ? 'left' : 'bottom')}: 4px solid ${p =>
   p.active ? p.theme.colors.primary : 'transparent'};
 
   &::hover {
@@ -63,7 +63,6 @@ const TabTitle = styled.span`
 `;
 
 const TabContent = styled.div`
-  padding: 12px;
   width: 100%;
 `;
 
@@ -79,12 +78,8 @@ class Tabs extends Component {
     vertical: false,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      active: props.active || 0,
-    };
+  state = {
+    active: this.props.active || 0,
   }
 
   componentDidUpdate() {

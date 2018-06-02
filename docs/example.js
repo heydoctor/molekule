@@ -1,8 +1,6 @@
 import React from 'react';
 import EXAMPLES from './examples';
 
-console.log(EXAMPLES);
-
 const Example = ({ match }) => {
   const example = EXAMPLES[match.params.group];
 

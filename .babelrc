@@ -6,10 +6,10 @@
         "browsers": ["last 1 version"]
       }
     }],
-    "react",
-    "stage-0"
+    "react"
   ],
   "plugins": [
+    "transform-export-extensions",
     "transform-object-rest-spread",
     "transform-class-properties"
   ]
