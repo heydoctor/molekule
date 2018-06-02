@@ -26,7 +26,8 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "lodash.merge": "^4.6.1"
+    "lodash.merge": "^4.6.1",
+    "styled-system": "^2.2.5"
   },
   "peerDependencies": {
     "polished": "^1.9.0",
