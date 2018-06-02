@@ -15,15 +15,12 @@ export default {
       format: 'es',
     },
   ],
-  external: [
-    ...Object.keys(pkg.dependencies || {}),
-    ...Object.keys(pkg.peerDependencies || {}),
-  ],
+  external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
   plugins: [
     babel({
       babelrc: true,
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ],
+      plugins: ['external-helpers'],
     }),
     cjs({
       include: 'node_modules/**',
