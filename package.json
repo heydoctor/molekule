@@ -1,7 +1,7 @@
 {
   "name": "refractal",
   "description": "React component library built on top of styled-components and styled-system",
-  "version": "0.2.6",
+  "version": "0.3.0",
   "main": "lib/refractal.js",
   "module": "lib/refractal.es.js",
   "files": [
