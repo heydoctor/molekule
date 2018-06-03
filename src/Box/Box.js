@@ -9,6 +9,7 @@ import {
   textAlign,
   lineHeight,
   alignSelf,
+  flex,
 } from 'styled-system';
 
 const Box = styled.div`
@@ -21,6 +22,7 @@ const Box = styled.div`
   ${lineHeight}
   ${width}
   ${alignSelf}
+  ${flex}
 `;
 
 Box.propTypes = {
@@ -33,6 +35,7 @@ Box.propTypes = {
   ...textAlign.propTypes,
   ...lineHeight.propTypes,
   ...alignSelf.propTypes,
+  ...flex.propTypes,
 }
 
 export default Box;
