@@ -3,12 +3,14 @@ import {
   display,
   space,
   color,
+  height,
   width,
   fontSize,
   fontWeight,
   textAlign,
   lineHeight,
   alignSelf,
+  justifySelf,
   flex,
 } from 'styled-system';
 
@@ -20,9 +22,11 @@ const Box = styled.div`
   ${fontWeight}
   ${textAlign}
   ${lineHeight}
+  ${height}
   ${width}
-  ${alignSelf}
   ${flex}
+  ${alignSelf}
+  ${justifySelf}
 `;
 
 Box.propTypes = {
@@ -34,8 +38,9 @@ Box.propTypes = {
   ...fontWeight.propTypes,
   ...textAlign.propTypes,
   ...lineHeight.propTypes,
-  ...alignSelf.propTypes,
   ...flex.propTypes,
-}
+  ...alignSelf.propTypes,
+  ...justifySelf.propTypes,
+};
 
 export default Box;
