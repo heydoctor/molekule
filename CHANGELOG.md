@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/kylealwyn/refractal/compare/v0.4.0...v0.4.1) (2018-06-04)
+
+
+### Bug Fixes
+
+* Fix Placeholder rendering issue ([2b9ff2c](https://github.com/kylealwyn/refractal/commit/2b9ff2c))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/kylealwyn/refractal/compare/v0.3.0...v0.4.0) (2018-06-03)
 
