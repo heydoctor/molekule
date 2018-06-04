@@ -26,11 +26,8 @@ export default class Loadable extends React.Component {
   };
 
   static defaultProps = {
-    delay: 750,
-  };
-
-  state = {
-    pastDelay: false,
+    loading: false,
+    delay: 250,
   };
 
   componentDidMount() {
@@ -42,10 +39,10 @@ export default class Loadable extends React.Component {
   }
 
   runDelay() {
-    this.setState({ pastDelay: false }, () => {
+    this.setState({ delayed: true }, () => {
       this.delayTimer = setTimeout(() => {
         this.setState({
-          pastDelay: true,
+          delayed: false,
         });
       }, this.props.delay);
     });
@@ -54,7 +51,7 @@ export default class Loadable extends React.Component {
   render() {
     const { children, loading, error, renderLoading, renderError, onReload } = this.props;
 
-    if (!this.state.pastDelay) {
+    if (loading && this.state.delayed) {
       return null;
     }
 
