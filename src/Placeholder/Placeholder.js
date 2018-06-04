@@ -42,18 +42,19 @@ export default class Loadable extends React.Component {
   }
 
   runDelay() {
-    this.setState({ pastDelay: false });
-    this.delayTimer = setTimeout(() => {
-      this.setState({
-        pastDelay: true,
-      });
-    }, this.props.delay);
+    this.setState({ pastDelay: false }, () => {
+      this.delayTimer = setTimeout(() => {
+        this.setState({
+          pastDelay: true,
+        });
+      }, this.props.delay);
+    });
   }
 
   render() {
     const { children, loading, error, renderLoading, renderError, onReload } = this.props;
 
-    if (loading && !this.state.pastDelay) {
+    if (!this.state.pastDelay) {
       return null;
     }
 
