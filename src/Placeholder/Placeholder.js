@@ -30,6 +30,10 @@ export default class Loadable extends React.Component {
     delay: 250,
   };
 
+  state = {
+    delayed: false,
+  };
+
   componentDidMount() {
     this.runDelay();
   }
@@ -39,6 +43,8 @@ export default class Loadable extends React.Component {
   }
 
   runDelay() {
+    if (this.props.delay <= 0) return;
+
     this.setState({ delayed: true }, () => {
       this.delayTimer = setTimeout(() => {
         this.setState({
