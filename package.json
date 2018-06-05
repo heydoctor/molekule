@@ -18,7 +18,7 @@
     "clean": "rimraf lib",
     "build": "npm-run-all clean rollup",
     "docs": "parcel docs/index.html",
-    "docs:build": "parcel build docs/index.html",
+    "docs:build": "rimraf dist && parcel build docs/index.html --public-url /refractal",
     "docs:deploy": "npm run docs:build && gh-pages -d dist",
     "prepublishOnly": "npm-run-all docs:deploy build",
     "rollup": "rollup -c",
