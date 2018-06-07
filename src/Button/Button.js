@@ -62,6 +62,7 @@ const Button = styled.button`
     font-weight: bold;
     text-decoration: none;
     appearance: none;
+    border-radius: ${theme.elementRadius || '2px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     opacity: ${disabled ? '0.65' : '1'};
     color: ${outline ? backgroundColor : fontColor};
