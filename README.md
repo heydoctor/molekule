@@ -3,3 +3,4 @@
 - [ ] Grid
 - [ ] Switch
 - [ ] Icon
+- [ ] Table
