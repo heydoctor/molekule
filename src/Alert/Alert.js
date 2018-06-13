@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { space } from 'styled-system';
 import { lighten, darken, getLuminance } from 'polished';
 
@@ -15,24 +15,23 @@ const Alert = styled.div`
 
   ${({ variant = 'primary', theme }) => {
     const ogColor = theme.colors[variant] || theme.colors[theme.variants[variant]];
-    const luminance = getLuminance(ogColor);
     const bgColor = lighten(0.24, ogColor);
     const fontColor = darken(0.3, ogColor);
 
-    return `
+    return css`
       font-family: ${theme.typography.fontFamily || 'inherit'};
       border-radius: ${theme.radius}px;
       background: ${bgColor};
       color: ${fontColor};
     `;
-  }}
+  }};
 
-  ${space}
+  ${space};
 `;
 
 Alert.propTypes = {
   variant: PropTypes.string,
   theme: PropTypes.shape(),
-}
+};
 
 export default Alert;
