@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.5"></a>
+## [0.4.5](https://github.com/kylealwyn/refractal/compare/v0.4.4...v0.4.5) (2018-06-13)
+
+
+### Bug Fixes
+
+* update styled-system ([a100f93](https://github.com/kylealwyn/refractal/commit/a100f93))
+
+
+
 <a name="0.4.4"></a>
 ## [0.4.4](https://github.com/kylealwyn/refractal/compare/v0.4.3...v0.4.4) (2018-06-07)
 
