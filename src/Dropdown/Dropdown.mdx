@@ -1,0 +1,41 @@
+---
+menu: Components
+name: Dropdown
+---
+
+import { Playground, PropsTable } from 'docz'
+import Dropdown from './Dropdown.jsx'
+import Button from '../Button'
+
+# Dropdown
+
+Easily display contextual overlays using custom trigger elements.
+
+## Props
+<PropsTable of={Dropdown} />
+
+## Example
+<Playground>
+  <Dropdown
+    trigger={<Button variant="success">Open Dropdown</Button>}
+    render={({ close }) => (
+      <div>
+        <Dropdown.Header>Header</Dropdown.Header>
+
+        <Dropdown.Body>
+          <Dropdown.Title>Section One</Dropdown.Title>
+          <Dropdown.Item>Item One</Dropdown.Item>
+          <Dropdown.Item>Item Two</Dropdown.Item>
+
+          <Dropdown.Title>Section Two</Dropdown.Title>
+          <Dropdown.Item onClick={close}>Item One</Dropdown.Item>
+          <Dropdown.Item disabled>Item Two</Dropdown.Item>
+        </Dropdown.Body>
+
+        <Dropdown.Footer>Footer</Dropdown.Footer>
+      </div>
+    )}
+  />
+</Playground>
+
+

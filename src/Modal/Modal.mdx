@@ -1,0 +1,28 @@
+---
+menu: Components
+name: Modal
+---
+
+import { Playground, PropsTable } from 'docz'
+import Modal from './Modal.jsx'
+import ModalExample from './Modal.example'
+
+# Modal
+
+Modals are a great way to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+
+## Example
+
+Toggle a working modal demo by clicking the button below. It will slide up and fade in from the bottom of the page.
+
+<Playground>
+  <ModalExample />
+</Playground>
+
+## Handling Long Content
+
+When modals become too long for the user’s viewport or device, they scroll independent of the page itself.
+
+<Playground>
+  <ModalExample body={<div>{new Array(50).fill(null).map(() => <p>I'm really long annoying content.</p>)}</div>}/ >
+</Playground>

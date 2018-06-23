@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 import { space, borderRadius, height, fontSize, themeGet } from 'styled-system';
@@ -39,10 +40,10 @@ const loadingCss = height => css`
   }
 `;
 
-const Button = styled.button`
+const StyledButton = styled.button`
   ${({
-    variant = 'primary',
-    size = 'md',
+    variant,
+    size,
     theme,
     outline = false,
     block = false,
@@ -81,14 +82,26 @@ const Button = styled.button`
   ${height};
 `;
 
-Button.displayName = 'Button';
+const Button = props => <StyledButton {...props} />;
+
 Button.propTypes = {
   variant: PropTypes.string,
   size: PropTypes.string,
-  ...space.propTypes,
-  ...borderRadius.propTypes,
-  ...fontSize.propTypes,
-  ...height.propTypes,
+  outline: PropTypes.bool,
+  block: PropTypes.bool,
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  transparent: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  variant: 'primary',
+  size: 'md',
+  outline: false,
+  block: false,
+  disabled: false,
+  loading: false,
+  transparent: false,
 };
 
 Button.Group = styled.div`

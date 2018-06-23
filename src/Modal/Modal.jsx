@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { keyframes } from 'styled-components';
-import { darken } from 'polished';
 import { fadeIn, fadeOut, fadeInUp, fadeOutUp } from 'react-animations';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
@@ -40,7 +39,7 @@ const ModalContent = styled.div`
       closing && `animation: 0.75s ${fadeOutUpAnimation};`};
 `;
 
-const Modal = class extends React.Component {
+class Modal extends React.Component {
   static propTypes = {
     open: PropTypes.bool,
     closeOnBackdropClick: PropTypes.bool,
@@ -173,7 +172,7 @@ const Modal = class extends React.Component {
       </Backdrop>
     );
   }
-};
+}
 
 Modal.Title = styled.h2`
   font-size: 20px;

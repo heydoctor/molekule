@@ -21,16 +21,16 @@ const Badge = styled.span`
     const fontSize = FONT_SIZES[size];
 
     return `
-      padding: ${fontSize/4}px ${fontSize/2}px;
+      padding: ${fontSize / 4}px ${fontSize / 2}px;
       font-size: ${fontSize}px;
       font-family: ${theme.typography.fontFamily};
       border-radius: ${theme.radius}px;
       background: ${bgColor};
       color: ${fontColor};
     `;
-  }}
+  }};
 
-  ${space}
+  ${space};
 `;
 
 export default Badge;
