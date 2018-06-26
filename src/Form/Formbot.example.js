@@ -138,7 +138,7 @@ export default function() {
             />
           </FormGroup>
           <FormGroup>
-            <Switch name="switch1" size="xs" id="switch1" onChange={onChange} toggled={values.switch1} />
+            <Switch name="switch1" id="switch1" onChange={onChange} toggled={values.switch1} />
           </FormGroup>
           <Button htmlType="submit" type="primary" size="sm">
             Submit
