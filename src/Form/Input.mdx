@@ -1,0 +1,52 @@
+---
+menu: Forms
+name: Input
+---
+
+import { Playground, PropsTable } from 'docz'
+import Input from './Input'
+import Button from '../Button'
+
+# Input
+
+Form input component. Different sizes are available.
+
+## Props
+
+<PropsTable of={Input} />
+
+## Examples
+
+### Default Input
+<Playground>
+   <Input placeholder="Example" label="Example" />
+</Playground>
+
+### Multiline Input
+<Playground>
+   <Input multiline placeholder="Example" label="Example" />
+</Playground>
+
+### Autogrow Multiline Input
+<Playground>
+   <Input autogrow multiline placeholder="Example" label="Example" />
+</Playground>
+
+### Floating Input
+<Playground>
+   <Input floating placeholder="Example" label="Example" />
+</Playground>
+
+### Disabled Input
+<Playground>
+   <Input disabled placeholder="Example" label="Example" />
+</Playground>
+
+### Sizes
+<Playground>
+   <Input size="xs" placeholder="Example" label="Example" />
+   <Input size="sm" placeholder="Example" label="Example" />
+   <Input size="md" placeholder="Example" label="Example" />
+   <Input size="lg" placeholder="Example" label="Example" />
+   <Input size="xl" placeholder="Example" label="Example" />
+</Playground>

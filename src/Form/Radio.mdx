@@ -1,0 +1,116 @@
+---
+menu: Forms
+name: Radio
+---
+
+import { Playground, PropsTable } from 'docz'
+import RadioGroup from './RadioGroup'
+import Radio from './Radio'
+
+# Radio
+
+Form Radio component. Different sizes are available.
+
+## Props
+
+<PropsTable of={Radio} />
+
+## Examples
+
+### Radio Group horizontal
+<Playground>
+  {() => {
+    const radioValues = [
+      {
+        id: 1,
+        value: 'radio1',
+        name: 'radio1',
+        label: 'Radio 1',
+      },
+      {
+        id: 2,
+        value: 'radio2',
+        name: 'radio2',
+        label: 'Radio 2',
+      },
+    ];
+    return (
+      <RadioGroup horizontal name="radio" id="radio" choices={radioValues} />
+    )
+  }}
+</Playground>
+
+### Radio Group vertical
+<Playground>
+  {() => {
+    const radioValues = [
+      {
+        id: 1,
+        value: 'radio1',
+        name: 'radio1',
+        label: 'Radio 1',
+      },
+      {
+        id: 2,
+        value: 'radio2',
+        name: 'radio2',
+        label: 'Radio 2',
+      },
+    ];
+    return (
+      <RadioGroup name="radio" id="radio" choices={radioValues} />
+    )
+  }}
+</Playground>
+
+### Radio Group sizes
+<Playground>
+  {() => {
+    const radioValues = [
+      {
+        id: 1,
+        value: 'radio1',
+        name: 'radio1',
+        label: 'Radio 1',
+      },
+      {
+        id: 2,
+        value: 'radio2',
+        name: 'radio2',
+        label: 'Radio 2',
+      },
+    ];
+    return (
+      <React.Fragment>
+        <RadioGroup size="xs" name="radio" id="radio" choices={radioValues} />
+        <RadioGroup size="sm" name="radio" id="radio" choices={radioValues} />
+        <RadioGroup size="md" name="radio" id="radio" choices={radioValues} />
+        <RadioGroup size="lg" name="radio" id="radio" choices={radioValues} />
+        <RadioGroup size="xl" name="radio" id="radio" choices={radioValues} />
+      </React.Fragment>
+    )
+  }}
+</Playground>
+
+### Radio Group colors
+<Playground>
+  {() => {
+    const radioValues = [
+      {
+        id: 1,
+        value: 'radio1',
+        name: 'radio1',
+        label: 'Radio 1',
+      },
+      {
+        id: 2,
+        value: 'radio2',
+        name: 'radio2',
+        label: 'Radio 2',
+      },
+    ];
+    return (
+      <RadioGroup variant="red" name="radio" id="radio" choices={radioValues} />
+    )
+  }}
+</Playground>

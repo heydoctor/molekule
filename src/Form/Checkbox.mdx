@@ -1,0 +1,73 @@
+---
+menu: Forms
+name: Checkbox
+---
+
+import { Playground, PropsTable } from 'docz'
+import Checkbox from './Checkbox'
+import CheckboxGroup from './CheckboxGroup'
+
+# Checkbox
+
+Form Checkbox component. Different sizes are available.
+
+## Props
+
+<PropsTable of={Checkbox} />
+
+## Examples
+
+### Default Checkbox
+<Playground>
+  <Checkbox id="checkbox" name="checkbox" />
+</Playground>
+
+### Checkbox Group
+<Playground>
+  {() => {
+    const checkboxValues = [
+      {
+        id: 1,
+        value: 'test',
+        label: 'Checkbox 1',
+      },
+      {
+        id: 2,
+        value: 'test2',
+        label: 'Checkbox 2',
+      },
+    ];
+    return (
+      <div>
+        <h3>Vertical</h3>
+        <CheckboxGroup name="checkboxes" id="checkboxes" choices={checkboxValues} />
+
+        <h3>Horizontal</h3>
+        <CheckboxGroup horizontal name="checkboxes" id="checkboxes" choices={checkboxValues} />
+      </div>
+    )
+  }}
+</Playground>
+
+### Checkbox colors
+<Playground>
+  {() => {
+    const checkboxValues = [
+      {
+        id: 1,
+        value: 'test',
+        label: 'Checkbox 1',
+      },
+      {
+        id: 2,
+        value: 'test2',
+        label: 'Checkbox 2',
+      },
+    ];
+    return (
+      <React.Fragment>
+        <Checkbox id="checkbox" name="checkbox" variant="red" />
+      </React.Fragment>
+    )
+  }}
+</Playground>

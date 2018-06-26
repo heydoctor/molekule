@@ -1,0 +1,57 @@
+---
+menu: Forms
+name: Formbot
+---
+
+import { Playground, PropsTable } from 'docz'
+import FormExample from './Formbot.example'
+import Formbot from './Formbot'
+import Button from '../Button'
+import FormGroup from './FormGroup'
+import Input from './Input'
+
+# Formbot
+
+Quickly build a form using a Formbot and pre-configured form components. Formbot wraps your form and manages the state providing neccessary callback methods via props.
+
+## Props
+
+<PropsTable of={Formbot} />
+
+## Examples
+
+### Formbot
+<Playground>
+   <Formbot
+    validations={{
+      name: {
+        minLength: 4,
+      },
+    }}>
+    {({ values, onSubmit, onChange, errors, onBlur }) => (
+      <form onSubmit={onSubmit}>
+        <FormGroup>
+          <Input
+            name="name"
+            placeholder="Name"
+            label="Name"
+            value={values.name}
+            onBlur={onBlur}
+            error={errors.name}
+            onChange={onChange}
+          />
+        </FormGroup>
+
+        <Button size="sm">
+          Submit
+        </Button>
+      </form>
+    )}
+  </Formbot>
+</Playground>
+
+### Entire Form
+<Playground>
+  <FormExample />
+</Playground>
+

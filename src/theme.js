@@ -27,7 +27,7 @@ export default {
     xl: 44,
   },
   fontSizes: {
-    xs: 10,
+    xs: 8,
     sm: 10,
     md: 12,
     lg: 14,
