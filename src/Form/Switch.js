@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-const SwitchInput = styled.input`
-  display: none;
-`;
-
 const SwitchContain = styled.label`
   position: relative;
   display: inline-block;
   width: ${p => p.size * 2}px;
   height: ${p => p.size + p.inset}px;
+`;
+
+const SwitchInput = styled.input`
+  display: none;
 `;
 
 const SwitchThumb = styled.span`

@@ -1,7 +1,11 @@
 import { flexWrap, flexDirection, alignSelf, alignItems, justifyContent } from 'styled-system';
 import Box from '../Box';
+import { createComponent } from '../utils';
 
-const Flex = Box.extend([], { display: 'flex' }, flexWrap, flexDirection, alignItems, alignSelf, justifyContent);
+const Flex = createComponent({
+  name: 'Flex',
+  as: Box,
+}).extend({ display: 'flex' }, flexWrap, flexDirection, alignItems, alignSelf, justifyContent);
 
 Flex.displayName = 'Flex';
 

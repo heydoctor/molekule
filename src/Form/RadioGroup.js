@@ -5,6 +5,12 @@ import Label from './Label';
 import FormError from './FormError';
 import Flex from '../Flex';
 import Box from '../Box';
+import { createComponent } from '../utils';
+
+const StyledRadioGroup = createComponent({
+  name: 'RadioGroup',
+  as: Box,
+});
 
 export default class RadioGroup extends Component {
   static propTypes = {
@@ -29,13 +35,9 @@ export default class RadioGroup extends Component {
     size: 'md',
   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selected: props.value || null,
-    };
-  }
+  state = {
+    selected: this.props.value || null,
+  };
 
   handleChange = field => {
     // Bail out if value is the same
@@ -54,7 +56,7 @@ export default class RadioGroup extends Component {
     const { choices, error, horizontal, label, variant, size } = this.props;
 
     return (
-      <Box>
+      <StyledRadioGroup>
         {label && <Label>{label}</Label>}
 
         <Flex flexDirection={horizontal ? 'row' : 'column'}>
@@ -63,26 +65,25 @@ export default class RadioGroup extends Component {
               const { value = choice.id } = choice;
 
               return (
-                <Box mr={1} key={choice.id}>
-                  <Checkbox
-                    size={size}
-                    variant={variant}
-                    id={`RadioButton${value}`}
-                    key={`RadioButton${value}`}
-                    name={choice.name}
-                    label={choice.label}
-                    value={this.state.selected === choice.name}
-                    onChange={this.handleChange}
-                    iconOn="radiobox-marked"
-                    iconOff="radiobox-blank"
-                  />
-                </Box>
+                <Checkbox
+                  horizontal={horizontal}
+                  size={size}
+                  variant={variant}
+                  id={`RadioButton${value}`}
+                  key={`RadioButton${value}`}
+                  name={choice.name}
+                  label={choice.label}
+                  value={this.state.selected === choice.name}
+                  onChange={this.handleChange}
+                  iconOn="radiobox-marked"
+                  iconOff="radiobox-blank"
+                />
               );
             })}
         </Flex>
 
         {!!error && <FormError>{error}</FormError>}
-      </Box>
+      </StyledRadioGroup>
     );
   }
 }

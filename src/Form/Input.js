@@ -1,49 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import Field from './Field';
 import Label from './Label';
 import FormError from './FormError';
+import { createComponent } from '../utils';
 
-const StyledInput = styled.input`
-  ${({ isFloating, isFloatable, size, theme }) => css`
-    background: ${theme.colors.grayLight};
-    border: 0;
+const FormInputContainer = createComponent({
+  name: 'InputContainer',
+}).extend`
+  ${({ isFloatable, theme, size }) =>
+    isFloatable &&
+    css`
+      position: relative;
+      border: 1px solid ${theme.colors.grayLight};
+      height: ${theme.heights[size]}px;
+    `};
+`;
+
+const StyledInput = createComponent({
+  name: 'Input',
+  tag: 'input',
+}).extend`
+  ${({ isFloating, isFloatable, size, theme, borderRadius = theme.radius }) => css`
+    background: white;
+    border: ${isFloatable ? 0 : `1px solid ${theme.colors.grayLight}`};
     height: ${theme.heights[size]}px;
     display: block;
     outline: none;
     width: 100%;
-    padding: 0.5rem;
-    border-radius: 2px;
+    padding: 8px;
+    border-radius: ${borderRadius}px;
     transition: 250ms all;
     -webkit-appearance: none;
     font-family: inherit;
     font-size: ${theme.fontSizes[size]}px;
 
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: ${theme.colors.grayMid};
+    }
+
     ::placeholder {
       color: ${theme.colors.grayMid};
+    }
+
+    &[disabled] {
+      opacity: 0.65;
     }
 
     ${isFloatable &&
       css`
         background: transparent;
         position: absolute;
-        bottom: ${isFloating ? -3 : 0}px;
+        bottom: ${isFloating ? -5 : 0}px;
       `};
   `};
 `;
 
 const StyledTextArea = StyledInput.withComponent('textarea');
-
-const FormInputContainer = styled.div`
-  ${p =>
-    p.isFloatable &&
-    css`
-      position: relative;
-      height: ${p.theme.heights[p.size]}px;
-      background: ${p.theme.colors.grayLight};
-    `};
-`;
 
 export default class Input extends React.Component {
   static propTypes = {
@@ -192,7 +208,7 @@ export default class Input extends React.Component {
       error,
       value,
       floating,
-      placeholder = label,
+      placeholder,
       transformOnBlur,
       size,
       ...rest

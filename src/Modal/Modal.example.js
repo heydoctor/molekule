@@ -46,7 +46,7 @@ export default class ModalDemo extends React.Component {
           <Modal.Footer>
             <Box align="right">
               <Button.Group>
-                <Button variant="grayLight" onClick={this.onCancel}>
+                <Button variant="gray" onClick={this.onCancel}>
                   Cancel
                 </Button>
                 <Button variant="success" onClick={this.onConfirm}>

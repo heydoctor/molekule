@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 const VALIDATIONS = {
   required: val => {
     if (!val || (typeof val === 'string' && val === '')) {
-      throw new Error('This field is required.');
+      throw new Error('This field is required');
     }
   },
   minLength: (val, minLength) => {
     if (!val || `${val}`.length < minLength) {
-      throw new Error(`This field must be longer than ${minLength} characters.`);
+      throw new Error(`This field must be longer than ${minLength} characters`);
     }
   },
   maxLength: (val, maxLength) => {
     if (val && `${val}`.length > maxLength) {
-      throw new Error(`This field cannot be less than ${maxLength} characters.`);
+      throw new Error(`This field cannot be less than ${maxLength} characters`);
     }
   },
 };
@@ -59,7 +59,7 @@ export default class Formbot extends React.Component {
   }
 
   updateField(field, updates = {}) {
-    return new Promise(promise => {
+    return new Promise(resolve => {
       const fieldState = this.state.fields[field] || {};
 
       this.setState(
@@ -72,7 +72,7 @@ export default class Formbot extends React.Component {
             },
           },
         },
-        promise
+        resolve
       );
     });
   }
@@ -92,7 +92,7 @@ export default class Formbot extends React.Component {
   };
 
   validateField(field) {
-    return new Promise(async resolve => {
+    return new Promise(resolve => {
       const validation = this.props.validations[field];
 
       if (!validation) return;
@@ -104,7 +104,7 @@ export default class Formbot extends React.Component {
         if (typeof validation === 'function') {
           validation(fieldValue);
         } else {
-          for (const method of Object.keys(validation)) {
+          Object.keys(validation).forEach(method => {
             const validator = VALIDATIONS[method];
 
             if (!validator) {
@@ -112,69 +112,71 @@ export default class Formbot extends React.Component {
             }
 
             validator(fieldValue, validation[method]);
-          }
+          });
         }
       } catch (err) {
         errorMsg = err.message;
       } finally {
-        await this.updateField(field, { validated: true });
-        this.setState(
-          {
-            errors: {
-              ...this.state.errors,
-              [field]: errorMsg,
+        this.updateField(field, { validated: true }).then(() => {
+          this.setState(
+            {
+              errors: {
+                ...this.state.errors,
+                [field]: errorMsg,
+              },
             },
-          },
-          resolve
-        );
+            resolve
+          );
+        });
       }
     });
   }
 
-  async validateAllFields() {
-    for (const field of this.validatable) {
-      await this.updateField(field, {});
-      await this.validateField(field);
-    }
+  validateAllFields() {
+    return Promise.all(
+      this.validatable.map(field => this.updateField(field, {}).then(() => this.validateField(field)))
+    );
   }
 
-  onFocus = async field => {
-    await this.updateField(field, { focused: true });
-    this.props.onFocus(field);
+  onFocus = field => {
+    this.updateField(field, { focused: true }).then(() => {
+      this.props.onFocus(field);
+    });
   };
 
-  onChange = async (field, value) => {
-    await this.updateField(field, { validated: false });
-
-    this.setState(
-      {
-        values: {
-          ...this.state.values,
-          [field]: value,
+  onChange = (field, value) => {
+    this.updateField(field, { validated: false }).then(() => {
+      this.setState(
+        {
+          values: {
+            ...this.state.values,
+            [field]: value,
+          },
         },
-      },
-      () => {
-        this.validateField(field);
-      }
-    );
+        () => {
+          this.validateField(field);
+        }
+      );
+    });
   };
 
-  onBlur = async field => {
-    await this.updateField(field, { blurred: true });
-    await this.validateField(field);
-
-    this.props.onBlur(field);
+  onBlur = field => {
+    this.updateField(field, { blurred: true })
+      .then(() => this.validateField(field))
+      .then(() => {
+        this.props.onBlur(field);
+      });
   };
 
-  onSubmit = async event => {
+  onSubmit = event => {
     event.preventDefault();
 
-    await this.validateAllFields();
-
-    this.props.onSubmit({
-      isValid: this.isValid,
-      values: this.state.values,
-      errors: this.state.errors,
+    this.validateAllFields().then(() => {
+      this.props.onSubmit({
+        isValid: this.isValid,
+        values: this.state.values,
+        errors: this.state.errors,
+      });
     });
   };
 

@@ -2,46 +2,51 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Field from './Field';
+import FormError from './FormError';
 import Icon from '../Icon';
 import Flex from '../Flex';
 import Label from './Label';
-import FormError from './FormError';
+import { createComponent } from '../utils';
 
-const SelectContain = styled(Flex)`
-  background: ${p => p.theme.colors.grayLight};
-  border: 0;
-  height: ${p => p.theme.heights[p.size]}px;
-  outline: none;
-  width: 100%;
-  padding: 0.5rem;
-  position: relative;
-  border-radius: 2px;
-  transition: 250ms all;
-  -webkit-appearance: none;
-  font-family: inherit;
-  font-size: ${p => p.theme.fontSizes[p.size]}px;
-  vertical-align: middle;
-
-  ${props =>
-    !props.value &&
-    css`
-      color: ${p => p.theme.colors.grayMid};
-      select {
-        color: ${p => p.theme.colors.grayMid};
-        font-weight: 300;
-      }
-    `};
-
-  select {
-    position: relative;
-    z-index: 2;
+const SelectContain = createComponent({
+  name: 'Select',
+  as: Flex,
+}).extend`
+  ${({ size, theme, borderRadius = theme.radius }) => css`
+    background: white;
+    border: 1px solid ${theme.colors.grayLight};
+    height: ${theme.heights[size]}px;
     outline: none;
     width: 100%;
-    font-size: ${p => p.theme.fontSizes[p.size]}px;
-    background: transparent;
-    border: none;
+    padding: 0.5rem;
+    position: relative;
+    border-radius: ${borderRadius}px;
+    transition: 250ms all;
     -webkit-appearance: none;
-  }
+    font-family: inherit;
+    font-size: ${theme.fontSizes[size]}px;
+    vertical-align: middle;
+
+    ${props =>
+      !props.value &&
+      css`
+        color: ${p => p.theme.colors.grayMid};
+        select {
+          color: ${p => p.theme.colors.grayMid};
+        }
+      `};
+
+    select {
+      position: relative;
+      z-index: 2;
+      outline: none;
+      width: 100%;
+      font-size: ${p => p.theme.fontSizes[p.size]}px;
+      background: transparent;
+      border: none;
+      -webkit-appearance: none;
+    }
+  `}
 `;
 
 const IconContain = styled(Flex)`

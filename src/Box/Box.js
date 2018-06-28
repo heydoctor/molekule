@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import {
   display,
   space,
@@ -13,8 +12,11 @@ import {
   justifySelf,
   flex,
 } from 'styled-system';
+import { createComponent } from '../utils';
 
-const Box = styled.div`
+const Box = createComponent({
+  name: 'Box',
+}).extend`
   ${display}
   ${space}
   ${color}

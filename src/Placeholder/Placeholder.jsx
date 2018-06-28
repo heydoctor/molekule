@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Box from '../Box';
 import Button from '../Button';
 import Spinner from '../Spinner';
+import { createComponent } from '../utils';
 
-const Container = styled.div`
+const Container = createComponent({
+  name: 'Placeholder',
+}).extend`
   display: flex;
   flex-direction: column;
   height: 100%;

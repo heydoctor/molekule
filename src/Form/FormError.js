@@ -1,6 +1,9 @@
-import styled from 'styled-components';
+import { createComponent } from '../utils';
 
-const FormError = styled.span`
+const FormError = createComponent({
+  name: 'FormError',
+  tag: 'span',
+}).extend`
   display: block;
   margin: 4px 0 0 4px;
   color: ${p => p.theme.colors.red};

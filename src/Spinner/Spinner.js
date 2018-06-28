@@ -1,12 +1,15 @@
-import styled, { css, keyframes } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 import { rgba } from 'polished';
+import { createComponent } from '../utils';
 
 const spin = keyframes`
   from { transform: rotate(0deg); }
   from { transform: rotate(360deg); }
 `;
 
-export default styled.div`
+const Spinner = createComponent({
+  name: 'Spinner',
+}).extend`
   ${({ size = 15 }) => css`
     height: ${size}px;
     width: ${size}px;
@@ -17,3 +20,5 @@ export default styled.div`
   border-radius: 50%;
   animation: ${spin} 1.1s infinite linear;
 `;
+
+export default Spinner;

@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { keyframes } from 'styled-components';
+import { keyframes, css } from 'styled-components';
 import { fadeIn, fadeOut, fadeInUp, fadeOutUp } from 'react-animations';
+import { createComponent } from '../utils';
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 const fadeOutAnimation = keyframes`${fadeOut}`;
 const fadeInUpAnimation = keyframes`${fadeInUp}`;
 const fadeOutUpAnimation = keyframes`${fadeOutUp}`;
 
-const Backdrop = styled.div`
+const Backdrop = createComponent({
+  name: 'ModalBackdrop',
+}).extend`
   top: 0;
   left: 0;
   right: 0;
@@ -22,11 +25,21 @@ const Backdrop = styled.div`
   overflow-x: hidden;
   background: rgba(0, 0, 0, 0.2);
   justify-content: center;
-  ${({ opening }) => opening && `animation: 0.35s ${fadeInAnimation};`} ${({ closing }) =>
-      closing && `animation: 0.35s ${fadeOutAnimation};`};
+  ${({ opening }) =>
+    opening &&
+    css`
+      animation: 0.35s ${fadeInAnimation};
+    `};
+  ${({ closing }) =>
+    closing &&
+    css`
+      animation: 0.35s ${fadeOutAnimation};
+    `};
 `;
 
-const ModalContent = styled.div`
+const ModalContent = createComponent({
+  name: 'ModalContent',
+}).extend`
   position: relative;
   margin: auto;
   min-width: ${p => p.minWidth || 250}px;
@@ -36,7 +49,7 @@ const ModalContent = styled.div`
   box-shadow: 0 8px 30px rgba(0, 29, 54, 0.1);
   border-radius: 2px;
   ${({ opening }) => opening && `animation: 0.75s ${fadeInUpAnimation};`} ${({ closing }) =>
-      closing && `animation: 0.75s ${fadeOutUpAnimation};`};
+  closing && `animation: 0.75s ${fadeOutUpAnimation};`};
 `;
 
 class Modal extends React.Component {
@@ -174,18 +187,25 @@ class Modal extends React.Component {
   }
 }
 
-Modal.Title = styled.h2`
+Modal.Title = createComponent({
+  name: 'ModalTitle',
+  tag: 'h2',
+}).extend`
   font-size: 20px;
   font-weight: 600;
   padding: 0 24px;
   margin: 24px 0 0;
 `;
 
-Modal.Body = styled.div`
+Modal.Body = createComponent({
+  name: 'ModalBody',
+}).extend`
   padding: 24px;
 `;
 
-Modal.Footer = styled.div`
+Modal.Footer = createComponent({
+  name: 'ModalFooter',
+}).extend`
   padding: 0 24px 24px;
 `;
 

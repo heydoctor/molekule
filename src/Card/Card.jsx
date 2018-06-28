@@ -1,37 +1,52 @@
-import styled, { css } from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { space, borderRadius, themeGet } from 'styled-system';
+import { createComponent } from '../utils';
 
-const Card = styled.div`
-  ${({
-    shadow,
-  }) => {
-    return css`
-      background: white;
-      box-shadow: ${themeGet('shadow', shadow || '0 8px 30px rgba(0, 29, 54, 0.1)')};
-    `
-  }}
+const StyledCard = createComponent({
+  name: 'Card',
+}).extend`
+  background: white;
+  box-shadow: ${p => (p.shadow ? themeGet('shadow', '0 8px 30px rgba(0, 29, 54, 0.1)') : 'none')};
 
   ${borderRadius};
+  ${space};
 `;
 
-Card.Header = styled.div`
+const Card = props => <StyledCard {...props} />;
+
+Card.propTypes = {
+  shadow: PropTypes.bool,
+};
+
+Card.defaultProps = {
+  shadow: true,
+};
+
+Card.Header = createComponent({
+  name: 'CardHeader',
+}).extend`
   padding: 1rem;
   border-bottom: 1px solid ${themeGet('colors.grayLight')};
 
-  ${space}
+  ${space};
 `;
 
-Card.Body = styled.div`
+Card.Body = createComponent({
+  name: 'CardBody',
+}).extend`
   padding: 1rem;
 
-  ${space}
+  ${space};
 `;
 
-Card.Footer = styled.div`
+Card.Footer = createComponent({
+  name: 'CardFooter',
+}).extend`
   padding: 1rem;
   border-top: 1px solid ${themeGet('colors.grayLight')};
 
-  ${space}
+  ${space};
 `;
 
 export default Card;

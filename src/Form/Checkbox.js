@@ -1,43 +1,61 @@
 import React from 'react';
-import { capitalize } from 'lodash';
-import styled, { css } from 'styled-components';
+import capitalize from 'lodash/capitalize';
+import { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import FormError from '../Form/FormError';
 import Flex from '../Flex';
+import { createComponent } from '../utils';
 
-const CheckboxContainer = styled.label`
+const CheckboxContainer = createComponent({
+  name: 'Checkbox',
+  tag: 'label',
+}).extend`
   position: relative;
   margin-bottom: 0;
   cursor: pointer;
 
   & + & {
-    margin-left: ${p => (p.horizontal ? '8px' : 0)};
+    margin-left: ${p => (p.horizontal ? '12px' : 0)};
   }
 `;
 
-const StyledInput = styled.input`
+const StyledInput = createComponent({
+  name: 'CheckboxInput',
+  tag: 'input',
+}).extend`
   display: none;
 `;
 
-const StyledIcon = styled(Icon)`
-  ${({ variant = 'primary', theme, fill = theme.colors[variant] || theme.colors[theme.variants[variant]] }) => css`
-    fill: ${p => (p.checked ? fill : p.theme.colors.grayMid)};
-  `};
+const StyledIcon = createComponent({
+  name: 'checkbox-icon',
+  as: Icon,
+}).extend`
+  ${({ variant = 'primary', theme, fill }) => {
+    const config = theme.variants[variant];
+    if (!fill && !config) {
+      throw new Error(`Refractal: variant "${variant}" not found.`);
+    }
+    const color = fill || config.fontColor;
+
+    return css`
+      fill: ${p => (p.checked ? color : p.theme.colors.grayMid)};
+    `;
+  }};
 `;
 
-const StyledLabel = styled(Flex)`
-  margin-left: 4px;
+const StyledLabel = createComponent({
+  name: 'checkbox-label',
+  as: Flex,
+}).extend`
+  margin-left: 8px;
   font-size: ${p => p.fontSize}px;
 `;
 
 export default class Checkbox extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      checked: props.value,
-    };
-  }
+  state = {
+    checked: this.props.value,
+  };
 
   static propTypes = {
     id: PropTypes.string.isRequired,

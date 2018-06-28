@@ -1,8 +1,14 @@
-import styled from 'styled-components';
+import { createComponent } from '../utils';
 
-const Field = styled.div`
+const Field = createComponent({
+  name: 'Field',
+}).extend`
   position: relative;
   transition: 175ms;
+
+  & + & {
+    margin-top: 1rem;
+  }
 `;
 
 export default Field;

@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import { createComponent } from '../utils';
 
-const TabsProvider = styled.div`
+const TabsProvider = createComponent({
+  name: 'Tabs',
+}).extend`
   display: flex;
   flex-direction: ${p => (p.vertical ? 'row' : 'column')};
 `;
 
-const TabList = styled.ul`
+const TabList = createComponent({
+  name: 'TabList',
+  tag: 'ul',
+}).extend`
   display: flex;
   margin: 0;
   padding: 0;
@@ -20,13 +26,19 @@ const TabList = styled.ul`
     `};
 `;
 
-const TabListItem = styled.li`
+const TabListItem = createComponent({
+  name: 'TabListItem',
+  tag: 'li',
+}).extend`
   display: flex;
   margin: 0;
   padding: 0;
 `;
 
-const Tab = styled.button`
+const Tab = createComponent({
+  name: 'Tab',
+  tag: 'button',
+}).extend`
   appearance: none;
   margin: 0;
   padding: 0;
@@ -49,7 +61,10 @@ const Tab = styled.button`
   }
 `;
 
-const TabTitle = styled.span`
+const TabTitle = createComponent({
+  name: 'TabTitle',
+  tag: 'span',
+}).extend`
   color: ${p => (p.active ? '#212b36' : '#637381')};
   display: block;
   padding: ${p => (p.vertical ? '8px 12px 8px 8px' : '12px 8px')};
@@ -62,7 +77,10 @@ const TabTitle = styled.span`
   }
 `;
 
-const TabContent = styled.div`
+const TabContent = createComponent({
+  name: 'TabContent',
+  tag: 'div',
+}).extend`
   width: 100%;
 `;
 
@@ -80,7 +98,7 @@ class Tabs extends Component {
 
   state = {
     active: this.props.active || 0,
-  }
+  };
 
   componentDidUpdate() {
     if (this.props.active && this.props.active !== this.state.active) {
