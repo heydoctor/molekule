@@ -100,6 +100,7 @@ export default class Input extends React.Component {
   constructor(props) {
     super(props);
 
+    this.input = React.createRef();
     this.state = {
       value: props.value || '',
       focused: false,
@@ -110,10 +111,11 @@ export default class Input extends React.Component {
     if (this.props.autogrow) {
       this.createShadowElement();
       this.autogrow();
-      if (this.props.autofocus) {
-        setTimeout(() => {
-          this.input.focus();
-        }, 150);
+    }
+
+    if (this.props.autofocus) {
+      if (this.input.current) {
+        this.input.current.focus();
       }
     }
   }
@@ -218,16 +220,17 @@ export default class Input extends React.Component {
 
     const inputProps = {
       ...rest,
-      ref: node => {
-        this.input = node;
-      },
       id,
+      innerRef: this.input,
+      size,
       value: this.state.value,
       onChange: this.onChange,
       onFocus: this.onFocus,
       onBlur: this.onBlur,
       style: autogrow ? { ...style, height: this.state.height } : style,
       placeholder,
+      isFloatable: floating,
+      isFloating,
     };
 
     return (
@@ -239,11 +242,7 @@ export default class Input extends React.Component {
             </Label>
           )}
 
-          {multiline ? (
-            <StyledTextArea size={size} {...inputProps} />
-          ) : (
-            <StyledInput size={size} isFloatable={floating} isFloating={isFloating} {...inputProps} />
-          )}
+          {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...inputProps} />}
         </FormInputContainer>
 
         {!this.state.focused && error ? <FormError>{error}</FormError> : null}
