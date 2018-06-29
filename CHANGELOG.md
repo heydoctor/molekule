@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/kylealwyn/refractal/compare/v0.5.0...v0.5.1) (2018-06-29)
+
+
+### Bug Fixes
+
+* **Input:** fix Input autofocus error ([54b115d](https://github.com/kylealwyn/refractal/commit/54b115d))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/kylealwyn/refractal/compare/v0.4.5...v0.5.0) (2018-06-28)
 
