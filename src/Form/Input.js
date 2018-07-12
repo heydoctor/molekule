@@ -2,20 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import Field from './Field';
-import Label from './Label';
+import StyledLabel from './Label';
 import FormError from './FormError';
 import { createComponent } from '../utils';
 
-const FormInputContainer = createComponent({
+const InputContainer = createComponent({
   name: 'InputContainer',
 }).extend`
-  ${({ isFloatable, theme, size }) =>
-    isFloatable &&
-    css`
-      position: relative;
-      border: 1px solid ${theme.colors.grayLight};
-      height: ${theme.heights[size]}px;
-    `};
+  ${({ theme, size }) => css`
+    position: relative;
+    height: ${theme.heights[size]}px;
+  `}
 `;
 
 const StyledInput = createComponent({
@@ -23,8 +20,7 @@ const StyledInput = createComponent({
   tag: 'input',
 }).extend`
   ${({ isFloating, isFloatable, size, theme, borderRadius = theme.radius }) => css`
-    background: white;
-    border: ${isFloatable ? 0 : `1px solid ${theme.colors.grayLight}`};
+    border: 1px solid ${theme.colors.grayLight};
     height: ${theme.heights[size]}px;
     display: block;
     outline: none;
@@ -50,11 +46,9 @@ const StyledInput = createComponent({
       opacity: 0.65;
     }
 
-    ${isFloatable &&
+    ${isFloating &&
       css`
-        background: transparent;
-        position: absolute;
-        bottom: ${isFloating ? -5 : 0}px;
+        padding-bottom: 0;
       `};
   `};
 `;
@@ -233,17 +227,21 @@ export default class Input extends React.Component {
       isFloating,
     };
 
+    const Label = (
+      <StyledLabel htmlFor={id} styles={rest.styles} size={size} isFloatable={floating} isFloating={isFloating}>
+        {label}
+      </StyledLabel>
+    );
+
     return (
       <Field>
-        <FormInputContainer size={size} isFloatable={floating}>
-          {label && (
-            <Label size={size} isFloatable={floating} isFloating={isFloating}>
-              {label}
-            </Label>
-          )}
+        {!floating && Label}
+
+        <InputContainer styles={rest.styles} size={size} isFloatable={floating}>
+          {floating && Label}
 
           {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...inputProps} />}
-        </FormInputContainer>
+        </InputContainer>
 
         {!this.state.focused && error ? <FormError>{error}</FormError> : null}
       </Field>

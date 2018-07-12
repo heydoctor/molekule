@@ -18,7 +18,10 @@ export const getComponentClassName = name => ({ theme: { classPrefix }, variant 
 export const createComponent = ({ name, tag = 'div', as }) => {
   const component = as ? styled(as) : styled[tag];
 
-  return component.attrs({ className: getComponentClassName(kebabCase(name)) })`
+  return component.attrs({
+    className: getComponentClassName(kebabCase(name)),
+  })`
     ${getComponentStyle(name)}
+    ${({ styles = {} }) => styles[name] || {}}
   `;
 };
