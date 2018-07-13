@@ -55,9 +55,9 @@ export default (passedTheme = {}) => {
   };
 
   const heights = {
-    xs: 20,
-    sm: 28,
-    md: 32,
+    xs: 28,
+    sm: 32,
+    md: 36,
     lg: 40,
     xl: 44,
   };

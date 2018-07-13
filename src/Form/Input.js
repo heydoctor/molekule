@@ -9,17 +9,14 @@ import { createComponent } from '../utils';
 const InputContainer = createComponent({
   name: 'InputContainer',
 }).extend`
-  ${({ theme, size }) => css`
-    position: relative;
-    height: ${theme.heights[size]}px;
-  `}
+  position: relative;
 `;
 
 const StyledInput = createComponent({
   name: 'Input',
   tag: 'input',
 }).extend`
-  ${({ isFloating, isFloatable, size, theme, borderRadius = theme.radius }) => css`
+  ${({ isFloating, size, theme, borderRadius = theme.radius }) => css`
     border: 1px solid ${theme.colors.grayLight};
     height: ${theme.heights[size]}px;
     display: block;
@@ -234,16 +231,16 @@ export default class Input extends React.Component {
     );
 
     return (
-      <Field>
+      <Field styles={rest.styles}>
         {!floating && Label}
 
-        <InputContainer styles={rest.styles} size={size} isFloatable={floating}>
+        <InputContainer styles={rest.styles}>
           {floating && Label}
 
           {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...inputProps} />}
         </InputContainer>
 
-        {!this.state.focused && error ? <FormError>{error}</FormError> : null}
+        {!this.state.focused && error ? <FormError styles={rest.styles}>{error}</FormError> : null}
       </Field>
     );
   }

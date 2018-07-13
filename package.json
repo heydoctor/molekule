@@ -20,7 +20,7 @@
     "docs": "yarn docz dev",
     "docs:build": "rimraf dist && yarn docz build",
     "docs:deploy": "npm run docs:build && gh-pages -d dist",
-    "prepublishOnly": "npm-run-all docs:deploy build",
+    "prepublishOnly": "npm-run-all build",
     "rollup": "rollup -c",
     "test": "jest",
     "lint": "eslint src",
