@@ -6900,10 +6900,6 @@ mdast-util-to-string@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-1.0.4.tgz#5c455c878c9355f0c1e7f3e8b719cf583691acfb"
 
-mdi-react@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/mdi-react/-/mdi-react-4.0.0.tgz#dc0f06e6c9ae69c5ce468f8ae51a8bd76e3409db"
-
 mdurl@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"

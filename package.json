@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "lodash": "^4.17.10",
-    "mdi-react": "^4.0.0",
     "styled-system": "^2.2.9"
   },
   "peerDependencies": {
