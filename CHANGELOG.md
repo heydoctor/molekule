@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.5"></a>
+## [0.6.5](https://github.com/sappira-inc/refractal/compare/v0.6.4...v0.6.5) (2018-08-01)
+
+
+### Bug Fixes
+
+* **Checkbox:** Move CheckboxIcon color styling to Icon component ([16b3686](https://github.com/sappira-inc/refractal/commit/16b3686))
+
+
+
 <a name="0.6.4"></a>
 ## [0.6.4](https://github.com/sappira-inc/refractal/compare/v0.6.3...v0.6.4) (2018-08-01)
 
