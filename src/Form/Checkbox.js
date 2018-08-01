@@ -1,6 +1,6 @@
 import React from 'react';
 import capitalize from 'lodash/capitalize';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import FormError from '../Form/FormError';
@@ -17,6 +17,7 @@ const CheckboxContainer = createComponent({
 
   & + & {
     margin-left: ${p => (p.horizontal ? '12px' : 0)};
+    margin-top: ${p => (p.horizontal ? 0 : '4px')};
   }
 `;
 
@@ -27,25 +28,21 @@ const StyledInput = createComponent({
   display: none;
 `;
 
-const StyledIcon = createComponent({
-  name: 'checkbox-icon',
-  as: Icon,
-}).extend`
-  ${({ variant = 'primary', theme, fill }) => {
+const StyledIcon = styled(Icon).attrs({
+  color: ({ checked, variant = 'primary', theme, fill }) => {
     const config = theme.variants[variant];
+
     if (!fill && !config) {
       throw new Error(`Refractal: variant "${variant}" not found.`);
     }
     const color = fill || config.fontColor;
 
-    return css`
-      fill: ${p => (p.checked ? color : p.theme.colors.grayMid)};
-    `;
-  }};
-`;
+    return checked ? color : theme.colors.grayMid;
+  },
+})``;
 
 const StyledLabel = createComponent({
-  name: 'checkbox-label',
+  name: 'CheckboxLabel',
   as: Flex,
 }).extend`
   margin-left: 8px;

@@ -1,5 +1,11 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import { createComponent } from '../utils';
+
+const StyledIcon = createComponent({
+  name: 'Icon',
+  tag: 'i',
+});
 
 class Icon extends React.Component {
   static injected = false;
@@ -8,6 +14,7 @@ class Icon extends React.Component {
 
   constructor(props) {
     super(props);
+
     if (!this.constructor.injected) {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -23,7 +30,11 @@ class Icon extends React.Component {
     const { iconPrefix } = this.constructor;
 
     return (
-      <i className={`${iconPrefix} ${iconPrefix}-${name}`} style={{ fontSize: size, color: color || 'inherit' }} />
+      <StyledIcon
+        {...this.props}
+        className={`${iconPrefix} ${iconPrefix}-${name}`}
+        style={{ fontSize: size, color: color || 'inherit' }}
+      />
     );
   }
 }
