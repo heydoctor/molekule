@@ -7,6 +7,7 @@ import Flex from '../Flex';
 
 export default class CheckboxGroup extends Component {
   static propTypes = {
+    name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
     horizontal: PropTypes.bool,
@@ -16,11 +17,10 @@ export default class CheckboxGroup extends Component {
         label: PropTypes.string,
         disabled: PropTypes.bool,
       })
-    ),
+    ).isRequired,
   };
 
   static defaultProps = {
-    choices: [],
     onChange() {},
     horizontal: false,
   };
@@ -28,34 +28,6 @@ export default class CheckboxGroup extends Component {
   state = {
     selected: Array.isArray(this.props.value) ? [...this.props.value] : [],
   };
-
-  render() {
-    const { choices, error, horizontal } = this.props;
-
-    return (
-      <Box>
-        <Flex flexDirection={horizontal ? 'row' : 'column'}>
-          {choices.length &&
-            choices.map(choice => {
-              const { value = choice.id } = choice;
-
-              return (
-                <Checkbox
-                  key={`Checkbox${value}`}
-                  id={`Checkbox${value}`}
-                  name={`Checkbox${value}`}
-                  value={this.state.selected && this.state.selected.includes(value)}
-                  label={choice.label}
-                  onChange={this.createChangeHandler(choice)}
-                  horizontal={horizontal}
-                />
-              );
-            })}
-        </Flex>
-        {!!error && <FormError>{error}</FormError>}
-      </Box>
-    );
-  }
 
   createChangeHandler = choice => (name, value) => {
     const { selected } = this.state;
@@ -73,10 +45,48 @@ export default class CheckboxGroup extends Component {
       newSelected = [...selected.slice(0, index), ...selected.slice(index + 1)];
     }
 
-    this.setState({
-      selected: newSelected,
-    });
+    this.setState(
+      {
+        selected: newSelected,
+      },
+      () => {
+        this.props.onChange(this.props.name, newSelected);
+      }
+    );
 
-    this.props.onChange(this.props.name, newSelected);
+    console.log(newSelected);
   };
+
+  render() {
+    const { name, color, choices, error, horizontal } = this.props;
+    const { selected } = this.state;
+
+    return (
+      <Box>
+        <Flex flexDirection={horizontal ? 'row' : 'column'}>
+          {choices.length &&
+            choices.map(choice => {
+              const { value = choice.id } = choice;
+              const key = `checkbox-${name}-${value}`;
+
+              return (
+                <Checkbox
+                  key={key}
+                  id={key}
+                  name={key}
+                  label={choice.label}
+                  color={color}
+                  horizontal={horizontal}
+                  value={selected && selected.includes(value) ? value : null}
+                  valueTrue={value}
+                  valueFalse={value}
+                  onChange={this.createChangeHandler(choice)}
+                />
+              );
+            })}
+        </Flex>
+        {!!error && <FormError>{error}</FormError>}
+      </Box>
+    );
+  }
 }
