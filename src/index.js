@@ -6,6 +6,7 @@ export Checkbox from './Form/Checkbox';
 export CheckboxGroup from './Form/CheckboxGroup';
 export Dropdown from './Dropdown';
 export Field from './Form/Field';
+export Label from './Form/Label';
 export Flex from './Flex';
 export Formbot from './Form/Formbot';
 export FormError from './Form/FormError';
