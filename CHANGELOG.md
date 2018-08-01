@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.2"></a>
+## [0.6.2](https://github.com/sappira-inc/refractal/compare/v0.6.1...v0.6.2) (2018-08-01)
+
+
+### Bug Fixes
+
+* **Checkbox:** Fix Checkbox & Checkbox group functionality ([f8ea91c](https://github.com/sappira-inc/refractal/commit/f8ea91c))
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://github.com/sappira-inc/refractal/compare/v0.6.0...v0.6.1) (2018-08-01)
 
