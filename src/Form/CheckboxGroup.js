@@ -8,9 +8,9 @@ import Flex from '../Flex';
 export default class CheckboxGroup extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    onChange: PropTypes.func,
-    value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+    color: PropTypes.string,
     horizontal: PropTypes.bool,
+    value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
     choices: PropTypes.arrayOf(
       PropTypes.shape({
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -18,11 +18,13 @@ export default class CheckboxGroup extends Component {
         disabled: PropTypes.bool,
       })
     ).isRequired,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
-    onChange() {},
+    color: 'primary',
     horizontal: false,
+    onChange() {},
   };
 
   state = {

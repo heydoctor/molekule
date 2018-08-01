@@ -1,6 +1,5 @@
 import React from 'react';
 import capitalize from 'lodash/capitalize';
-import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import FormError from '../Form/FormError';
@@ -28,9 +27,10 @@ const StyledInput = createComponent({
   display: none;
 `;
 
-const StyledIcon = styled(Icon).attrs({
-  color: ({ checked, color = 'primary', theme }) => (checked ? theme.colors[color] : theme.colors.grayMid),
-})``;
+const StyledIcon = createComponent({
+  name: 'CheckboxIcon',
+  as: Icon,
+});
 
 const StyledLabel = createComponent({
   name: 'CheckboxLabel',

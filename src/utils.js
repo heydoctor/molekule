@@ -15,11 +15,12 @@ export const getComponentStyle = key => ({ theme }) => getFromTheme(theme, `comp
 export const getComponentClassName = name => ({ theme: { classPrefix }, variant }) =>
   `${classPrefix}-${name} ${variant ? `${classPrefix}-${name}-${variant}` : ''}`.trim();
 
-export const createComponent = ({ name, tag = 'div', as }) => {
+export const createComponent = ({ name, tag = 'div', as, attrs = {} }) => {
   const component = as ? styled(as) : styled[tag];
 
   return component.attrs({
     className: getComponentClassName(kebabCase(name)),
+    ...attrs,
   })`
     ${getComponentStyle(name)}
     ${({ styles = {} }) => styles[name] || {}}

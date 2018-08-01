@@ -1,11 +1,26 @@
 import React from 'react';
 import Proptypes from 'prop-types';
+import { css } from 'styled-components';
 import { createComponent } from '../utils';
 
 const StyledIcon = createComponent({
   name: 'Icon',
   tag: 'i',
-});
+}).extend`
+  ${p => {
+    const colorFromTheme = p.theme.colors[p.color];
+    const color = p.checked ? colorFromTheme || p.color : p.theme.colors.grayMid;
+
+    return css`
+      color: ${color};
+      ${p.disabled &&
+        css`
+          pointer-events: none;
+          opacity: 0.65;
+        `};
+    `;
+  }}
+`;
 
 class Icon extends React.Component {
   static injected = false;
