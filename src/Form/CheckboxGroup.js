@@ -53,8 +53,6 @@ export default class CheckboxGroup extends Component {
         this.props.onChange(this.props.name, newSelected);
       }
     );
-
-    console.log(newSelected);
   };
 
   render() {
