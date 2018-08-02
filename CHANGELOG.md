@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/sappira-inc/refractal/compare/v0.6.5...v0.7.0) (2018-08-02)
+
+
+### Bug Fixes
+
+* **Checkbox:** Add disabled prop ([#8](https://github.com/sappira-inc/refractal/issues/8)) ([5cdb6ac](https://github.com/sappira-inc/refractal/commit/5cdb6ac))
+* Utilize tree shaking for lodash ([ff1d442](https://github.com/sappira-inc/refractal/commit/ff1d442))
+
+
+### Features
+
+* Grid components ([#7](https://github.com/sappira-inc/refractal/issues/7)) ([e31bde6](https://github.com/sappira-inc/refractal/commit/e31bde6))
+* Linkify component ([#9](https://github.com/sappira-inc/refractal/issues/9)) ([30a6371](https://github.com/sappira-inc/refractal/commit/30a6371))
+
+
+
 <a name="0.6.5"></a>
 ## [0.6.5](https://github.com/sappira-inc/refractal/compare/v0.6.4...v0.6.5) (2018-08-01)
 
