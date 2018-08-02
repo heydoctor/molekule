@@ -1,5 +1,4 @@
-import get from 'lodash/get';
-import kebabCase from 'lodash/kebabCase';
+import { get, kebabCase } from 'lodash';
 import styled from 'styled-components';
 
 export const getFromTheme = (theme, lookup, fallback) => get(theme, lookup, fallback);

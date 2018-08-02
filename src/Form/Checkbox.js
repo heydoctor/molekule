@@ -1,5 +1,5 @@
 import React from 'react';
-import capitalize from 'lodash/capitalize';
+import { capitalize } from 'lodash';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import FormError from '../Form/FormError';

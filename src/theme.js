@@ -1,4 +1,4 @@
-import merge from 'lodash/merge';
+import { merge } from 'lodash';
 import { lighten } from 'polished';
 
 export default (overrides = {}) => {
