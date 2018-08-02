@@ -21,3 +21,4 @@ export Spinner from './Spinner';
 export Swtich from './Form/Switch';
 export Tabs from './Tabs';
 export ThemeProvider from './ThemeProvider';
+export Linkify from './Linkify';
