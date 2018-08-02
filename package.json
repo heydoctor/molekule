@@ -16,6 +16,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf lib",
+    "watch": "yarn rollup --watch",
     "build": "npm-run-all clean rollup",
     "docs": "yarn docz dev",
     "docs:build": "rimraf dist && yarn docz build",

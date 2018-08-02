@@ -1,7 +1,7 @@
 import merge from 'lodash/merge';
 import { lighten } from 'polished';
 
-export default (passedTheme = {}) => {
+export default (overrides = {}) => {
   const colors = merge(
     {
       primary: '#5759D6',
@@ -14,7 +14,7 @@ export default (passedTheme = {}) => {
       green: '#27ae60',
       orange: '#e67e22',
     },
-    passedTheme.colors
+    overrides.colors
   );
 
   const radii = [0, 2, 4];
@@ -72,6 +72,18 @@ export default (passedTheme = {}) => {
 
   const breakpoints = [368, 768, 1024, 1440];
 
+  const grid = {
+    containerMaxWidth: 1000,
+    gutter: 16,
+    columns: 12,
+    sizes: {
+      xs: breakpoints[0],
+      sm: breakpoints[1],
+      md: breakpoints[2],
+      lg: breakpoints[3],
+    },
+  };
+
   return {
     classPrefix: 're',
     colors,
@@ -82,5 +94,6 @@ export default (passedTheme = {}) => {
     heights,
     fontSizes,
     breakpoints,
+    grid,
   };
 };

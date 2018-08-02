@@ -63,35 +63,6 @@ Form Radio component. Different sizes are available.
   }}
 </Playground>
 
-### Radio Group sizes
-<Playground>
-  {() => {
-    const radioValues = [
-      {
-        id: 1,
-        value: 'radio1',
-        name: 'radio1',
-        label: 'Radio 1',
-      },
-      {
-        id: 2,
-        value: 'radio2',
-        name: 'radio2',
-        label: 'Radio 2',
-      },
-    ];
-    return (
-      <React.Fragment>
-        <RadioGroup size="xs" name="radio" id="radio" choices={radioValues} />
-        <RadioGroup size="sm" name="radio" id="radio" choices={radioValues} />
-        <RadioGroup size="md" name="radio" id="radio" choices={radioValues} />
-        <RadioGroup size="lg" name="radio" id="radio" choices={radioValues} />
-        <RadioGroup size="xl" name="radio" id="radio" choices={radioValues} />
-      </React.Fragment>
-    )
-  }}
-</Playground>
-
 ### Radio Group colors
 <Playground>
   {() => {
@@ -110,7 +81,7 @@ Form Radio component. Different sizes are available.
       },
     ];
     return (
-      <RadioGroup variant="info" name="radio" id="radio" choices={radioValues} />
+      <RadioGroup color="green" name="radio" id="radio" choices={radioValues} />
     )
   }}
 </Playground>

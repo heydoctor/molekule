@@ -1,0 +1,96 @@
+---
+menu: Grid
+name: Column
+---
+
+import { Playground, PropsTable } from 'docz';
+
+import Container from './Container';
+import Row from './Row';
+import Column from './Column';
+import ExampleBox from './ExampleBox'
+
+# Column
+
+## Properties
+
+<PropsTable of={Column} />
+
+#### Equal Widths
+<Playground>
+  <Container>
+    <Row>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+    </Row>
+  </Container>
+</Playground>
+
+### One column set width
+<Playground>
+  <Container>
+    <Row>
+      <Column xs={8}>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+    </Row>
+  </Container>
+</Playground>
+
+### Different widths for different breakpoints
+<Playground>
+  <Container>
+    <Row>
+      <Column xs={8} sm={12} md={6} lg={12}>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>Column</ExampleBox>
+      </Column>
+    </Row>
+  </Container>
+</Playground>
+
+### Column ordering
+<Playground>
+  <Container>
+    <Row>
+      <Column order={12}>
+        <ExampleBox>1</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>2</ExampleBox>
+      </Column>
+      <Column>
+        <ExampleBox>3</ExampleBox>
+      </Column>
+    </Row>
+  </Container>
+</Playground>
+
+### Column offsets
+<Playground>
+  <Container>
+    <Row>
+      <Column xs={4} xsOffset={2}>
+        <ExampleBox>1</ExampleBox>
+      </Column>
+    </Row>
+  </Container>
+</Playground>

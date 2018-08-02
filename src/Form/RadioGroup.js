@@ -17,6 +17,8 @@ export default class RadioGroup extends Component {
     name: PropTypes.string,
     onChange: PropTypes.func,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color: PropTypes.string,
+    size: PropTypes.string,
     choices: PropTypes.arrayOf(
       PropTypes.shape({
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -24,36 +26,36 @@ export default class RadioGroup extends Component {
         disabled: PropTypes.bool,
       })
     ),
-    variant: PropTypes.string,
-    size: PropTypes.string,
   };
 
   static defaultProps = {
     choices: [],
     onChange() {},
-    variant: 'primary',
+    color: 'primary',
     size: 'md',
   };
 
   state = {
-    selected: this.props.value || null,
+    value: this.props.value || null,
   };
 
-  handleChange = field => {
-    // Bail out if value is the same
-    if (this.state.selected === field) {
-      return;
+  componentDidUpdate() {
+    if (this.props.value !== undefined && this.props.value !== this.state.value) {
+      this.handleChange(null, this.props.value);
     }
+  }
 
-    this.setState({
-      selected: field,
-    });
+  handleChange = (field, value) => {
+    // Bail out if value is the same
+    if (this.state.value === value) return;
 
-    this.props.onChange(this.props.name, field);
+    this.setState({ value });
+
+    this.props.onChange(this.props.name, value);
   };
 
   render() {
-    const { choices, error, horizontal, label, variant, size } = this.props;
+    const { choices, error, horizontal, label, name, color, size } = this.props;
 
     return (
       <StyledRadioGroup>
@@ -62,21 +64,23 @@ export default class RadioGroup extends Component {
         <Flex flexDirection={horizontal ? 'row' : 'column'}>
           {choices.length &&
             choices.map(choice => {
-              const { value = choice.id } = choice;
+              const { value = choice.id, label: choiceLabel } = choice;
+              const key = `RadioButton-${name}-${value}`;
 
               return (
                 <Checkbox
+                  id={key}
+                  key={key}
+                  name={key}
                   horizontal={horizontal}
                   size={size}
-                  variant={variant}
-                  id={`RadioButton${value}`}
-                  key={`RadioButton${value}`}
-                  name={choice.name}
-                  label={choice.label}
-                  value={this.state.selected === choice.name}
-                  onChange={this.handleChange}
+                  color={color}
+                  label={choiceLabel}
+                  value={this.state.value}
+                  valueTrue={value}
                   iconOn="radiobox-marked"
                   iconOff="radiobox-blank"
+                  onChange={this.handleChange}
                 />
               );
             })}
