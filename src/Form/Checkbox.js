@@ -25,6 +25,7 @@ const StyledInput = createComponent({
   tag: 'input',
 }).extend`
   display: none;
+  pointer-events: ${p => (p.disabled ? 'none' : 'auto')};
 `;
 
 const StyledIcon = createComponent({
@@ -55,6 +56,7 @@ export default class Checkbox extends React.Component {
     fontSize: PropTypes.number,
     color: PropTypes.string,
     horizontal: PropTypes.bool,
+    disabled: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -66,6 +68,7 @@ export default class Checkbox extends React.Component {
     iconSize: 18,
     horizontal: false,
     onChange() {},
+    disabled: false,
   };
 
   state = {
@@ -86,6 +89,7 @@ export default class Checkbox extends React.Component {
 
   handleChange = () => {
     const { valueTrue, valueFalse, onChange } = this.props;
+
     const newValue = this.checked ? valueFalse : valueTrue;
 
     this.setState(
@@ -99,12 +103,19 @@ export default class Checkbox extends React.Component {
   };
 
   render() {
-    const { label, id, error, name, fontSize, iconOn, iconOff, iconSize, color, horizontal } = this.props;
+    const { label, id, error, name, fontSize, iconOn, iconOff, iconSize, color, horizontal, disabled } = this.props;
     const { checked } = this;
 
     return (
       <CheckboxContainer horizontal={horizontal}>
-        <StyledInput id={id} name={name} type="checkbox" checked={checked} onChange={this.handleChange} />
+        <StyledInput
+          id={id}
+          name={name}
+          type="checkbox"
+          checked={checked}
+          disabled={disabled}
+          onChange={this.handleChange}
+        />
 
         <Flex alignItems="center">
           <StyledIcon size={iconSize} color={color} checked={checked} name={checked ? iconOn : iconOff} />
