@@ -38,7 +38,7 @@ Row.propTypes = {
   /**
    * Lay row out vertically
    */
-  vertical: PropTypes.number,
+  vertical: PropTypes.bool,
 
   /**
    * Margin between columns
