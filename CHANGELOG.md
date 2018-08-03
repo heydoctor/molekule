@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/sappira-inc/refractal/compare/v0.7.0...v0.7.1) (2018-08-03)
+
+
+### Bug Fixes
+
+* **Grid:** Change default column flexDirection to column; pass remaining props to Row ([cd95cfe](https://github.com/sappira-inc/refractal/commit/cd95cfe))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/sappira-inc/refractal/compare/v0.6.5...v0.7.0) (2018-08-02)
 
