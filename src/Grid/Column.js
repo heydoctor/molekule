@@ -69,19 +69,9 @@ const Column = props => <StyledColumn {...props} />;
 
 Column.propTypes = {
   /**
-   * Lay row out vertically
-   */
-  vertical: PropTypes.number,
-
-  /**
    * Margin between columns
    */
   gutter: PropTypes.number,
-
-  /**
-   *  Reverse the order of the columns
-   */
-  reverse: PropTypes.bool,
 
   /**
    * Collapse columns by removing gutters
@@ -90,8 +80,7 @@ Column.propTypes = {
 };
 
 Column.defaultProps = {
-  vertical: false,
-  reverse: false,
+  gutter: false,
   collapse: false,
 };
 
