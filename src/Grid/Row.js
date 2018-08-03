@@ -26,8 +26,8 @@ const StyledRow = createComponent({
   }}
 `;
 
-const Row = ({ children, gutter, reverse, collapse, vertical }) => (
-  <StyledRow gutter={gutter} reverse={reverse} collapse={collapse} vertical={vertical}>
+const Row = ({ children, gutter, reverse, collapse, vertical, ...props }) => (
+  <StyledRow {...props} gutter={gutter} reverse={reverse} collapse={collapse} vertical={vertical}>
     {React.Children.map(children, child => React.cloneElement(child, { gutter, collapse, vertical }))}
   </StyledRow>
 );

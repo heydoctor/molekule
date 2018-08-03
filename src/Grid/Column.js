@@ -35,6 +35,7 @@ const StyledColumn = createComponent({
 }).extend`
   box-sizing: border-box;
   flex: 1 0 auto;
+  flex-direction: column;
   padding-left: ${getPadding}px;
   padding-right: ${getPadding}px;
 
