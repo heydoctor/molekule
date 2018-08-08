@@ -11,6 +11,7 @@ const StyledContainer = createComponent({
 }).extend`
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   max-width: ${p => (p.fluid ? '100%' : `${p.maxWidth || p.theme.grid.containerMaxWidth}px`)};
   padding-left: ${getPadding}px;
   padding-right: ${getPadding}px;
