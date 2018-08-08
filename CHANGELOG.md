@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.2"></a>
+## [0.7.2](https://github.com/sappira-inc/refractal/compare/v0.7.1...v0.7.2) (2018-08-08)
+
+
+### Bug Fixes
+
+* **Column:** Remove unused props ([8e8ab9b](https://github.com/sappira-inc/refractal/commit/8e8ab9b))
+* **Container:** Set default width to 100% ([a8cee4c](https://github.com/sappira-inc/refractal/commit/a8cee4c))
+* **Row:** Fix vertical proptype ([7ef45ac](https://github.com/sappira-inc/refractal/commit/7ef45ac))
+
+
+
 <a name="0.7.1"></a>
 ## [0.7.1](https://github.com/sappira-inc/refractal/compare/v0.7.0...v0.7.1) (2018-08-03)
 
