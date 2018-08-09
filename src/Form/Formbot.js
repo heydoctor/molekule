@@ -155,6 +155,7 @@ export default class Formbot extends React.Component {
         },
         () => {
           this.validateField(field);
+          this.props.onChange(field, value, this.state.values);
         }
       );
     });
