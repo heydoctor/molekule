@@ -66,7 +66,6 @@ const getDropdownMenuStyles = props => `
 const DropdownProvider = styled.div`
   position: relative;
   display: inline-block;
-  z-index: 10;
 `;
 
 const DropdownTrigger = styled.div`
@@ -74,6 +73,7 @@ const DropdownTrigger = styled.div`
 `;
 
 const DropdownMenu = styled.div`
+  z-index: 10;
   position: absolute;
   left: 50%;
   background: white;
@@ -96,11 +96,13 @@ export default class Dropdown extends React.Component {
     render: PropTypes.func,
     autoclose: PropTypes.bool,
     position: PropTypes.string,
+    on: PropTypes.string,
   };
 
   static defaultProps = {
     autoclose: true,
     position: 'bl',
+    on: 'click',
   };
 
   static childContextTypes = {
@@ -125,11 +127,18 @@ export default class Dropdown extends React.Component {
   }
 
   toggle = () => {
+    if (this.props.on !== 'click') return;
+
     if (this.state.isOpen) {
       this.close();
     } else {
       this.open();
     }
+  };
+
+  toggleHover = () => {
+    if (this.props.on !== 'hover') return;
+    this.setState({ isOpen: !this.state.isOpen });
   };
 
   close = () => {
@@ -176,7 +185,13 @@ export default class Dropdown extends React.Component {
         innerRef={ref => {
           this.root = ref;
         }}>
-        <DropdownTrigger onClick={this.toggle} aria-haspopup="true" aria-expanded={isOpen}>
+        <DropdownTrigger
+          onFocus={this.toggleHover}
+          onMouseOver={this.toggleHover}
+          onMouseLeave={this.toggleHover}
+          onClick={this.toggle}
+          aria-haspopup="true"
+          aria-expanded={isOpen}>
           {trigger}
         </DropdownTrigger>
 
