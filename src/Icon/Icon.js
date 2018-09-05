@@ -41,14 +41,14 @@ class Icon extends React.Component {
   }
 
   render() {
-    const { name, size, color } = this.props;
+    const { name, size, color, style = {}, className = '' } = this.props;
     const { iconPrefix } = this.constructor;
 
     return (
       <StyledIcon
         {...this.props}
-        className={`${iconPrefix} ${iconPrefix}-${name}`}
-        style={{ fontSize: size, color: color || 'inherit' }}
+        className={`${iconPrefix} ${iconPrefix}-${name} ${className}`}
+        style={{ fontSize: size, color: color || 'inherit', ...style }}
       />
     );
   }
