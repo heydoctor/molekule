@@ -7,7 +7,8 @@ const StyledCard = createComponent({
   name: 'Card',
 }).extend`
   background: white;
-  box-shadow: ${p => (p.shadow ? themeGet('shadow', '0 8px 30px rgba(0, 29, 54, 0.1)') : 'none')};
+  box-shadow: ${p =>
+    p.shadow ? themeGet('shadow', '0 4px 10px rgba(0, 29, 54, 0.04), 0 -2px 6px rgba(0, 29, 54, 0.025);') : 'none'};
 
   ${borderRadius};
   ${space};
