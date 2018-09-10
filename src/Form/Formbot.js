@@ -58,6 +58,22 @@ export default class Formbot extends React.Component {
     return this.state.values;
   }
 
+  getValues() {
+    return this.validateAllFields().then(() => ({
+      isValid: this.isValid,
+      values: this.values,
+    }));
+  }
+
+  setValues(values = {}) {
+    this.setState({
+      values: {
+        ...this.state.values,
+        ...values,
+      },
+    });
+  }
+
   updateField(field, updates = {}) {
     return new Promise(resolve => {
       const fieldState = this.state.fields[field] || {};
