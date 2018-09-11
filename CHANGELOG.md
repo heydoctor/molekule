@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/sappira-inc/refractal/compare/v0.12.0...v0.12.1) (2018-09-11)
+
+
+### Bug Fixes
+
+* **Input:** Only insert Label if provided ([207e57b](https://github.com/sappira-inc/refractal/commit/207e57b))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/sappira-inc/refractal/compare/v0.11.0...v0.12.0) (2018-09-11)
 
