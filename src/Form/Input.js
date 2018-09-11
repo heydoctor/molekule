@@ -186,6 +186,14 @@ export default class Input extends React.Component {
     this.setState({ height });
   }
 
+  focus() {
+    this.input.current.focus();
+  }
+
+  blur() {
+    this.input.current.blur();
+  }
+
   render() {
     const {
       className,
