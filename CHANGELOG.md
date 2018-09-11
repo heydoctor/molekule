@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/sappira-inc/refractal/compare/v0.11.0...v0.12.0) (2018-09-11)
+
+
+### Features
+
+* **Input:** Add focus and blur methods ([2d46f80](https://github.com/sappira-inc/refractal/commit/2d46f80))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/sappira-inc/refractal/compare/v0.10.1...v0.11.0) (2018-09-10)
 
