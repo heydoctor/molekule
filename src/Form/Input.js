@@ -232,11 +232,11 @@ export default class Input extends React.Component {
       isFloating,
     };
 
-    const Label = (
+    const Label = label ? (
       <StyledLabel htmlFor={id} styles={rest.styles} size={size} isFloatable={floating} isFloating={isFloating}>
         {label}
       </StyledLabel>
-    );
+    ) : null;
 
     return (
       <Field styles={rest.styles}>
