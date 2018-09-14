@@ -23,8 +23,6 @@ export default {
     }),
     babel({
       babelrc: true,
-      exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
     }),
     cjs({
       include: 'node_modules/**',

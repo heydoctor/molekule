@@ -1,5 +1,3 @@
-import { babel } from 'docz-plugin-babel6';
-
 export default {
   base: process.env.NODE_ENV === 'production' ? '/refractal' : '',
   title: 'Refractal',
@@ -8,5 +6,4 @@ export default {
   port: 1234,
   wrapper: 'docs/wrapper.js',
   propsParser: true,
-  plugins: [babel()],
 };
