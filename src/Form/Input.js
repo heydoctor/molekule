@@ -162,7 +162,7 @@ export default class Input extends React.Component {
     this.shadow = document.createElement('textarea');
     this.shadow.style.position = 'absolute';
     this.shadow.style.left = '-9000px';
-    document.body.append(this.shadow);
+    document.body.appendChild(this.shadow);
   }
 
   autogrow() {
