@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/sappira-inc/refractal/compare/v1.0.0...v1.0.1) (2018-09-17)
+
+
+### Bug Fixes
+
+* **Formbot:** Built-in required method respects required validation value ([42dac8f](https://github.com/sappira-inc/refractal/commit/42dac8f))
+
+
+
 <a name="0.12.2"></a>
 ## [0.12.2](https://github.com/sappira-inc/refractal/compare/v0.12.1...v0.12.2) (2018-09-14)
 
