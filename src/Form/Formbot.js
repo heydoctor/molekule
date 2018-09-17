@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const VALIDATIONS = {
-  required: val => {
+  required: (val, isRequired) => {
+    if (!isRequired) return;
     if (!val || (typeof val === 'string' && val === '')) {
       throw new Error('This field is required');
     }
