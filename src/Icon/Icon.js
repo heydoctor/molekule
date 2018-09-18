@@ -27,9 +27,7 @@ class Icon extends React.Component {
   static iconUrl = 'https://cdn.heydoctor.co/assets/css/material-design-icons.css';
   static iconPrefix = 'mdi';
 
-  componentDidMount(props) {
-    super(props);
-
+  componentDidMount() {
     if (!this.constructor.injected) {
       this.constructor.injected = true;
       const link = document.createElement('link');
