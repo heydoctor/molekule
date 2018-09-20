@@ -19,8 +19,8 @@ const StyledContainer = createComponent({
 
 StyledContainer.displayName = 'Container';
 
-const Container = ({ children, gutter, maxWidth, fluid }) => (
-  <StyledContainer fluid={fluid} gutter={gutter} maxWidth={maxWidth}>
+const Container = ({ gutter, ...rest }) => (
+  <StyledContainer gutter={gutter} {...rest}>
     {React.Children.map(children, child => React.cloneElement(child, { gutter }))}
   </StyledContainer>
 );
