@@ -19,9 +19,14 @@ const StyledContainer = createComponent({
 
 StyledContainer.displayName = 'Container';
 
-const Container = ({ gutter, ...rest }) => (
+const Container = ({ gutter, children, ...rest }) => (
   <StyledContainer gutter={gutter} {...rest}>
-    {React.Children.map(children, child => React.cloneElement(child, { gutter }))}
+    {React.Children.map(children, child => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(child, { gutter });
+      }
+      return child;
+    })}
   </StyledContainer>
 );
 
