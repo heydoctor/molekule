@@ -87,7 +87,6 @@ exports[`<Tabs /> renders 1`] = `
 }
 
 .c6 {
-  padding: 12px;
   width: 100%;
 }
 
@@ -117,19 +116,19 @@ exports[`<Tabs /> renders 1`] = `
     vertical={false}
   >
     <div
-      className="c0"
+      className="re-tabs c0"
     >
       <styled.ul
         vertical={false}
       >
         <ul
-          className="c1"
+          className="re-tab-list c1"
         >
           <styled.li
             key="test-one"
           >
             <li
-              className="c2"
+              className="re-tab-list-item c2"
             >
               <styled.button
                 id="test-one"
@@ -137,7 +136,7 @@ exports[`<Tabs /> renders 1`] = `
                 vertical={false}
               >
                 <button
-                  className="c3"
+                  className="re-tab c3"
                   id="test-one"
                   onClick={[Function]}
                 >
@@ -146,7 +145,7 @@ exports[`<Tabs /> renders 1`] = `
                     vertical={false}
                   >
                     <span
-                      className="c4"
+                      className="re-tab-title c4"
                     >
                       Tab One
                     </span>
@@ -159,7 +158,7 @@ exports[`<Tabs /> renders 1`] = `
             key="test-two"
           >
             <li
-              className="c2"
+              className="re-tab-list-item c2"
             >
               <styled.button
                 id="test-two"
@@ -167,7 +166,7 @@ exports[`<Tabs /> renders 1`] = `
                 vertical={false}
               >
                 <button
-                  className="c3"
+                  className="re-tab c3"
                   id="test-two"
                   onClick={[Function]}
                 >
@@ -176,7 +175,7 @@ exports[`<Tabs /> renders 1`] = `
                     vertical={false}
                   >
                     <span
-                      className="c5"
+                      className="re-tab-title c5"
                     >
                       Tab Two
                     </span>
@@ -189,7 +188,7 @@ exports[`<Tabs /> renders 1`] = `
       </styled.ul>
       <styled.div>
         <div
-          className="c6"
+          className="re-tab-content c6"
         >
           <TabContent
             body="one"

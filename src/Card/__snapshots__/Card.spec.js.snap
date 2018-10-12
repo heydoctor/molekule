@@ -3,12 +3,12 @@
 exports[`Card 1`] = `
 .c0 {
   background: white;
-  box-shadow: 0 8px 30px rgba(0,29,54,0.1);
-  border-radius: 2px;
+  box-shadow: 0 4px 10px rgba(0,29,54,0.04),0 -2px 6px rgba(0,29,54,0.025);
 }
 
 .c1 {
   padding: 1rem;
+  border-bottom: 1px solid #cfd7df;
 }
 
 .c2 {
@@ -17,34 +17,40 @@ exports[`Card 1`] = `
 
 .c3 {
   padding: 1rem;
-  background: #e9eef4;
+  border-top: 1px solid #cfd7df;
 }
 
-<styled.div>
-  <div
-    className="c0"
+<Card
+  shadow={true}
+>
+  <styled.div
+    shadow={true}
   >
-    <styled.div>
-      <div
-        className="c1"
-      >
-        Header
-      </div>
-    </styled.div>
-    <styled.div>
-      <div
-        className="c2"
-      >
-        Body
-      </div>
-    </styled.div>
-    <styled.div>
-      <div
-        className="c3"
-      >
-        Footer
-      </div>
-    </styled.div>
-  </div>
-</styled.div>
+    <div
+      className="re-card c0"
+    >
+      <styled.div>
+        <div
+          className="re-card-header c1"
+        >
+          Header
+        </div>
+      </styled.div>
+      <styled.div>
+        <div
+          className="re-card-body c2"
+        >
+          Body
+        </div>
+      </styled.div>
+      <styled.div>
+        <div
+          className="re-card-footer c3"
+        >
+          Footer
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</Card>
 `;
