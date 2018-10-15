@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import Field from './Field';
@@ -52,7 +52,7 @@ const StyledInput = createComponent({
 
 const StyledTextArea = StyledInput.withComponent('textarea');
 
-export default class Input extends React.Component {
+export default class Input extends Component {
   static propTypes = {
     value: PropTypes.string,
     disabled: PropTypes.bool,
@@ -70,6 +70,7 @@ export default class Input extends React.Component {
     autogrow: PropTypes.bool,
     size: PropTypes.string,
     floating: PropTypes.bool,
+    innerRef: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -86,16 +87,18 @@ export default class Input extends React.Component {
     onBlur() {},
     onChange() {},
     floating: false,
+    innerRef: {},
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    value: this.props.value || '',
+    focused: false,
+  };
 
-    this.input = React.createRef();
-    this.state = {
-      value: props.value || '',
-      focused: false,
-    };
+  inputRef = React.createRef();
+
+  get ref() {
+    return this.props.innerRef || this.inputRef;
   }
 
   componentDidMount() {
@@ -105,8 +108,8 @@ export default class Input extends React.Component {
     }
 
     if (this.props.autofocus) {
-      if (this.input.current) {
-        this.input.current.focus();
+      if (this.ref.current) {
+        this.ref.current.focus();
       }
     }
   }
@@ -128,8 +131,6 @@ export default class Input extends React.Component {
       this.shadow.remove();
     }
   }
-
-  getInput = () => this.input;
 
   onFocus = e => {
     this.setState({ focused: true });
@@ -174,7 +175,7 @@ export default class Input extends React.Component {
     const minHeight = minRows * rowHeight;
     const maxHeight = maxRows * rowHeight;
 
-    this.shadow.style.width = `${this.input.clientWidth}px`;
+    this.shadow.style.width = `${this.ref.current.clientWidth}px`;
     this.shadow.value = this.props.value || this.state.value;
     let height = this.shadow.scrollHeight + 14;
     if (height < minHeight) {
@@ -187,11 +188,11 @@ export default class Input extends React.Component {
   }
 
   focus() {
-    this.input.current.focus();
+    this.ref.current.focus();
   }
 
   blur() {
-    this.input.current.blur();
+    this.ref.current.blur();
   }
 
   render() {
@@ -220,7 +221,7 @@ export default class Input extends React.Component {
     const inputProps = {
       ...rest,
       id,
-      innerRef: this.input,
+      innerRef: this.ref,
       size,
       value: this.state.value,
       onChange: this.onChange,
