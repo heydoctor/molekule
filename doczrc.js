@@ -6,4 +6,18 @@ export default {
   port: 1234,
   wrapper: 'docs/wrapper.js',
   propsParser: true,
+  modifyBundlerConfig: config => {
+    config.optimization = {
+      runtimeChunk: true,
+      nodeEnv: 'production',
+      namedModules: true,
+      noEmitOnErrors: true,
+      splitChunks: {
+        chunks: 'all',
+        name: 'vendors',
+      },
+      minimize: false,
+    };
+    return config;
+  },
 };
