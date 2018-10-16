@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/sappira-inc/molekule/compare/v1.0.6...v2.0.0) (2018-10-16)
+
+
+### Features
+
+* v2 ([#1](https://github.com/sappira-inc/molekule/issues/1)) ([1f347c6](https://github.com/sappira-inc/molekule/commit/1f347c6))
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/sappira-inc/refractal/compare/v1.0.5...v1.0.6) (2018-10-15)
 
