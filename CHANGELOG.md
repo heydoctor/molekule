@@ -13,350 +13,350 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="1.0.6"></a>
-## [1.0.6](https://github.com/sappira-inc/refractal/compare/v1.0.5...v1.0.6) (2018-10-15)
+## [1.0.6](https://github.com/sappira-inc/molekule/compare/v1.0.5...v1.0.6) (2018-10-15)
 
 
 
 <a name="1.0.5"></a>
-## [1.0.5](https://github.com/sappira-inc/refractal/compare/v1.0.4...v1.0.5) (2018-09-20)
+## [1.0.5](https://github.com/sappira-inc/molekule/compare/v1.0.4...v1.0.5) (2018-09-20)
 
 
 ### Bug Fixes
 
-* **Container:** Only clone children if they are a valid element ([c128d32](https://github.com/sappira-inc/refractal/commit/c128d32))
+* **Container:** Only clone children if they are a valid element ([c128d32](https://github.com/sappira-inc/molekule/commit/c128d32))
 
 
 
 <a name="1.0.4"></a>
-## [1.0.4](https://github.com/sappira-inc/refractal/compare/v1.0.3...v1.0.4) (2018-09-20)
+## [1.0.4](https://github.com/sappira-inc/molekule/compare/v1.0.3...v1.0.4) (2018-09-20)
 
 
 ### Bug Fixes
 
-* **Container:** Pass all props through ([2361529](https://github.com/sappira-inc/refractal/commit/2361529))
+* **Container:** Pass all props through ([2361529](https://github.com/sappira-inc/molekule/commit/2361529))
 
 
 
 <a name="1.0.3"></a>
-## [1.0.3](https://github.com/sappira-inc/refractal/compare/v1.0.2...v1.0.3) (2018-09-18)
+## [1.0.3](https://github.com/sappira-inc/molekule/compare/v1.0.2...v1.0.3) (2018-09-18)
 
 
 ### Bug Fixes
 
-* **Icon:** Dont call super in componentDidMount ([428761b](https://github.com/sappira-inc/refractal/commit/428761b))
+* **Icon:** Dont call super in componentDidMount ([428761b](https://github.com/sappira-inc/molekule/commit/428761b))
 
 
 
 <a name="1.0.2"></a>
-## [1.0.2](https://github.com/sappira-inc/refractal/compare/v1.0.1...v1.0.2) (2018-09-18)
+## [1.0.2](https://github.com/sappira-inc/molekule/compare/v1.0.1...v1.0.2) (2018-09-18)
 
 
 ### Bug Fixes
 
-* **Icon:** Inject icon css on mount to fix SSR builds ([6398e43](https://github.com/sappira-inc/refractal/commit/6398e43))
+* **Icon:** Inject icon css on mount to fix SSR builds ([6398e43](https://github.com/sappira-inc/molekule/commit/6398e43))
 
 
 
 <a name="1.0.1"></a>
-## [1.0.1](https://github.com/sappira-inc/refractal/compare/v1.0.0...v1.0.1) (2018-09-17)
+## [1.0.1](https://github.com/sappira-inc/molekule/compare/v1.0.0...v1.0.1) (2018-09-17)
 
 
 ### Bug Fixes
 
-* **Formbot:** Built-in required method respects required validation value ([42dac8f](https://github.com/sappira-inc/refractal/commit/42dac8f))
+* **Formbot:** Built-in required method respects required validation value ([42dac8f](https://github.com/sappira-inc/molekule/commit/42dac8f))
 
 
 
 <a name="0.12.2"></a>
-## [0.12.2](https://github.com/sappira-inc/refractal/compare/v0.12.1...v0.12.2) (2018-09-14)
+## [0.12.2](https://github.com/sappira-inc/molekule/compare/v0.12.1...v0.12.2) (2018-09-14)
 
 
 ### Bug Fixes
 
-* **Input:** use Node.appendChild instead of Node.append ([5dd1a0d](https://github.com/sappira-inc/refractal/commit/5dd1a0d))
+* **Input:** use Node.appendChild instead of Node.append ([5dd1a0d](https://github.com/sappira-inc/molekule/commit/5dd1a0d))
 
 
 
 <a name="0.12.1"></a>
-## [0.12.1](https://github.com/sappira-inc/refractal/compare/v0.12.0...v0.12.1) (2018-09-11)
+## [0.12.1](https://github.com/sappira-inc/molekule/compare/v0.12.0...v0.12.1) (2018-09-11)
 
 
 ### Bug Fixes
 
-* **Input:** Only insert Label if provided ([207e57b](https://github.com/sappira-inc/refractal/commit/207e57b))
+* **Input:** Only insert Label if provided ([207e57b](https://github.com/sappira-inc/molekule/commit/207e57b))
 
 
 
 <a name="0.12.0"></a>
-# [0.12.0](https://github.com/sappira-inc/refractal/compare/v0.11.0...v0.12.0) (2018-09-11)
+# [0.12.0](https://github.com/sappira-inc/molekule/compare/v0.11.0...v0.12.0) (2018-09-11)
 
 
 ### Features
 
-* **Input:** Add focus and blur methods ([2d46f80](https://github.com/sappira-inc/refractal/commit/2d46f80))
+* **Input:** Add focus and blur methods ([2d46f80](https://github.com/sappira-inc/molekule/commit/2d46f80))
 
 
 
 <a name="0.11.0"></a>
-# [0.11.0](https://github.com/sappira-inc/refractal/compare/v0.10.1...v0.11.0) (2018-09-10)
+# [0.11.0](https://github.com/sappira-inc/molekule/compare/v0.10.1...v0.11.0) (2018-09-10)
 
 
 ### Features
 
-* **Formbot:** Add getValues and setValues methods ([a540698](https://github.com/sappira-inc/refractal/commit/a540698))
+* **Formbot:** Add getValues and setValues methods ([a540698](https://github.com/sappira-inc/molekule/commit/a540698))
 
 
 
 <a name="0.10.1"></a>
-## [0.10.1](https://github.com/sappira-inc/refractal/compare/v0.10.0...v0.10.1) (2018-09-06)
+## [0.10.1](https://github.com/sappira-inc/molekule/compare/v0.10.0...v0.10.1) (2018-09-06)
 
 
 ### Bug Fixes
 
-* **Card:** Decrease shadow ([02be93a](https://github.com/sappira-inc/refractal/commit/02be93a))
+* **Card:** Decrease shadow ([02be93a](https://github.com/sappira-inc/molekule/commit/02be93a))
 
 
 
 <a name="0.10.0"></a>
-# [0.10.0](https://github.com/sappira-inc/refractal/compare/v0.9.0...v0.10.0) (2018-09-05)
+# [0.10.0](https://github.com/sappira-inc/molekule/compare/v0.9.0...v0.10.0) (2018-09-05)
 
 
 ### Features
 
-* **Icon:** Allow styles to be passed ([dccf950](https://github.com/sappira-inc/refractal/commit/dccf950))
+* **Icon:** Allow styles to be passed ([dccf950](https://github.com/sappira-inc/molekule/commit/dccf950))
 
 
 
 <a name="0.9.0"></a>
-# [0.9.0](https://github.com/sappira-inc/refractal/compare/v0.8.0...v0.9.0) (2018-08-30)
+# [0.9.0](https://github.com/sappira-inc/molekule/compare/v0.8.0...v0.9.0) (2018-08-30)
 
 
 ### Features
 
-* **Dropdown:** Add Hover functionality ([#10](https://github.com/sappira-inc/refractal/issues/10)) ([cf88176](https://github.com/sappira-inc/refractal/commit/cf88176))
+* **Dropdown:** Add Hover functionality ([#10](https://github.com/sappira-inc/molekule/issues/10)) ([cf88176](https://github.com/sappira-inc/molekule/commit/cf88176))
 
 
 
 <a name="0.8.0"></a>
-# [0.8.0](https://github.com/sappira-inc/refractal/compare/v0.7.2...v0.8.0) (2018-08-09)
+# [0.8.0](https://github.com/sappira-inc/molekule/compare/v0.7.2...v0.8.0) (2018-08-09)
 
 
 ### Features
 
-* **Formbot:** Call onChange prop ([691d455](https://github.com/sappira-inc/refractal/commit/691d455))
+* **Formbot:** Call onChange prop ([691d455](https://github.com/sappira-inc/molekule/commit/691d455))
 
 
 
 <a name="0.7.2"></a>
-## [0.7.2](https://github.com/sappira-inc/refractal/compare/v0.7.1...v0.7.2) (2018-08-08)
+## [0.7.2](https://github.com/sappira-inc/molekule/compare/v0.7.1...v0.7.2) (2018-08-08)
 
 
 ### Bug Fixes
 
-* **Column:** Remove unused props ([8e8ab9b](https://github.com/sappira-inc/refractal/commit/8e8ab9b))
-* **Container:** Set default width to 100% ([a8cee4c](https://github.com/sappira-inc/refractal/commit/a8cee4c))
-* **Row:** Fix vertical proptype ([7ef45ac](https://github.com/sappira-inc/refractal/commit/7ef45ac))
+* **Column:** Remove unused props ([8e8ab9b](https://github.com/sappira-inc/molekule/commit/8e8ab9b))
+* **Container:** Set default width to 100% ([a8cee4c](https://github.com/sappira-inc/molekule/commit/a8cee4c))
+* **Row:** Fix vertical proptype ([7ef45ac](https://github.com/sappira-inc/molekule/commit/7ef45ac))
 
 
 
 <a name="0.7.1"></a>
-## [0.7.1](https://github.com/sappira-inc/refractal/compare/v0.7.0...v0.7.1) (2018-08-03)
+## [0.7.1](https://github.com/sappira-inc/molekule/compare/v0.7.0...v0.7.1) (2018-08-03)
 
 
 ### Bug Fixes
 
-* **Grid:** Change default column flexDirection to column; pass remaining props to Row ([cd95cfe](https://github.com/sappira-inc/refractal/commit/cd95cfe))
+* **Grid:** Change default column flexDirection to column; pass remaining props to Row ([cd95cfe](https://github.com/sappira-inc/molekule/commit/cd95cfe))
 
 
 
 <a name="0.7.0"></a>
-# [0.7.0](https://github.com/sappira-inc/refractal/compare/v0.6.5...v0.7.0) (2018-08-02)
+# [0.7.0](https://github.com/sappira-inc/molekule/compare/v0.6.5...v0.7.0) (2018-08-02)
 
 
 ### Bug Fixes
 
-* **Checkbox:** Add disabled prop ([#8](https://github.com/sappira-inc/refractal/issues/8)) ([5cdb6ac](https://github.com/sappira-inc/refractal/commit/5cdb6ac))
-* Utilize tree shaking for lodash ([ff1d442](https://github.com/sappira-inc/refractal/commit/ff1d442))
+* **Checkbox:** Add disabled prop ([#8](https://github.com/sappira-inc/molekule/issues/8)) ([5cdb6ac](https://github.com/sappira-inc/molekule/commit/5cdb6ac))
+* Utilize tree shaking for lodash ([ff1d442](https://github.com/sappira-inc/molekule/commit/ff1d442))
 
 
 ### Features
 
-* Grid components ([#7](https://github.com/sappira-inc/refractal/issues/7)) ([e31bde6](https://github.com/sappira-inc/refractal/commit/e31bde6))
-* Linkify component ([#9](https://github.com/sappira-inc/refractal/issues/9)) ([30a6371](https://github.com/sappira-inc/refractal/commit/30a6371))
+* Grid components ([#7](https://github.com/sappira-inc/molekule/issues/7)) ([e31bde6](https://github.com/sappira-inc/molekule/commit/e31bde6))
+* Linkify component ([#9](https://github.com/sappira-inc/molekule/issues/9)) ([30a6371](https://github.com/sappira-inc/molekule/commit/30a6371))
 
 
 
 <a name="0.6.5"></a>
-## [0.6.5](https://github.com/sappira-inc/refractal/compare/v0.6.4...v0.6.5) (2018-08-01)
+## [0.6.5](https://github.com/sappira-inc/molekule/compare/v0.6.4...v0.6.5) (2018-08-01)
 
 
 ### Bug Fixes
 
-* **Checkbox:** Move CheckboxIcon color styling to Icon component ([16b3686](https://github.com/sappira-inc/refractal/commit/16b3686))
+* **Checkbox:** Move CheckboxIcon color styling to Icon component ([16b3686](https://github.com/sappira-inc/molekule/commit/16b3686))
 
 
 
 <a name="0.6.4"></a>
-## [0.6.4](https://github.com/sappira-inc/refractal/compare/v0.6.3...v0.6.4) (2018-08-01)
+## [0.6.4](https://github.com/sappira-inc/molekule/compare/v0.6.3...v0.6.4) (2018-08-01)
 
 
 
 <a name="0.6.3"></a>
-## [0.6.3](https://github.com/sappira-inc/refractal/compare/v0.6.2...v0.6.3) (2018-08-01)
+## [0.6.3](https://github.com/sappira-inc/molekule/compare/v0.6.2...v0.6.3) (2018-08-01)
 
 
 ### Bug Fixes
 
-* Remove rogue console.log ([ff2348e](https://github.com/sappira-inc/refractal/commit/ff2348e))
+* Remove rogue console.log ([ff2348e](https://github.com/sappira-inc/molekule/commit/ff2348e))
 
 
 
 <a name="0.6.2"></a>
-## [0.6.2](https://github.com/sappira-inc/refractal/compare/v0.6.1...v0.6.2) (2018-08-01)
+## [0.6.2](https://github.com/sappira-inc/molekule/compare/v0.6.1...v0.6.2) (2018-08-01)
 
 
 ### Bug Fixes
 
-* **Checkbox:** Fix Checkbox & Checkbox group functionality ([f8ea91c](https://github.com/sappira-inc/refractal/commit/f8ea91c))
+* **Checkbox:** Fix Checkbox & Checkbox group functionality ([f8ea91c](https://github.com/sappira-inc/molekule/commit/f8ea91c))
 
 
 
 <a name="0.6.1"></a>
-## [0.6.1](https://github.com/sappira-inc/refractal/compare/v0.6.0...v0.6.1) (2018-08-01)
+## [0.6.1](https://github.com/sappira-inc/molekule/compare/v0.6.0...v0.6.1) (2018-08-01)
 
 
 ### Bug Fixes
 
-* **Checkbox:** Fix Checkbox component styling ([9ea8c04](https://github.com/sappira-inc/refractal/commit/9ea8c04))
+* **Checkbox:** Fix Checkbox component styling ([9ea8c04](https://github.com/sappira-inc/molekule/commit/9ea8c04))
 
 
 
 <a name="0.6.0"></a>
-# [0.6.0](https://github.com/sappira-inc/refractal/compare/v0.5.4...v0.6.0) (2018-08-01)
+# [0.6.0](https://github.com/sappira-inc/molekule/compare/v0.5.4...v0.6.0) (2018-08-01)
 
 
 ### Features
 
-* **Form:** Export Form Label ([8fff113](https://github.com/sappira-inc/refractal/commit/8fff113))
+* **Form:** Export Form Label ([8fff113](https://github.com/sappira-inc/molekule/commit/8fff113))
 
 
 
 <a name="0.5.4"></a>
-## [0.5.4](https://github.com/sappira-inc/refractal/compare/v0.5.3...v0.5.4) (2018-07-28)
+## [0.5.4](https://github.com/sappira-inc/molekule/compare/v0.5.3...v0.5.4) (2018-07-28)
 
 
 
 <a name="0.5.3"></a>
-## [0.5.3](https://github.com/sappira-inc/refractal/compare/v0.5.2...v0.5.3) (2018-07-13)
+## [0.5.3](https://github.com/sappira-inc/molekule/compare/v0.5.2...v0.5.3) (2018-07-13)
 
 
 ### Bug Fixes
 
-* **Input:** Remove height from InputContainer ([e26c0de](https://github.com/sappira-inc/refractal/commit/e26c0de))
+* **Input:** Remove height from InputContainer ([e26c0de](https://github.com/sappira-inc/molekule/commit/e26c0de))
 
 
 
 <a name="0.5.2"></a>
-## [0.5.2](https://github.com/kylealwyn/refractal/compare/v0.5.1...v0.5.2) (2018-07-12)
+## [0.5.2](https://github.com/kylealwyn/molekule/compare/v0.5.1...v0.5.2) (2018-07-12)
 
 
 ### Bug Fixes
 
-* Fix Input background issues ([b3dfc58](https://github.com/kylealwyn/refractal/commit/b3dfc58))
+* Fix Input background issues ([b3dfc58](https://github.com/kylealwyn/molekule/commit/b3dfc58))
 
 
 
 <a name="0.5.1"></a>
-## [0.5.1](https://github.com/kylealwyn/refractal/compare/v0.5.0...v0.5.1) (2018-06-29)
+## [0.5.1](https://github.com/kylealwyn/molekule/compare/v0.5.0...v0.5.1) (2018-06-29)
 
 
 ### Bug Fixes
 
-* **Input:** fix Input autofocus error ([54b115d](https://github.com/kylealwyn/refractal/commit/54b115d))
+* **Input:** fix Input autofocus error ([54b115d](https://github.com/kylealwyn/molekule/commit/54b115d))
 
 
 
 <a name="0.5.0"></a>
-# [0.5.0](https://github.com/kylealwyn/refractal/compare/v0.4.5...v0.5.0) (2018-06-28)
+# [0.5.0](https://github.com/kylealwyn/molekule/compare/v0.4.5...v0.5.0) (2018-06-28)
 
 
 ### Features
 
-* **Form:** Add Form components ([#5](https://github.com/kylealwyn/refractal/issues/5)) ([b2a703b](https://github.com/kylealwyn/refractal/commit/b2a703b))
+* **Form:** Add Form components ([#5](https://github.com/kylealwyn/molekule/issues/5)) ([b2a703b](https://github.com/kylealwyn/molekule/commit/b2a703b))
 
 
 
 <a name="0.4.5"></a>
-## [0.4.5](https://github.com/kylealwyn/refractal/compare/v0.4.4...v0.4.5) (2018-06-13)
+## [0.4.5](https://github.com/kylealwyn/molekule/compare/v0.4.4...v0.4.5) (2018-06-13)
 
 
 ### Bug Fixes
 
-* update styled-system ([a100f93](https://github.com/kylealwyn/refractal/commit/a100f93))
+* update styled-system ([a100f93](https://github.com/kylealwyn/molekule/commit/a100f93))
 
 
 
 <a name="0.4.4"></a>
-## [0.4.4](https://github.com/kylealwyn/refractal/compare/v0.4.3...v0.4.4) (2018-06-07)
+## [0.4.4](https://github.com/kylealwyn/molekule/compare/v0.4.3...v0.4.4) (2018-06-07)
 
 
 
 <a name="0.4.3"></a>
-## [0.4.3](https://github.com/kylealwyn/refractal/compare/v0.4.2...v0.4.3) (2018-06-04)
+## [0.4.3](https://github.com/kylealwyn/molekule/compare/v0.4.2...v0.4.3) (2018-06-04)
 
 
 ### Bug Fixes
 
-* Fix Placeholder state bug ([d7a767b](https://github.com/kylealwyn/refractal/commit/d7a767b))
+* Fix Placeholder state bug ([d7a767b](https://github.com/kylealwyn/molekule/commit/d7a767b))
 
 
 
 <a name="0.4.2"></a>
-## [0.4.2](https://github.com/kylealwyn/refractal/compare/v0.4.1...v0.4.2) (2018-06-04)
+## [0.4.2](https://github.com/kylealwyn/molekule/compare/v0.4.1...v0.4.2) (2018-06-04)
 
 
 ### Bug Fixes
 
-* Fix Placeholder delay ([bf7917e](https://github.com/kylealwyn/refractal/commit/bf7917e))
+* Fix Placeholder delay ([bf7917e](https://github.com/kylealwyn/molekule/commit/bf7917e))
 
 
 
 <a name="0.4.1"></a>
-## [0.4.1](https://github.com/kylealwyn/refractal/compare/v0.4.0...v0.4.1) (2018-06-04)
+## [0.4.1](https://github.com/kylealwyn/molekule/compare/v0.4.0...v0.4.1) (2018-06-04)
 
 
 ### Bug Fixes
 
-* Fix Placeholder rendering issue ([2b9ff2c](https://github.com/kylealwyn/refractal/commit/2b9ff2c))
+* Fix Placeholder rendering issue ([2b9ff2c](https://github.com/kylealwyn/molekule/commit/2b9ff2c))
 
 
 
 <a name="0.4.0"></a>
-# [0.4.0](https://github.com/kylealwyn/refractal/compare/v0.3.0...v0.4.0) (2018-06-03)
+# [0.4.0](https://github.com/kylealwyn/molekule/compare/v0.3.0...v0.4.0) (2018-06-03)
 
 
 ### Bug Fixes
 
-* add back flex prop to Box ([7b394c3](https://github.com/kylealwyn/refractal/commit/7b394c3))
-* remove flex helper from Flex ([9087841](https://github.com/kylealwyn/refractal/commit/9087841))
+* add back flex prop to Box ([7b394c3](https://github.com/kylealwyn/molekule/commit/7b394c3))
+* remove flex helper from Flex ([9087841](https://github.com/kylealwyn/molekule/commit/9087841))
 
 
 ### Features
 
-* add height and other flex properties to Box ([f73cf41](https://github.com/kylealwyn/refractal/commit/f73cf41))
-* Placeholder and Spinner components ([2d7cca3](https://github.com/kylealwyn/refractal/commit/2d7cca3))
+* add height and other flex properties to Box ([f73cf41](https://github.com/kylealwyn/molekule/commit/f73cf41))
+* Placeholder and Spinner components ([2d7cca3](https://github.com/kylealwyn/molekule/commit/2d7cca3))
 
 
 
 <a name="0.3.0"></a>
-# [0.3.0](https://github.com/kylealwyn/refractal/compare/v0.2.6...v0.3.0) (2018-06-02)
+# [0.3.0](https://github.com/kylealwyn/molekule/compare/v0.2.6...v0.3.0) (2018-06-02)
 
 
 ### Features
 
-* add Flex and Card components to exports ([d9da3e5](https://github.com/kylealwyn/refractal/commit/d9da3e5))
+* add Flex and Card components to exports ([d9da3e5](https://github.com/kylealwyn/molekule/commit/d9da3e5))
 
 
 
 <a name="0.2.6"></a>
-## [0.2.6](https://github.com/kylealwyn/refractal/compare/v0.2.5...v0.2.6) (2018-06-02)
+## [0.2.6](https://github.com/kylealwyn/molekule/compare/v0.2.5...v0.2.6) (2018-06-02)

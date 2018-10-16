@@ -11,10 +11,10 @@
 
 ## Contributing
 
-Check out the [projects](https://github.com/sappira-inc/refractal/projects) to see if there are any outstanding components to be developed.
+Check out the [projects](https://github.com/sappira-inc/molekule/projects) to see if there are any outstanding components to be developed.
 
 ```sh
-$ git clone git@github.com:sappira-inc/refractal.git
+$ git clone git@github.com:sappira-inc/molekule.git
 $ npm install
 $ npm run docs
 ```
