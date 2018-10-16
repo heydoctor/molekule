@@ -160,12 +160,30 @@ export default class Dropdown extends React.Component {
   }
 }
 
-Dropdown.Header = createComponent({
+const DropdownHeader = createComponent({
   name: 'DropdownHeader',
   style: css`
-    padding: 12px 16px;
+    padding: 8px 12px;
     font-size: 1rem;
     border-bottom: 1px solid ${p => p.theme.colors.grayLight};
+  `,
+});
+
+Dropdown.Header = ({ title, children }) => (
+  <DropdownHeader>
+    {title && <Dropdown.Title>{title}</Dropdown.Title>}
+    {children}
+  </DropdownHeader>
+);
+
+Dropdown.Title = createComponent({
+  name: 'DropdownTitle',
+  tag: 'span',
+  style: css`
+    display: block;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0;
   `,
 });
 
@@ -173,55 +191,56 @@ Dropdown.Body = createComponent({
   name: 'DropdownBody',
   as: Box,
   style: css`
-    padding: 1rem;
+    padding: 12px;
   `,
 });
 
-Dropdown.Title = createComponent({
-  name: 'DropdownTitle',
-  tag: 'h3',
+Dropdown.SectionTitle = createComponent({
+  name: 'DropdownSectionTitle',
+  tag: 'span',
   style: ({ theme }) => css`
     display: block;
     font-weight: 600;
-    font-size: 14px;
     color: ${theme.colors.primary};
-    margin: 0 0 4px;
   `,
 });
 
 Dropdown.Item = createComponent({
   name: 'DropdownItem',
-  style: ({ disabled }) => css`
-    opacity: ${disabled ? 0.5 : 1};
+  as: Box,
+  style: ({ disabled, theme }) => css`
+    display: flex;
+    align-items: center;
+    opacity: ${disabled ? 0.3 : 1};
     pointer-events: ${disabled ? 'none' : 'initial'};
     text-decoration: none;
     color: inherit;
-    display: flex;
-    align-items: center;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding: 4px 1rem;
-    font-size: 14px;
     cursor: pointer;
+    margin: 0 -12px;
+    padding: 4px 12px;
+    transition: 125ms background;
 
-    & + ${Dropdown.Title} {
+    & + ${Dropdown.SectionTitle} {
       margin-top: 1rem;
     }
 
     &:hover {
       color: inherit;
+      background: ${theme.colors.grayLightest};
     }
   `,
 });
 
 Dropdown.Footer = createComponent({
   name: 'DropdownFooter',
-  as: 'footer',
+  as: Box,
+  attrs: {
+    as: 'footer',
+  },
   style: ({ theme }) => css`
     background: ${theme.colors.grayLightest};
-    padding: 12px 16px;
+    padding: 8px 12px;
     border-radius: 0 0 4px 4px;
     border-top: 1px solid ${theme.colors.grayLight};
-    font-size: 14px;
   `,
 });
