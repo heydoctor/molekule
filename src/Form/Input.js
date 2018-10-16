@@ -8,15 +8,15 @@ import { createComponent } from '../utils';
 
 const InputContainer = createComponent({
   name: 'InputContainer',
-}).extend`
-  position: relative;
-`;
+  style: css`
+    position: relative;
+  `,
+});
 
 const StyledInput = createComponent({
   name: 'Input',
   tag: 'input',
-}).extend`
-  ${({ isFloating, size, theme, borderRadius = theme.radius }) => css`
+  style: ({ isFloating, size, theme, borderRadius = theme.radius }) => css`
     border: 1px solid ${theme.colors.grayLight};
     height: ${theme.heights[size]}px;
     display: block;
@@ -47,8 +47,8 @@ const StyledInput = createComponent({
       css`
         padding-bottom: 0;
       `};
-  `};
-`;
+  `,
+});
 
 const StyledTextArea = StyledInput.withComponent('textarea');
 
@@ -70,7 +70,7 @@ export default class Input extends Component {
     autogrow: PropTypes.bool,
     size: PropTypes.string,
     floating: PropTypes.bool,
-    innerRef: PropTypes.shape(),
+    ref: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -87,7 +87,7 @@ export default class Input extends Component {
     onBlur() {},
     onChange() {},
     floating: false,
-    innerRef: {},
+    ref: {},
   };
 
   state = {
@@ -98,7 +98,7 @@ export default class Input extends Component {
   inputRef = React.createRef();
 
   get ref() {
-    return this.props.innerRef || this.inputRef;
+    return this.props.ref || this.inputRef;
   }
 
   componentDidMount() {
@@ -221,7 +221,7 @@ export default class Input extends Component {
     const inputProps = {
       ...rest,
       id,
-      innerRef: this.ref,
+      ref: this.ref,
       size,
       value: this.state.value,
       onChange: this.onChange,

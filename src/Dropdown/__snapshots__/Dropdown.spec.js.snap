@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown 1`] = `
+.c0 {
+  display: inline-block;
+}
+
+.c1 {
+  font-family: inherit;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-weight: bold;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  pointer-events: auto;
+  opacity: 1;
+  color: white;
+  height: 36px;
+  padding: 0 18px;
+  font-size: 12px;
+  width: auto;
+  background: #2DAAF2;
+  border: 1px solid #2DAAF2;
+  -webkit-transition: 175ms;
+  transition: 175ms;
+}
+
+.c1:hover {
+  background: #45b4f3;
+  border-color: #45b4f3;
+}
+
+.c1:active {
+  background: #51b9f4;
+  border-color: #51b9f4;
+}
+
+<div
+  aria-expanded={false}
+  aria-haspopup="true"
+  className="re-dropdown-trigger c0"
+>
+  <button
+    className="re-button re-button-primary c1"
+    disabled={false}
+    size="md"
+  >
+    Trigger
+  </button>
+</div>
+`;

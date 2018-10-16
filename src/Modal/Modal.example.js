@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from './Modal.jsx';
+import Modal from './Modal';
 import Button from '../Button';
 import Box from '../Box';
 
@@ -28,20 +28,21 @@ export default class ModalDemo extends React.Component {
 
   onConfirm() {
     this.toggle();
+
     setTimeout(() => {
       alert('Yahoo! It has been confirmed.');
     }, 500);
   }
 
   render() {
+    const { body, ...props } = this.props;
+
     return (
       <div>
         <Button onClick={this.toggle}>Open Modal</Button>
 
-        <Modal open={this.state.isModalOpen} onClose={this.toggle}>
-          <Modal.Title>Yodel Modal</Modal.Title>
-
-          <Modal.Body>{this.props.body}</Modal.Body>
+        <Modal open={this.state.isModalOpen} onClose={this.toggle} title="Example Modal" {...props}>
+          <Modal.Body>{body}</Modal.Body>
 
           <Modal.Footer>
             <Box align="right">

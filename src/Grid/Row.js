@@ -6,25 +6,24 @@ import { createComponent } from '../utils';
 
 const getMargin = p => {
   if (p.collapse) return 0;
-  return p.gutter ? p.gutter / 2 : p.theme.grid.gutter / 2;
+  return typeof p.gutter === 'number' ? p.gutter / 2 : p.theme.grid.gutter / 2;
 };
 
 const StyledRow = createComponent({
   name: 'Row',
   as: Flex,
-}).extend`
-  ${p => {
-    const direction = p.vertical ? 'column' : 'row';
+  style: ({ vertical, reverse }) => {
+    const direction = vertical ? 'column' : 'row';
 
     return css`
       flex: 0 1 auto;
-      flex-direction: ${p.reverse ? `${direction}-reverse` : direction};
+      flex-direction: ${reverse ? `${direction}-reverse` : direction};
       flex-wrap: wrap;
       margin-right: -${getMargin}px;
       margin-left: -${getMargin}px;
     `;
-  }}
-`;
+  },
+});
 
 const Row = ({ children, gutter, reverse, collapse, vertical, ...props }) => (
   <StyledRow {...props} gutter={gutter} reverse={reverse} collapse={collapse} vertical={vertical}>

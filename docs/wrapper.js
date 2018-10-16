@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { ThemeProvider } from '../src';
 
 class App extends Component {
