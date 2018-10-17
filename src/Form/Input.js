@@ -87,7 +87,6 @@ export default class Input extends Component {
     onBlur() {},
     onChange() {},
     floating: false,
-    ref: {},
   };
 
   state = {
