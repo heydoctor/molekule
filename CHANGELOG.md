@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.2"></a>
+## [2.1.2](https://github.com/sappira-inc/molekule/compare/v2.1.1...v2.1.2) (2018-10-25)
+
+
+### Bug Fixes
+
+* **Dropdown:** Only call stopPropagation if event exists ([c48b08f](https://github.com/sappira-inc/molekule/commit/c48b08f))
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/sappira-inc/molekule/compare/v2.1.0...v2.1.1) (2018-10-25)
 
