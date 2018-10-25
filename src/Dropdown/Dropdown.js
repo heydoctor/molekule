@@ -108,7 +108,7 @@ export default class Dropdown extends React.Component {
   };
 
   toggle = e => {
-    e.stopPropagation();
+    if (e) e.stopPropagation();
 
     if (this.state.isOpen) {
       this.hide();
