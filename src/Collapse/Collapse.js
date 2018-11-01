@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
-import Transition from 'react-transition-group/Transition';
+import { Transition } from 'react-transition-group';
 import { createComponent } from '../utils';
 
 const getTransitionStyle = (state, duration) => {
