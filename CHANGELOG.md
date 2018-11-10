@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/sappira-inc/molekule/compare/v2.1.3...v2.2.0) (2018-11-10)
+
+
+### Bug Fixes
+
+* Import Transition directly to fix rollup warning ([4fd962e](https://github.com/sappira-inc/molekule/commit/4fd962e))
+* Make Modal and Dropdown styles more consistent ([8b91617](https://github.com/sappira-inc/molekule/commit/8b91617))
+
+
+### Features
+
+* Add Toast component ([2ca4bb3](https://github.com/sappira-inc/molekule/commit/2ca4bb3))
+
+
+
 <a name="2.1.3"></a>
 ## [2.1.3](https://github.com/sappira-inc/molekule/compare/v2.1.1...v2.1.3) (2018-10-31)
 
