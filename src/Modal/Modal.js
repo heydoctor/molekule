@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { keyframes, css } from 'styled-components';
 import * as animations from 'react-animations';
 import Portal from '../Portal';
-import { createComponent } from '../utils';
+import { createComponent, themeGet } from '../utils';
 
 const getAnimation = name => keyframes`${animations[name]}`;
 
@@ -46,8 +46,7 @@ const ModalContent = createComponent({
     background: #ffffff;
     background-clip: padding-box;
     box-shadow: 0 8px 30px rgba(0, 29, 54, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
+    border-radius: ${themeGet('radius')}px;
 
     ${opening &&
       css`
@@ -198,17 +197,28 @@ class Modal extends React.Component {
 
 const ModalHeader = createComponent({
   name: 'ModalHeader',
-  style: ({ theme }) => css`
+  style: css`
     font-size: 1.5rem;
-    border-bottom: 1px solid ${theme.colors.grayLight}
-    padding: 12px 16px;
+    padding: 1rem 1.25rem 0;
+    border-top-left-radius: ${themeGet('radius')}px;
+    border-top-right-radius: ${themeGet('radius')}px;
+  `,
+});
+
+const ModalHeaderInner = createComponent({
+  name: 'ModalHeaderInner',
+  style: ({ theme }) => css`
+    border-bottom: 2px solid ${theme.colors.grayLight};
+    padding-bottom: 0.25rem;
   `,
 });
 
 Modal.Header = ({ title, children }) => (
   <ModalHeader>
-    {title && <Modal.Title>{title}</Modal.Title>}
-    {children}
+    <ModalHeaderInner>
+      {title && <Modal.Title>{title}</Modal.Title>}
+      {children}
+    </ModalHeaderInner>
   </ModalHeader>
 );
 
@@ -224,16 +234,17 @@ Modal.Title = createComponent({
 Modal.Body = createComponent({
   name: 'ModalBody',
   style: css`
-    padding: 16px;
+    padding: 1.25rem;
   `,
 });
 
 Modal.Footer = createComponent({
   name: 'ModalFooter',
   style: ({ theme }) => css`
-    padding: 12px 16px;
+    padding: 1rem 1.25rem;
     background: ${theme.colors.grayLightest};
-    border-top: 1px solid ${theme.colors.grayLight};
+    border-bottom-left-radius: ${themeGet('radius')}px;
+    border-bottom-right-radius: ${themeGet('radius')}px;
   `,
 });
 

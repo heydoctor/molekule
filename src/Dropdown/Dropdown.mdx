@@ -4,7 +4,6 @@ name: Dropdown
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Fragment } from 'react';
 import Dropdown from './Dropdown';
 import Button from '../Button';
 
@@ -22,10 +21,10 @@ Easily display contextual overlays using custom trigger elements. Dropdown's pos
     trigger={<Button variant="success">Open Dropdown</Button>}
   >
     {({ close }) => (
-      <Fragment>
-        <Dropdown.Header title="Dropdown" />
-
+      <>
         <Dropdown.Body>
+          <Dropdown.Header title="Dropdown" />
+
           <Dropdown.SectionTitle>Section One</Dropdown.SectionTitle>
           <Dropdown.Item>Item One</Dropdown.Item>
           <Dropdown.Item>Item Two</Dropdown.Item>
@@ -36,7 +35,7 @@ Easily display contextual overlays using custom trigger elements. Dropdown's pos
         </Dropdown.Body>
 
         <Dropdown.Footer>Footer</Dropdown.Footer>
-      </Fragment>
+      </>
     )}
   </Dropdown>
 </Playground>

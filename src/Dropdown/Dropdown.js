@@ -163,9 +163,20 @@ export default class Dropdown extends React.Component {
 const DropdownHeader = createComponent({
   name: 'DropdownHeader',
   style: css`
-    padding: 8px 12px;
+    padding: 0 0 0.25rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid ${p => p.theme.colors.grayLight};
+  `,
+});
+
+Dropdown.Title = createComponent({
+  name: 'DropdownTitle',
+  tag: 'span',
+  style: css`
+    display: block;
+    font-weight: bold;
     font-size: 1rem;
-    border-bottom: 1px solid ${p => p.theme.colors.grayLight};
+    margin: 0;
   `,
 });
 
@@ -175,17 +186,6 @@ Dropdown.Header = ({ title, children }) => (
     {children}
   </DropdownHeader>
 );
-
-Dropdown.Title = createComponent({
-  name: 'DropdownTitle',
-  tag: 'span',
-  style: css`
-    display: block;
-    font-weight: 500;
-    font-size: 1rem;
-    margin: 0;
-  `,
-});
 
 Dropdown.Body = createComponent({
   name: 'DropdownBody',
@@ -241,6 +241,5 @@ Dropdown.Footer = createComponent({
     background: ${theme.colors.grayLightest};
     padding: 8px 12px;
     border-radius: 0 0 4px 4px;
-    border-top: 1px solid ${theme.colors.grayLight};
   `,
 });
