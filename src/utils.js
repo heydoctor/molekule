@@ -1,6 +1,6 @@
 import { get, kebabCase } from 'lodash';
-import { themeGet as styledThemeGet } from 'styled-system';
 import styled from 'styled-components';
+import { themeGet as styledThemeGet } from 'styled-system';
 
 export const themeGet = styledThemeGet;
 

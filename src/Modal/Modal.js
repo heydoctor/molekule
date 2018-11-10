@@ -15,7 +15,7 @@ const Backdrop = createComponent({
     right: 0;
     bottom: 0;
     z-index: 1000;
-    padding: 12px;
+    padding: 1rem;
     display: flex;
     align-items: center;
     position: fixed;

@@ -2,6 +2,7 @@ import { merge } from 'lodash';
 
 export default (overrides = {}) => {
   const shadow = '0 3px 6px hsla(0,0%,60%,.1), 0 3px 6px hsla(0,0%,60%,.15), 0 -1px 2px hsla(0,0%,60%,.02)';
+  const shadowHover = '0 6px 9px hsla(0,0%,60%,.2), 0 6px 9px hsla(0,0%,60%,.2), 0 -1px 2px hsla(0,0%,60%,.08)';
 
   const colors = merge(
     {
@@ -91,6 +92,7 @@ export default (overrides = {}) => {
     radii,
     radius: 4,
     shadow,
+    shadowHover,
     typography,
     variants,
   };

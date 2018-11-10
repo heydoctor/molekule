@@ -4,7 +4,7 @@ import { css } from 'styled-components';
 import Popper from 'popper.js';
 import Box from '../Box';
 import Portal from '../Portal';
-import { createComponent } from '../utils';
+import { createComponent, themeGet } from '../utils';
 
 const DropdownTrigger = createComponent({
   name: 'DropdownTrigger',
@@ -163,8 +163,14 @@ export default class Dropdown extends React.Component {
 const DropdownHeader = createComponent({
   name: 'DropdownHeader',
   style: css`
+    padding: 0.75rem 1rem 0;
+  `,
+});
+
+const DropdownHeaderInner = createComponent({
+  name: 'DropdownHeaderInner',
+  style: css`
     padding: 0 0 0.25rem;
-    margin-bottom: 0.5rem;
     border-bottom: 2px solid ${p => p.theme.colors.grayLight};
   `,
 });
@@ -182,8 +188,10 @@ Dropdown.Title = createComponent({
 
 Dropdown.Header = ({ title, children }) => (
   <DropdownHeader>
-    {title && <Dropdown.Title>{title}</Dropdown.Title>}
-    {children}
+    <DropdownHeaderInner>
+      {title && <Dropdown.Title>{title}</Dropdown.Title>}
+      {children}
+    </DropdownHeaderInner>
   </DropdownHeader>
 );
 
@@ -191,7 +199,7 @@ Dropdown.Body = createComponent({
   name: 'DropdownBody',
   as: Box,
   style: css`
-    padding: 12px;
+    padding: 1rem;
   `,
 });
 
@@ -216,8 +224,8 @@ Dropdown.Item = createComponent({
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-    margin: 0 -12px;
-    padding: 4px 12px;
+    margin: 0 -1rem;
+    padding: 0.25rem 1rem;
     transition: 125ms background;
 
     & + ${Dropdown.SectionTitle} {
@@ -239,7 +247,7 @@ Dropdown.Footer = createComponent({
   },
   style: ({ theme }) => css`
     background: ${theme.colors.grayLightest};
-    padding: 8px 12px;
-    border-radius: 0 0 4px 4px;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 ${themeGet('radius')}px ${themeGet('radius')}px;
   `,
 });
