@@ -28,3 +28,4 @@ export Spinner from './Spinner';
 export Switch from './Form/Switch';
 export Tabs from './Tabs';
 export ThemeProvider from './ThemeProvider';
+export * from './Toast';
