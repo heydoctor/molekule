@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css, keyframes } from 'styled-components';
-import { space } from 'styled-system';
+import { space, flex } from 'styled-system';
 import { lighten } from 'polished';
 import { getComponentVariant, createComponent } from '../utils';
 
@@ -119,12 +119,39 @@ Button.defaultProps = {
   transparent: false,
 };
 
+const verticalCss = ({ sizes, vertical }) => {
+  const maybeNumber = parseInt(vertical, 10);
+  const fallback = sizes[vertical] || sizes.sm;
+  const breakpoint = Number.isInteger(maybeNumber) ? `${maybeNumber}px` : `${fallback}px`;
+
+  return css`
+    @media (max-width: ${breakpoint}) {
+      flex-direction: column;
+
+      & > *:not(:first-child) {
+        margin: 1rem 0 0;
+      }
+    }
+  `;
+};
+
 Button.Group = createComponent({
   name: 'ButtonGroup',
-  style: css`
+  style: ({
+    vertical = false,
+    theme: {
+      grid: { sizes },
+    },
+  }) => css`
+    display: flex;
+    justify-content: center;
+    ${flex}
+
     & > *:not(:first-child) {
       margin-left: 1rem;
     }
+
+    ${vertical && verticalCss({ sizes, vertical })}
   `,
 });
 
