@@ -17,7 +17,8 @@ export default class RadioGroup extends Component {
     name: PropTypes.string,
     onChange: PropTypes.func,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    color: PropTypes.string,
+    colorOn: PropTypes.string,
+    colorOff: PropTypes.string,
     size: PropTypes.string,
     choices: PropTypes.arrayOf(
       PropTypes.shape({
@@ -31,19 +32,22 @@ export default class RadioGroup extends Component {
   static defaultProps = {
     choices: [],
     onChange() {},
-    color: 'primary',
     size: 'md',
   };
+
+  static getDerivedStateFromProps(props, state) {
+    if (props.value !== undefined && props.value !== state.value) {
+      return {
+        value: props.value,
+      };
+    }
+
+    return null;
+  }
 
   state = {
     value: this.props.value || null,
   };
-
-  componentDidUpdate() {
-    if (this.props.value !== undefined && this.props.value !== this.state.value) {
-      this.handleChange(null, this.props.value);
-    }
-  }
 
   handleChange = (field, value) => {
     // Bail out if value is the same
@@ -55,7 +59,7 @@ export default class RadioGroup extends Component {
   };
 
   render() {
-    const { choices, error, horizontal, label, name, color, size } = this.props;
+    const { choices, error, horizontal, label, name, colorOn, colorOff, size } = this.props;
 
     return (
       <StyledRadioGroup>
@@ -74,7 +78,8 @@ export default class RadioGroup extends Component {
                   name={key}
                   horizontal={horizontal}
                   size={size}
-                  color={color}
+                  colorOn={colorOn}
+                  colorOff={colorOff}
                   label={choiceLabel}
                   value={this.state.value}
                   valueTrue={value}
