@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.3"></a>
+## [2.2.3](https://github.com/sappira-inc/molekule/compare/v2.2.2...v2.2.3) (2018-12-03)
+
+
+### Bug Fixes
+
+* **Formbot:** Update minLength and maxLength error messages ([#8](https://github.com/sappira-inc/molekule/issues/8)) ([ff0f468](https://github.com/sappira-inc/molekule/commit/ff0f468))
+* **RadioGroup, Checkbox:** imlement getDerivedStateFromProps ([#9](https://github.com/sappira-inc/molekule/issues/9)) ([b7c9947](https://github.com/sappira-inc/molekule/commit/b7c9947))
+
+
+
 <a name="2.2.2"></a>
 ## [2.2.2](https://github.com/sappira-inc/molekule/compare/v2.2.1...v2.2.2) (2018-11-15)
 
