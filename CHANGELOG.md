@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.4"></a>
+## [2.2.4](https://github.com/sappira-inc/molekule/compare/v2.2.3...v2.2.4) (2018-12-07)
+
+
+### Bug Fixes
+
+* **Button:** Use correct spinner color for outline buttons ([#11](https://github.com/sappira-inc/molekule/issues/11)) ([badfbc9](https://github.com/sappira-inc/molekule/commit/badfbc9))
+* **Linkify:** remove usage of dangerouslySetInnerHTML ([#10](https://github.com/sappira-inc/molekule/issues/10)) ([0f2da65](https://github.com/sappira-inc/molekule/commit/0f2da65))
+
+
+
 <a name="2.2.3"></a>
 ## [2.2.3](https://github.com/sappira-inc/molekule/compare/v2.2.2...v2.2.3) (2018-12-03)
 
