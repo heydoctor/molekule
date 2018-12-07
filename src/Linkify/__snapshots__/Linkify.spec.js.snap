@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Linkify can receive linkStyle 1`] = `
+Array [
+  "Hello! ",
+  <a
+    href="https://google.com"
+    rel="noopener noreferrer"
+    style={
+      Object {
+        "color": "magenta",
+        "textDecoration": "underline",
+      }
+    }
+    target="_blank"
+  >
+    https://google.com
+  </a>,
+  " is a cool site.",
+]
+`;
+
+exports[`Linkify converts links to anchor tags 1`] = `
+Array [
+  "Hello! ",
+  <a
+    href="https://google.com"
+    rel="noopener noreferrer"
+    style={
+      Object {
+        "color": "inherit",
+        "textDecoration": "underline",
+      }
+    }
+    target="_blank"
+  >
+    https://google.com
+  </a>,
+  " is a cool site.",
+]
+`;
+
+exports[`Linkify escapes HTML entities 1`] = `"<img src=\\"fake.jpg\\" onError={() => {}} alt=\\"hacker\\" /><span>heheh got hacked</span>"`;

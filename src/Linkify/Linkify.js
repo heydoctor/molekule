@@ -1,19 +1,49 @@
 import React from 'react';
-import styled from 'styled-components';
 
-const Container = styled.span`
-  a {
-    color: inherit;
-    text-decoration: underline;
-  }
-`;
+const URL_REGEX = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gi;
 
-const REGEX = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
-
-const parse = string => string.replace(REGEX, url => `<a target="_blank" href="${url}">${url}</a>`);
-
-const Linkify = props => (
-  <Container style={props.style || {}} dangerouslySetInnerHTML={{ __html: parse(props.children) }} />
+const Link = ({ href, linkStyle }) => (
+  <a
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      color: 'inherit',
+      textDecoration: 'underline',
+      ...linkStyle,
+    }}
+    href={href}>
+    {href}
+  </a>
 );
 
-export default Linkify;
+const linkify = ({ children, linkStyle = {} }) =>
+  React.Children.map(children, child => {
+    if (!child) return null;
+
+    if (typeof child === 'string') {
+      const matches = child.match(URL_REGEX);
+
+      if (!matches) {
+        return child;
+      }
+
+      // Clone the string for manipulation
+      let string = `${child}`;
+
+      // Run through the url matches to create our array of string parts and Link components
+      const stringParts = matches.reduce((parts, url) => {
+        const urlStartIndex = string.indexOf(url);
+        const partBeforeUrl = string.substring(0, urlStartIndex);
+        parts.push(partBeforeUrl, <Link href={url} linkStyle={linkStyle} />);
+        string = string.substring(urlStartIndex + url.length);
+        return parts;
+      }, []);
+
+      // Add any leftovers after the last url
+      return [...stringParts, string];
+    }
+
+    return linkify({ children: child.props.children, linkStyle });
+  });
+
+export default props => linkify(props);
