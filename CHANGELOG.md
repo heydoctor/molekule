@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/sappira-inc/molekule/compare/v3.0.0...v3.0.1) (2019-01-28)
+
+
+### Bug Fixes
+
+* **Formbot:** Set field value before validating in onChange handler ([#16](https://github.com/sappira-inc/molekule/issues/16)) ([60a64d1](https://github.com/sappira-inc/molekule/commit/60a64d1))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/sappira-inc/molekule/compare/v2.2.5...v3.0.0) (2019-01-17)
 
