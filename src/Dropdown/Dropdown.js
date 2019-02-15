@@ -15,7 +15,7 @@ const DropdownTrigger = createComponent({
 
 const DropdownMenu = createComponent({
   name: 'DropdownMenu',
-  style: ({ width = 150, theme }) => css`
+  style: ({ width, theme }) => css`
     z-index: 10;
     position: absolute;
     background: white;
@@ -33,15 +33,19 @@ export default class Dropdown extends React.Component {
     render: PropTypes.func,
     autoclose: PropTypes.bool,
     placement: PropTypes.string,
+    offset: PropTypes.string,
     boundariesElement: PropTypes.string,
     on: PropTypes.string,
+    width: PropTypes.number,
   };
 
   static defaultProps = {
     autoclose: true,
+    offset: '0, 10',
     placement: 'bottom-start',
     boundariesElement: 'window',
     on: 'click',
+    width: 150,
   };
 
   triggerRef = React.createRef();
@@ -71,7 +75,7 @@ export default class Dropdown extends React.Component {
   }
 
   show = () => {
-    const { placement, boundariesElement } = this.props;
+    const { placement, boundariesElement, offset } = this.props;
 
     this.setState(
       {
@@ -82,7 +86,7 @@ export default class Dropdown extends React.Component {
           placement,
           modifiers: {
             offset: {
-              offset: '0, 10',
+              offset,
             },
             flip: {
               behavior: ['left', 'bottom', 'top', 'right'],
