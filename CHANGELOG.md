@@ -2,13 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [3.2.1](https://github.com/sappira-inc/molekule/compare/v3.2.0...v3.2.1) (2019-02-26)
+## [3.2.2](https://github.com/sappira-inc/molekule/compare/v3.2.1...v3.2.2) (2019-02-26)
 
 
 ### Bug Fixes
 
-* Add back lodash dependency ([f367575](https://github.com/sappira-inc/molekule/commit/f367575))
-* Bump react peer dependencies ([9c4ec32](https://github.com/sappira-inc/molekule/commit/9c4ec32))
+* Forward input refs, add missing Form export, remove autogrow shadow element from tab order ([#22](https://github.com/sappira-inc/molekule/issues/22)) ([424195d](https://github.com/sappira-inc/molekule/commit/424195d))
 
 
 
