@@ -12,6 +12,7 @@ export Column from './Grid/Column';
 export Container from './Grid/Container';
 export Dropdown from './Dropdown';
 export Field from './Form/Field';
+export Fieldset from './Form/Fieldset';
 export Flex from './Flex';
 export Formbot from './Form/Formbot';
 export FormError from './Form/FormError';
