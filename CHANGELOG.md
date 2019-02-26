@@ -2,12 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-# [3.2.0](https://github.com/sappira-inc/molekule/compare/v3.1.0...v3.2.0) (2019-02-26)
+## [3.2.1](https://github.com/sappira-inc/molekule/compare/v3.2.0...v3.2.1) (2019-02-26)
 
 
-### Features
+### Bug Fixes
 
-* **Formbot:** Support for yup via validationSchema; Add Context provider and EasyInput consumer ([#20](https://github.com/sappira-inc/molekule/issues/20)) ([2e457be](https://github.com/sappira-inc/molekule/commit/2e457be))
+* Add back lodash dependency ([f367575](https://github.com/sappira-inc/molekule/commit/f367575))
+* Bump react peer dependencies ([9c4ec32](https://github.com/sappira-inc/molekule/commit/9c4ec32))
 
 
 
