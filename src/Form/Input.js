@@ -60,6 +60,9 @@ const AutogrowShadow = createComponent({
     position: absolute;
     left: -9999px;
   `,
+  props: () => ({
+    tabIndex: -1,
+  }),
 });
 
 const validateValueProp = (props, propName, componentName) => {
@@ -91,7 +94,7 @@ class Input extends Component {
     autogrow: PropTypes.bool,
     size: PropTypes.string,
     floating: PropTypes.bool,
-    ref: PropTypes.shape(),
+    forwardedRef: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -127,7 +130,7 @@ class Input extends Component {
   inputRef = React.createRef();
 
   get ref() {
-    return this.props.ref || this.inputRef;
+    return this.props.forwardedRef || this.inputRef;
   }
 
   componentDidMount() {
