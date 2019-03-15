@@ -8,7 +8,7 @@ import RadioGroup from './RadioGroup'
 
 # Radio
 
-Form Radio component. Different sizes are available.
+Form Radio component. Both font and icon sizes are configurable.
 
 ## Props
 
@@ -81,6 +81,29 @@ Form Radio component. Different sizes are available.
     ];
     return (
       <RadioGroup colorOn="green" colorOff="red" name="radio" id="radio" choices={radioValues} value='radio2' />
+    )
+  }}
+</Playground>
+
+### Radio Group sizes
+<Playground>
+  {() => {
+    const radioValues = [
+      {
+        id: 1,
+        value: 'radio1',
+        name: 'radio1',
+        label: 'Radio 1',
+      },
+      {
+        id: 2,
+        value: 'radio2',
+        name: 'radio2',
+        label: 'Radio 2',
+      },
+    ];
+    return (
+      <RadioGroup iconSize={10} fontSize={10} name="radio" id="radio" choices={radioValues} styles={{ CheckboxContainer: { margin: 0 }, Label: { marginLeft: 6 } }} />
     )
   }}
 </Playground>

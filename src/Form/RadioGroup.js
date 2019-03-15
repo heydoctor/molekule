@@ -20,7 +20,8 @@ class RadioGroup extends Component {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     colorOn: PropTypes.string,
     colorOff: PropTypes.string,
-    size: PropTypes.string,
+    fontSize: PropTypes.number,
+    iconSize: PropTypes.number,
     choices: PropTypes.arrayOf(
       PropTypes.shape({
         value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
@@ -28,12 +29,17 @@ class RadioGroup extends Component {
         disabled: PropTypes.bool,
       })
     ),
+    styles: PropTypes.shape(),
+    iconOn: PropTypes.string,
+    iconOff: PropTypes.string,
   };
 
   static defaultProps = {
     choices: [],
     onChange() {},
-    size: 'md',
+    styles: {},
+    iconOn: 'radiobox-marked',
+    iconOff: 'radiobox-blank',
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -60,7 +66,7 @@ class RadioGroup extends Component {
   };
 
   render() {
-    const { choices, error, horizontal, label, name, colorOn, colorOff, size } = this.props;
+    const { choices, error, horizontal, label, name, ...checkboxProps } = this.props;
 
     return (
       <StyledRadioGroup>
@@ -74,19 +80,15 @@ class RadioGroup extends Component {
 
               return (
                 <Checkbox
+                  {...checkboxProps}
                   id={key}
                   key={key}
                   name={key}
                   horizontal={horizontal}
-                  size={size}
-                  colorOn={colorOn}
-                  colorOff={colorOff}
                   label={choiceLabel}
                   value={this.state.value}
                   valueTrue={value}
                   valueFalse={value}
-                  iconOn="radiobox-marked"
-                  iconOff="radiobox-blank"
                   onChange={this.handleChange}
                 />
               );

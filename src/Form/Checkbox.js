@@ -61,6 +61,7 @@ class Checkbox extends React.Component {
     color: PropTypes.string,
     horizontal: PropTypes.bool,
     disabled: PropTypes.bool,
+    styles: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -75,6 +76,7 @@ class Checkbox extends React.Component {
     horizontal: false,
     onChange() {},
     disabled: false,
+    styles: {},
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -124,11 +126,12 @@ class Checkbox extends React.Component {
       colorOff,
       horizontal,
       disabled,
+      styles,
     } = this.props;
     const { checked } = this;
 
     return (
-      <CheckboxContainer horizontal={horizontal}>
+      <CheckboxContainer horizontal={horizontal} style={styles.CheckboxContainer}>
         <StyledInput
           id={id}
           name={name}
@@ -141,7 +144,7 @@ class Checkbox extends React.Component {
         <Flex alignItems="center">
           <StyledIcon size={iconSize} color={checked ? colorOn : colorOff} name={checked ? iconOn : iconOff} />
 
-          {label && <StyledLabel fontSize={fontSize}>{label}</StyledLabel>}
+          {label && <StyledLabel fontSize={fontSize} style={styles.Label}>{label}</StyledLabel>}
         </Flex>
 
         {!this.state.focused && error ? <FormError>{error}</FormError> : null}
