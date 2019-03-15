@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/sappira-inc/molekule/compare/v3.2.2...v3.3.0) (2019-03-15)
+
+
+### Bug Fixes
+
+* **Input:** allow forwardedRef to be a function ([#29](https://github.com/sappira-inc/molekule/issues/29)) ([1f4aeb6](https://github.com/sappira-inc/molekule/commit/1f4aeb6))
+* **utils:** Make themeGet curry ([#23](https://github.com/sappira-inc/molekule/issues/23)) ([ac4a936](https://github.com/sappira-inc/molekule/commit/ac4a936))
+
+
+### Features
+
+* **Modal:** Use Transition to simplify animation; Add close button; Convert to hooks ([#24](https://github.com/sappira-inc/molekule/issues/24)) ([4e0f374](https://github.com/sappira-inc/molekule/commit/4e0f374))
+
+
+
 <a name="3.2.2"></a>
 ## [3.2.2](https://github.com/sappira-inc/molekule/compare/v3.2.1...v3.2.2) (2019-02-26)
 
