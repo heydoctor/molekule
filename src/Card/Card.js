@@ -15,7 +15,7 @@ const StyledCard = createComponent({
   `,
 });
 
-const Card = props => <StyledCard {...props} />;
+const Card = React.forwardRef((props, ref) => <StyledCard ref={ref} {...props} />);
 
 Card.propTypes = {
   shadow: PropTypes.bool,
