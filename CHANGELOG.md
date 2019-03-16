@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.1"></a>
+## [3.3.1](https://github.com/sappira-inc/molekule/compare/v3.3.0...v3.3.1) (2019-03-16)
+
+
+### Bug Fixes
+
+* **Card:** forwardRef to Card ([#26](https://github.com/sappira-inc/molekule/issues/26)) ([0a3d976](https://github.com/sappira-inc/molekule/commit/0a3d976))
+* **Input:** fix syntax error ([#30](https://github.com/sappira-inc/molekule/issues/30)) ([113dc63](https://github.com/sappira-inc/molekule/commit/113dc63))
+
+
+
 <a name="3.3.0"></a>
 # [3.3.0](https://github.com/sappira-inc/molekule/compare/v3.2.2...v3.3.0) (2019-03-15)
 
