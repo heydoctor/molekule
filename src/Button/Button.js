@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css, keyframes } from 'styled-components';
-import { space, flex } from 'styled-system';
+import { space } from 'styled-system';
 import { lighten } from 'polished';
 import { getComponentVariant, createComponent } from '../utils';
 import Flex from '../Flex';
@@ -98,7 +98,7 @@ const StyledButton = createComponent({
   },
 });
 
-const Button = props => <StyledButton {...props} />;
+const Button = React.forwardRef((props, ref) => <StyledButton {...props} ref={ref} />);
 
 Button.propTypes = {
   variant: PropTypes.string,
