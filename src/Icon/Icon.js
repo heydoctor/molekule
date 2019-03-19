@@ -1,18 +1,20 @@
-import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import { createComponent } from '../utils';
 
-const StyledIcon = createComponent({
+const Icon = createComponent({
   name: 'Icon',
   tag: 'i',
+  props: ({ name, className }) => ({
+    className: `${Icon.getClassName(name)} ${className || ''}`,
+  }),
   style: ({ theme, size, color, disabled }) => {
     const colorFromTheme = theme.colors[color];
     const resolvedColor = colorFromTheme || color;
 
     return css`
       color: ${resolvedColor || 'inherit'};
-      font-size: ${`${size}px` || 'inherit'};
+      font-size: ${size ? `${size}px` : 'inherit'};
 
       ${disabled &&
         css`
@@ -23,23 +25,13 @@ const StyledIcon = createComponent({
   },
 });
 
-class Icon extends React.Component {
-  static iconPrefix = 'mdi';
-  static getIconClassName(name) {
-    return `${this.iconPrefix} ${this.iconPrefix}-${name}`;
-  }
-
-  render() {
-    const { name, className = '', ...props } = this.props;
-
-    return <StyledIcon {...props} className={`${this.constructor.getIconClassName(name)} ${className}`} />;
-  }
-}
-
 Icon.propTypes = {
-  name: Proptypes.string.isRequired,
-  size: Proptypes.number,
-  color: Proptypes.string,
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number,
+  color: PropTypes.string,
 };
+
+Icon.iconPrefix = 'mdi';
+Icon.getClassName = name => `${Icon.iconPrefix} ${Icon.iconPrefix}-${name}`;
 
 export default Icon;
