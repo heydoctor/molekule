@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.4.1"></a>
+## [3.4.1](https://github.com/sappira-inc/molekule/compare/v3.4.0...v3.4.1) (2019-03-19)
+
+
+### Bug Fixes
+
+* **Icon:** Wrap in forwardRef to be used as Dropdown trigger ([#31](https://github.com/sappira-inc/molekule/issues/31)) ([a64d015](https://github.com/sappira-inc/molekule/commit/a64d015))
+
+
+
 <a name="3.4.0"></a>
 # [3.4.0](https://github.com/sappira-inc/molekule/compare/v3.3.1...v3.4.0) (2019-03-18)
 
