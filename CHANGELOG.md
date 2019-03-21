@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.4.2"></a>
+## [3.4.2](https://github.com/sappira-inc/molekule/compare/v3.4.1...v3.4.2) (2019-03-21)
+
+
+### Bug Fixes
+
+* **Collapse:** Set final height in onEntered callback ([#32](https://github.com/sappira-inc/molekule/issues/32)) ([63115c1](https://github.com/sappira-inc/molekule/commit/63115c1))
+
+
+
 <a name="3.4.1"></a>
 ## [3.4.1](https://github.com/sappira-inc/molekule/compare/v3.4.0...v3.4.1) (2019-03-19)
 
