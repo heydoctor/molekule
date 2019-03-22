@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.4.3"></a>
+## [3.4.3](https://github.com/sappira-inc/molekule/compare/v3.4.2...v3.4.3) (2019-03-22)
+
+
+### Bug Fixes
+
+* **Dropdown:** Configure <Dropdown.Trigger/> style ([#33](https://github.com/sappira-inc/molekule/issues/33)) ([a0dce63](https://github.com/sappira-inc/molekule/commit/a0dce63))
+
+
+
 <a name="3.4.2"></a>
 ## [3.4.2](https://github.com/sappira-inc/molekule/compare/v3.4.1...v3.4.2) (2019-03-21)
 
