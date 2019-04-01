@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import Field from './Field';
@@ -9,8 +9,8 @@ import Label from './Label';
 import { createEasyInput } from './EasyInput';
 import { createComponent } from '../utils';
 
-const SelectContain = createComponent({
-  name: 'Select',
+const SelectContainer = createComponent({
+  name: 'SelectContainer',
   as: Flex,
   style: ({ size, theme, value, borderRadius = theme.radius }) => css`
     background: white;
@@ -18,7 +18,6 @@ const SelectContain = createComponent({
     height: ${theme.heights[size]}px;
     outline: none;
     width: 100%;
-    padding: 0.5rem;
     position: relative;
     border-radius: ${borderRadius}px;
     transition: 250ms all;
@@ -34,27 +33,37 @@ const SelectContain = createComponent({
           color: ${p => p.theme.colors.grayMid};
         }
       `};
-
-    select {
-      position: relative;
-      z-index: 2;
-      outline: none;
-      width: 100%;
-      font-size: ${p => p.theme.fontSizes[p.size]}px;
-      background: transparent;
-      border: none;
-      -webkit-appearance: none;
-    }
   `,
 });
 
-const IconContain = styled(Flex)`
+const IconContainer = styled(Flex)`
   position: absolute;
   height: 100%;
   right: 0;
   top: 0;
   z-index: 1;
 `;
+
+const SelectInput = createComponent({
+  name: 'Select',
+  tag: 'select',
+  style: ({ theme, size }) => css`
+    position: relative;
+    z-index: 2;
+    padding: 0 8px;
+    outline: none;
+    width: 100%;
+    font-size: ${theme.fontSizes[size]}px;
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+  `,
+});
+
+const SelectOption = createComponent({
+  name: 'SelectOption',
+  tag: 'option',
+});
 
 class Select extends Component {
   static propTypes = {
@@ -67,12 +76,12 @@ class Select extends Component {
     onBlur: PropTypes.func,
     size: PropTypes.string,
     label: PropTypes.string,
-  }
+  };
 
   static defaultProps = {
     onChange() {},
     onBlur() {},
-  }
+  };
 
   static getDerivedStateFromProps(props, state) {
     if (props.value !== undefined && props.value !== state.value) {
@@ -84,17 +93,23 @@ class Select extends Component {
   }
 
   state = {
-    value: "",
+    value: '',
   };
+
+  innerRef = createRef();
+
+  get ref() {
+    return this.props.forwardedRef || this.innerRef;
+  }
 
   handleChange = e => {
     this.setState({ value: e.target.value });
     this.props.onChange(e.target.name, e.target.value);
-  }
+  };
 
   handleBlur = e => {
-    this.props.onBlur(e.target.name)
-  }
+    this.props.onBlur(e.target.name);
+  };
 
   render() {
     const { id, name, options, placeholder, error, size = 'md', label, ...props } = this.props;
@@ -103,26 +118,28 @@ class Select extends Component {
     return (
       <Field>
         {label && <Label size={size}>{label}</Label>}
-        <SelectContain value={value} size={size}>
-          <select
+        <SelectContainer value={value} size={size}>
+          <SelectInput
+            {...props}
+            ref={this.ref}
             name={name}
             value={value}
             onChange={this.handleChange}
             onBlur={this.handleBlur}>
-            <option value="">{placeholder || 'Select an option...'}</option>
+            <SelectOption value="">{placeholder || 'Select an option...'}</SelectOption>
             {options.map(option => (
-              <option key={option.value} value={option.value}>
+              <SelectOption key={option.value} value={option.value}>
                 {option.label}
-              </option>
+              </SelectOption>
             ))}
-          </select>
-          <IconContain mr={2} alignItems="center" justifyContent="center">
+          </SelectInput>
+          <IconContainer aria-hidden="true" mr={2} alignItems="center" justifyContent="center">
             <Icon name="chevron-down" size={18} />
-          </IconContain>
-        </SelectContain>
+          </IconContainer>
+        </SelectContainer>
         {error && <FormError>{error}</FormError>}
       </Field>
-    )
+    );
   }
 }
 
