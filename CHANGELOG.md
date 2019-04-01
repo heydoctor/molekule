@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.0"></a>
+# [3.5.0](https://github.com/sappira-inc/molekule/compare/v3.4.3...v3.5.0) (2019-04-01)
+
+
+### Bug Fixes
+
+* **Icon:** Prevent passed className from being overwritten ([#35](https://github.com/sappira-inc/molekule/issues/35)) ([ebfca7a](https://github.com/sappira-inc/molekule/commit/ebfca7a))
+
+
+### Features
+
+* **Form:** Add <PhoneInput /> and <DateInput />; Clean up <Select /> ([#34](https://github.com/sappira-inc/molekule/issues/34)) ([801047a](https://github.com/sappira-inc/molekule/commit/801047a))
+
+
+
 <a name="3.4.3"></a>
 ## [3.4.3](https://github.com/sappira-inc/molekule/compare/v3.4.2...v3.4.3) (2019-03-22)
 
