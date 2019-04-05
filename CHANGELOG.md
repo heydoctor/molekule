@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **DateInput:** Export PhoneInput and DateInput; Add initialValue prop to DateInput ([#36](https://github.com/sappira-inc/molekule/issues/36)) ([dfc949e](https://github.com/sappira-inc/molekule/commit/dfc949e))
+* **DateInput:** Export PhoneInput and DateInput and initialValue prop to DateInput ([#36](https://github.com/sappira-inc/molekule/issues/36)) ([dfc949e](https://github.com/sappira-inc/molekule/commit/dfc949e))
 
 
 
@@ -23,7 +23,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **Form:** Add <PhoneInput /> and <DateInput />; Clean up <Select /> ([#34](https://github.com/sappira-inc/molekule/issues/34)) ([801047a](https://github.com/sappira-inc/molekule/commit/801047a))
+* **Form:** Add `PhoneInput`/`DateInput` components and clean up `Select` component ([#34](https://github.com/sappira-inc/molekule/issues/34)) ([801047a](https://github.com/sappira-inc/molekule/commit/801047a))
 
 
 
@@ -33,7 +33,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **Dropdown:** Configure <Dropdown.Trigger/> style ([#33](https://github.com/sappira-inc/molekule/issues/33)) ([a0dce63](https://github.com/sappira-inc/molekule/commit/a0dce63))
+* **Dropdown:** Configure `Dropdown.Trigger` style ([#33](https://github.com/sappira-inc/molekule/issues/33)) ([a0dce63](https://github.com/sappira-inc/molekule/commit/a0dce63))
 
 
 
