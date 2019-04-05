@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.1"></a>
+## [3.5.1](https://github.com/sappira-inc/molekule/compare/v3.5.0...v3.5.1) (2019-04-05)
+
+
+### Bug Fixes
+
+* **DateInput:** Export PhoneInput and DateInput; Add initialValue prop to DateInput ([#36](https://github.com/sappira-inc/molekule/issues/36)) ([dfc949e](https://github.com/sappira-inc/molekule/commit/dfc949e))
+
+
+
 <a name="3.5.0"></a>
 # [3.5.0](https://github.com/sappira-inc/molekule/compare/v3.4.3...v3.5.0) (2019-04-01)
 
