@@ -26,6 +26,7 @@ export Linkify from './Linkify';
 export Modal from './Modal';
 export PhoneInput from './Form/PhoneInput';
 export Placeholder from './Placeholder';
+export Portal from './Portal';
 export RadioGroup from './Form/RadioGroup';
 export Row from './Grid/Row';
 export Select from './Form/Select';
