@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.2"></a>
+## [3.5.2](https://github.com/sappira-inc/molekule/compare/v3.5.1...v3.5.2) (2019-04-09)
+
+
+### Bug Fixes
+
+* **Portal:** export Portal component ([#37](https://github.com/sappira-inc/molekule/issues/37)) ([2ad6925](https://github.com/sappira-inc/molekule/commit/2ad6925))
+
+
+
 <a name="3.5.1"></a>
 ## [3.5.1](https://github.com/sappira-inc/molekule/compare/v3.5.0...v3.5.1) (2019-04-05)
 
