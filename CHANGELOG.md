@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.3"></a>
+## [3.5.3](https://github.com/sappira-inc/molekule/compare/v3.5.2...v3.5.3) (2019-04-16)
+
+
+### Bug Fixes
+
+* **Linkify:** Skip code block formatting ([#38](https://github.com/sappira-inc/molekule/issues/38)) ([620e40f](https://github.com/sappira-inc/molekule/commit/620e40f))
+
+
+
 <a name="3.5.2"></a>
 ## [3.5.2](https://github.com/sappira-inc/molekule/compare/v3.5.1...v3.5.2) (2019-04-09)
 
