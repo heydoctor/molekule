@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.4"></a>
+## [3.5.4](https://github.com/sappira-inc/molekule/compare/v3.5.3...v3.5.4) (2019-04-24)
+
+
+### Bug Fixes
+
+* **PhoneInput:** Cast null to empty string ([#40](https://github.com/sappira-inc/molekule/issues/40)) ([c311c6c](https://github.com/sappira-inc/molekule/commit/c311c6c))
+
+
+
 <a name="3.5.3"></a>
 ## [3.5.3](https://github.com/sappira-inc/molekule/compare/v3.5.2...v3.5.3) (2019-04-16)
 
