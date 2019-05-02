@@ -6,6 +6,7 @@ name: Modal
 import { Playground, PropsTable } from 'docz'
 import Modal from './Modal'
 import ModalExample from './Modal.example'
+import ModalDropdownExample from './Modal.dropdownexample'
 
 # Modal
 
@@ -28,4 +29,12 @@ When modals become too long for the user’s viewport or device, they scroll ind
 
 <Playground>
   <ModalExample body={<div>{new Array(50).fill(null).map((_, i) => <p key={i}>I'm really long annoying content.</p>)}</div>} />
+</Playground>
+
+## Handling Dropdown Triggered Content
+
+When modals are triggered by dropdowns with returnFocus set to true, modals still receive focus. 
+
+<Playground>
+  <ModalDropdownExample body="I'm triggered by a dropdown" />
 </Playground>
