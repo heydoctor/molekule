@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.5"></a>
+## [3.5.5](https://github.com/sappira-inc/molekule/compare/v3.5.4...v3.5.5) (2019-05-09)
+
+
+### Bug Fixes
+
+* **Modal:** Lock focus ([#41](https://github.com/sappira-inc/molekule/issues/41)) ([9e7b7d3](https://github.com/sappira-inc/molekule/commit/9e7b7d3))
+
+
+
 <a name="3.5.4"></a>
 ## [3.5.4](https://github.com/sappira-inc/molekule/compare/v3.5.3...v3.5.4) (2019-04-24)
 
