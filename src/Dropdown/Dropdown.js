@@ -52,6 +52,8 @@ export default function Dropdown({
 }) {
   const popperRef = useRef();
   const menuRef = useRef();
+  const triggerRef = useRef();
+
   const [isOpen, setOpen] = useState(false);
 
   const open = () => setOpen(true);
@@ -62,6 +64,7 @@ export default function Dropdown({
     // Allow all clicks and, for non-button elements, Enter and Space to toggle Dropdown
     // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Required_JavaScript_Features
     if (e.type === 'click' || (e.type === 'keypress' && (e.which === 13 || e.which === 32))) {
+      e.preventDefault();
       e.stopPropagation();
       toggle();
     }
@@ -71,13 +74,14 @@ export default function Dropdown({
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
-        menuRef.current.focus();
+        if (menuRef.current) menuRef.current.focus();
       });
     }
   }, [isOpen]);
 
   useKeyPress('Escape', () => {
     if (isOpen) {
+      if (triggerRef.current) triggerRef.current.focus();
       close();
     }
   });
@@ -95,16 +99,9 @@ export default function Dropdown({
     }
   });
 
-  const handleMenuBlur = () => {
-    if (autoclose) {
-      // Use timeout to delay examination of activeElement until after blur/focus
-      // events have been processed.
-      setTimeout(() => {
-        const nextActiveElement = document.activeElement;
-        if (menuRef.current && !menuRef.current.contains(nextActiveElement)) {
-          close();
-        }
-      });
+  const handleMenuBlur = e => {
+    if (autoclose && menuRef.current && !menuRef.current.contains(e.relatedTarget)) {
+      close();
     }
   };
 
@@ -114,8 +111,8 @@ export default function Dropdown({
     <DropdownContext.Provider value={{ close }}>
       <Manager>
         <Reference>
-          {({ ref: triggerRef }) => (
-            <Trigger style={styles.Trigger} ref={triggerRef} tabIndex={-1}>
+          {({ ref: passedTriggerRef }) => (
+            <Trigger style={styles.Trigger} ref={passedTriggerRef} tabIndex={-1}>
               {React.cloneElement(trigger, {
                 role: trigger.role || 'button',
                 tabIndex: trigger.tabIndex || 0,
@@ -123,6 +120,7 @@ export default function Dropdown({
                 'aria-expanded': isOpen,
                 onClick: handleTrigger,
                 onKeyPress: handleTrigger,
+                ref: triggerRef,
                 style: {
                   cursor: 'pointer',
                   ...(trigger.style || {}),
@@ -155,7 +153,7 @@ export default function Dropdown({
               {({ ref, style }) => (
                 <Transition in={isOpen} timeout={0} appear>
                   {state => (
-                    <FocusTrap returnFocus autoFocus={false}>
+                    <FocusTrap autoFocus={false}>
                       <DropdownMenu
                         ref={menuInner => {
                           menuRef.current = menuInner;

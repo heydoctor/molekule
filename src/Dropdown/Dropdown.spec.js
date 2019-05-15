@@ -67,6 +67,7 @@ describe('<Dropdown />', () => {
     expect(renderUtils.asFragment()).toMatchSnapshot();
   });
 
+  // TODO: add cases for space and enter keypress events
   test('opens menu with focus when trigger is clicked', async () => {
     await openDropdown();
     expect(renderUtils.asFragment()).toMatchSnapshot();
@@ -88,9 +89,7 @@ describe('<Dropdown />', () => {
 
     // Some issues with fireEvent.focus: https://github.com/kentcdodds/react-testing-library/issues/276#issuecomment-473392827
     renderUtils.wrapper.focus();
-    renderUtils.getByTestId('dropdown-menu').blur();
 
-    await waitForDomChange();
     await assertDropdownClosed();
 
     console.error = ogError;
