@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.6"></a>
+## [3.5.6](https://github.com/sappira-inc/molekule/compare/v3.5.5...v3.5.6) (2019-05-15)
+
+
+### Bug Fixes
+
+* **Dropdown:** Remove timeouts, Fix ref bug ([#42](https://github.com/sappira-inc/molekule/issues/42)) ([85590cf](https://github.com/sappira-inc/molekule/commit/85590cf))
+
+
+
 <a name="3.5.5"></a>
 ## [3.5.5](https://github.com/sappira-inc/molekule/compare/v3.5.4...v3.5.5) (2019-05-09)
 
