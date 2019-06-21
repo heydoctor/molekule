@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.5.7"></a>
+## [3.5.7](https://github.com/sappira-inc/molekule/compare/v3.5.6...v3.5.7) (2019-06-21)
+
+
+### Bug Fixes
+
+* **Dropdown:** Fix SSR by removing direct reference to Element in prop types ([#43](https://github.com/sappira-inc/molekule/issues/43)) ([ce080cf](https://github.com/sappira-inc/molekule/commit/ce080cf))
+
+
+
 <a name="3.5.6"></a>
 ## [3.5.6](https://github.com/sappira-inc/molekule/compare/v3.5.5...v3.5.6) (2019-05-15)
 
