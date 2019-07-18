@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/sappira-inc/molekule/compare/v3.5.7...v4.0.0) (2019-07-18)
+
+
+### Features
+
+* Checkbox color updates & Extending theme based styling to variants ([#46](https://github.com/sappira-inc/molekule/issues/46)) ([6f3569f](https://github.com/sappira-inc/molekule/commit/6f3569f))
+
+
+
 <a name="3.5.7"></a>
 ## [3.5.7](https://github.com/sappira-inc/molekule/compare/v3.5.6...v3.5.7) (2019-06-21)
 
