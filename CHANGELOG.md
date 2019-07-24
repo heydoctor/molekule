@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/sappira-inc/molekule/compare/v4.0.0...v4.1.0) (2019-07-24)
+
+
+### Features
+
+* **Dropdown:** Add support for string widths ([#47](https://github.com/sappira-inc/molekule/issues/47)) ([a907cce](https://github.com/sappira-inc/molekule/commit/a907cce))
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/sappira-inc/molekule/compare/v3.5.7...v4.0.0) (2019-07-18)
 
