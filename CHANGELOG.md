@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.1"></a>
+## [4.1.1](https://github.com/sappira-inc/molekule/compare/v4.1.0...v4.1.1) (2019-07-26)
+
+
+### Bug Fixes
+
+* **Formbot:** Validate fields when setting state directly ([#48](https://github.com/sappira-inc/molekule/issues/48)) ([944fdd1](https://github.com/sappira-inc/molekule/commit/944fdd1))
+
+
+
 <a name="4.1.0"></a>
 # [4.1.0](https://github.com/sappira-inc/molekule/compare/v4.0.0...v4.1.0) (2019-07-24)
 
