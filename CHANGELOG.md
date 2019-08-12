@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.3"></a>
+## [4.1.3](https://github.com/heydoctor/molekule/compare/v3.5.4...v4.1.3) (2019-08-12)
+
+
+### Bug Fixes
+
+* **Dropdown:** Fix SSR by removing direct reference to Element in prop types ([#43](https://github.com/heydoctor/molekule/issues/43)) ([ce080cf](https://github.com/heydoctor/molekule/commit/ce080cf))
+* **Dropdown:** Remove timeouts, Fix ref bug ([#42](https://github.com/heydoctor/molekule/issues/42)) ([85590cf](https://github.com/heydoctor/molekule/commit/85590cf))
+* **Formbot:** Validate fields when setting state directly ([#48](https://github.com/heydoctor/molekule/issues/48)) ([944fdd1](https://github.com/heydoctor/molekule/commit/944fdd1))
+* **Input:** Display floating input label if value is not undefined ([#50](https://github.com/heydoctor/molekule/issues/50)) ([259cd6f](https://github.com/heydoctor/molekule/commit/259cd6f))
+* **Modal:** Lock focus ([#41](https://github.com/heydoctor/molekule/issues/41)) ([9e7b7d3](https://github.com/heydoctor/molekule/commit/9e7b7d3))
+
+
+### Features
+
+* Checkbox color updates & Extending theme based styling to variants ([#46](https://github.com/heydoctor/molekule/issues/46)) ([6f3569f](https://github.com/heydoctor/molekule/commit/6f3569f))
+* **Dropdown:** Add support for string widths ([#47](https://github.com/heydoctor/molekule/issues/47)) ([a907cce](https://github.com/heydoctor/molekule/commit/a907cce))
+
+
+
 <a name="4.1.2"></a>
 ## [4.1.2](https://github.com/sappira-inc/molekule/compare/v4.1.1...v4.1.2) (2019-08-01)
 
