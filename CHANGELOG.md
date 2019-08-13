@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.4"></a>
+## [4.1.4](https://github.com/heydoctor/molekule/compare/v4.1.3...v4.1.4) (2019-08-13)
+
+
+### Bug Fixes
+
+* **validations:** Fix handling of async validations as well as order of onChange notification ([#57](https://github.com/heydoctor/molekule/issues/57)) ([9183b3a](https://github.com/heydoctor/molekule/commit/9183b3a))
+
+
+
 <a name="4.1.3"></a>
 ## [4.1.3](https://github.com/heydoctor/molekule/compare/v3.5.4...v4.1.3) (2019-08-12)
 
