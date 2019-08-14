@@ -74,17 +74,18 @@ export default class Formbot extends React.Component {
     }));
   }
 
-  setValues(values = {}) {
-    this.setState(
-      {
-        values: {
-          ...this.state.values,
-          ...values,
-        },
-      },
-      this.validateAllFields
-    );
-  }
+  setValues = (values = {}) =>
+    new Promise(resolve => {
+      this.setState(
+        state => ({
+          values: {
+            ...state.values,
+            ...values,
+          },
+        }),
+        () => this.validateAllFields().then(resolve)
+      );
+    });
 
   setErrors = (errors = {}, cb) =>
     this.setState(
@@ -97,24 +98,21 @@ export default class Formbot extends React.Component {
       cb
     );
 
-  updateField(field, updates = {}) {
-    return new Promise(resolve => {
-      const fieldState = this.state.fields[field] || {};
-
+  updateField = (field, updates = {}) =>
+    new Promise(resolve => {
       this.setState(
-        {
+        state => ({
           fields: {
-            ...this.state.fields,
+            ...state.fields,
             [field]: {
-              ...fieldState,
+              ...state.fields[field],
               ...updates,
             },
           },
-        },
+        }),
         resolve
       );
     });
-  }
 
   reset = () => {
     this.setState({
@@ -148,7 +146,8 @@ export default class Formbot extends React.Component {
       let errorMsg;
 
       if (hasSchema && typeof validation.validate === 'function') {
-        validation.validate(fieldValue, validationOpts)
+        validation
+          .validate(fieldValue, validationOpts)
           .catch(e => {
             errorMsg = e.message;
           })
@@ -156,7 +155,7 @@ export default class Formbot extends React.Component {
             this.updateField(field, { validated: true }).then(() => {
               this.setErrors({ [field]: errorMsg }, resolve);
             });
-          })
+          });
 
         return;
       }
@@ -201,16 +200,16 @@ export default class Formbot extends React.Component {
 
   onChange = (field, value) => {
     this.setState(
-      {
+      state => ({
         values: {
-          ...this.state.values,
+          ...state.values,
           [field]: value,
         },
-      },
+      }),
       () => {
         this.updateField(field, { validated: false })
           .then(() => this.validateField(field))
-          .then(() => this.props.onChange(field, value, this.state.values))
+          .then(() => this.props.onChange(field, value, this.state.values));
       }
     );
   };
