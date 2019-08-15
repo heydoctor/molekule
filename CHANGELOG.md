@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.6"></a>
+## [4.1.6](https://github.com/heydoctor/molekule/compare/v4.1.5...v4.1.6) (2019-08-15)
+
+
+### Bug Fixes
+
+* **FormError:** Fix crash in case context is null ([#59](https://github.com/heydoctor/molekule/issues/59)) ([8a15f84](https://github.com/heydoctor/molekule/commit/8a15f84))
+
+
+
 <a name="4.1.5"></a>
 ## [4.1.5](https://github.com/heydoctor/molekule/compare/v4.1.4...v4.1.5) (2019-08-14)
 
