@@ -70,7 +70,7 @@ const SelectOption = createComponent({
   tag: 'option',
 });
 
-class Select extends Component {
+export class Select extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     options: PropTypes.array.isRequired,
