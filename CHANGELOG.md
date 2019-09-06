@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.0"></a>
+# [5.0.0-beta.0](https://github.com/sappira-inc/molekule/compare/v4.1.7...v5.0.0-beta.0) (2019-09-06)
+
+
+### Features
+
+* **Badge:** Padding and default size ([#67](https://github.com/sappira-inc/molekule/issues/67)) ([bf2d745](https://github.com/sappira-inc/molekule/commit/bf2d745))
+* **Button:** Icon support and default style updates ([#51](https://github.com/sappira-inc/molekule/issues/51)) ([dc7809d](https://github.com/sappira-inc/molekule/commit/dc7809d))
+* **Colors:** Updates colors ([#60](https://github.com/sappira-inc/molekule/issues/60)) ([9d18867](https://github.com/sappira-inc/molekule/commit/9d18867))
+* Add Storybook and component stories ([#69](https://github.com/sappira-inc/molekule/issues/69)) ([b9378ba](https://github.com/sappira-inc/molekule/commit/b9378ba))
+* **Dropdown:** Style updates ([#68](https://github.com/sappira-inc/molekule/issues/68)) ([ca36b19](https://github.com/sappira-inc/molekule/commit/ca36b19))
+* **Input:** `isFocused` state and icon support ([#49](https://github.com/sappira-inc/molekule/issues/49)) ([2760d89](https://github.com/sappira-inc/molekule/commit/2760d89))
+* **Modal:** Accessibility updates, width constraint ([#52](https://github.com/sappira-inc/molekule/issues/52)) ([d39834c](https://github.com/sappira-inc/molekule/commit/d39834c))
+* **Switch:** Style Updates ([#70](https://github.com/sappira-inc/molekule/issues/70)) ([40eeffb](https://github.com/sappira-inc/molekule/commit/40eeffb))
+
+
+
 <a name="4.1.7"></a>
 ## [4.1.7](https://github.com/sappira-inc/molekule/compare/v4.1.6...v4.1.7) (2019-08-21)
 
