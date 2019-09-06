@@ -6,8 +6,9 @@ import { Manager, Reference, Popper } from 'react-popper';
 import { css, keyframes } from 'styled-components';
 import Box from '../Box';
 import Portal from '../Portal';
+import Icon from '../Icon';
 import { useKeyPress } from '../hooks';
-import { createComponent, themeGet, findNextFocusableElement, findPreviousFocusableElement } from '../utils';
+import { createComponent, findNextFocusableElement, findPreviousFocusableElement } from '../utils';
 
 const DropdownContext = React.createContext({});
 
@@ -238,6 +239,7 @@ const DropdownMenu = createComponent({
     opacity: 0.75;
     transform: scale(0.75);
     transform-origin: ${PLACEMENT_TRANSITION_ORIGINS[placement]};
+    padding: 8px;
 
     ${(transitionState === 'entering' || transitionState === 'entered') &&
       css`
@@ -246,57 +248,25 @@ const DropdownMenu = createComponent({
   `,
 });
 
-const DropdownHeader = createComponent({
-  name: 'DropdownHeader',
-  tag: 'header',
-  style: css`
-    padding: 0.75rem 1rem 0;
-  `,
-});
-
-const DropdownHeaderInner = createComponent({
-  name: 'DropdownHeaderInner',
-  style: css`
-    padding: 0 0 0.25rem;
-    border-bottom: 2px solid ${p => p.theme.colors.greyLight};
+Dropdown.Divider = createComponent({
+  name: 'DropdownDivider',
+  tag: 'hr',
+  style: ({ theme }) => css`
+    background: ${theme.colors.greyLight};
+    height: 1px;
+    border: 0;
+    margin-left: -8px;
+    margin-right: -8px;
   `,
 });
 
 Dropdown.Title = createComponent({
   name: 'DropdownTitle',
   tag: 'span',
-  style: css`
-    display: block;
-    font-weight: bold;
-    font-size: 1rem;
-    margin: 0;
-  `,
-});
-
-Dropdown.Header = ({ title, children }) => (
-  <DropdownHeader>
-    <DropdownHeaderInner>
-      {title && <Dropdown.Title>{title}</Dropdown.Title>}
-      {children}
-    </DropdownHeaderInner>
-  </DropdownHeader>
-);
-
-Dropdown.Body = createComponent({
-  name: 'DropdownBody',
-  as: Box,
-  style: css`
-    padding: 1rem;
-  `,
-});
-
-Dropdown.SectionTitle = createComponent({
-  name: 'DropdownSectionTitle',
-  tag: 'span',
   style: ({ theme }) => css`
     display: block;
-    font-weight: 600;
-    color: ${theme.colors.primary};
+    font-weight: 700;
+    color: ${theme.colors.greyDark};
   `,
 });
 
@@ -307,37 +277,62 @@ const StyledDropdownItem = createComponent({
     role: 'button',
   }),
   as: Box,
-  style: ({ disabled, theme }) => css`
+  style: ({ disabled, theme, color, icon, iconProps, selected }) => css`
     display: block;
-    width: calc(100% + 2rem);
+    flex: 1;
     opacity: ${disabled ? 0.3 : 1};
     pointer-events: ${disabled ? 'none' : 'initial'};
     user-select: ${disabled ? 'none' : 'initial'};
     text-decoration: none;
-    color: inherit;
+    color: ${color || theme.colors.greyDarkest};
     cursor: pointer;
-    margin: 0 calc(-1rem);
-    padding: 0.25rem 1rem;
+    margin: 0;
+    padding: 8px;
     transition: 125ms background;
     outline: none;
     appearance: none;
     border: 0;
+    border-radius: ${theme.radius}px;
     font: inherit;
+    font-size: 14px;
+    font-weight: 500;
     text-align: left;
-
-    & + ${Dropdown.SectionTitle} {
-      margin-top: 1rem;
-    }
+    position: relative;
 
     &:hover,
     &:focus {
-      color: inherit;
+      color: ${color || theme.colors.greyDarkest};
       background: ${theme.colors.greyLightest};
     }
+
+    ${icon &&
+      css`
+        padding-left: ${(iconProps.size || 16) + 16}px;
+      `}
+
+    ${selected &&
+      css`
+        color: ${theme.colors.primary};
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: ${theme.colors.primary};
+        }
+      `}
   `,
 });
 
-Dropdown.Item = function DropdownItem({ closeOnClick = true, onClick, ...props }) {
+const StyledIcon = createComponent({
+  name: 'DropdownIcon',
+  as: Icon,
+  style: css`
+    position: absolute;
+    left: 8px;
+  `,
+});
+
+Dropdown.Item = ({ closeOnClick = true, onClick, children, icon, iconProps = {}, ...props }) => {
   const { close } = useContext(DropdownContext);
   const handleClick = () => {
     if (closeOnClick) {
@@ -347,18 +342,10 @@ Dropdown.Item = function DropdownItem({ closeOnClick = true, onClick, ...props }
       onClick();
     }
   };
-  return <StyledDropdownItem onClick={handleClick} {...props} />;
+  return (
+    <StyledDropdownItem onClick={handleClick} icon={icon} iconProps={iconProps} {...props}>
+      {icon && <StyledIcon name={icon} {...iconProps} />}
+      {children}
+    </StyledDropdownItem>
+  );
 };
-
-Dropdown.Footer = createComponent({
-  name: 'DropdownFooter',
-  as: Box,
-  props: () => ({
-    as: 'footer',
-  }),
-  style: ({ theme }) => css`
-    background: ${theme.colors.greyLightest};
-    padding: 0.75rem 1rem;
-    border-radius: 0 0 ${themeGet('radius')}px ${themeGet('radius')}px;
-  `,
-});

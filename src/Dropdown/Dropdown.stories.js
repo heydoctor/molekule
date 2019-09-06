@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Dropdown, { PLACEMENT_TRANSITION_ORIGINS } from './Dropdown';
-import Icon from '../Icon';
 import Flex from '../Flex';
 import RadioGroup from '../Form/RadioGroup';
 import Button from '../Button';
@@ -11,96 +10,77 @@ export default {
 };
 
 export const Basic = () => {
-  function Example() {
-    const [placement, setPlacement] = useState('top');
-    return (
-      <>
-        <Flex justifyContent="space-between">
-          <RadioGroup
-            label={<strong>Placement</strong>}
-            value={placement}
-            choices={Object.keys(PLACEMENT_TRANSITION_ORIGINS).map(placement => ({
-              value: placement,
-              label: placement,
-            }))}
-            onChange={(_, val) => setPlacement(val)}
-          />
-          <Flex mr={3}>
-            <Dropdown placement={placement} width={250} trigger={<Button variant="success">Open Dropdown</Button>}>
-              <Dropdown.Header title="Dropdown" />
-
-              <Dropdown.Body>
-                <Dropdown.SectionTitle>Section One</Dropdown.SectionTitle>
-                <Dropdown.Item closeOnClick={false}>I don't close when clicked</Dropdown.Item>
-                <Dropdown.Item as="button">Item Two</Dropdown.Item>
-
-                <Dropdown.SectionTitle>Section Two</Dropdown.SectionTitle>
-                <Dropdown.Item as="a" closeOnClick href="http://google.com" target="_blank">
-                  Item One
-                </Dropdown.Item>
-                <Dropdown.Item disabled>Item Two</Dropdown.Item>
-              </Dropdown.Body>
-
-              <Dropdown.Footer>Footer</Dropdown.Footer>
-            </Dropdown>
-          </Flex>
-
-          <Flex mr={3}>
-            <Dropdown width={250} trigger={<Button>Open Other Dropdown</Button>}>
-              <Dropdown.Header title="Dropdown" />
-
-              <Dropdown.Body>
-                <Dropdown.SectionTitle>Section One</Dropdown.SectionTitle>
-                <Dropdown.Item>Item One</Dropdown.Item>
-                <Dropdown.Item>Item Two</Dropdown.Item>
-
-                <Dropdown.SectionTitle>Section Two</Dropdown.SectionTitle>
-                <Dropdown.Item>Item One</Dropdown.Item>
-                <Dropdown.Item disabled>Item Two</Dropdown.Item>
-              </Dropdown.Body>
-
-              <Dropdown.Footer>Footer</Dropdown.Footer>
-            </Dropdown>
-          </Flex>
-
-          <Flex mr={3}>
-            <Dropdown width={250} placement="top" trigger={<Icon name="information-outline" />}>
-              <Dropdown.Header title="Dropdown" />
-
-              <Dropdown.Body>
-                <Dropdown.SectionTitle>Section One</Dropdown.SectionTitle>
-                <Dropdown.Item>Item One</Dropdown.Item>
-                <Dropdown.Item>Item Two</Dropdown.Item>
-              </Dropdown.Body>
-
-              <Dropdown.Footer>Footer</Dropdown.Footer>
-            </Dropdown>
-          </Flex>
-
-          <Flex flex={1}>
-            <Dropdown
-              width={250}
-              placement="top"
-              styles={{ Trigger: { display: 'flex', flex: 1 } }}
-              trigger={
-                <Flex flex={1} justifyContent="space-between">
-                  <Button style={{ width: `100%` }}>Open Flex Dropdown</Button>
-                </Flex>
-              }>
-              <Dropdown.Header title="Dropdown" />
-
-              <Dropdown.Body>
-                <Dropdown.SectionTitle>Section One</Dropdown.SectionTitle>
-                <Dropdown.Item>Item One</Dropdown.Item>
-                <Dropdown.Item>Item Two</Dropdown.Item>
-              </Dropdown.Body>
-
-              <Dropdown.Footer>Footer</Dropdown.Footer>
-            </Dropdown>
-          </Flex>
-        </Flex>
-      </>
-    );
-  }
-  return <Example />;
+  const [ placement, setPlacement ] = useState('bottom-start')
+  return (
+    <Flex justifyContent="center">
+      <Flex mr={5}>
+        <RadioGroup
+          label={<strong>Placement</strong>}
+          value={placement}
+          choices={Object.keys(PLACEMENT_TRANSITION_ORIGINS).map(placement => ({
+            value: placement,
+            label: placement,
+          }))}
+          onChange={(_, val) => setPlacement(val)}
+        />
+      </Flex>
+      <Flex alignSelf="center">
+        <Dropdown
+          placement={placement}
+          width={250}
+          trigger={
+            <Button mr={3} variant="primary">
+              Basic Dropdown
+            </Button>
+          }>
+          <Dropdown.Item>Dropdown Item</Dropdown.Item>
+          <Dropdown.Item>Dropdown Item</Dropdown.Item>
+          <Dropdown.Item>Dropdown Item</Dropdown.Item>
+          <Dropdown.Item>Dropdown Item</Dropdown.Item>
+          <Dropdown.Item color="red">Cancel</Dropdown.Item>
+        </Dropdown>
+      </Flex>
+    </Flex>
+  );
 };
+
+export const WithTitles = () => (
+  <Flex>
+    <Dropdown placement="bottom-start" width={250} trigger={<Button variant="danger">Dropdown w/Titles</Button>}>
+      <Dropdown.Title>Section Title</Dropdown.Title>
+      <Dropdown.Item selected closeOnClick={false}>Dropdown Item</Dropdown.Item>
+      <Dropdown.Item>Dropdown Item</Dropdown.Item>
+      <Dropdown.Item>Dropdown Item</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Title>Section Title</Dropdown.Title>
+      <Dropdown.Item>Dropdown Item</Dropdown.Item>
+      <Dropdown.Item>Dropdown Item</Dropdown.Item>
+      <Dropdown.Item>Dropdown Item</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item color="red">Cancel</Dropdown.Item>
+    </Dropdown>
+  </Flex>
+);
+
+export const WithIcons = () => (
+  <Flex>
+    <Dropdown
+      placement="bottom-start"
+      width={250}
+      trigger={
+        <Button mr={3} variant="success">
+          Dropdown w/Icons
+        </Button>
+      }>
+      <Dropdown.Item icon="account-circle">Dropdown Item</Dropdown.Item>
+      <Dropdown.Item icon="pencil">Dropdown Item</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item icon="stethoscope">Dropdown Item</Dropdown.Item>
+      <Dropdown.Item icon="bell">Dropdown Item</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item icon="settings">Dropdown Item</Dropdown.Item>
+      <Dropdown.Divider />
+      <Dropdown.Item icon="trash-can" color="red">Cancel</Dropdown.Item>
+    </Dropdown>
+  </Flex>
+);
