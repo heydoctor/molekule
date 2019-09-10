@@ -13,3 +13,5 @@ const defaultProps = {
 };
 
 export const Basic = () => <Select {...defaultProps} />;
+
+export const FloatingLabel = () => <Select {...defaultProps} floating />;
