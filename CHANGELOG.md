@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.1"></a>
+# [5.0.0-beta.1](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.0...v5.0.0-beta.1) (2019-09-10)
+
+
+### Bug Fixes
+
+* **Checkbox:**  Support for long labels ([#74](https://github.com/sappira-inc/molekule/issues/74)) ([7692d7b](https://github.com/sappira-inc/molekule/commit/7692d7b))
+* **Flex:** Forwards ref to children ([#75](https://github.com/sappira-inc/molekule/issues/75)) ([c5e680b](https://github.com/sappira-inc/molekule/commit/c5e680b))
+
+
+
 <a name="5.0.0-beta.0"></a>
 # [5.0.0-beta.0](https://github.com/sappira-inc/molekule/compare/v4.1.7...v5.0.0-beta.0) (2019-09-06)
 
