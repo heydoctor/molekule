@@ -52,7 +52,7 @@ const IconContainer = styled(Flex)`
 const SelectInput = createComponent({
   name: 'Select',
   tag: 'select',
-  style: css`
+  style: ({ isFloating }) => css`
     position: relative;
     z-index: 2;
     padding: 0 8px;
@@ -62,6 +62,10 @@ const SelectInput = createComponent({
     background: transparent;
     border: none;
     -webkit-appearance: none;
+    ${isFloating &&
+      css`
+        margin-top: 14px;
+      `};
   `,
 });
 
@@ -117,13 +121,20 @@ export class Select extends Component {
   };
 
   render() {
-    const { id, name, options, placeholder, error, size = 'md', label, ...props } = this.props;
+    const { id, name, options, placeholder, error, size = 'md', label, floating, ...props } = this.props;
     const { value } = this.state;
+    const isFloating = floating && value != undefined && `${value}`.trim();
+    const FloatingLabel = (
+      <Label htmlFor={id} size={size} isFloating={isFloating} isFloatable={floating}>
+        {label}
+      </Label>
+    );
 
     return (
       <Field>
-        {label && <Label size={size}>{label}</Label>}
+        {label && !floating && <Label size={size}>{label}</Label>}
         <SelectContainer value={value} size={size}>
+          {label && isFloating && FloatingLabel}
           <SelectInput
             {...props}
             size={size}
@@ -131,6 +142,7 @@ export class Select extends Component {
             name={name}
             value={value}
             onChange={this.handleChange}
+            isFloating={isFloating}
             onBlur={this.handleBlur}>
             <SelectOption value="">{placeholder || 'Select an option...'}</SelectOption>
             {options.map(option => (
