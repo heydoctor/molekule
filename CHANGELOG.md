@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.2"></a>
+# [5.0.0-beta.2](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2019-09-12)
+
+
+### Features
+
+* Add floating label to select ([#73](https://github.com/sappira-inc/molekule/issues/73)) ([d8f506a](https://github.com/sappira-inc/molekule/commit/d8f506a))
+* **Checkbox:** Updates styles ([#77](https://github.com/sappira-inc/molekule/issues/77)) ([60172f3](https://github.com/sappira-inc/molekule/commit/60172f3))
+* **Colors:** Update Taylor Primary to Taylor Dark ([#76](https://github.com/sappira-inc/molekule/issues/76)) ([b4c589a](https://github.com/sappira-inc/molekule/commit/b4c589a))
+
+
+
 <a name="5.0.0-beta.1"></a>
 # [5.0.0-beta.1](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.0...v5.0.0-beta.1) (2019-09-10)
 
