@@ -1,7 +1,4 @@
-export default (overrides = {}) => {
-  const shadow = '0 3px 6px hsla(0,0%,60%,.1), 0 3px 6px hsla(0,0%,60%,.15), 0 -1px 2px hsla(0,0%,60%,.02)';
-  const shadowHover = '0 6px 9px hsla(0,0%,60%,.2), 0 6px 9px hsla(0,0%,60%,.2), 0 -1px 2px hsla(0,0%,60%,.08)';
-
+export default (customTheme = {}) => {
   const colors = Object.assign(
     {
       default: '#494D55',
@@ -56,16 +53,8 @@ export default (overrides = {}) => {
       green: '#21B986',
       greenDark: '#00AC74',
     },
-    overrides.colors
+    customTheme.colors
   );
-
-  const radii = [0, 2, 4];
-
-  const typography = {
-    fontSize: 16,
-    bodyFontFamily: 'Avenir',
-    headerFontFamily: 'Tiempos',
-  };
 
   const buttonVariants = {
     primary: {
@@ -203,30 +192,37 @@ export default (overrides = {}) => {
 
   const alertVariants = badgeVariants;
 
-  const breakpoints = [480, 768, 1024, 1440];
-
-  const grid = {
-    containerMaxWidth: 1000,
-    gutter: 16,
-    columns: 12,
-    sizes: {
-      xs: breakpoints[0],
-      sm: breakpoints[1],
-      md: breakpoints[2],
-      lg: breakpoints[3],
-    },
-  };
+  const breakpoints = customTheme.breakpoints || ['400px', '600px', '900px', '1200px', '1500px'];
+  /* eslint-disable prefer-destructuring */
+  breakpoints.xs = breakpoints[0];
+  breakpoints.sm = breakpoints[1];
+  breakpoints.md = breakpoints[2];
+  breakpoints.lg = breakpoints[3];
+  breakpoints.xl = breakpoints[4];
+  /* eslint-enable prefer-destructuring */
 
   return {
-    breakpoints,
     classPrefix: 're',
     colors,
-    grid,
-    radii,
+    space: [0, 4, 8, 16, 24, 32, 64, 126, 256],
+
+    breakpoints,
+    gridWidth: 1024,
+    gridGutter: 16,
+    gridColumns: 12,
+
+    radii: [0, 2, 4, 8],
     radius: 8,
-    shadow,
-    shadowHover,
-    typography,
+
+    shadow: '0 3px 6px hsla(0,0%,60%,.1), 0 3px 6px hsla(0,0%,60%,.15), 0 -1px 2px hsla(0,0%,60%,.02)',
+    shadowHover: '0 6px 9px hsla(0,0%,60%,.2), 0 6px 9px hsla(0,0%,60%,.2), 0 -1px 2px hsla(0,0%,60%,.08)',
+
+    typography: {
+      fontSize: 16,
+      bodyFontFamily: 'Avenir',
+      headerFontFamily: 'Tiempos',
+    },
+
     sizes: {
       Button: {
         sm: {
@@ -275,6 +271,7 @@ export default (overrides = {}) => {
         },
       },
     },
+
     variants: {
       Alert: alertVariants,
       Badge: badgeVariants,
