@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.3"></a>
+# [5.0.0-beta.3](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.2...v5.0.0-beta.3) (2019-09-16)
+
+
+### Bug Fixes
+
+* **Input:** Padding, Icon color, & Floating changes ([#78](https://github.com/sappira-inc/molekule/issues/78)) ([96bebb9](https://github.com/sappira-inc/molekule/commit/96bebb9))
+
+
+### Features
+
+* **Text:** New Text component; upgrade to styled-system@v5 ([#79](https://github.com/sappira-inc/molekule/issues/79)) ([82c8b32](https://github.com/sappira-inc/molekule/commit/82c8b32))
+
+
+
 <a name="5.0.0-beta.2"></a>
 # [5.0.0-beta.2](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2019-09-12)
 
