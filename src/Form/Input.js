@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Field from './Field';
 import StyledLabel from './Label';
-import FormError from './FormError';
+import FormError, { StyledFormError } from './FormError';
 import { createEasyInput } from './EasyInput';
 import Icon from '../Icon';
 import { themeGet, createComponent } from '../utils';
@@ -13,6 +13,10 @@ const InputContainer = createComponent({
   style: css`
     position: relative;
     color: ${p => p.theme.colors.greyDarker};
+
+    & + ${StyledFormError} {
+      margin-left: 4px;
+    }
   `,
 });
 
@@ -140,7 +144,8 @@ const StyledTextArea = createComponent({
   name: 'TextArea',
   as: StyledInput.withComponent('textarea'),
   style: ({ isFloatable, isFloating }) => css`
-    ${isFloatable && isFloating &&
+    ${isFloatable &&
+      isFloating &&
       css`
         padding-top: 24px;
       `}
@@ -408,9 +413,9 @@ export class Input extends Component {
           {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...inputProps} />}
         </InputContainer>
 
-        {autogrow && <AutogrowShadow ref={this.handleAutogrowRef} />}
-
         {!focused && error ? <FormError styles={rest.styles}>{error}</FormError> : null}
+
+        {autogrow && <AutogrowShadow ref={this.handleAutogrowRef} />}
       </Field>
     );
   }

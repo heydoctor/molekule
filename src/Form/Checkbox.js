@@ -61,7 +61,8 @@ const CheckboxContainer = createComponent({
     }
 
     &:hover {
-      ${!checked && !disabled &&
+      ${!checked &&
+        !disabled &&
         css`
           ${CheckboxIcon} {
             color: ${theme.colors.greyDarker};
@@ -164,28 +165,34 @@ export class Checkbox extends React.Component {
     const { checked } = this;
 
     return (
-      <CheckboxContainer horizontal={horizontal} style={styles.CheckboxContainer} checked={checked} disabled={disabled}>
-        <HiddenInput
-          id={id}
-          name={name}
-          type="checkbox"
+      <>
+        <CheckboxContainer
+          horizontal={horizontal}
+          style={styles.CheckboxContainer}
           checked={checked}
-          disabled={disabled}
-          onChange={this.handleChange}
-        />
+          disabled={disabled}>
+          <HiddenInput
+            id={id}
+            name={name}
+            type="checkbox"
+            checked={checked}
+            disabled={disabled}
+            onChange={this.handleChange}
+          />
 
-        <Flex>
-          <CheckboxIcon iconSize={size} color={checked ? colorOn : colorOff} name={checked ? iconOn : iconOff} />
+          <Flex>
+            <CheckboxIcon iconSize={size} color={checked ? colorOn : colorOff} name={checked ? iconOn : iconOff} />
 
-          {label && (
-            <CheckboxLabel size={size} style={styles.Label}>
-              {label}
-            </CheckboxLabel>
-          )}
-        </Flex>
+            {label && (
+              <CheckboxLabel size={size} style={styles.Label}>
+                {label}
+              </CheckboxLabel>
+            )}
+          </Flex>
+        </CheckboxContainer>
 
         {!this.state.focused && error ? <FormError>{error}</FormError> : null}
-      </CheckboxContainer>
+      </>
     );
   }
 }

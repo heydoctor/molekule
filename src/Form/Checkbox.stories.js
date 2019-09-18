@@ -33,3 +33,7 @@ export const Sizes = () => (
     <Checkbox id="checkbox" name="checkbox" label="I'm a checkbox" />
   </>
 );
+
+export const Errors = () => (
+  <Checkbox id="checkbox" name="checkbox" label="I'm a checkbox" size="sm" error="Something is seriously wrong" />
+);
