@@ -4,7 +4,7 @@ import { css } from 'styled-components';
 import Box from '../Box';
 import { createComponent } from '../utils';
 
-const getPadding = p => (typeof p.gutter === 'number' ? p.gutter / 2 : p.theme.gridGutter / 2);
+const getPadding = p => (typeof p.gutter === 'number' ? p.gutter : p.theme.gridGutter);
 
 const StyledContainer = createComponent({
   name: 'Container',
