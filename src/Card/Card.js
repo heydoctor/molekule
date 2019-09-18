@@ -27,12 +27,11 @@ Card.defaultProps = {
   shadow: false,
 };
 
-Card.Header = createComponent({
-  name: 'CardHeader',
+Card.Footer = createComponent({
+  name: 'CardFooter',
   as: Box,
   style: css`
-    padding: 1rem 1rem 8px;
-    font-weight: 700;
+    padding: 16px;
   `,
 });
 
@@ -40,15 +39,24 @@ Card.Body = createComponent({
   name: 'CardBody',
   as: Box,
   style: () => css`
-    padding: 8px 1rem;
+    padding: 16px;
+
+    & + ${Card.Footer} {
+      padding-top: 0px;
+    }
   `,
 });
 
-Card.Footer = createComponent({
-  name: 'CardFooter',
+Card.Header = createComponent({
+  name: 'CardHeader',
   as: Box,
   style: css`
-    padding: 8px 1rem 1rem;
+    padding: 16px;
+    font-weight: 700;
+
+    & + ${Card.Body} {
+      padding-top: 0px;
+    }
   `,
 });
 
