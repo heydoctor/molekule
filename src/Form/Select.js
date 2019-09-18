@@ -48,7 +48,7 @@ const SelectInput = createComponent({
     font-size: ${theme.typography.fontSize}px;
     font-family: inherit;
     background: transparent;
-    color: ${value ? theme.typography.color : theme.colors.greyDarkest};
+    color: ${value ? theme.typography.color : theme.colors.greyDarker};
     border: none;
     -webkit-appearance: none;
 

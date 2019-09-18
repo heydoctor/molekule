@@ -20,7 +20,7 @@ const Label = createComponent({
         font-weight: 400;
         top: ${isFloating ? '6px' : '50%'};
         transform: ${isFloating ? 'none' : 'translateY(-50%)'};
-        color: ${theme.colors.greyDarkest};
+        color: ${theme.colors.greyDarker};
         user-select: none;
 
         &:hover {
