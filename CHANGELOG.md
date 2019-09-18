@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.7"></a>
+# [5.0.0-beta.7](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.6...v5.0.0-beta.7) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Checkbox:** Fix FormError being rendered horizontally in Flex component ([af86478](https://github.com/sappira-inc/molekule/commit/af86478))
+
+
+
 <a name="5.0.0-beta.6"></a>
 # [5.0.0-beta.6](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.5...v5.0.0-beta.6) (2019-09-18)
 
