@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.6"></a>
+# [5.0.0-beta.6](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.5...v5.0.0-beta.6) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Card:** Allow Card.Body to standalone ([44ed904](https://github.com/sappira-inc/molekule/commit/44ed904))
+
+
+
 <a name="5.0.0-beta.5"></a>
 # [5.0.0-beta.5](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.4...v5.0.0-beta.5) (2019-09-18)
 
