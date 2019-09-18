@@ -6,7 +6,7 @@ import StyledLabel from './Label';
 import FormError, { StyledFormError } from './FormError';
 import { createEasyInput } from './EasyInput';
 import Icon from '../Icon';
-import { themeGet, createComponent } from '../utils';
+import { createComponent } from '../utils';
 
 const InputContainer = createComponent({
   name: 'InputContainer',
@@ -44,8 +44,8 @@ const StyledInput = createComponent({
     transition: 250ms all;
     -webkit-appearance: none;
     font-family: inherit;
-    font-size: ${themeGet('typography.fontSize')}px;
-    color: ${theme.colors.greyDarkest};
+    font-size: ${theme.typography.fontSize}px;
+    color: ${theme.typography.color};
     box-sizing: border-box;
 
     &:hover,
@@ -86,8 +86,8 @@ const StyledInput = createComponent({
 
     ${isFloating &&
       css`
-        line-height: 14px;
-        padding-top: 14px;
+        line-height: 16px;
+        padding-top: 16px;
         padding-bottom: 0px;
       `};
   `,

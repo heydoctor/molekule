@@ -7,7 +7,7 @@ import Icon from '../Icon';
 import Flex from '../Flex';
 import Label from './Label';
 import { createEasyInput } from './EasyInput';
-import { themeGet, createComponent } from '../utils';
+import { createComponent } from '../utils';
 
 const SelectContainer = createComponent({
   name: 'SelectContainer',
@@ -23,20 +23,11 @@ const SelectContainer = createComponent({
     transition: 250ms all;
     -webkit-appearance: none;
     font-family: inherit;
-    font-size: ${themeGet('typography.fontSize')}px;
+    font-size: ${theme.typography.fontSize}px;
     vertical-align: middle;
 
     select {
-      color: ${theme.colors.greyDarker};
-
-      ${value &&
-        css`
-          color: ${theme.colors.greyDarkest};
-        `}
-
-      option {
-        color: ${theme.colors.greyDarkest};
-      }
+      color: ${value ? theme.typography.color : theme.colors.greyDarker};
     }
   `,
 });
@@ -52,19 +43,20 @@ const IconContainer = styled(Flex)`
 const SelectInput = createComponent({
   name: 'Select',
   tag: 'select',
-  style: ({ isFloating }) => css`
+  style: ({ theme, isFloating }) => css`
     position: relative;
     z-index: 2;
     padding: 0 8px;
     outline: none;
     width: 100%;
-    font-size: ${themeGet('typography.fontSize')}px;
+    font-size: ${theme.typography.fontSize}px;
     background: transparent;
     border: none;
     -webkit-appearance: none;
+
     ${isFloating &&
       css`
-        margin-top: 14px;
+        margin-top: 16px;
       `};
   `,
 });

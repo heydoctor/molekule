@@ -2,7 +2,7 @@ import { create } from '@storybook/theming';
 
 export default create({
   base: 'light',
-  color: '#494D55',
+  color: '#1B202B',
 
   brandTitle: 'HeyDoctor',
   brandUrl: 'https://www.heydoctor.com',
