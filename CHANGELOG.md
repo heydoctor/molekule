@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.9"></a>
+# [5.0.0-beta.9](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.8...v5.0.0-beta.9) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Label:** Apply correct colors given active state ([1aee5fe](https://github.com/sappira-inc/molekule/commit/1aee5fe))
+
+
+
 <a name="5.0.0-beta.8"></a>
 # [5.0.0-beta.8](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.7...v5.0.0-beta.8) (2019-09-18)
 
