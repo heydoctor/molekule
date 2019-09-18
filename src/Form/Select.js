@@ -12,7 +12,7 @@ import { createComponent } from '../utils';
 const SelectContainer = createComponent({
   name: 'SelectContainer',
   as: Flex,
-  style: ({ theme, value }) => css`
+  style: ({ theme }) => css`
     background: white;
     border: 1px solid ${theme.colors.greyLight};
     height: 48px;
@@ -25,10 +25,6 @@ const SelectContainer = createComponent({
     font-family: inherit;
     font-size: ${theme.typography.fontSize}px;
     vertical-align: middle;
-
-    select {
-      color: ${value ? theme.typography.color : theme.colors.greyDarker};
-    }
   `,
 });
 
@@ -43,14 +39,16 @@ const IconContainer = styled(Flex)`
 const SelectInput = createComponent({
   name: 'Select',
   tag: 'select',
-  style: ({ theme, isFloating }) => css`
+  style: ({ theme, value, isFloating }) => css`
     position: relative;
     z-index: 2;
     padding: 0 8px;
     outline: none;
     width: 100%;
     font-size: ${theme.typography.fontSize}px;
+    font-family: inherit;
     background: transparent;
+    color: ${value ? theme.typography.color : theme.colors.greyDarkest};
     border: none;
     -webkit-appearance: none;
 
