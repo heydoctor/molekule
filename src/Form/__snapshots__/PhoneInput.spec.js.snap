@@ -14,7 +14,10 @@ exports[`<PhoneInput /> snapshot 1`] = `
 
 .c2 {
   position: relative;
-  color: #767980;
+}
+
+.c2 + .c4 {
+  margin-left: 4px;
 }
 
 .c3 {
@@ -31,7 +34,7 @@ exports[`<PhoneInput /> snapshot 1`] = `
   -webkit-appearance: none;
   font-family: inherit;
   font-size: 16px;
-  color: #494D55;
+  color: #1B202B;
   box-sizing: border-box;
 }
 

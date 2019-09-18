@@ -10,17 +10,25 @@ exports[`Card 1`] = `
   border: 1px solid #E8E9EA;
 }
 
-.c1 {
-  padding: 1rem 1rem 8px;
-  font-weight: 700;
-}
-
-.c2 {
-  padding: 8px 1rem;
+.c5 {
+  padding: 16px;
 }
 
 .c3 {
-  padding: 8px 1rem 1rem;
+  padding: 16px;
+}
+
+.c3 + .c4 {
+  padding-top: 0px;
+}
+
+.c1 {
+  padding: 16px;
+  font-weight: 700;
+}
+
+.c1 + .c2 {
+  padding-top: 0px;
 }
 
 <div
@@ -32,12 +40,12 @@ exports[`Card 1`] = `
       Header
     </div>
     <div
-      class="re-box re-card-body c2"
+      class="c2 re-box re-card-body c3"
     >
       Body
     </div>
     <div
-      class="re-box re-card-footer c3"
+      class="c4 re-box re-card-footer c5"
     >
       Footer
     </div>
