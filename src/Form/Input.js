@@ -357,7 +357,7 @@ export class Input extends Component {
 
     const { focused, height, value } = this.state;
 
-    const isFloating = (floating && value !== undefined && !!`${value}`.trim()) || (floating && focused);
+    const isFloating = (floating && value != null && !!`${value}`.trim()) || (floating && focused);
 
     const inputProps = {
       ...rest,
