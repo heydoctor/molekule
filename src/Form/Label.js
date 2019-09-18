@@ -14,23 +14,17 @@ const Label = createComponent({
       css`
         position: absolute;
         margin: 0;
-        font-size: 16px;
         line-height: 14px;
         left: 9px;
-        top: 50%;
-        transform: translateY(-50%);
+        font-size: ${isFloating ? 12 : 16}px;
+        top: ${isFloating ? '6px' : '50%'};
+        transform: ${isFloating ? 'none' : 'translateY(-50%)'};
+        color: ${theme.colors.greyDarker};
         user-select: none;
 
         &:hover {
           cursor: text;
         }
-
-        ${isFloating &&
-          css`
-            font-size: 12px;
-            top: 6px;
-            transform: none;
-          `}
       `};
 
     ${isFocused &&

@@ -12,7 +12,6 @@ const InputContainer = createComponent({
   name: 'InputContainer',
   style: css`
     position: relative;
-    color: ${p => p.theme.colors.greyDarker};
 
     & + ${StyledFormError} {
       margin-left: 4px;
