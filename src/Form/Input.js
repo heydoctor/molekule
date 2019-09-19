@@ -14,7 +14,7 @@ const InputContainer = createComponent({
     position: relative;
 
     & + ${StyledFormError} {
-      margin-left: 4px;
+      margin-left: 8px;
     }
   `,
 });
