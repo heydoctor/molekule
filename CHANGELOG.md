@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.9...v5.0.0) (2019-09-19)
+
+
+### Bug Fixes
+
+* **Checkbox:** Use span instead of div for label ([333abae](https://github.com/sappira-inc/molekule/commit/333abae))
+* **Container:** Stop dividing gutter in half ([2ace6f7](https://github.com/sappira-inc/molekule/commit/2ace6f7))
+* **FormError:** Increase font size and left margin ([f187f13](https://github.com/sappira-inc/molekule/commit/f187f13))
+* **Input:** Fix logic for isFloating detection ([5aad614](https://github.com/sappira-inc/molekule/commit/5aad614))
+* **Label:** Darken inactive label color ([d5a52ac](https://github.com/sappira-inc/molekule/commit/d5a52ac))
+* Update snapshots ([80f7b0a](https://github.com/sappira-inc/molekule/commit/80f7b0a))
+* Update snapshots ([919a45e](https://github.com/sappira-inc/molekule/commit/919a45e))
+* **Label:** Medium font ([542ee4f](https://github.com/sappira-inc/molekule/commit/542ee4f))
+
+
+### Features
+
+* v5 ([#64](https://github.com/sappira-inc/molekule/issues/64)) ([c18c063](https://github.com/sappira-inc/molekule/commit/c18c063))
+
+
+
 <a name="5.0.0-beta.9"></a>
 # [5.0.0-beta.9](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.8...v5.0.0-beta.9) (2019-09-18)
 
