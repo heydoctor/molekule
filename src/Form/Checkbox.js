@@ -5,24 +5,9 @@ import Icon from '../Icon';
 import FormError from '../Form/FormError';
 import Flex from '../Flex';
 import { createEasyInput } from './EasyInput';
-import { createComponent } from '../utils';
+import { getComponentSize, createComponent } from '../utils';
 
-const CheckboxContainer = createComponent({
-  name: 'Checkbox',
-  tag: 'label',
-  style: () => css`
-    position: relative;
-    margin-bottom: 0;
-    cursor: pointer;
-
-    & + & {
-      margin-left: ${p => (p.horizontal ? '12px' : 0)};
-      margin-top: ${p => (p.horizontal ? 0 : '4px')};
-    }
-  `,
-});
-
-const StyledInput = createComponent({
+const HiddenInput = createComponent({
   name: 'CheckboxInput',
   tag: 'input',
   style: css`
@@ -31,21 +16,72 @@ const StyledInput = createComponent({
   `,
 });
 
-const StyledIcon = createComponent({
+const CheckboxIcon = createComponent({
   name: 'CheckboxIcon',
   as: Icon,
+  style: ({ theme, iconSize }) => {
+    const sizeStyles = getComponentSize(theme, 'CheckboxIcon', iconSize);
+
+    return css`
+      font-size: 24px;
+      transition: color 125ms;
+
+      ${sizeStyles}
+    `;
+  },
 });
 
-const StyledLabel = createComponent({
+const CheckboxLabel = createComponent({
   name: 'CheckboxLabel',
-  as: Flex,
-  style: ({ fontSize }) => css`
-    margin-left: 8px;
-    font-size: ${fontSize}px;
+  as: 'span',
+  style: ({ theme, size }) => {
+    const sizeStyles = getComponentSize(theme, 'CheckboxLabel', size);
+
+    return css`
+      margin-left: 8px;
+
+      ${sizeStyles}
+    `;
+  },
+});
+
+const CheckboxContainer = createComponent({
+  name: 'Checkbox',
+  tag: 'label',
+  style: ({ horizontal, checked, theme, disabled }) => css`
+    position: relative;
+    margin-bottom: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+
+    & + & {
+      margin-left: ${horizontal ? 12 : 0}px;
+      margin-top: ${horizontal ? 0 : 4}px;
+    }
+
+    &:hover {
+      ${!checked &&
+        !disabled &&
+        css`
+          ${CheckboxIcon} {
+            color: ${theme.colors.greyDarker};
+          }
+        `}
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
+      pointer-events: none;
+
+      ${CheckboxIcon}, ${CheckboxLabel} {
+        color: ${theme.colors.grey};
+      }
+    }
   `,
 });
 
-class Checkbox extends React.Component {
+export class Checkbox extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -56,8 +92,7 @@ class Checkbox extends React.Component {
     onChange: PropTypes.func,
     iconOn: PropTypes.string,
     iconOff: PropTypes.string,
-    iconSize: PropTypes.number,
-    fontSize: PropTypes.number,
+    size: PropTypes.string,
     horizontal: PropTypes.bool,
     disabled: PropTypes.bool,
     styles: PropTypes.shape(),
@@ -68,11 +103,11 @@ class Checkbox extends React.Component {
   static defaultProps = {
     iconOn: 'checkbox-marked',
     iconOff: 'checkbox-blank-outline',
+    size: 'md',
     valueTrue: true,
     valueFalse: false,
     colorOn: 'primary',
-    colorOff: 'grayMid',
-    iconSize: 18,
+    colorOff: 'greyDark',
     horizontal: false,
     onChange() {},
     disabled: false,
@@ -118,10 +153,9 @@ class Checkbox extends React.Component {
       id,
       error,
       name,
-      fontSize,
+      size,
       iconOn,
       iconOff,
-      iconSize,
       colorOn,
       colorOff,
       horizontal,
@@ -131,24 +165,34 @@ class Checkbox extends React.Component {
     const { checked } = this;
 
     return (
-      <CheckboxContainer horizontal={horizontal} style={styles.CheckboxContainer}>
-        <StyledInput
-          id={id}
-          name={name}
-          type="checkbox"
+      <>
+        <CheckboxContainer
+          horizontal={horizontal}
+          style={styles.CheckboxContainer}
           checked={checked}
-          disabled={disabled}
-          onChange={this.handleChange}
-        />
+          disabled={disabled}>
+          <HiddenInput
+            id={id}
+            name={name}
+            type="checkbox"
+            checked={checked}
+            disabled={disabled}
+            onChange={this.handleChange}
+          />
 
-        <Flex alignItems="center">
-          <StyledIcon size={iconSize} color={checked ? colorOn : colorOff} name={checked ? iconOn : iconOff} />
+          <Flex>
+            <CheckboxIcon iconSize={size} color={checked ? colorOn : colorOff} name={checked ? iconOn : iconOff} />
 
-          {label && <StyledLabel fontSize={fontSize} style={styles.Label}>{label}</StyledLabel>}
-        </Flex>
+            {label && (
+              <CheckboxLabel size={size} style={styles.Label}>
+                {label}
+              </CheckboxLabel>
+            )}
+          </Flex>
+        </CheckboxContainer>
 
         {!this.state.focused && error ? <FormError>{error}</FormError> : null}
-      </CheckboxContainer>
+      </>
     );
   }
 }

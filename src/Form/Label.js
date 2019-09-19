@@ -1,25 +1,42 @@
 import { css } from 'styled-components';
-import { createComponent } from '../utils';
+import { themeGet, createComponent } from '../utils';
 
 const Label = createComponent({
   name: 'Label',
   tag: 'label',
-  style: ({ isFloatable, isFloating, size, theme }) => css`
+  style: ({ isFloatable, isFloating, isFocused, isDisabled, theme }) => css`
     display: block;
     transition: 250ms;
-    font-weight: 500;
     margin: 0 0 4px 4px;
-    font-size: ${p => p.theme.fontSizes[p.size]}px;
+    font-size: ${themeGet('typography.fontSize')}px;
 
     ${isFloatable &&
       css`
         position: absolute;
-        top: 2px;
-        left: 8px;
-        opacity: ${isFloating ? 1 : 0};
         margin: 0;
-        font-size: ${theme.fontSizes[size] * 0.8}px;
+        line-height: 14px;
+        left: 9px;
+        font-size: ${isFloating ? 12 : 16}px;
+        font-weight: 500;
+        top: ${isFloating ? '6px' : '50%'};
+        transform: ${isFloating ? 'none' : 'translateY(-50%)'};
+        color: ${theme.colors.greyDarker};
+        user-select: none;
+
+        &:hover {
+          cursor: text;
+        }
       `};
+
+    ${isFocused &&
+      css`
+        color: ${theme.colors.primary};
+      `}
+
+    ${isDisabled &&
+      css`
+        color: ${theme.colors.grey};
+      `}
   `,
 });
 

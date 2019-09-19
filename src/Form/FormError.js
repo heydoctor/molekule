@@ -5,14 +5,15 @@ import { get } from 'lodash';
 import { createComponent } from '../utils';
 import { Context as FormbotContext } from './Formbot';
 
-const FormErrorContainer = createComponent({
+export const StyledFormError = createComponent({
   name: 'FormError',
   tag: 'span',
   style: css`
     display: block;
-    margin: 4px 0 0 4px;
+    margin: 4px 0 0 1px;
     color: ${p => p.theme.colors.red};
-    font-size: 10px;
+    font-size: 14px;
+    font-weight: 500;
   `,
 });
 
@@ -22,14 +23,14 @@ const FormError = ({ name, children }) => {
   const hasRenderProp = !!name && typeof children === 'function';
   const error = get(context, ['errors', name]);
 
-  if (hasNameOnly && error) return <FormErrorContainer>{error}</FormErrorContainer>;
+  if (hasNameOnly && error) return <StyledFormError>{error}</StyledFormError>;
 
   return hasRenderProp ? (
     error ? (
-      <FormErrorContainer>{children(error, context)}</FormErrorContainer>
+      <StyledFormError>{children(error, context)}</StyledFormError>
     ) : null
   ) : (
-    <FormErrorContainer>{children}</FormErrorContainer>
+    <StyledFormError>{children}</StyledFormError>
   );
 };
 

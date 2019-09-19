@@ -7,14 +7,16 @@ import { themeGet, createComponent } from '../utils';
 const StyledCard = createComponent({
   name: 'Card',
   as: Box,
-  style: ({ shadow }) => css`
+  style: ({ shadow, theme }) => css`
     background: white;
-    box-shadow: ${shadow ? themeGet('shadow', 'none') : 'none'};
+    box-shadow: ${shadow ? themeGet('shadow.soft', 'none') : 'none'};
     border-radius: ${themeGet('radius', 0)}px;
     overflow: hidden;
+    border: 1px solid ${theme.colors.greyLight};
   `,
 });
 
+/** Cards provide a flexible way to encapsulate content with multiple variants and options. */
 const Card = React.forwardRef((props, ref) => <StyledCard ref={ref} {...props} />);
 
 Card.propTypes = {
@@ -22,15 +24,14 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  shadow: true,
+  shadow: false,
 };
 
-Card.Header = createComponent({
-  name: 'CardHeader',
+Card.Footer = createComponent({
+  name: 'CardFooter',
   as: Box,
-  style: ({ theme }) => css`
-    padding: 1rem;
-    border-bottom: 1px solid ${theme.colors.grayLight};
+  style: css`
+    padding: 16px;
   `,
 });
 
@@ -38,16 +39,24 @@ Card.Body = createComponent({
   name: 'CardBody',
   as: Box,
   style: () => css`
-    padding: 1rem;
+    padding: 16px;
+
+    & + ${Card.Footer} {
+      padding-top: 0px;
+    }
   `,
 });
 
-Card.Footer = createComponent({
-  name: 'CardFooter',
+Card.Header = createComponent({
+  name: 'CardHeader',
   as: Box,
-  style: ({ theme }) => css`
-    padding: 1rem;
-    border-top: 1px solid ${theme.colors.grayLight};
+  style: css`
+    padding: 16px;
+    font-weight: 700;
+
+    & + ${Card.Body} {
+      padding-top: 0px;
+    }
   `,
 });
 

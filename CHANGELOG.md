@@ -2,6 +2,121 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0-beta.9"></a>
+# [5.0.0-beta.9](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.8...v5.0.0-beta.9) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Label:** Apply correct colors given active state ([1aee5fe](https://github.com/sappira-inc/molekule/commit/1aee5fe))
+
+
+
+<a name="5.0.0-beta.8"></a>
+# [5.0.0-beta.8](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.7...v5.0.0-beta.8) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Inputs:** Use correct colors ([ada8a7b](https://github.com/sappira-inc/molekule/commit/ada8a7b))
+
+
+
+<a name="5.0.0-beta.7"></a>
+# [5.0.0-beta.7](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.6...v5.0.0-beta.7) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Checkbox:** Fix FormError being rendered horizontally in Flex component ([af86478](https://github.com/sappira-inc/molekule/commit/af86478))
+
+
+
+<a name="5.0.0-beta.6"></a>
+# [5.0.0-beta.6](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.5...v5.0.0-beta.6) (2019-09-18)
+
+
+### Bug Fixes
+
+* **Card:** Allow Card.Body to standalone ([44ed904](https://github.com/sappira-inc/molekule/commit/44ed904))
+
+
+
+<a name="5.0.0-beta.5"></a>
+# [5.0.0-beta.5](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.4...v5.0.0-beta.5) (2019-09-18)
+
+
+### Features
+
+* Export theme creator ([aa7ac08](https://github.com/sappira-inc/molekule/commit/aa7ac08))
+
+
+
+<a name="5.0.0-beta.4"></a>
+# [5.0.0-beta.4](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.3...v5.0.0-beta.4) (2019-09-18)
+
+
+### Features
+
+* **HeyDoctor:** Implements small specific theme/component changes ([#80](https://github.com/sappira-inc/molekule/issues/80)) ([7b6dbf6](https://github.com/sappira-inc/molekule/commit/7b6dbf6))
+
+
+
+<a name="5.0.0-beta.3"></a>
+# [5.0.0-beta.3](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.2...v5.0.0-beta.3) (2019-09-16)
+
+
+### Bug Fixes
+
+* **Input:** Padding, Icon color, & Floating changes ([#78](https://github.com/sappira-inc/molekule/issues/78)) ([96bebb9](https://github.com/sappira-inc/molekule/commit/96bebb9))
+
+
+### Features
+
+* **Text:** New Text component; upgrade to styled-system@v5 ([#79](https://github.com/sappira-inc/molekule/issues/79)) ([82c8b32](https://github.com/sappira-inc/molekule/commit/82c8b32))
+
+
+
+<a name="5.0.0-beta.2"></a>
+# [5.0.0-beta.2](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2019-09-12)
+
+
+### Features
+
+* Add floating label to select ([#73](https://github.com/sappira-inc/molekule/issues/73)) ([d8f506a](https://github.com/sappira-inc/molekule/commit/d8f506a))
+* **Checkbox:** Updates styles ([#77](https://github.com/sappira-inc/molekule/issues/77)) ([60172f3](https://github.com/sappira-inc/molekule/commit/60172f3))
+* **Colors:** Update Taylor Primary to Taylor Dark ([#76](https://github.com/sappira-inc/molekule/issues/76)) ([b4c589a](https://github.com/sappira-inc/molekule/commit/b4c589a))
+
+
+
+<a name="5.0.0-beta.1"></a>
+# [5.0.0-beta.1](https://github.com/sappira-inc/molekule/compare/v5.0.0-beta.0...v5.0.0-beta.1) (2019-09-10)
+
+
+### Bug Fixes
+
+* **Checkbox:**  Support for long labels ([#74](https://github.com/sappira-inc/molekule/issues/74)) ([7692d7b](https://github.com/sappira-inc/molekule/commit/7692d7b))
+* **Flex:** Forwards ref to children ([#75](https://github.com/sappira-inc/molekule/issues/75)) ([c5e680b](https://github.com/sappira-inc/molekule/commit/c5e680b))
+
+
+
+<a name="5.0.0-beta.0"></a>
+# [5.0.0-beta.0](https://github.com/sappira-inc/molekule/compare/v4.1.7...v5.0.0-beta.0) (2019-09-06)
+
+
+### Features
+
+* **Badge:** Padding and default size ([#67](https://github.com/sappira-inc/molekule/issues/67)) ([bf2d745](https://github.com/sappira-inc/molekule/commit/bf2d745))
+* **Button:** Icon support and default style updates ([#51](https://github.com/sappira-inc/molekule/issues/51)) ([dc7809d](https://github.com/sappira-inc/molekule/commit/dc7809d))
+* **Colors:** Updates colors ([#60](https://github.com/sappira-inc/molekule/issues/60)) ([9d18867](https://github.com/sappira-inc/molekule/commit/9d18867))
+* Add Storybook and component stories ([#69](https://github.com/sappira-inc/molekule/issues/69)) ([b9378ba](https://github.com/sappira-inc/molekule/commit/b9378ba))
+* **Dropdown:** Style updates ([#68](https://github.com/sappira-inc/molekule/issues/68)) ([ca36b19](https://github.com/sappira-inc/molekule/commit/ca36b19))
+* **Input:** `isFocused` state and icon support ([#49](https://github.com/sappira-inc/molekule/issues/49)) ([2760d89](https://github.com/sappira-inc/molekule/commit/2760d89))
+* **Modal:** Accessibility updates, width constraint ([#52](https://github.com/sappira-inc/molekule/issues/52)) ([d39834c](https://github.com/sappira-inc/molekule/commit/d39834c))
+* **Switch:** Style Updates ([#70](https://github.com/sappira-inc/molekule/issues/70)) ([40eeffb](https://github.com/sappira-inc/molekule/commit/40eeffb))
+
+
+
 <a name="4.1.7"></a>
 ## [4.1.7](https://github.com/sappira-inc/molekule/compare/v4.1.6...v4.1.7) (2019-08-21)
 

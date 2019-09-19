@@ -1,57 +1,155 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import Field from './Field';
 import StyledLabel from './Label';
-import FormError from './FormError';
+import FormError, { StyledFormError } from './FormError';
 import { createEasyInput } from './EasyInput';
+import Icon from '../Icon';
 import { createComponent } from '../utils';
 
 const InputContainer = createComponent({
   name: 'InputContainer',
   style: css`
     position: relative;
+
+    & + ${StyledFormError} {
+      margin-left: 8px;
+    }
   `,
 });
 
 const StyledInput = createComponent({
   name: 'Input',
   tag: 'input',
-  style: ({ isFloating, size, theme, borderRadius = theme.radius }) => css`
-    border: 1px solid ${theme.colors.grayLight};
-    height: ${theme.heights[size]}px;
+  style: ({
+    isFloatable,
+    isFloating,
+    theme,
+    borderRadius = theme.radius,
+    leftIcon,
+    rightIcon,
+    leftIconProps,
+    rightIconProps,
+  }) => css`
+    border: 1px solid ${theme.colors.greyLight};
+    height: 48px;
     display: block;
     outline: none;
     width: 100%;
     padding: 8px;
+    padding-right: 24px;
     border-radius: ${borderRadius}px;
     transition: 250ms all;
     -webkit-appearance: none;
     font-family: inherit;
-    font-size: ${theme.fontSizes[size]}px;
+    font-size: ${theme.typography.fontSize}px;
+    color: ${theme.typography.color};
+    box-sizing: border-box;
 
     &:hover,
-    &:focus,
-    &:active {
-      border-color: ${theme.colors.grayMid};
+    &:active,
+    & + label &:hover {
+      border-color: ${theme.colors.greyDark};
+    }
+
+    &:focus {
+      border-color: ${theme.colors.primary};
     }
 
     ::placeholder {
-      color: ${theme.colors.grayMid};
+      color: ${theme.colors.greyDarker};
+      opacity: ${isFloatable ? 0 : 1};
     }
 
     &[disabled] {
-      opacity: 0.65;
+      background-color: ${theme.colors.white};
+      border-color: ${theme.colors.greyLight};
+      color: ${theme.colors.grey};
+
+      ::placeholder {
+        color: ${theme.colors.grey};
+      }
     }
+
+    ${leftIcon &&
+      !isFloatable &&
+      css`
+        padding-left: ${(leftIconProps.size || 16) + 12}px;
+      `};
+
+    ${rightIcon &&
+      css`
+        padding-right: ${(rightIconProps.size || 16) + 32}px;
+      `};
 
     ${isFloating &&
       css`
-        padding-bottom: 0;
+        line-height: 16px;
+        padding-top: 16px;
+        padding-bottom: 0px;
       `};
   `,
 });
 
-const StyledTextArea = StyledInput.withComponent('textarea');
+const StyledIcon = styled(Icon)`
+  ${({ theme, isDisabled }) => css`
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 250ms all;
+
+    ${isDisabled &&
+      css`
+        color: ${theme.colors.grey};
+      `}
+  `}
+`;
+
+const LeftIcon = createComponent({
+  name: 'InputLeftIcon',
+  as: StyledIcon,
+  style: ({ isFocused, isFloating, isFloatable, theme }) => css`
+    left: 8px;
+
+    ${isFloatable &&
+      css`
+        position: static;
+        padding-right: 4px;
+      `}
+
+    ${isFloating &&
+      css`
+        font-size: 12px;
+        line-height: 14px;
+
+        ${isFocused &&
+          css`
+            color: ${theme.colors.primary};
+          `}
+      `}
+  `,
+});
+
+const RightIcon = createComponent({
+  name: 'InputRightIcon',
+  as: StyledIcon,
+  style: css`
+    right: 8px;
+  `,
+});
+
+const StyledTextArea = createComponent({
+  name: 'TextArea',
+  as: StyledInput.withComponent('textarea'),
+  style: ({ isFloatable, isFloating }) => css`
+    ${isFloatable &&
+      isFloating &&
+      css`
+        padding-top: 24px;
+      `}
+  `,
+});
 
 const AutogrowShadow = createComponent({
   name: 'AutogrowShadow',
@@ -75,7 +173,7 @@ const validateValueProp = (props, propName, componentName) => {
   return null;
 };
 
-class Input extends Component {
+export class Input extends Component {
   static propTypes = {
     value: validateValueProp,
     type: PropTypes.string,
@@ -95,6 +193,10 @@ class Input extends Component {
     size: PropTypes.string,
     floating: PropTypes.bool,
     forwardedRef: PropTypes.oneOfType([PropTypes.shape(), PropTypes.func]),
+    leftIcon: PropTypes.string,
+    leftIconProps: PropTypes.shape(),
+    rightIcon: PropTypes.string,
+    rightIconProps: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -112,6 +214,8 @@ class Input extends Component {
     onBlur() {},
     onChange() {},
     floating: false,
+    leftIconProps: {},
+    rightIconProps: {},
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -221,6 +325,12 @@ class Input extends Component {
     this.ref.current.blur();
   }
 
+  handleLabelClick = () => {
+    if (this.props.floating) {
+      this.focus();
+    }
+  };
+
   render() {
     const {
       style,
@@ -233,33 +343,53 @@ class Input extends Component {
       autofocus,
       id,
       error,
-      value,
       floating,
       placeholder,
       transformOnBlur,
       size,
+      leftIcon,
+      leftIconProps,
+      rightIcon,
+      rightIconProps,
+      disabled,
       ...rest
     } = this.props;
 
-    const isFloating = floating && value != undefined && `${value}`.trim();
+    const { focused, height, value } = this.state;
+
+    const isFloating = (floating && value != null && !!`${value}`.trim()) || (floating && focused);
 
     const inputProps = {
       ...rest,
       id,
       ref: this.ref,
       size,
-      value: this.state.value,
+      value,
       onChange: this.onChange,
       onFocus: this.onFocus,
       onBlur: this.onBlur,
-      style: multiline ? { ...style, height: this.state.height } : style,
+      style: multiline ? { ...style, height } : style,
       placeholder,
       isFloatable: floating,
       isFloating,
+      error,
+      leftIcon,
+      leftIconProps,
+      rightIcon,
+      rightIconProps,
+      disabled,
+    };
+
+    const statusProps = {
+      isFloatable: floating,
+      isFloating,
+      isFocused: focused,
+      isDisabled: disabled,
     };
 
     const Label = label ? (
-      <StyledLabel htmlFor={id} styles={rest.styles} size={size} isFloatable={floating} isFloating={isFloating}>
+      <StyledLabel htmlFor={id} styles={rest.styles} error={error} onClick={this.handleLabelClick} {...statusProps}>
+        {leftIcon && <LeftIcon styles={rest.styles} name={leftIcon} {...statusProps} {...leftIconProps} />}
         {label}
       </StyledLabel>
     ) : null;
@@ -271,12 +401,20 @@ class Input extends Component {
         <InputContainer styles={rest.styles}>
           {floating && Label}
 
+          {leftIcon && !floating && (
+            <LeftIcon styles={rest.styles} name={leftIcon} {...statusProps} {...leftIconProps} />
+          )}
+
+          {rightIcon && (
+            <RightIcon styles={rest.styles} name={rightIcon} size={24} {...statusProps} {...rightIconProps} />
+          )}
+
           {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...inputProps} />}
         </InputContainer>
 
-        {autogrow && <AutogrowShadow ref={this.handleAutogrowRef} />}
+        {!focused && error ? <FormError styles={rest.styles}>{error}</FormError> : null}
 
-        {!this.state.focused && error ? <FormError styles={rest.styles}>{error}</FormError> : null}
+        {autogrow && <AutogrowShadow ref={this.handleAutogrowRef} />}
       </Field>
     );
   }

@@ -12,27 +12,19 @@ import { createComponent } from '../utils';
 const SelectContainer = createComponent({
   name: 'SelectContainer',
   as: Flex,
-  style: ({ size, theme, value, borderRadius = theme.radius }) => css`
+  style: ({ theme }) => css`
     background: white;
-    border: 1px solid ${theme.colors.grayLight};
-    height: ${theme.heights[size]}px;
+    border: 1px solid ${theme.colors.greyLight};
+    height: 48px;
     outline: none;
     width: 100%;
     position: relative;
-    border-radius: ${borderRadius}px;
+    border-radius: ${theme.radius}px;
     transition: 250ms all;
     -webkit-appearance: none;
     font-family: inherit;
-    font-size: ${theme.fontSizes[size]}px;
+    font-size: ${theme.typography.fontSize}px;
     vertical-align: middle;
-
-    ${!value &&
-      css`
-        color: ${p => p.theme.colors.grayMid};
-        select {
-          color: ${p => p.theme.colors.grayMid};
-        }
-      `};
   `,
 });
 
@@ -47,16 +39,23 @@ const IconContainer = styled(Flex)`
 const SelectInput = createComponent({
   name: 'Select',
   tag: 'select',
-  style: ({ theme, size }) => css`
+  style: ({ theme, value, isFloating }) => css`
     position: relative;
     z-index: 2;
     padding: 0 8px;
     outline: none;
     width: 100%;
-    font-size: ${theme.fontSizes[size]}px;
+    font-size: ${theme.typography.fontSize}px;
+    font-family: inherit;
     background: transparent;
+    color: ${value ? theme.typography.color : theme.colors.greyDarker};
     border: none;
     -webkit-appearance: none;
+
+    ${isFloating &&
+      css`
+        margin-top: 16px;
+      `};
   `,
 });
 
@@ -65,7 +64,7 @@ const SelectOption = createComponent({
   tag: 'option',
 });
 
-class Select extends Component {
+export class Select extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     options: PropTypes.array.isRequired,
@@ -112,19 +111,28 @@ class Select extends Component {
   };
 
   render() {
-    const { id, name, options, placeholder, error, size = 'md', label, ...props } = this.props;
+    const { id, name, options, placeholder, error, size = 'md', label, floating, ...props } = this.props;
     const { value } = this.state;
+    const isFloating = floating && value != undefined && `${value}`.trim();
+    const FloatingLabel = (
+      <Label htmlFor={id} size={size} isFloating={isFloating} isFloatable={floating}>
+        {label}
+      </Label>
+    );
 
     return (
       <Field>
-        {label && <Label size={size}>{label}</Label>}
+        {label && !floating && <Label size={size}>{label}</Label>}
         <SelectContainer value={value} size={size}>
+          {label && isFloating && FloatingLabel}
           <SelectInput
             {...props}
+            size={size}
             ref={this.ref}
             name={name}
             value={value}
             onChange={this.handleChange}
+            isFloating={isFloating}
             onBlur={this.handleBlur}>
             <SelectOption value="">{placeholder || 'Select an option...'}</SelectOption>
             {options.map(option => (
@@ -134,7 +142,7 @@ class Select extends Component {
             ))}
           </SelectInput>
           <IconContainer aria-hidden="true" mr={2} alignItems="center" justifyContent="center">
-            <Icon name="chevron-down" size={18} />
+            <Icon name="chevron-down" color="greyDarker" size={24} />
           </IconContainer>
         </SelectContainer>
         {error && <FormError>{error}</FormError>}

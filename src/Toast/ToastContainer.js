@@ -51,10 +51,11 @@ const Toast = createComponent({
     cursor: pointer;
     color: white;
     font-weight: 600;
-    border-radius: ${themeGet('radius')}px;
-    box-shadow: ${themeGet('shadow')};
+    border-radius: ${theme.radius}px;
+    box-shadow: ${theme.shadow.soft};
     background: ${theme.colors[VariantToColorMap[type]]};
     transition: 175ms;
+    z-index: 5000;
 
     ${getTransitionStyle(state, position, animationDuration)};
 
@@ -63,11 +64,13 @@ const Toast = createComponent({
     }
 
     &:hover {
-      box-shadow: ${themeGet('shadowHover')};
+      box-shadow: ${theme.shadow.hard};
     }
   `,
 });
 
+/**
+Toast positions will default to `top-center`. To change the positioning, you can pass the `position` prop to the `<ToastContainer />` to be used as the default. You can also pass the position to each individual toast you're rendering, which will override the default.rendering. */
 export default class ToastContainer extends Component {
   counter = 0;
   state = {

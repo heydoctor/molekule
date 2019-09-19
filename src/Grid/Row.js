@@ -6,7 +6,7 @@ import { createComponent } from '../utils';
 
 const getMargin = p => {
   if (p.collapse) return 0;
-  return typeof p.gutter === 'number' ? p.gutter / 2 : p.theme.grid.gutter / 2;
+  return typeof p.gutter === 'number' ? p.gutter / 2 : p.theme.gridGutter / 2;
 };
 
 const StyledRow = createComponent({
@@ -25,6 +25,9 @@ const StyledRow = createComponent({
   },
 });
 
+/**
+Rows are usually found within a container to wrap columns.
+ */
 const Row = ({ children, gutter, reverse, collapse, vertical, ...props }) => (
   <StyledRow {...props} gutter={gutter} reverse={reverse} collapse={collapse} vertical={vertical}>
     {React.Children.map(children, child => React.cloneElement(child, { gutter, collapse, vertical }))}
