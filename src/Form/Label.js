@@ -17,6 +17,7 @@ const Label = createComponent({
         line-height: 14px;
         left: 9px;
         font-size: ${isFloating ? 12 : 16}px;
+        font-weight: 500;
         top: ${isFloating ? '6px' : '50%'};
         transform: ${isFloating ? 'none' : 'translateY(-50%)'};
         color: ${theme.colors.greyDarker};

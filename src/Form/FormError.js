@@ -12,7 +12,7 @@ export const StyledFormError = createComponent({
     display: block;
     margin: 4px 0 0 1px;
     color: ${p => p.theme.colors.red};
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
   `,
 });

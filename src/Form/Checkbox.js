@@ -33,7 +33,7 @@ const CheckboxIcon = createComponent({
 
 const CheckboxLabel = createComponent({
   name: 'CheckboxLabel',
-  as: Flex,
+  as: 'span',
   style: ({ theme, size }) => {
     const sizeStyles = getComponentSize(theme, 'CheckboxLabel', size);
 
