@@ -75,6 +75,7 @@ const ModalContent = createComponent({
 /** Modals are a great way to add dialogs to your site for lightboxes, user notifications, or completely custom content. */
 export function Modal({ children, title, animationDuration, showClose, onClose, open, ...props }) {
   const [isOpen, setOpen] = useState(open);
+  const modalRef = React.useRef(null);
 
   const handleClose = () => {
     setOpen(false);
@@ -89,6 +90,10 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
     handleClose();
   };
 
+  const scrollToTop = () => {
+    modalRef.current.scroll(0, 0);
+  };
+
   useEffect(() => {
     if (open !== isOpen) {
       setOpen(open);
@@ -98,11 +103,11 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
   return (
     <ModalContext.Provider value={{ handleClose }}>
       <Portal>
-        <Transition in={isOpen} timeout={animationDuration}>
+        <Transition in={isOpen} timeout={animationDuration} onEntering={scrollToTop}>
           {state => (
             <FocusOn onEscapeKey={handleClose} enabled={isOpen}>
-              <Backdrop transitionState={state} onClick={handleBackdropClick}>
-                <ModalContent transitionState={state} onClick={handleContentClick} {...props}>
+              <Backdrop ref={modalRef} transitionState={state} onClick={handleBackdropClick}>
+                <ModalContent transitionState={state} onClick={handleContentClick} aria-modal="true" {...props}>
                   {title && <Modal.Header title={title} showClose={showClose} />}
                   {children}
                 </ModalContent>
@@ -147,6 +152,7 @@ Modal.Title = createComponent({
   style: css`
     font-size: 16px;
     margin: 0;
+    outline: none;
   `,
 });
 
@@ -169,16 +175,36 @@ const ModalHeaderInner = createComponent({
 Modal.Header = ({ title, children, showClose = true }) => {
   const { handleClose } = useContext(ModalContext);
 
+  const handleKeyDown = ({ keyCode }) => {
+    if (keyCode === 13) {
+      handleClose();
+    }
+  };
+
   return (
     <ModalHeader>
       <ModalHeaderInner>
         <Flex alignItems="center">
-          {title && <Modal.Title>{title}</Modal.Title>}
+          {title && (
+            <Modal.Title role="heading" tabIndex="0">
+              {title}
+            </Modal.Title>
+          )}
           {children}
 
           {showClose && (
             <Box ml="auto">
-              <Icon name="close" color="greyDarkest" style={{ cursor: 'pointer' }} size={24} onClick={handleClose} />
+              <Icon
+                name="close"
+                color="greyDarkest"
+                style={{ cursor: 'pointer' }}
+                size={24}
+                onClick={handleClose}
+                onKeyDown={handleKeyDown}
+                role="button"
+                aria-label="Close Modal"
+                tabIndex="0"
+              />
             </Box>
           )}
         </Flex>
