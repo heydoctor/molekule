@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.2"></a>
+## [5.0.2](https://github.com/sappira-inc/molekule/compare/v5.0.1...v5.0.2) (2019-12-02)
+
+
+### Bug Fixes
+
+* **Modal:** Opens long-content modal at top ([#83](https://github.com/sappira-inc/molekule/issues/83)) ([adfeeba](https://github.com/sappira-inc/molekule/commit/adfeeba))
+
+
+
 <a name="5.0.1"></a>
 ## [5.0.1](https://github.com/sappira-inc/molekule/compare/v5.0.0...v5.0.1) (2019-10-29)
 
