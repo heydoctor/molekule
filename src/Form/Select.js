@@ -42,7 +42,7 @@ const SelectInput = createComponent({
   style: ({ theme, value, isFloating }) => css`
     position: relative;
     z-index: 2;
-    padding: 0 8px;
+    padding: 0 32px 0px 8px;
     outline: none;
     width: 100%;
     font-size: ${theme.typography.fontSize}px;
