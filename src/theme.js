@@ -79,6 +79,7 @@ export default (customTheme = {}) => {
       },
     },
     secondary: {
+      backgroundColor: 'transparent',
       borderColor: colors.primary,
       color: colors.primary,
       '&:hover': {
