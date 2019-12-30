@@ -4,6 +4,7 @@ export default (customTheme = {}) => {
       default: '#494D55',
       black: '#1B202B',
       white: '#FFFFFF',
+      colorFocus: '#CADCFF',
 
       greyLightest: '#F8F8F9',
       greyLighter: '#F4F4F4',
@@ -259,6 +260,58 @@ export default (customTheme = {}) => {
           fontSize: 14,
           borderRadius: 14,
           padding: '6px 12px',
+        },
+      },
+      CheckIcon: {
+        sm: {
+          fontSize: '12px',
+          top: '8px',
+        },
+        md: {
+          fontSize: '18px',
+          top: '4px',
+        },
+      },
+      RadioIcon: {
+        sm: {
+          height: '7px',
+          width: '7px',
+        },
+        md: {
+          height: '10px',
+          width: '10px',
+        },
+      },
+      CheckboxIcon: {
+        sm: {
+          height: '12px',
+          width: '12px',
+          minWidth: '12px',
+          borderRadius: '2px',
+          borderWidth: '1px',
+          top: '10px',
+          '&:before': {
+            height: '12px',
+            width: '12px',
+            borderRadius: '6px',
+            top: '-5px',
+            left: '-5px',
+          },
+        },
+        md: {
+          height: '18px',
+          width: '18px',
+          minWidth: '18px',
+          borderRadius: '2px',
+          borderWidth: '2px',
+          top: '6px',
+          '&:before': {
+            height: '18px',
+            width: '18px',
+            borderRadius: '6px',
+            top: '-6px',
+            left: '-6px',
+          },
         },
       },
       CheckboxLabel: {

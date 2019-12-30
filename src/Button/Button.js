@@ -43,11 +43,24 @@ const loadingCss = (height, color) => css`
 const StyledButton = createComponent({
   name: 'Button',
   tag: 'button',
-  style: ({ hasText, leftIcon, rightIcon, variant, size, theme, block, disabled, loading, borderRadius }) => {
+  style: ({
+    hasText,
+    leftIcon,
+    rightIcon,
+    variant,
+    size,
+    theme,
+    block,
+    disabled,
+    loading,
+    borderRadius = theme.radius,
+    colorFocus = theme.colors.colorFocus,
+  }) => {
     const variantStyles = getComponentVariant(theme, 'Button', variant);
     const sizeStyles = getComponentSize(theme, 'Button', size);
 
     return css`
+      position: relative;
       display: inline-block;
       cursor: pointer;
       text-transform: capitalize;
@@ -56,13 +69,28 @@ const StyledButton = createComponent({
       font-family: inherit;
       font-weight: bold;
       appearance: none;
-      border-radius: ${borderRadius || theme.radius}px;
+      border-radius: ${borderRadius}px;
       pointer-events: ${disabled ? 'none' : 'auto'};
       width: ${block ? '100%' : 'auto'};
       border: 1px solid transparent;
       transition: 175ms;
       white-space: nowrap;
       user-select: none;
+      outline: none;
+
+      &:before {
+        transition: opacity 250ms;
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: -5px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        z-index: 0;
+        opacity: 0;
+        border: 4px solid ${colorFocus};
+        border-radius: ${borderRadius + 4}px;
+      }
 
       ${leftIcon &&
         hasText &&
@@ -85,6 +113,12 @@ const StyledButton = createComponent({
         opacity: 0.75;
       }
 
+      &:focus {
+        &:before {
+          opacity: 1;
+        }
+      }
+
       ${loading && loadingCss(sizeStyles.height, variantStyles.color)};
       ${variantStyles}
       ${sizeStyles};
@@ -96,15 +130,23 @@ const StyledButton = createComponent({
 const renderIcon = (icon, props) => <Icon name={icon} {...props} />;
 
 /** Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more. We include several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control. */
-const Button = React.forwardRef(({ children, leftIcon, leftIconProps, rightIcon, rightIconProps, ...rest }, ref) => (
-  <StyledButton ref={ref} hasText={!!children} leftIcon={leftIcon} rightIcon={rightIcon} {...rest}>
-    <Flex alignItems="center" justifyContent="center">
-      {leftIcon && renderIcon(leftIcon, leftIconProps)}
-      {children}
-      {rightIcon && renderIcon(rightIcon, rightIconProps)}
-    </Flex>
-  </StyledButton>
-));
+const Button = React.forwardRef(
+  ({ children, leftIcon, leftIconProps, rightIcon, rightIconProps, colorFocus, ...rest }, ref) => (
+    <StyledButton
+      ref={ref}
+      hasText={!!children}
+      leftIcon={leftIcon}
+      rightIcon={rightIcon}
+      colorFocus={colorFocus}
+      {...rest}>
+      <Flex alignItems="center" justifyContent="center">
+        {leftIcon && renderIcon(leftIcon, leftIconProps)}
+        {children}
+        {rightIcon && renderIcon(rightIcon, rightIconProps)}
+      </Flex>
+    </StyledButton>
+  )
+);
 
 Button.propTypes = {
   variant: PropTypes.string,
