@@ -6,8 +6,8 @@ import { Transition } from 'react-transition-group';
 import { FocusOn } from 'react-focus-on';
 import Portal from '../Portal';
 import Flex from '../Flex';
-import Box from '../Box';
 import Icon from '../Icon';
+import Button from '../Button';
 import { createComponent, themeGet } from '../utils';
 
 const ModalContext = createContext({});
@@ -103,7 +103,7 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
   return (
     <ModalContext.Provider value={{ handleClose }}>
       <Portal>
-        <Transition in={isOpen} timeout={animationDuration} onEntering={scrollToTop}>
+        <Transition in={isOpen} timeout={animationDuration} onEntering={scrollToTop} mountOnEnter unmountOnExit appear>
           {state => (
             <FocusOn onEscapeKey={handleClose} enabled={isOpen}>
               <Backdrop ref={modalRef} transitionState={state} onClick={handleBackdropClick}>
@@ -185,27 +185,21 @@ Modal.Header = ({ title, children, showClose = true }) => {
     <ModalHeader>
       <ModalHeaderInner>
         <Flex alignItems="center">
-          {title && (
-            <Modal.Title role="heading" tabIndex="0">
-              {title}
-            </Modal.Title>
-          )}
+          {title && <Modal.Title role="heading">{title}</Modal.Title>}
           {children}
 
           {showClose && (
-            <Box ml="auto">
-              <Icon
-                name="close"
-                color="greyDarkest"
-                style={{ cursor: 'pointer' }}
-                size={24}
-                onClick={handleClose}
-                onKeyDown={handleKeyDown}
-                role="button"
-                aria-label="Close Modal"
-                tabIndex="0"
-              />
-            </Box>
+            <Button
+              variant="grey"
+              size="sm"
+              style={{ marginLeft: 'auto', border: 'none' }}
+              onClick={handleClose}
+              onKeyDown={handleKeyDown}
+              aria-label="Close Modal"
+              type="button"
+              tabIndex="-1">
+              <Icon name="close" color="greyDarkest" size={24} />
+            </Button>
           )}
         </Flex>
       </ModalHeaderInner>
