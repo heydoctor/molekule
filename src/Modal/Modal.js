@@ -91,7 +91,9 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
   };
 
   const scrollToTop = () => {
-    modalRef.current.scroll(0, 0);
+    if (modalRef.current) {
+      modalRef.current.scroll(0, 0);
+    }
   };
 
   useEffect(() => {
