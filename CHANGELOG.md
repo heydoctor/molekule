@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.1.0"></a>
+# [5.1.0](https://github.com/heydoctor/molekule/compare/v5.0.5...v5.1.0) (2020-01-09)
+
+
+### Bug Fixes
+
+* **Modal:** Safeguards against onEntering error ([#94](https://github.com/heydoctor/molekule/issues/94)) ([057ee53](https://github.com/heydoctor/molekule/commit/057ee53))
+* set higher z-index for input labels ([#97](https://github.com/heydoctor/molekule/issues/97)) ([2a10f57](https://github.com/heydoctor/molekule/commit/2a10f57))
+
+
+### Features
+
+* **Accessibility:** Makes checkbox/radio accessible. Focus States updated. ([#90](https://github.com/heydoctor/molekule/issues/90)) ([1eecf79](https://github.com/heydoctor/molekule/commit/1eecf79))
+* **Modal:** Only renders modal in DOM when visible ([#95](https://github.com/heydoctor/molekule/issues/95)) ([94e73c0](https://github.com/heydoctor/molekule/commit/94e73c0))
+
+
+
 <a name="5.0.5"></a>
 ## [5.0.5](https://github.com/sappira-inc/molekule/compare/v5.0.4...v5.0.5) (2019-12-17)
 
