@@ -9,7 +9,10 @@ export default {
 export const Basic = () => (
   <OrderedList>
     <li>Apple</li>
-    <li>Pear</li>
+    <li>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua.
+    </li>
     <li>Peaches</li>
   </OrderedList>
 );
