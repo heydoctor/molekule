@@ -42,7 +42,9 @@ const StyledOrderedList = createComponent({
 
 /** An ordered list that has customize styling
  */
-const OrderedList = React.forwardRef(StyledOrderedList);
+const OrderedList = React.forwardRef((props, ref) => (
+  <StyledOrderedList {...props} ref={ref} />
+));
 
 OrderedList.displayName = 'OrderedList';
 
