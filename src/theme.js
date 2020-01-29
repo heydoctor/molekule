@@ -262,68 +262,86 @@ export default (customTheme = {}) => {
           padding: '6px 12px',
         },
       },
+      CheckboxContainer: {
+        sm: {
+          minHeight: '24px',
+        },
+        md: {
+          minHeight: '30px',
+        },
+      },
       CheckIcon: {
         sm: {
           fontSize: '12px',
-          top: '8px',
         },
         md: {
-          fontSize: '18px',
-          top: '4px',
+          fontSize: '20px',
         },
       },
-      RadioIcon: {
-        sm: {
-          height: '7px',
-          width: '7px',
-        },
-        md: {
-          height: '10px',
-          width: '10px',
-        },
-      },
-      CheckboxIcon: {
+      Checkbox: {
         sm: {
           height: '12px',
           width: '12px',
           minWidth: '12px',
-          borderRadius: '2px',
           borderWidth: '1px',
-          top: '10px',
+          marginTop: '3px',
           '&:before': {
             height: '12px',
             width: '12px',
-            borderRadius: '6px',
-            top: '-5px',
-            left: '-5px',
           },
         },
         md: {
           height: '18px',
           width: '18px',
           minWidth: '18px',
-          borderRadius: '2px',
           borderWidth: '2px',
-          top: '6px',
-          '&:before': {
-            height: '18px',
+          marginTop: '1px',
+          ':before': {
             width: '18px',
-            borderRadius: '6px',
-            top: '-6px',
-            left: '-6px',
+            height: '18px',
+          },
+        },
+      },
+      Radio: {
+        sm: {
+          height: '14px',
+          width: '14px',
+          minWidth: '14px',
+          marginTop: '2px',
+          ':before': {
+            width: '14px',
+            height: '14px',
+          },
+          ':after': {
+            width: '10px',
+            height: '10px',
+            borderWidth: '2px',
+          },
+        },
+        md: {
+          height: '20px',
+          width: '20px',
+          minWidth: '20px',
+          marginTop: '0px',
+          ':before': {
+            width: '20px',
+            height: '20px',
+          },
+          ':after': {
+            width: '16px',
+            height: '16px',
+            borderWidth: '3px',
           },
         },
       },
       CheckboxLabel: {
         sm: {
-          fontSize: 14,
-          lineHeight: '14px',
-          marginTop: 10,
+          fontSize: '14px',
+          marginLeft: '8px',
         },
         md: {
-          fontSize: 16,
-          lineHeight: '16px',
-          marginTop: 8,
+          fontSize: '16px',
+          marginLeft: '10px',
         },
       },
     },

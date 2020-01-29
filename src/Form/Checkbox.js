@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import Icon from '../Icon';
 import FormError from '../Form/FormError';
-import Flex from '../Flex';
 import { createEasyInput } from './EasyInput';
 import { getComponentSize, createComponent } from '../utils';
+
+const transitionTiming = '250ms cubic-bezier(0.4, 0, 0.2, 1)';
 
 const HiddenInput = createComponent({
   name: 'CheckboxInput',
@@ -27,68 +28,66 @@ const HiddenInput = createComponent({
 const CheckIcon = createComponent({
   name: 'CheckIcon',
   as: Icon,
-  style: ({ theme, color, iconSize }) => {
-    const checkIconStyles = getComponentSize(theme, 'CheckIcon', iconSize);
+  style: ({ theme, iconSize }) => {
+    const sizeStyles = getComponentSize(theme, 'CheckIcon', iconSize);
 
     return css`
-      color: ${theme.colors[color]};
       position: absolute;
-      z-index: 1;
+      color: white;
+      opacity: 0;
+      transition: opacity ${transitionTiming};
+      font-size: 20px;
 
-      ${checkIconStyles}
+      ${sizeStyles}
     `;
   },
 });
 
-const CheckboxIcon = createComponent({
-  name: 'CheckboxIcon',
+const CheckboxShape = createComponent({
+  name: 'CheckboxShape',
   as: 'div',
-  style: ({ theme, size, color, isChecked, isFocused, isRadio, colorFocus = theme.colors.colorFocus }) => {
-    const sizeStyles = getComponentSize(theme, 'CheckboxIcon', size);
-    const radioStyles = getComponentSize(theme, 'RadioIcon', size);
+  style: ({ theme, isRadio, isFocused, size }) => {
+    const checkboxSizeStyles = getComponentSize(theme, 'Checkbox', size);
+    const radioSizeStyles = getComponentSize(theme, 'Radio', size);
 
     return css`
-      transition: 250ms;
       position: relative;
-      border: solid ${theme.colors[color]};
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-style: solid;
+      border-radius: 2px;
+      transition: background-color ${transitionTiming}, border-color ${transitionTiming};
 
-      &:before, &:after {
-        transition: opacity 250ms;
+      &:before,
+      &:after {
         content: '';
         position: absolute;
         opacity: 0;
+        transition: opacity ${transitionTiming};
+        box-sizing: border-box;
       }
 
-      ${sizeStyles}
+      &:before {
+        border: 4px solid ${theme.colors.colorFocus};
+        border-radius: 6px;
+        box-sizing: content-box;
+        z-index: -1;
 
-      ${isChecked &&
-        css`
-          background: ${theme.colors[color]};
-          border-color: ${theme.colors[color]};
+        ${isRadio &&
+          css`
+            border-radius: 50%;
+            height: ${radioSizeStyles.height};
+            width: ${radioSizeStyles.width};
+          `}
+      }
 
-          ${isRadio &&
-            css`
-              background: white;
-
-              &:after {
-                opacity: 1;
-                border-radius: 50%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: ${theme.colors[color]};
-
-                ${radioStyles}
-              }
-            `}
-        `}
+      ${checkboxSizeStyles}
 
       ${isFocused &&
         css`
           &:before {
             opacity: 1;
-            border: 4px solid ${colorFocus};
-            z-index: -1;
           }
         `}
 
@@ -96,9 +95,14 @@ const CheckboxIcon = createComponent({
         css`
           border-radius: 50%;
 
-          &:before {
+          &:after {
+            opacity: 1;
             border-radius: 50%;
+            border-style: solid;
+            border-color: white;
           }
+
+          ${radioSizeStyles}
         `}
     `;
   },
@@ -111,7 +115,7 @@ const CheckboxLabel = createComponent({
     const sizeStyles = getComponentSize(theme, 'CheckboxLabel', size);
 
     return css`
-      margin-left: 8px;
+      transition: color ${transitionTiming};
 
       ${sizeStyles}
     `;
@@ -119,39 +123,74 @@ const CheckboxLabel = createComponent({
 });
 
 const CheckboxContainer = createComponent({
-  name: 'Checkbox',
+  name: 'CheckboxContainer',
   tag: 'label',
-  style: ({ horizontal, checked, theme, disabled }) => css`
-    position: relative;
-    margin-bottom: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: flex-start;
+  style: ({ theme, isChecked, isDisabled, isHorizontal, size, color }) => {
+    const sizeStyles = getComponentSize(theme, 'CheckboxContainer', size);
 
-    & + & {
-      margin-left: ${horizontal ? 12 : 0}px;
-      margin-top: ${horizontal ? 0 : 4}px;
-    }
+    return css`
+      display: inline-flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-bottom: 4px;
+      user-select: none;
+      cursor: pointer;
 
-    &:hover {
-      ${!checked &&
-        !disabled &&
+      ${CheckboxShape} {
+        border-color: ${theme.colors[color]};
+      }
+
+      ${sizeStyles}
+
+      &:hover {
+        ${CheckboxShape} {
+          border-color: ${theme.colors.greyDarker};
+        }
+      }
+
+      ${isHorizontal &&
         css`
-          ${CheckboxIcon} {
-            color: ${theme.colors.greyDarker};
+          @media (min-width: ${theme.breakpoints.sm}) {
+            & + & {
+              margin-left: 18px;
+            }
           }
         `}
-    }
 
-    &[disabled] {
-      cursor: not-allowed;
-      pointer-events: none;
+      ${isChecked &&
+        css`
+          ${CheckIcon} {
+            opacity: 1;
+          }
 
-      ${CheckboxIcon}, ${CheckboxLabel} {
-        color: ${theme.colors.grey};
-      }
-    }
-  `,
+          ${CheckboxShape} {
+            background-color: ${theme.colors[color]};
+            border-color: ${theme.colors[color]} !important;
+          }
+        `}
+
+      ${isDisabled &&
+        css`
+          cursor: not-allowed;
+
+          ${CheckboxShape} {
+            border-color: ${theme.colors.grey} !important;
+            background-color: transparent !important;
+          }
+
+          ${CheckboxLabel} {
+            color: ${theme.colors.grey};
+          }
+
+          ${isChecked &&
+            css`
+              ${CheckboxShape} {
+                background-color: ${theme.colors.grey} !important;
+              }
+            `}
+        `}
+    `;
+  },
 });
 
 export class Checkbox extends React.Component {
@@ -172,7 +211,6 @@ export class Checkbox extends React.Component {
     ariaLabel: PropTypes.string,
     checkIconColor: PropTypes.string,
     checkIcon: PropTypes.string,
-    colorFocus: PropTypes.string,
   };
 
   static defaultProps = {
@@ -185,7 +223,7 @@ export class Checkbox extends React.Component {
     onChange() {},
     disabled: false,
     styles: {},
-    label: 'Checkbox',
+    label: null,
     checkIconColor: 'white',
     checkIcon: 'check',
   };
@@ -227,6 +265,10 @@ export class Checkbox extends React.Component {
     this.setState({ isFocused: !this.state.isFocused });
   };
 
+  handleActive = () => {
+    this.setState({ isActive: !this.state.isActive });
+  };
+
   render() {
     const {
       label,
@@ -243,19 +285,23 @@ export class Checkbox extends React.Component {
       disabled,
       styles,
       ariaLabel,
-      colorFocus,
     } = this.props;
     const { checked } = this;
-    const { isFocused } = this.state;
+    const { isFocused, isActive } = this.state;
 
     return (
       <>
         <CheckboxContainer
-          horizontal={horizontal}
+          isChecked={checked}
+          isDisabled={disabled}
+          isFocused={isFocused}
+          isHorizontal={horizontal}
           style={styles.CheckboxContainer}
-          checked={checked}
-          disabled={disabled}
-          htmlFor={id}>
+          htmlFor={id}
+          size={size}
+          color={checked ? colorOn : colorOff}
+          onMouseDown={this.handleActive}
+          onMouseUp={this.handleActive}>
           <HiddenInput
             aria-label={ariaLabel || label}
             id={id}
@@ -267,29 +313,18 @@ export class Checkbox extends React.Component {
             onFocus={this.handleFocus}
             onBlur={this.handleFocus}
           />
+          <CheckboxShape size={size} isRadio={isRadio} isChecked={checked} isFocused={isFocused}>
+            {checked && !isRadio && <CheckIcon name={checkIcon} color={checkIconColor} iconSize={size} />}
+          </CheckboxShape>
 
-          <Flex>
-            {checked && !isRadio && (
-              <CheckIcon name={checkIcon} color={checkIconColor} iconSize={size} isRadio={isRadio} />
-            )}
-            <CheckboxIcon
-              size={size}
-              color={checked ? colorOn : colorOff}
-              isChecked={checked}
-              isFocused={isFocused}
-              isRadio={isRadio}
-              colorFocus={colorFocus}
-            />
-
-            {label && (
-              <CheckboxLabel size={size} style={styles.Label}>
-                {label}
-              </CheckboxLabel>
-            )}
-          </Flex>
+          {label && (
+            <CheckboxLabel size={size} style={styles.Label}>
+              {label}
+            </CheckboxLabel>
+          )}
         </CheckboxContainer>
 
-        {!isFocused && error ? <FormError>{error}</FormError> : null}
+        {!isFocused && !isActive && error ? <FormError>{error}</FormError> : null}
       </>
     );
   }
