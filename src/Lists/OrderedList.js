@@ -1,13 +1,13 @@
-import React from "react";
-import { css } from "styled-components";
-import Box from "../Box";
-import { createComponent } from "../utils";
+import React from 'react';
+import { css } from 'styled-components';
+import Box from '../Box';
+import { createComponent } from '../utils';
 
 const bubbleSize = 22;
 
 const StyledOrderedList = createComponent({
-  name: "OrderedList",
-  as: "ol",
+  name: 'OrderedList',
+  as: 'ol',
   style: ({ theme }) => css`
     counter-reset: my-counter;
     list-style: none;
@@ -25,7 +25,7 @@ const StyledOrderedList = createComponent({
 
       &::before {
         content: counter(my-counter);
-        font-family: ${theme.typography.headerFontFamily || "inherit"};
+        font-family: ${theme.typography.headerFontFamily || 'inherit'};
         position: absolute;
         left: ${bubbleSize * -1 - theme.space[2]}px;
         line-height: ${bubbleSize}px;
@@ -42,11 +42,9 @@ const StyledOrderedList = createComponent({
 
 /** An ordered list that has customize styling
  */
-const OrderedList = React.forwardRef((props, ref) => (
-  <StyledOrderedList {...props} ref={ref} />
-));
+const OrderedList = React.forwardRef(StyledOrderedList);
 
-OrderedList.displayName = "OrderedList";
+OrderedList.displayName = 'OrderedList';
 
 OrderedList.propTypes = {
   ...Box.propTypes

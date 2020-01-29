@@ -1,8 +1,8 @@
-import React from "react";
-import OrderedList from "./OrderedList";
+import React from 'react';
+import OrderedList from './OrderedList';
 
 export default {
-  title: "Components|OrderedList",
+  title: 'Components|OrderedList',
   component: OrderedList
 };
 
