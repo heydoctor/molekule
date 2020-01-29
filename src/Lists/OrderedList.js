@@ -19,7 +19,7 @@ const StyledOrderedList = createComponent({
       position: relative;
       margin-top: 18px;
 
-      &:first-child {
+      &:first-of-type {
         margin-top: 0;
       }
 
