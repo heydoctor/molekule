@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.0"></a>
+# [5.2.0](https://github.com/heydoctor/molekule/compare/v5.0.2...v5.2.0) (2020-01-31)
+
+
+### Bug Fixes
+
+* bump es-abstract to fix npm install crash due to unpublished version ([#91](https://github.com/heydoctor/molekule/issues/91)) ([7534ab7](https://github.com/heydoctor/molekule/commit/7534ab7))
+* **Button:** Remove backgroundColor from secondary variant ([#93](https://github.com/heydoctor/molekule/issues/93)) ([1fd5cbc](https://github.com/heydoctor/molekule/commit/1fd5cbc))
+* **Button:** Use transparent background to override default white buttonface ([3163125](https://github.com/heydoctor/molekule/commit/3163125))
+* set higher z-index for input labels ([#97](https://github.com/heydoctor/molekule/issues/97)) ([2a10f57](https://github.com/heydoctor/molekule/commit/2a10f57))
+* **Checkbox/Radio:** Fixes regression from 5.1.1 update ([#99](https://github.com/heydoctor/molekule/issues/99)) ([2848510](https://github.com/heydoctor/molekule/commit/2848510))
+* **Modal:** Add guard to scrollToTop ([#101](https://github.com/heydoctor/molekule/issues/101)) ([0c613eb](https://github.com/heydoctor/molekule/commit/0c613eb))
+* **Modal:** Safeguards against onEntering error ([#94](https://github.com/heydoctor/molekule/issues/94)) ([057ee53](https://github.com/heydoctor/molekule/commit/057ee53))
+
+
+### Features
+
+* **Accessibility:** Makes checkbox/radio accessible. Focus States updated. ([#90](https://github.com/heydoctor/molekule/issues/90)) ([1eecf79](https://github.com/heydoctor/molekule/commit/1eecf79))
+* **Modal:** Only renders modal in DOM when visible ([#95](https://github.com/heydoctor/molekule/issues/95)) ([94e73c0](https://github.com/heydoctor/molekule/commit/94e73c0))
+
+
+
 <a name="5.1.1"></a>
 ## [5.1.1](https://github.com/heydoctor/molekule/compare/v5.1.0...v5.1.1) (2020-01-09)
 
