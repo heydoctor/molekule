@@ -24,6 +24,7 @@ export Input from './Form/Input';
 export Label from './Form/Label';
 export Linkify from './Linkify';
 export Modal from './Modal';
+export OrderedList from './Lists/OrderedList';
 export PhoneInput from './Form/PhoneInput';
 export Placeholder from './Placeholder';
 export Portal from './Portal';
