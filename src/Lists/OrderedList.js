@@ -11,7 +11,7 @@ const StyledOrderedList = createComponent({
   style: ({ theme }) => css`
     counter-reset: my-counter;
     list-style: none;
-    padding: 2px; // Provide space for bubble
+    padding: 2px; /* Provide space for bubble */
     padding-left: ${bubbleSize + theme.space[2]}px;
 
     > li {
@@ -37,19 +37,15 @@ const StyledOrderedList = createComponent({
         border: 1px solid ${theme.colors.grey};
       }
     }
-  `
+  `,
 });
 
-/** An ordered list that has customize styling
- */
-const OrderedList = React.forwardRef((props, ref) => (
-  <StyledOrderedList {...props} ref={ref} />
-));
+const OrderedList = React.forwardRef((props, ref) => <StyledOrderedList {...props} ref={ref} />);
 
 OrderedList.displayName = 'OrderedList';
 
 OrderedList.propTypes = {
-  ...Box.propTypes
+  ...Box.propTypes,
 };
 
 export default OrderedList;
