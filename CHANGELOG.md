@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.1"></a>
+## [5.2.1](https://github.com/sappira-inc/molekule/compare/v5.2.0...v5.2.1) (2020-02-05)
+
+
+### Bug Fixes
+
+* **Button:** Rename internal loading prop to isLoading to remove… ([#102](https://github.com/sappira-inc/molekule/issues/102)) ([303879e](https://github.com/sappira-inc/molekule/commit/303879e))
+
+
+
 <a name="5.2.0"></a>
 # [5.2.0](https://github.com/heydoctor/molekule/compare/v5.0.2...v5.2.0) (2020-01-31)
 
