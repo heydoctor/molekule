@@ -14,9 +14,9 @@ const ModalContext = createContext({});
 
 const getAnimation = name => keyframes`${animations[name]}`;
 
-const Backdrop = createComponent({
-  name: 'ModalBackdrop',
-  style: ({ transitionState }) => css`
+const ModalContainer = createComponent({
+  name: 'ModalContainer',
+  style: css`
     top: 0;
     left: 0;
     right: 0;
@@ -28,9 +28,18 @@ const Backdrop = createComponent({
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
-    background: rgba(0, 0, 0, 0.4);
     justify-content: center;
-
+  `,
+});
+const Backdrop = createComponent({
+  name: 'ModalBackdrop',
+  style: ({ transitionState }) => css`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
     ${transitionState === 'exited' &&
       css`
         display: none;
@@ -59,7 +68,6 @@ const ModalContent = createComponent({
     background-clip: padding-box;
     box-shadow: ${theme.shadow.hard};
     border-radius: ${themeGet('radius')}px;
-    z-index: 1000;
 
     ${transitionState === 'entering' &&
       css`
@@ -109,11 +117,13 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
         <Transition in={isOpen} timeout={animationDuration} onEntering={scrollToTop} mountOnEnter unmountOnExit appear>
           {state => (
             <FocusOn onEscapeKey={handleClose} enabled={isOpen}>
-              <Backdrop ref={modalRef} transitionState={state} onClick={handleBackdropClick} />
+              <ModalContainer ref={modalRef}>
+                <Backdrop transitionState={state} onClick={handleBackdropClick} />
                 <ModalContent transitionState={state} onClick={handleContentClick} aria-modal="true" {...props}>
                   {title && <Modal.Header title={title} showClose={showClose} />}
                   {children}
                 </ModalContent>
+              </ModalContainer>
             </FocusOn>
           )}
         </Transition>
