@@ -57,8 +57,9 @@ const ModalContent = createComponent({
     max-width: ${maxWidth}px;
     background: #ffffff;
     background-clip: padding-box;
-    box-shadow: ${theme.shadow.hard});
+    box-shadow: ${theme.shadow.hard};
     border-radius: ${themeGet('radius')}px;
+    z-index: 1000;
 
     ${transitionState === 'entering' &&
       css`
@@ -108,12 +109,11 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
         <Transition in={isOpen} timeout={animationDuration} onEntering={scrollToTop} mountOnEnter unmountOnExit appear>
           {state => (
             <FocusOn onEscapeKey={handleClose} enabled={isOpen}>
-              <Backdrop ref={modalRef} transitionState={state} onClick={handleBackdropClick}>
+              <Backdrop ref={modalRef} transitionState={state} onClick={handleBackdropClick} />
                 <ModalContent transitionState={state} onClick={handleContentClick} aria-modal="true" {...props}>
                   {title && <Modal.Header title={title} showClose={showClose} />}
                   {children}
                 </ModalContent>
-              </Backdrop>
             </FocusOn>
           )}
         </Transition>
