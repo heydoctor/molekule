@@ -34,7 +34,7 @@ const ModalContainer = createComponent({
 const Backdrop = createComponent({
   name: 'ModalBackdrop',
   style: ({ transitionState }) => css`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -68,6 +68,7 @@ const ModalContent = createComponent({
     background-clip: padding-box;
     box-shadow: ${theme.shadow.hard};
     border-radius: ${themeGet('radius')}px;
+    max-height: 90vh;
 
     ${transitionState === 'entering' &&
       css`
@@ -223,6 +224,8 @@ Modal.Body = createComponent({
   name: 'ModalBody',
   style: css`
     padding: 1.25rem;
+    height: calc(90vh - 105px);
+    overflow-y: auto;
   `,
 });
 
