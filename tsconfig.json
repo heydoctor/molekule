@@ -8,6 +8,7 @@
       "dom"
     ],
     "baseUrl": ".",
+    "declaration": true,
     "sourceMap": true,
     "allowJs": true,
     "jsx": "preserve",

@@ -2,10 +2,17 @@ import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import { createComponent } from '../utils';
 
+interface IconProps {
+  name: string;
+  size?: number;
+  color?: string;
+  onClick: () => void;
+}
+
 const Icon = createComponent({
   name: 'Icon',
   tag: 'i',
-  props: ({ name }: any) => ({
+  props: ({ name }: IconProps) => ({
     className: Icon.getClassName(name),
   }),
   style: ({ theme, size, color, disabled, onClick }: any) => {

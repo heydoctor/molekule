@@ -1,10 +1,10 @@
 import kebabCase from 'lodash/kebabCase';
 import get from 'lodash/get';
-import styled from 'styled-components';
+import styled, { AnyStyledComponent } from 'styled-components';
 
-export const themeGet = (lookup, fallback) => ({ theme } = {}) => get(theme, lookup, fallback);
+export const themeGet = (lookup: any, fallback?: any) => ({ theme }: any = {}) => get(theme, lookup, fallback);
 
-export const getComponentVariant = (theme, componentName, variant) => {
+export const getComponentVariant = (theme: any, componentName: string, variant: string) => {
   const config = themeGet(`variants.${componentName}.${variant}`)({
     theme,
   });
@@ -13,20 +13,45 @@ export const getComponentVariant = (theme, componentName, variant) => {
   return config;
 };
 
-export const getComponentSize = (theme, componentName, size) =>
+export const getComponentSize = (theme: any, componentName: string, size: string) =>
   themeGet(`sizes.${componentName}.${size}`, {})({ theme });
 
-export const getComponentStyle = componentName => themeGet(`styles.${componentName}`, {});
+export const getComponentStyle = (componentName: string) => themeGet(`styles.${componentName}`, {});
 
-export const getVariantStyles = (componentName, variant) => themeGet(`variants.${componentName}.${variant}.style`, {});
+export const getVariantStyles = (componentName: string, variant: string) =>
+  themeGet(`variants.${componentName}.${variant}.style`, {});
 
-const getComponentClassName = ({ className, theme: { classPrefix }, variant }, name) =>
-  `${className || ''} ${classPrefix}-${name} ${variant ? `${classPrefix}-${name}-${variant}` : ''}`.trim();
+interface GetComponentClassNameProps {
+  className: string;
+  theme: {
+    classPrefix: string;
+  };
+  variant: string;
+}
 
-export const createComponent = ({ name, tag = 'div', as, style, props: getBaseProps = () => ({}) }) => {
+const getComponentClassName = (
+  { className, theme: { classPrefix }, variant }: GetComponentClassNameProps,
+  name: string
+) => `${className || ''} ${classPrefix}-${name} ${variant ? `${classPrefix}-${name}-${variant}` : ''}`.trim();
+
+interface CreateComponentProps {
+  name: string;
+  tag?: string;
+  as?: AnyStyledComponent;
+  style?: any;
+  props: (props: any) => any;
+}
+
+export const createComponent = ({
+  name,
+  tag = 'div',
+  as,
+  style,
+  props: getBaseProps = () => ({}),
+}: CreateComponentProps) => {
   const component = as ? styled(as) : styled[tag];
 
-  return component.attrs(props => {
+  return component.attrs((props: any) => {
     const baseProps = getBaseProps(props);
     const finalProps = {
       ...baseProps,
@@ -41,16 +66,18 @@ export const createComponent = ({ name, tag = 'div', as, style, props: getBasePr
   })`
   ${style}
   ${getComponentStyle(name)}
-  ${p => getVariantStyles(name, p.variant)}
+  ${(p: any) => getVariantStyles(name, p.variant)}
   ${({ styles = {} }) => styles[name] || {}}
 `;
 };
 
 // eslint-disable-next-line
-const focusableFilter = node =>
+const focusableFilter = (node: any) =>
   node.tabIndex >= 0 && !node.hasAttribute('disabled') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
 
-const createTreeWalker = (root, currentNode, filterFn = () => NodeFilter.FILTER_ACCEPT) => {
+type FilterFn = (node?: any) => any;
+
+const createTreeWalker = (root: any, currentNode: any, filterFn: FilterFn = () => NodeFilter.FILTER_ACCEPT) => {
   const treeWalker = document.createTreeWalker(
     root,
     NodeFilter.SHOW_ELEMENT,
@@ -63,7 +90,7 @@ const createTreeWalker = (root, currentNode, filterFn = () => NodeFilter.FILTER_
   return treeWalker;
 };
 
-export const findPreviousFocusableElement = (root, currentNode) => {
+export const findPreviousFocusableElement = (root: any, currentNode: any) => {
   const treeWalker = createTreeWalker(root, currentNode, focusableFilter);
 
   if (!treeWalker.previousNode() || treeWalker.currentNode === root) {
@@ -73,7 +100,7 @@ export const findPreviousFocusableElement = (root, currentNode) => {
   return treeWalker.currentNode;
 };
 
-export const findNextFocusableElement = (root, currentNode) => {
+export const findNextFocusableElement = (root: any, currentNode: any) => {
   const treeWalker = createTreeWalker(root, currentNode, focusableFilter);
 
   if (!treeWalker.nextNode() || treeWalker.currentNode === root) {
@@ -84,7 +111,7 @@ export const findNextFocusableElement = (root, currentNode) => {
   return treeWalker.currentNode;
 };
 
-export const getNextCursorPosition = (cursorPos, oldValue, newValue) => {
+export const getNextCursorPosition = (cursorPos: any, oldValue: any, newValue: any) => {
   const cursorDiff = newValue.length - oldValue.length;
   let nextPosition = cursorPos;
 
