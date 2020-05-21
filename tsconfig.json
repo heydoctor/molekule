@@ -9,6 +9,7 @@
     ],
     "baseUrl": ".",
     "declaration": true,
+    "declarationDir": "./lib",
     "sourceMap": true,
     "allowJs": true,
     "jsx": "preserve",

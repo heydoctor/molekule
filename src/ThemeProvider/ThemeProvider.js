@@ -1,10 +1,10 @@
 import React from 'react';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
 import merge from 'lodash/merge';
-import defaultTheme from '../theme';
+import { createTheme } from '../createTheme';
 
 const ThemeProvider = props => {
-  const theme = merge(defaultTheme(props.theme), props.theme);
+  const theme = merge(createTheme(props.theme), props.theme);
 
   return <SCThemeProvider theme={theme}>{props.children}</SCThemeProvider>;
 };
