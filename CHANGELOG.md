@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.5"></a>
+## [5.2.5](https://github.com/sappira-inc/molekule/compare/v5.2.4...v5.2.5) (2020-05-21)
+
+
+### Bug Fixes
+
+* Fix button padding and font sizes ([#118](https://github.com/sappira-inc/molekule/issues/118)) ([ee1ca62](https://github.com/sappira-inc/molekule/commit/ee1ca62))
+
+
+
 <a name="5.2.4"></a>
 ## [5.2.4](https://github.com/heydoctor/molekule/compare/v5.2.3...v5.2.4) (2020-05-13)
 
