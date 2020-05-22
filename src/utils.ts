@@ -49,7 +49,7 @@ export const createComponent = <T extends object, O extends keyof JSX.IntrinsicE
   style,
   props: getBaseProps = () => ({}),
 }: CreateComponentProps) => {
-  const component = styled<O>((tag || as) as any);
+  const component = styled<O>((as || tag) as any);
 
   return component.attrs<T>((props: any) => {
     const baseProps = getBaseProps(props);
