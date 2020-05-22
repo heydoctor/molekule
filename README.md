@@ -11,7 +11,7 @@ $ git clone git@github.com:sappira-inc/molekule.git
 $ npm install
 $ npm run docs
 ```
- 
+
 ### Previewing
 
 We use [Yalc](https://github.com/whitecolor/yalc) to preview changes made to Molekule in consuming applications.

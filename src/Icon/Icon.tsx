@@ -10,6 +10,7 @@ interface IconProps {
   disabled?: boolean;
 }
 
+// Need to declare type and use Object.assign to provide typings because Icon is being accessed during initialization
 type IconType = StyledComponent<'i', DefaultTheme, IconProps, never> & { getClassName: (name: string) => string };
 
 const Icon: IconType = Object.assign(

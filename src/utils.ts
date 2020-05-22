@@ -1,7 +1,6 @@
 import kebabCase from 'lodash/kebabCase';
 import get from 'lodash/get';
-import styled /* , { StyledComponent } */ from 'styled-components';
-// import { DefaultTheme } from './@types/styled.d';
+import styled from 'styled-components';
 
 export const themeGet = (lookup: any, fallback?: any) => ({ theme }: any = {}) => get(theme, lookup, fallback);
 
@@ -50,11 +49,7 @@ export const createComponent = <T extends object, O extends keyof JSX.IntrinsicE
   style,
   props: getBaseProps = () => ({}),
 }: CreateComponentProps) => {
-  // : StyledComponent<O, DefaultTheme, T, never>
   const component = styled<O>((tag || as) as any);
-
-  // const abc = styled.div``;
-  // console.log(abc);
 
   return component.attrs<T>((props: any) => {
     const baseProps = getBaseProps(props);
