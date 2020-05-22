@@ -6,8 +6,8 @@ import { ButtonVariants } from './types/ButtonVariants';
 import { BadgeVariants } from './types/BadgeVariants';
 import { defaultThemeSizes } from './defaultThemeSizes';
 
-export const createTheme = (customTheme: DefaultTheme): DefaultTheme => {
-  const colors = Object.assign(defaultThemeColors, customTheme.colors);
+export const createTheme = (customTheme?: DefaultTheme): DefaultTheme => {
+  const colors = Object.assign(defaultThemeColors, customTheme?.colors);
 
   const buttonVariants: ButtonVariants = {
     primary: {
@@ -146,7 +146,7 @@ export const createTheme = (customTheme: DefaultTheme): DefaultTheme => {
   const alertVariants = badgeVariants;
 
   const defaultBreakpoints: ThemeBreakpoints = ['400px', '600px', '900px', '1200px', '1500px'];
-  const breakpoints = customTheme.breakpoints || defaultBreakpoints;
+  const breakpoints = customTheme?.breakpoints || defaultBreakpoints;
   /* eslint-disable prefer-destructuring */
   breakpoints.xs = breakpoints[0];
   breakpoints.sm = breakpoints[1];

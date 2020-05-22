@@ -1,6 +1,7 @@
 import kebabCase from 'lodash/kebabCase';
 import get from 'lodash/get';
-import styled, { AnyStyledComponent } from 'styled-components';
+import styled /* , { StyledComponent } */ from 'styled-components';
+// import { DefaultTheme } from './@types/styled.d';
 
 export const themeGet = (lookup: any, fallback?: any) => ({ theme }: any = {}) => get(theme, lookup, fallback);
 
@@ -36,22 +37,26 @@ const getComponentClassName = (
 
 interface CreateComponentProps {
   name: string;
-  tag?: string;
-  as?: AnyStyledComponent;
+  tag?: keyof JSX.IntrinsicElements;
+  as?: React.ComponentType<any>;
   style?: any;
-  props: (props: any) => any;
+  props?: (props: any) => any;
 }
 
-export const createComponent = ({
+export const createComponent = <T extends object, O extends keyof JSX.IntrinsicElements | React.ComponentType<any>>({
   name,
   tag = 'div',
   as,
   style,
   props: getBaseProps = () => ({}),
 }: CreateComponentProps) => {
-  const component = as ? styled(as) : styled[tag];
+  // : StyledComponent<O, DefaultTheme, T, never>
+  const component = styled<O>((tag || as) as any);
 
-  return component.attrs((props: any) => {
+  // const abc = styled.div``;
+  // console.log(abc);
+
+  return component.attrs<T>((props: any) => {
     const baseProps = getBaseProps(props);
     const finalProps = {
       ...baseProps,
@@ -63,7 +68,7 @@ export const createComponent = ({
       ...finalProps,
       className: getComponentClassName(finalProps, kebabCase(name)),
     };
-  })`
+  })<T>`
   ${style}
   ${getComponentStyle(name)}
   ${(p: any) => getVariantStyles(name, p.variant)}
