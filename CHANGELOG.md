@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.2.6"></a>
+## [5.2.6](https://github.com/sappira-inc/molekule/compare/v5.2.5...v5.2.6) (2020-05-26)
+
+
+### Bug Fixes
+
+* Adjust close icon position ([#119](https://github.com/sappira-inc/molekule/issues/119)) ([07752d6](https://github.com/sappira-inc/molekule/commit/07752d6))
+
+
+
 <a name="5.2.5"></a>
 ## [5.2.5](https://github.com/sappira-inc/molekule/compare/v5.2.4...v5.2.5) (2020-05-21)
 
