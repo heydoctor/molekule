@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.0"></a>
+# 5.3.0 (2020-06-10)
+
+
+### Features
+
+* **Label:** Label is now aware of multiline inputs ([#123](https://github.com/heydoctor/molekule/issues/123)) ([3b1a17f](https://github.com/heydoctor/molekule/commit/3b1a17f))
+
+
+
 <a name="5.2.7"></a>
 ## 5.2.7 (2020-05-29)
 
