@@ -1,7 +1,7 @@
-export interface ThemeBreakpoints extends Array<string> {
-  xs?: string;
-  sm?: string;
-  md?: string;
-  lg?: string;
-  xl?: string;
-}
+import { defaultBreakpoints } from '../defaultBreakpoints';
+
+type Transform<T> = {
+  [P in keyof T]: string;
+};
+
+export interface ThemeBreakpoints extends Transform<typeof defaultBreakpoints> {}

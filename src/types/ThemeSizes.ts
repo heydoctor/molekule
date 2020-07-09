@@ -1,34 +1,8 @@
-import { ExtendedCSSProperties } from './ExtendedCSSProperties';
+import { defaultThemeSizes } from '../defaultThemeSizes';
+import { ThemeSize } from './ThemeSize';
 
-export interface ThemeSizes {
-  Button: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-    lg: ExtendedCSSProperties;
-  };
-  Badge: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-    lg: ExtendedCSSProperties;
-  };
-  CheckboxContainer: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-  };
-  CheckIcon: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-  };
-  Checkbox: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-  };
-  Radio: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-  };
-  CheckboxLabel: {
-    sm: ExtendedCSSProperties;
-    md: ExtendedCSSProperties;
-  };
-}
+type Transform<T> = {
+  [P in keyof T]: ThemeSize;
+};
+
+export interface ThemeSizes extends Transform<typeof defaultThemeSizes> {}
