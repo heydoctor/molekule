@@ -8,6 +8,7 @@ describe('createTheme', () => {
 
     expect(theme.colors.blue).toEqual(defaultThemeColors.blue);
     expect(theme.breakpoints.lg).toEqual(defaultBreakpoints.lg);
+    expect(theme).toMatchSnapshot();
   });
 
   it('overwrite', () => {
@@ -16,7 +17,7 @@ describe('createTheme', () => {
         ...defaultThemeColors,
         primaryDark: 'foo',
       },
-    });
+    } as const);
 
     expect(theme.colors.primaryDark).toEqual('foo');
     expect(theme.variants.Badge.primary.color).toEqual('foo');

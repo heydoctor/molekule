@@ -1,0 +1,374 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createTheme default 1`] = `
+Object {
+  "breakpoints": Object {
+    "lg": "1200px",
+    "md": "900px",
+    "sm": "600px",
+    "xl": "1500px",
+    "xs": "400px",
+  },
+  "classPrefix": "re",
+  "colors": Object {
+    "black": "#1B202B",
+    "blue": "#226EFF",
+    "blueDark": "#0958F3",
+    "blueLight": "#4D89FF",
+    "blueLightest": "#CADCFF",
+    "colorFocus": "#CADCFF",
+    "default": "#494D55",
+    "green": "#21B986",
+    "greenDark": "#00AC74",
+    "greenLight": "#42C79B",
+    "greenLightest": "#DDF5ED",
+    "grey": "#D1D2D5",
+    "greyDark": "#A4A6AA",
+    "greyDarker": "#767980",
+    "greyDarkest": "#494D55",
+    "greyLight": "#E8E9EA",
+    "greyLighter": "#F4F4F4",
+    "greyLightest": "#F8F8F9",
+    "orange": "#FF954D",
+    "orangeDark": "#EE7523",
+    "orangeLight": "#FFAA70",
+    "orangeLightest": "#FFE6D4",
+    "primary": "#0958F3",
+    "primaryDark": "#0046CE",
+    "primaryLight": "#226EFF",
+    "primaryLightest": "#CADCFF",
+    "purple": "#A262F0",
+    "purpleDark": "#8B3FE7",
+    "purpleLight": "#BB8AF6",
+    "purpleLightest": "#EBDCFC",
+    "red": "#FD575D",
+    "redDark": "#F23338",
+    "redLight": "#FE7B7E",
+    "redLightest": "#FFD7D8",
+    "secondary": "#21B986",
+    "secondaryDark": "#00AC74",
+    "secondaryLight": "#42C79B",
+    "secondaryLightest": "#DDF5ED",
+    "white": "#FFFFFF",
+    "yellow": "#FED23D",
+    "yellowDark": "#F1BC0B",
+    "yellowLight": "#FFE075",
+    "yellowLightest": "#FFF6D6",
+  },
+  "gridColumns": 12,
+  "gridGutter": 16,
+  "gridWidth": 1200,
+  "radii": Array [
+    0,
+    2,
+    4,
+    8,
+  ],
+  "radius": 8,
+  "shadow": Object {
+    "hard": "0px 0px 16px rgba(44, 53, 71, 0.2)",
+    "soft": "0px 2px 16px rgba(27, 32, 43, 0.1)",
+  },
+  "sizes": Object {
+    "Badge": Object {
+      "lg": Object {
+        "borderRadius": 14,
+        "fontSize": 14,
+        "padding": "6px 12px",
+      },
+      "md": Object {
+        "borderRadius": 12,
+        "fontSize": 12,
+        "padding": "4px 8px",
+      },
+      "sm": Object {
+        "borderRadius": 10,
+        "fontSize": 10,
+        "padding": "4px 8px",
+      },
+    },
+    "Button": Object {
+      "lg": Object {
+        "fontSize": 16,
+        "height": 48,
+        "padding": "0 20px",
+      },
+      "md": Object {
+        "fontSize": 16,
+        "height": 40,
+        "padding": "0 16px",
+      },
+      "sm": Object {
+        "fontSize": 14,
+        "height": 32,
+        "padding": "0 12px",
+      },
+    },
+    "CheckIcon": Object {
+      "md": Object {
+        "fontSize": "20px",
+      },
+      "sm": Object {
+        "fontSize": "12px",
+      },
+    },
+    "Checkbox": Object {
+      "md": Object {
+        ":before": Object {
+          "height": "18px",
+          "width": "18px",
+        },
+        "borderWidth": "2px",
+        "height": "18px",
+        "marginTop": "1px",
+        "minWidth": "18px",
+        "width": "18px",
+      },
+      "sm": Object {
+        "&:before": Object {
+          "height": "12px",
+          "width": "12px",
+        },
+        "borderWidth": "1px",
+        "height": "12px",
+        "marginTop": "3px",
+        "minWidth": "12px",
+        "width": "12px",
+      },
+    },
+    "CheckboxContainer": Object {
+      "md": Object {
+        "minHeight": "30px",
+      },
+      "sm": Object {
+        "minHeight": "24px",
+      },
+    },
+    "CheckboxLabel": Object {
+      "md": Object {
+        "fontSize": "16px",
+        "marginLeft": "10px",
+      },
+      "sm": Object {
+        "fontSize": "14px",
+        "marginLeft": "8px",
+      },
+    },
+    "Radio": Object {
+      "md": Object {
+        ":after": Object {
+          "borderWidth": "3px",
+          "height": "16px",
+          "width": "16px",
+        },
+        ":before": Object {
+          "height": "20px",
+          "width": "20px",
+        },
+        "height": "20px",
+        "marginTop": "0px",
+        "minWidth": "20px",
+        "width": "20px",
+      },
+      "sm": Object {
+        ":after": Object {
+          "borderWidth": "2px",
+          "height": "10px",
+          "width": "10px",
+        },
+        ":before": Object {
+          "height": "14px",
+          "width": "14px",
+        },
+        "height": "14px",
+        "marginTop": "2px",
+        "minWidth": "14px",
+        "width": "14px",
+      },
+    },
+  },
+  "space": Array [
+    0,
+    4,
+    8,
+    16,
+    24,
+    32,
+    64,
+    126,
+    256,
+  ],
+  "typography": Object {
+    "bodyFontFamily": "Avenir",
+    "color": "#1B202B",
+    "fontSize": 16,
+    "headerFontFamily": "Tiempos",
+  },
+  "variants": Object {
+    "Alert": Object {
+      "danger": Object {
+        "backgroundColor": "#FFD7D8",
+        "color": "#F23338",
+      },
+      "grey": Object {
+        "backgroundColor": "#E8E9EA",
+        "color": "#767980",
+      },
+      "info": Object {
+        "backgroundColor": "#CADCFF",
+        "color": "#0958F3",
+      },
+      "primary": Object {
+        "backgroundColor": "#CADCFF",
+        "color": "#0046CE",
+      },
+      "success": Object {
+        "&:before": Object {
+          "color": "#21B986",
+        },
+        "backgroundColor": "#DDF5ED",
+        "color": "#00AC74",
+      },
+      "warning": Object {
+        "backgroundColor": "#FFE6D4",
+        "color": "#EE7523",
+      },
+    },
+    "Badge": Object {
+      "danger": Object {
+        "backgroundColor": "#FFD7D8",
+        "color": "#F23338",
+      },
+      "grey": Object {
+        "backgroundColor": "#E8E9EA",
+        "color": "#767980",
+      },
+      "info": Object {
+        "backgroundColor": "#CADCFF",
+        "color": "#0958F3",
+      },
+      "primary": Object {
+        "backgroundColor": "#CADCFF",
+        "color": "#0046CE",
+      },
+      "success": Object {
+        "&:before": Object {
+          "color": "#21B986",
+        },
+        "backgroundColor": "#DDF5ED",
+        "color": "#00AC74",
+      },
+      "warning": Object {
+        "backgroundColor": "#FFE6D4",
+        "color": "#EE7523",
+      },
+    },
+    "Button": Object {
+      "danger": Object {
+        "&:active": Object {
+          "backgroundColor": "#F23338",
+        },
+        "&:disabled": Object {
+          "backgroundColor": "#FFD7D8",
+        },
+        "&:hover": Object {
+          "backgroundColor": "#FE7B7E",
+        },
+        "backgroundColor": "#FD575D",
+        "color": "#FFFFFF",
+      },
+      "grey": Object {
+        "&:active": Object {
+          "backgroundColor": "#E8E9EA",
+        },
+        "&:disabled": Object {
+          "borderColor": "#D1D2D5",
+          "color": "#D1D2D5",
+        },
+        "&:hover": Object {
+          "borderColor": "#A4A6AA",
+        },
+        "backgroundColor": "#FFFFFF",
+        "borderColor": "#D1D2D5",
+        "color": "#494D55",
+      },
+      "greyText": Object {
+        "&:hover": Object {
+          "color": "#A4A6AA",
+        },
+        "backgroundColor": "transparent",
+        "borderColor": "transparent",
+        "color": "#D1D2D5",
+      },
+      "info": Object {
+        "backgroundColor": "#226EFF",
+        "color": "#FFFFFF",
+      },
+      "primary": Object {
+        "&:active": Object {
+          "backgroundColor": "#0046CE",
+        },
+        "&:disabled": Object {
+          "backgroundColor": "#CADCFF",
+        },
+        "&:hover": Object {
+          "backgroundColor": "#226EFF",
+        },
+        "backgroundColor": "#0958F3",
+        "color": "#FFFFFF",
+      },
+      "primaryText": Object {
+        "&:hover": Object {
+          "color": "#0046CE",
+        },
+        "backgroundColor": "transparent",
+        "borderColor": "transparent",
+        "color": "#0958F3",
+      },
+      "secondary": Object {
+        "&:active": Object {
+          "backgroundColor": "#0046CE",
+          "color": "#FFFFFF",
+        },
+        "&:disabled": Object {
+          "borderColor": "#CADCFF",
+          "color": "#CADCFF",
+        },
+        "&:hover": Object {
+          "backgroundColor": "#0958F3",
+          "color": "#FFFFFF",
+        },
+        "backgroundColor": "transparent",
+        "borderColor": "#0958F3",
+        "color": "#0958F3",
+      },
+      "success": Object {
+        "&:active": Object {
+          "backgroundColor": "#00AC74",
+        },
+        "&:disabled": Object {
+          "backgroundColor": "#DDF5ED",
+        },
+        "&:hover": Object {
+          "backgroundColor": "#42C79B",
+        },
+        "backgroundColor": "#21B986",
+        "color": "#FFFFFF",
+      },
+      "warning": Object {
+        "&:active": Object {
+          "backgroundColor": "#EE7523",
+        },
+        "&:disabled": Object {
+          "backgroundColor": "#FFE6D4",
+        },
+        "&:hover": Object {
+          "backgroundColor": "#FFAA70",
+        },
+        "backgroundColor": "#FF954D",
+        "color": "#FFFFFF",
+      },
+    },
+  },
+}
+`;

@@ -1,7 +1,11 @@
-export * from './ThemeVariants';
-export * from './ThemeColors';
-export * from './ThemeBreakpoints';
-export * from './ThemeSizes';
-export * from './ThemeTypography';
-export * from './BadgeVariants';
-export * from './ButtonVariants';
+import { CSSProperties } from 'styled-components';
+
+export interface ExtendedCSSProperties extends CSSProperties {
+  '&:before'?: CSSProperties;
+  '&:after'?: CSSProperties;
+  '&:hover'?: CSSProperties;
+  '&:active'?: CSSProperties;
+  '&:disabled'?: CSSProperties;
+}
+
+export type VariantObject = Record<string, ExtendedCSSProperties>;

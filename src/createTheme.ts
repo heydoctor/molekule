@@ -1,41 +1,18 @@
 import { DefaultTheme } from 'styled-components';
-import { defaultThemeColors } from './defaultThemeColors';
-import { BadgeVariants } from './types/BadgeVariants';
-import { defaultBadgeVariants } from './defaultBadgeVariants';
 import { defaultTheme } from './defaultTheme';
+import { getDefaultBadgeVariants } from './defaultBadgeVariants';
+import { getDefaultButtonVariants } from './defaultButtonVariants';
 
-export const createTheme = (customTheme?: Partial<DefaultTheme>): DefaultTheme => {
+type ThemeLike<T> = {
+  [K in keyof DefaultTheme]: K extends keyof T ? T[K] : DefaultTheme[K];
+};
+
+export const createTheme = <T extends Partial<ThemeLike<T>>>(customTheme: T = {} as T) => {
   const colors = {
-    ...defaultThemeColors,
+    ...defaultTheme.colors,
     ...customTheme?.colors,
-  };
-
-  const badgeVariants: BadgeVariants = {
-    ...defaultBadgeVariants,
-    primary: {
-      backgroundColor: colors.primaryLightest,
-      color: colors.primaryDark,
-    },
-    success: {
-      backgroundColor: colors.greenLightest,
-      color: colors.greenDark,
-    },
-    danger: {
-      backgroundColor: colors.redLightest,
-      color: colors.redDark,
-    },
-    warning: {
-      backgroundColor: colors.orangeLightest,
-      color: colors.orangeDark,
-    },
-    info: {
-      backgroundColor: colors.blueLightest,
-      color: colors.blueDark,
-    },
-    grey: {
-      backgroundColor: colors.greyLight,
-      color: colors.greyDarker,
-    },
+  } as {
+    [K in keyof DefaultTheme['colors']]: K extends keyof T['colors'] ? T['colors'][K] : DefaultTheme['colors'][K];
   };
 
   return {
@@ -50,111 +27,9 @@ export const createTheme = (customTheme?: Partial<DefaultTheme>): DefaultTheme =
       color: colors.black,
     },
     variants: {
-      ...defaultTheme.variants,
-      Alert: badgeVariants,
-      Badge: badgeVariants,
-      Button: {
-        ...defaultTheme.variants.Button,
-        primary: {
-          backgroundColor: colors.primary,
-          color: colors.white,
-          '&:hover': {
-            backgroundColor: colors.primaryLight,
-          },
-          '&:active': {
-            backgroundColor: colors.primaryDark,
-          },
-          '&:disabled': {
-            backgroundColor: colors.primaryLightest,
-          },
-        },
-        primaryText: {
-          color: colors.primary,
-          '&:hover': {
-            color: colors.primaryDark,
-          },
-        },
-        secondary: {
-          borderColor: colors.primary,
-          color: colors.primary,
-          '&:hover': {
-            backgroundColor: colors.primary,
-            color: colors.white,
-          },
-          '&:active': {
-            backgroundColor: colors.primaryDark,
-            color: colors.white,
-          },
-          '&:disabled': {
-            borderColor: colors.primaryLightest,
-            color: colors.primaryLightest,
-          },
-        },
-        grey: {
-          backgroundColor: colors.white,
-          borderColor: colors.grey,
-          color: colors.greyDarkest,
-          '&:hover': {
-            borderColor: colors.greyDark,
-          },
-          '&:active': {
-            backgroundColor: colors.greyLight,
-          },
-          '&:disabled': {
-            borderColor: colors.grey,
-            color: colors.grey,
-          },
-        },
-        greyText: {
-          color: colors.grey,
-          '&:hover': {
-            color: colors.greyDark,
-          },
-        },
-        success: {
-          color: colors.white,
-          backgroundColor: colors.secondary,
-          '&:hover': {
-            backgroundColor: colors.secondaryLight,
-          },
-          '&:active': {
-            backgroundColor: colors.secondaryDark,
-          },
-          '&:disabled': {
-            backgroundColor: colors.secondaryLightest,
-          },
-        },
-        warning: {
-          backgroundColor: colors.orange,
-          color: colors.white,
-          '&:hover': {
-            backgroundColor: colors.orangeLight,
-          },
-          '&:active': {
-            backgroundColor: colors.orangeDark,
-          },
-          '&:disabled': {
-            backgroundColor: colors.orangeLightest,
-          },
-        },
-        danger: {
-          backgroundColor: colors.red,
-          color: colors.white,
-          '&:hover': {
-            backgroundColor: colors.redLight,
-          },
-          '&:active': {
-            backgroundColor: colors.redDark,
-          },
-          '&:disabled': {
-            backgroundColor: colors.redLightest,
-          },
-        },
-        info: {
-          backgroundColor: colors.blue,
-          color: colors.white,
-        },
-      },
+      Alert: getDefaultBadgeVariants(colors as Record<string, string>),
+      Badge: getDefaultBadgeVariants(colors as Record<string, string>),
+      Button: getDefaultButtonVariants(colors as Record<string, string>),
     },
   };
 };
