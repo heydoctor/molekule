@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { css, DefaultTheme, StyledComponent } from 'styled-components';
+import { css } from 'styled-components';
 import { createComponent } from '../utils';
 
 interface IconProps {
@@ -10,47 +10,39 @@ interface IconProps {
   disabled?: boolean;
 }
 
-// Need to declare type and use Object.assign to provide typings because Icon is being accessed during initialization
-type IconType = StyledComponent<'i', DefaultTheme, IconProps, never> & { getClassName: (name: string) => string };
-
-const Icon: IconType = Object.assign(
-  createComponent<IconProps, 'i'>({
-    name: 'Icon',
-    tag: 'i',
-    props: ({ name }) => ({
-      className: Icon.getClassName(name),
-    }),
-    style: ({ theme, size, color, disabled, onClick }: any) => {
-      const colorFromTheme = theme.colors[color];
-      const resolvedColor = colorFromTheme || color;
-
-      return css`
-        color: ${resolvedColor || 'inherit'};
-        font-size: ${size ? `${size}px` : 'inherit'};
-
-        ${disabled &&
-          css`
-            pointer-events: none;
-            opacity: 0.65;
-          `};
-
-        ${onClick &&
-          css`
-            cursor: pointer;
-          `}
-      `;
-    },
+const Icon = createComponent<IconProps, 'i'>({
+  name: 'Icon',
+  tag: 'i',
+  props: ({ name }) => ({
+    className: `mdi mdi-${name}`,
   }),
-  {
-    propTypes: {
-      name: PropTypes.string.isRequired,
-      size: PropTypes.number,
-      color: PropTypes.string,
-      onClick: PropTypes.func,
-    },
-    iconPrefix: 'mdi',
-    getClassName: (name: string) => `${Icon.iconPrefix} ${Icon.iconPrefix}-${name}`,
-  }
-);
+  style: ({ theme, size, color, disabled, onClick }: any) => {
+    const colorFromTheme = theme.colors[color];
+    const resolvedColor = colorFromTheme || color;
+
+    return css`
+      color: ${resolvedColor || 'inherit'};
+      font-size: ${size ? `${size}px` : 'inherit'};
+
+      ${disabled &&
+        css`
+          pointer-events: none;
+          opacity: 0.65;
+        `};
+
+      ${onClick &&
+        css`
+          cursor: pointer;
+        `}
+    `;
+  },
+});
+
+Icon.propTypes = {
+  name: PropTypes.string.isRequired,
+  size: PropTypes.number,
+  color: PropTypes.string,
+  onClick: PropTypes.func,
+};
 
 export default Icon;
