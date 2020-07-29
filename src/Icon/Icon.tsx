@@ -2,11 +2,19 @@ import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import { createComponent } from '../utils';
 
-const Icon = createComponent({
+interface IconProps {
+  name: string;
+  size?: number;
+  color?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+}
+
+const Icon = createComponent<IconProps, 'i'>({
   name: 'Icon',
   tag: 'i',
-  props: ({ name }: any) => ({
-    className: Icon.getClassName(name),
+  props: ({ name }) => ({
+    className: `mdi mdi-${name}`,
   }),
   style: ({ theme, size, color, disabled, onClick }: any) => {
     const colorFromTheme = theme.colors[color];
@@ -28,7 +36,7 @@ const Icon = createComponent({
         `}
     `;
   },
-} as any);
+});
 
 Icon.propTypes = {
   name: PropTypes.string.isRequired,
@@ -36,8 +44,5 @@ Icon.propTypes = {
   color: PropTypes.string,
   onClick: PropTypes.func,
 };
-
-Icon.iconPrefix = 'mdi';
-Icon.getClassName = (name: any) => `${Icon.iconPrefix} ${Icon.iconPrefix}-${name}`;
 
 export default Icon;
