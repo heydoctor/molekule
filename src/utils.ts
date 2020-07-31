@@ -1,6 +1,6 @@
 import kebabCase from 'lodash/kebabCase';
 import get from 'lodash/get';
-import styled from 'styled-components';
+import styled, { CSSProp } from 'styled-components';
 
 export const themeGet = (lookup: any, fallback?: any) => ({ theme }: any = {}) => get(theme, lookup, fallback);
 
@@ -38,7 +38,7 @@ interface CreateComponentProps {
   name: string;
   tag?: keyof JSX.IntrinsicElements;
   as?: React.ComponentType<any>;
-  style?: any;
+  style?: ((props: any) => CSSProp) | CSSProp;
   props?: (props: any) => any;
 }
 
