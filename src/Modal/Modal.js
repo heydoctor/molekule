@@ -69,6 +69,7 @@ const ModalContent = createComponent({
     box-shadow: ${theme.shadow.hard};
     border-radius: ${themeGet('radius')}px;
     max-height: 90vh;
+    outline: none;
 
     ${transitionState === 'entering' &&
       css`
@@ -120,7 +121,12 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
             <FocusOn onEscapeKey={handleClose} enabled={isOpen}>
               <ModalContainer ref={modalRef}>
                 <Backdrop transitionState={state} onClick={handleBackdropClick} />
-                <ModalContent transitionState={state} onClick={handleContentClick} aria-modal="true" {...props}>
+                <ModalContent
+                  transitionState={state}
+                  onClick={handleContentClick}
+                  aria-modal="true"
+                  tabIndex={0}
+                  {...props}>
                   {title && <Modal.Header title={title} showClose={showClose} />}
                   {children}
                 </ModalContent>
