@@ -17,7 +17,8 @@
   "scripts": {
     "clean": "rimraf lib",
     "watch": "yarn rollup --watch",
-    "build": "npm run clean && babel src --out-dir lib --extensions '.ts,.tsx,.js,.jsx'",
+    "types": "tsc -w",
+    "build": "npm run clean && babel src --out-dir lib --extensions '.js,.jsx' && tsc --noEmit false --project tsconfig.build.json",
     "docs": "start-storybook -p 1234",
     "dev": "start-storybook -p 1234",
     "docs:build": "rimraf dist && build-storybook -o dist",
