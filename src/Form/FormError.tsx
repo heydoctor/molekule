@@ -5,7 +5,12 @@ import get from 'lodash/get';
 import { createComponent } from '../utils';
 import { Context as FormbotContext } from './Formbot';
 
-export const StyledFormError = createComponent({
+interface FormErrorProps {
+  name?: string;
+  children?: any;
+}
+
+export const StyledFormError = createComponent<FormErrorProps, 'span'>({
   name: 'FormError',
   tag: 'span',
   style: css`
@@ -17,7 +22,7 @@ export const StyledFormError = createComponent({
   `,
 });
 
-const FormError = ({ name, children }) => {
+const FormError = ({ name = '', children }: FormErrorProps) => {
   const context = useContext(FormbotContext);
   const hasNameOnly = !!name && typeof children !== 'function';
   const hasRenderProp = !!name && typeof children === 'function';

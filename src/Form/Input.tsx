@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import Field from './Field';
 import StyledLabel from './Label';
@@ -19,7 +18,37 @@ const InputContainer = createComponent({
   `,
 });
 
-const StyledInput = createComponent({
+export interface InputProps {
+  value: any;
+  type?: string;
+  disabled?: boolean;
+  placeholder?: string;
+  multiline?: boolean;
+  label?: any;
+  autofocus?: any;
+  transformOnBlur?: any;
+  onFocus?: any;
+  onBlur?: any;
+  onChange?: any;
+  minRows?: number;
+  rows?: number;
+  maxRows?: number;
+  rowHeight?: number;
+  lineHeight?: number;
+  autogrow?: boolean;
+  size?: string;
+  floating?: boolean;
+  forwardedRef?: any;
+  leftIcon?: string;
+  leftIconProps?: any;
+  rightIcon?: string;
+  rightIconProps?: any;
+  style?: any;
+  id?: any;
+  error?: any;
+}
+
+const StyledInput = createComponent<InputProps, 'input'>({
   name: 'Input',
   tag: 'input',
   style: ({
@@ -31,7 +60,7 @@ const StyledInput = createComponent({
     rightIcon,
     leftIconProps,
     rightIconProps,
-  }) => css`
+  }: any) => css`
     border: 1px solid ${theme.colors.greyLight};
     height: 48px;
     display: block;
@@ -93,7 +122,7 @@ const StyledInput = createComponent({
 });
 
 const StyledIcon = styled(Icon)`
-  ${({ theme, isDisabled }) => css`
+  ${({ theme, isDisabled }: any) => css`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -109,7 +138,7 @@ const StyledIcon = styled(Icon)`
 const LeftIcon = createComponent({
   name: 'InputLeftIcon',
   as: StyledIcon,
-  style: ({ isFocused, isFloating, isFloatable, theme }) => css`
+  style: ({ isFocused, isFloating, isFloatable, theme }: any) => css`
     left: 8px;
 
     ${isFloatable &&
@@ -142,7 +171,7 @@ const RightIcon = createComponent({
 const StyledTextArea = createComponent({
   name: 'TextArea',
   as: StyledInput.withComponent('textarea'),
-  style: ({ isFloatable, isFloating }) => css`
+  style: ({ isFloatable, isFloating }: any) => css`
     ${isFloatable &&
       isFloating &&
       css`
@@ -163,41 +192,8 @@ const AutogrowShadow = createComponent({
   }),
 });
 
-const validateValueProp = (props, propName, componentName) => {
-  if (props.type === 'number' && typeof props[propName] !== 'number') {
-    return new Error(`Invalid prop ${propName} supplied to ${componentName} with type="number", expected Number`);
-  }
-  if (typeof props[propName] !== 'string' && props.type !== 'number') {
-    return new Error(`Invalid prop ${propName} supplied to ${componentName}, expected String`);
-  }
-  return null;
-};
-
-export class Input extends Component {
-  static propTypes = {
-    value: validateValueProp,
-    type: PropTypes.string,
-    disabled: PropTypes.bool,
-    placeholder: PropTypes.string,
-    multiline: PropTypes.bool,
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    onChange: PropTypes.func,
-    minRows: PropTypes.number,
-    rows: PropTypes.number,
-    maxRows: PropTypes.number,
-    rowHeight: PropTypes.number,
-    lineHeight: PropTypes.number,
-    autogrow: PropTypes.bool,
-    size: PropTypes.string,
-    floating: PropTypes.bool,
-    forwardedRef: PropTypes.oneOfType([PropTypes.shape(), PropTypes.func]),
-    leftIcon: PropTypes.string,
-    leftIconProps: PropTypes.shape(),
-    rightIcon: PropTypes.string,
-    rightIconProps: PropTypes.shape(),
-  };
+export class Input extends Component<InputProps, any> {
+  autogrowShadowNode: any;
 
   static defaultProps = {
     type: 'text',
@@ -218,7 +214,7 @@ export class Input extends Component {
     rightIconProps: {},
   };
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props: InputProps, state: any) {
     if (props.value !== undefined && props.value !== state.value) {
       return {
         value: props.value,
@@ -227,7 +223,7 @@ export class Input extends Component {
     return null;
   }
 
-  state = {
+  state: any = {
     focused: false,
   };
 
@@ -245,12 +241,12 @@ export class Input extends Component {
     if (this.props.multiline) {
       /* eslint-disable-next-line react/no-did-mount-set-state */
       this.setState({
-        height: this.props.rows * this.props.rowHeight * this.props.lineHeight,
+        height: (this.props.rows || 0) * (this.props.rowHeight || 0) * (this.props.lineHeight || 0),
       });
     }
   }
 
-  componentDidUpdate(oldProps, oldState) {
+  componentDidUpdate(_oldProps: InputProps, oldState: any) {
     if (oldState.value !== this.state.value) {
       this.autogrow();
     }
@@ -262,12 +258,12 @@ export class Input extends Component {
     }
   }
 
-  onFocus = e => {
+  onFocus = (e: any) => {
     this.setState({ focused: true });
     this.props.onFocus(e.target.name);
   };
 
-  onBlur = e => {
+  onBlur = (e: any) => {
     this.setState({ focused: false });
 
     const { onBlur, onChange, transformOnBlur } = this.props;
@@ -283,12 +279,12 @@ export class Input extends Component {
     }
   };
 
-  onChange = e => {
+  onChange = (e: any) => {
     this.setState({ value: e.target.value });
     this.props.onChange(e.target.name, e.target.value, e);
   };
 
-  handleAutogrowRef = node => {
+  handleAutogrowRef = (node: any) => {
     this.autogrowShadowNode = node;
     this.autogrow();
   };
@@ -298,7 +294,7 @@ export class Input extends Component {
       return;
     }
 
-    const { minRows, maxRows, rowHeight, lineHeight } = this.props;
+    const { minRows = 0, maxRows = 0, rowHeight = 0, lineHeight = 0 } = this.props;
 
     const minHeight = minRows * rowHeight * lineHeight;
     const maxHeight = maxRows * rowHeight * lineHeight;
@@ -380,6 +376,8 @@ export class Input extends Component {
       disabled,
     };
 
+    const { styles } = rest as any;
+
     const statusProps = {
       isFloatable: floating,
       isFloating,
@@ -390,35 +388,31 @@ export class Input extends Component {
     const Label = label ? (
       <StyledLabel
         htmlFor={id}
-        styles={rest.styles}
+        styles={styles}
         error={error}
         multiline={multiline}
         onClick={this.handleLabelClick}
         {...statusProps}>
-        {leftIcon && <LeftIcon styles={rest.styles} name={leftIcon} {...statusProps} {...leftIconProps} />}
+        {leftIcon && <LeftIcon styles={styles} name={leftIcon} {...statusProps} {...leftIconProps} />}
         {label}
       </StyledLabel>
     ) : null;
 
     return (
-      <Field styles={rest.styles}>
+      <Field styles={styles}>
         {!floating && Label}
 
-        <InputContainer styles={rest.styles}>
+        <InputContainer styles={styles}>
           {floating && Label}
 
-          {leftIcon && !floating && (
-            <LeftIcon styles={rest.styles} name={leftIcon} {...statusProps} {...leftIconProps} />
-          )}
+          {leftIcon && !floating && <LeftIcon styles={styles} name={leftIcon} {...statusProps} {...leftIconProps} />}
 
-          {rightIcon && (
-            <RightIcon styles={rest.styles} name={rightIcon} size={24} {...statusProps} {...rightIconProps} />
-          )}
+          {rightIcon && <RightIcon styles={styles} name={rightIcon} size={24} {...statusProps} {...rightIconProps} />}
 
-          {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...inputProps} />}
+          {multiline ? <StyledTextArea {...inputProps} /> : <StyledInput {...(inputProps as any)} />}
         </InputContainer>
 
-        {!focused && error ? <FormError styles={rest.styles}>{error}</FormError> : null}
+        {!focused && error ? <FormError>{error}</FormError> : null}
 
         {autogrow && <AutogrowShadow ref={this.handleAutogrowRef} />}
       </Field>
