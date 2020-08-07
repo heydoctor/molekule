@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme } from '../../test/utils';
+import { renderWithTheme } from '../test/utils';
 import Badge from './Badge';
 
 test('Badge', () => {

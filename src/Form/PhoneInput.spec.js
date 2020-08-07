@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme, fireEvent, act } from '../../test/utils';
+import { renderWithTheme, fireEvent, act } from '../test/utils';
 import PhoneInput from './PhoneInput';
 import ThemeProvider from '../ThemeProvider';
 

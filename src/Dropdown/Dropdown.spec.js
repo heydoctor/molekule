@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme, fireEvent, wait } from '../../test/utils';
+import { renderWithTheme, fireEvent, wait } from '../test/utils';
 import Dropdown from './Dropdown';
 
 jest.mock('popper.js', () => {

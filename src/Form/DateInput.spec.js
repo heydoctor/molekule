@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme, fireEvent, act } from '../../test/utils';
+import { renderWithTheme, fireEvent, act } from '../test/utils';
 import DateInput, { getRawMaxLength } from './DateInput';
 import ThemeProvider from '../ThemeProvider';
 

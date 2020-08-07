@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme } from '../../test/utils';
+import { renderWithTheme } from '../test/utils';
 import Tabs from './Tabs';
 
 const TabContent = ({ body }) => <div>This is the content for Tab {body}</div>;

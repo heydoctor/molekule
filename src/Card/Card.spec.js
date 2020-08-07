@@ -1,5 +1,5 @@
 import React from 'react';
-import { renderWithTheme } from '../../test/utils';
+import { renderWithTheme } from '../test/utils';
 import Card from './Card';
 
 test('Card', () => {
