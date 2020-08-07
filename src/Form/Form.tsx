@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Context } from './Formbot';
 
-function Form({ children, ...props }) {
-  const state = useContext(Context);
+export function Form({ children, ...props }: any) {
+  const state = useContext(Context) as any;
 
   return (
     <form onSubmit={state && state.onSubmit} {...props}>
@@ -10,5 +10,3 @@ function Form({ children, ...props }) {
     </form>
   );
 }
-
-export default Form;

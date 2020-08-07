@@ -1,12 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { createComponent } from '../utils';
 
-const Legend = createComponent({
+interface FieldsetProps {
+  legend?: string | JSX.Element;
+  children?: any;
+}
+
+const Legend = createComponent<FieldsetProps, 'legend'>({
   name: 'Legend',
   tag: 'legend',
-  style: ({ theme, color = theme.colors.greyDarkest }) => css`
+  style: ({ theme, color = theme.colors.greyDarkest }: any) => css`
     font-weight: 700;
     margin-bottom: 8px;
     font-size: 18px;
@@ -24,16 +28,10 @@ const Container = styled.fieldset`
   }
 `;
 
-const Fieldset = ({ legend, children }) => (
+export const Fieldset = ({ legend, children }: FieldsetProps) => (
   <Container>
     {legend && <Legend>{legend}</Legend>}
 
     {children}
   </Container>
 );
-
-Fieldset.propTypes = {
-  legend: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-};
-
-export default Fieldset;

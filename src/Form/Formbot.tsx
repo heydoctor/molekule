@@ -1,38 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 export const Context = React.createContext(null);
 
 const VALIDATIONS = {
-  required: (val, isRequired) => {
+  required: (val: any, isRequired: boolean) => {
     if (!isRequired) return;
     if (!val || (typeof val === 'string' && val === '')) {
       throw new Error('This field is required');
     }
   },
-  minLength: (val, minLength) => {
+  minLength: (val: any, minLength: number) => {
     if (!val || `${val}`.length < minLength) {
       throw new Error(`This field must be at least ${minLength} characters`);
     }
   },
-  maxLength: (val, maxLength) => {
+  maxLength: (val: any, maxLength: number) => {
     if (val && `${val}`.length > maxLength) {
       throw new Error(`This field cannot be more than ${maxLength} characters`);
     }
   },
 };
 
-export default class Formbot extends React.Component {
-  static propTypes = {
-    initialValues: PropTypes.shape(),
-    validations: PropTypes.shape(),
-    validationSchema: PropTypes.shape(),
-    onFocus: PropTypes.func,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    onSubmit: PropTypes.func,
-  };
+interface FormBotProps {
+  initialValues: any;
+  validations: any;
+  validationSchema: any;
+  onFocus: any;
+  onChange: any;
+  onBlur: any;
+  onSubmit: any;
+}
 
+export class Formbot extends React.Component<FormBotProps, any> {
   static defaultProps = {
     initialValues: {},
     validations: {},
@@ -77,7 +76,7 @@ export default class Formbot extends React.Component {
   setValues = (values = {}) =>
     new Promise(resolve => {
       this.setState(
-        state => ({
+        (state: any) => ({
           values: {
             ...state.values,
             ...values,
@@ -87,9 +86,9 @@ export default class Formbot extends React.Component {
       );
     });
 
-  setErrors = (errors = {}, cb) =>
+  setErrors = (errors = {}, cb: any) =>
     this.setState(
-      state => ({
+      (state: any) => ({
         errors: {
           ...state.errors,
           ...errors,
@@ -98,10 +97,10 @@ export default class Formbot extends React.Component {
       cb
     );
 
-  updateField = (field, updates = {}) =>
+  updateField = (field: any, updates = {}) =>
     new Promise(resolve => {
       this.setState(
-        state => ({
+        (state: any) => ({
           fields: {
             ...state.fields,
             [field]: {
@@ -122,7 +121,7 @@ export default class Formbot extends React.Component {
     });
   };
 
-  validateField(field) {
+  validateField(field: any) {
     return new Promise(resolve => {
       const fieldState = this.state.fields[field] || {};
       if (fieldState.validated) {
@@ -144,7 +143,7 @@ export default class Formbot extends React.Component {
 
       const fieldValue = this.state.values[field];
 
-      const setFieldValidated = message => {
+      const setFieldValidated = (message?: any) => {
         this.updateField(field, { validated: true }).then(() => {
           this.setErrors({ [field]: message }, resolve);
         });
@@ -154,7 +153,8 @@ export default class Formbot extends React.Component {
         .then(() => {
           if (hasSchema && typeof validation.validate === 'function') {
             return validation.validate(fieldValue, validationOpts);
-          } else if (typeof validation === 'function') {
+          }
+          if (typeof validation === 'function') {
             validation(fieldValue);
           } else {
             Object.keys(validation).forEach(method => {
@@ -187,15 +187,15 @@ export default class Formbot extends React.Component {
     );
   }
 
-  onFocus = field => {
+  onFocus = (field: any) => {
     this.updateField(field, { focused: true }).then(() => {
       this.props.onFocus(field);
     });
   };
 
-  onChange = (field, value) => {
+  onChange = (field: any, value: any) => {
     this.setState(
-      state => ({
+      (state: any) => ({
         values: {
           ...state.values,
           [field]: value,
@@ -209,7 +209,7 @@ export default class Formbot extends React.Component {
     );
   };
 
-  onBlur = field => {
+  onBlur = (field: any) => {
     this.updateField(field, { blurred: true })
       .then(() => this.validateField(field))
       .then(() => {
@@ -217,7 +217,7 @@ export default class Formbot extends React.Component {
       });
   };
 
-  onSubmit = event => {
+  onSubmit = (event: any) => {
     event.preventDefault();
 
     this.validateAllFields().then(() => {
@@ -246,7 +246,7 @@ export default class Formbot extends React.Component {
     const { children } = this.props;
 
     return (
-      <Context.Provider value={this.getContext()}>
+      <Context.Provider value={this.getContext() as any}>
         {typeof children === 'function' ? children(this.getContext()) : children}
       </Context.Provider>
     );

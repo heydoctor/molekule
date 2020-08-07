@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-import Field from './Field';
+import { Field } from './Field';
 import StyledLabel from './Label';
 import FormError, { StyledFormError } from './FormError';
 import { createEasyInput } from './EasyInput';

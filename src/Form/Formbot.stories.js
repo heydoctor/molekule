@@ -2,7 +2,7 @@ import React, { useContext, createRef } from 'react';
 import * as yup from 'yup';
 import Formbot, { Context } from './Formbot';
 import Form from './Form';
-import Field from './Field';
+import { Field } from './Field';
 import Fieldset from './Fieldset';
 import FormError from './FormError';
 import PhoneInput from './PhoneInput';

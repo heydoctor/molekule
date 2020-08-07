@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { createComponent } from '../utils';
 
-const Field = createComponent({
+export const Field = createComponent({
   name: 'Field',
   style: css`
     position: relative;
@@ -12,5 +12,3 @@ const Field = createComponent({
     }
   `,
 });
-
-export default Field;
