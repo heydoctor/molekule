@@ -18,7 +18,7 @@ export { default as Flex } from './Flex';
 export * from './Form/Form';
 export * from './Form/Formbot';
 export { default as FormError } from './Form/FormError';
-export { default as FormGroup } from './Form/FormGroup';
+export * from './Form/FormGroup';
 export { default as Icon } from './Icon';
 export { default as Input } from './Form/Input';
 export { default as Label } from './Form/Label';

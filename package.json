@@ -26,6 +26,7 @@
     "preview": "nodemon -w src -x 'yalc publish --push --changed'",
     "rollup": "rollup -c",
     "test": "jest",
+    "types": "tsc -w",
     "lint": "eslint src",
     "release": "npm run build && standard-version",
     "chromatic": "chromatic --exit-zero-on-changes --auto-accept-changes master"

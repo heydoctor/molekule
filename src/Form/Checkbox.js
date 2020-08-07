@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import Icon from '../Icon';
-import FormError from '../Form/FormError';
+import { FormError } from '../Form/FormError';
 import { createEasyInput } from './EasyInput';
 import { getComponentSize, createComponent } from '../utils';
 
