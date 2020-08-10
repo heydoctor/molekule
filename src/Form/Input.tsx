@@ -44,6 +44,7 @@ export interface InputProps {
   rightIcon?: string;
   rightIconProps?: any;
   style?: any;
+  styles?: any;
   id?: any;
   error?: any;
 }

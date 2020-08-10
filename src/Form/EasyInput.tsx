@@ -41,7 +41,7 @@ function EasyInput<T extends EasyInputProps>({ name, Component, shouldRenderErro
   );
 }
 
-export function createEasyInput<T extends EasyInputProps>(Component: any) {
+export function createEasyInput<T extends EasyInputProps = any>(Component: any) {
   return forwardRef<any, T>((props: any, ref) => {
     return <EasyInput<T> Component={Component} forwardedRef={ref} {...props} />;
   });
