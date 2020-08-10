@@ -29,7 +29,7 @@ const AccordionTitle = createComponent({
   style: css``,
 });
 
-const AccordionIcon = createComponent({
+const AccordionIcon = createComponent<{ isOpen?: boolean }, typeof Icon>({
   name: 'AccordionItemIcon',
   as: Icon,
   style: ({ isOpen }) => css`
@@ -42,11 +42,11 @@ const AccordionContent = createComponent({
   name: 'AccordionItemContent',
 });
 
-interface AccordionItemProps extends Pick<AccordionProps, 'contentContainerStyle'> {
+interface AccordionItemProps extends Partial<Pick<AccordionProps, 'contentContainerStyle'>> {
   title: string;
-  isOpen: boolean;
+  isOpen?: boolean;
   content: React.ReactNode | string;
-  onToggle: () => void;
+  onToggle?: () => void;
   renderHeader?: (p: Pick<AccordionItemProps, 'isOpen' | 'title' | 'onToggle'>) => React.ReactNode;
   renderContent?: (p: Pick<AccordionItemProps, 'isOpen' | 'content'>) => React.ReactNode;
 }

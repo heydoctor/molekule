@@ -5,6 +5,7 @@ import { getComponentVariant, createComponent } from '../utils';
 
 interface AlertProps {
   variant?: string;
+  children?: string | React.ReactNode;
 }
 
 const StyledAlert = createComponent<AlertProps>({
