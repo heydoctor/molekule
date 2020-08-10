@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.3"></a>
+## 5.3.3 (2020-08-04)
+
+
+### Bug Fixes
+
+* Remove auto focus from Modal Content ([#128](https://github.com/heydoctor/molekule/issues/128)) ([322c054](https://github.com/heydoctor/molekule/commit/322c054))
+
+
+
 <a name="5.3.2"></a>
 ## 5.3.2 (2020-07-29)
 
