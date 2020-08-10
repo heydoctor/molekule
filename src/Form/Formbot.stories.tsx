@@ -1,9 +1,10 @@
 import React, { useContext, createRef } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import * as yup from 'yup';
-import Formbot, { Context } from './Formbot';
-import Form from './Form';
+import { Formbot, Context } from './Formbot';
+import { Form } from './Form';
 import { Field } from './Field';
-import Fieldset from './Fieldset';
+import { Fieldset } from './Fieldset';
 import FormError from './FormError';
 import PhoneInput from './PhoneInput';
 import DateInput from './DateInput';
@@ -12,7 +13,9 @@ import CheckboxGroup from './CheckboxGroup';
 import RadioGroup from './RadioGroup';
 import Switch from './Switch';
 import Button from '../Button';
-import Input from './Input';
+import { Input } from './Input';
+
+const ButtonAsAny = Button as any;
 
 export default {
   title: 'Components|Forms/Formbot',
@@ -36,38 +39,42 @@ export const Basic = () => (
       <Input name="password" label="Password" />
 
       <Field>
-        <Button type="submit">Sign In</Button>
+        <ButtonAsAny type="submit">Sign In</ButtonAsAny>
       </Field>
     </Form>
   </Formbot>
 );
 
+const randomCallback = async (_value: any) => {
+  const callback = (resolve: any) => {
+    setTimeout(() => {
+      resolve(false);
+    }, 2000);
+  };
+
+  return new Promise(callback);
+};
+
 export const AsyncValidation = () => (
   <Formbot
     validationSchema={{
-      random: yup.string().test(
-        'valid',
-        'This test was delayed by 2 seconds.',
-        async value =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve(false);
-            }, 2000);
-          })
-      ),
+      random: yup.string().test('valid', 'This test was delayed by 2 seconds.', randomCallback as any),
     }}>
     <Form>
       <Input name="random" label="random" />
 
       <Field>
-        <Button type="submit">Sign In</Button>
+        <ButtonAsAny type="submit">Sign In</ButtonAsAny>
       </Field>
     </Form>
   </Formbot>
 );
 
 export const FullExample = () => {
-  const selectValues = [{ id: 1, value: 'male', label: 'Male' }, { id: 1, value: 'female', label: 'Female' }];
+  const selectValues = [
+    { id: 1, value: 'male', label: 'Male' },
+    { id: 1, value: 'female', label: 'Female' },
+  ];
 
   const checkboxValues = [
     {
@@ -97,12 +104,12 @@ export const FullExample = () => {
     },
   ];
   const Values = () => {
-    const state = useContext(Context);
+    const state: any = useContext(Context);
     return <pre>{JSON.stringify(state.values, null, 2)}</pre>;
   };
 
   class FormbotExample extends React.Component {
-    nameRef = createRef();
+    nameRef: any = createRef();
 
     componentDidMount() {
       this.nameRef.current.focus();
@@ -112,7 +119,7 @@ export const FullExample = () => {
       return (
         <Formbot
           validations={{
-            name: val => {
+            name: (val: any) => {
               if (val !== 'Bob') {
                 throw new Error('Your name must be Bob');
               }
@@ -160,7 +167,7 @@ export const FullExample = () => {
               <Switch name="switch1" />
             </Fieldset>
 
-            <Button htmlType="submit" type="primary" size="sm">
+            <ButtonAsAny htmlType="submit" type="primary" size="ButtonAsAny">
               Submit
             </Button>
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Fieldset from './Fieldset';
-import Input from './Input';
+import { Fieldset } from './Fieldset';
+import { Input } from './Input';
 
 export default {
   title: 'Components|Forms/Fieldset',

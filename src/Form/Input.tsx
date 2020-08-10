@@ -19,7 +19,7 @@ const InputContainer = createComponent({
 });
 
 export interface InputProps {
-  value: any;
+  value?: any;
   type?: string;
   disabled?: boolean;
   placeholder?: string;
@@ -195,7 +195,7 @@ const AutogrowShadow = createComponent({
 export class Input extends Component<InputProps, any> {
   autogrowShadowNode: any;
 
-  static defaultProps = {
+  static defaultProps: InputProps = {
     type: 'text',
     multiline: false,
     minRows: 2,

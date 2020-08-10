@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { createComponent } from '../utils';
 
-interface FieldsetProps {
+export interface FieldsetProps {
   legend?: string | JSX.Element;
   children?: any;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { object, select, boolean } from '@storybook/addon-knobs/react';
-import Formbot from './Formbot';
+import { Formbot } from './Formbot';
 import Button from '../Button';
 import { Input } from './Input';
 
@@ -20,7 +21,6 @@ export const Controlled = () => {
   function ControlledInput() {
     return (
       <Formbot
-        onSubmit={console.log}
         initialValues={{ value: '' }}
         validations={{
           value: value => {
@@ -29,7 +29,7 @@ export const Controlled = () => {
             }
           },
         }}>
-        {({ values, errors, onChange, onSubmit }) => (
+        {({ values, errors, onChange, onSubmit }: any) => (
           <form onSubmit={onSubmit}>
             <Input
               label="Input with Formbot"
