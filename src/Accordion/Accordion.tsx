@@ -6,15 +6,6 @@ import Box from '../Box';
 import Icon from '../Icon';
 import Flex from '../Flex';
 
-interface AccordionItemProps extends Pick<AccordionProps, 'contentContainerStyle'> {
-  title: string;
-  isOpen: boolean;
-  content: React.ReactNode | string;
-  onToggle: () => void;
-  renderHeader?: (p: Pick<AccordionItemProps, 'isOpen' | 'title' | 'onToggle'>) => React.ReactNode;
-  renderContent?: (p: Pick<AccordionItemProps, 'isOpen' | 'content'>) => React.ReactNode;
-}
-
 const AccordionContainer = createComponent({
   name: 'Accordion',
 });
@@ -50,6 +41,15 @@ const AccordionIcon = createComponent({
 const AccordionContent = createComponent({
   name: 'AccordionItemContent',
 });
+
+interface AccordionItemProps extends Pick<AccordionProps, 'contentContainerStyle'> {
+  title: string;
+  isOpen: boolean;
+  content: React.ReactNode | string;
+  onToggle: () => void;
+  renderHeader?: (p: Pick<AccordionItemProps, 'isOpen' | 'title' | 'onToggle'>) => React.ReactNode;
+  renderContent?: (p: Pick<AccordionItemProps, 'isOpen' | 'content'>) => React.ReactNode;
+}
 
 const AccordionItem: React.FC<AccordionItemProps> = ({
   isOpen,

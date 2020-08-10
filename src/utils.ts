@@ -42,7 +42,10 @@ interface CreateComponentProps {
   props?: (props: any) => any;
 }
 
-export const createComponent = <T extends object, O extends keyof JSX.IntrinsicElements | React.ComponentType<any>>({
+export const createComponent = <
+  T extends object,
+  O extends keyof JSX.IntrinsicElements | React.ComponentType<any> = 'div'
+>({
   name,
   tag = 'div',
   as,
