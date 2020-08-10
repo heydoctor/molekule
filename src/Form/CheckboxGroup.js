@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box';
 import Checkbox from './Checkbox';
-import FormError from './FormError';
+import { FormError } from './FormError';
 import { createEasyInput } from './EasyInput';
 import GroupContainer from './GroupContainer';
 

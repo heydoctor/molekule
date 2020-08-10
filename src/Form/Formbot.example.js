@@ -1,5 +1,5 @@
 import React, { useContext, createRef } from 'react';
-import Input from './Input';
+import { Input } from './Input';
 import Select from './Select';
 import Formbot, { Context } from './Formbot';
 import Form from './Form';
@@ -10,7 +10,7 @@ import RadioGroup from './RadioGroup';
 import Switch from './Switch';
 import PhoneInput from './PhoneInput';
 import DateInput from './DateInput';
-import FormError from './FormError';
+import { FormError } from './FormError';
 
 const selectValues = [{ id: 1, value: 'male', label: 'Male' }, { id: 1, value: 'female', label: 'Female' }];
 

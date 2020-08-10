@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import { Field } from './Field';
 import StyledLabel from './Label';
-import FormError, { StyledFormError } from './FormError';
-import { createEasyInput } from './EasyInput';
+import { FormError, StyledFormError } from './FormError';
+import { createEasyInput, EasyInputProps } from './EasyInput';
 import Icon from '../Icon';
 import { createComponent } from '../utils';
 
@@ -192,7 +192,7 @@ const AutogrowShadow = createComponent({
   }),
 });
 
-export class Input extends Component<InputProps, any> {
+export class InputClass extends Component<InputProps, any> {
   autogrowShadowNode: any;
 
   static defaultProps: InputProps = {
@@ -420,4 +420,4 @@ export class Input extends Component<InputProps, any> {
   }
 }
 
-export default createEasyInput(Input);
+export const Input = createEasyInput<InputProps & EasyInputProps>(InputClass);

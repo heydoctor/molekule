@@ -22,7 +22,7 @@ export const StyledFormError = createComponent<FormErrorProps, 'span'>({
   `,
 });
 
-const FormError = ({ name = '', children }: FormErrorProps) => {
+export const FormError = ({ name = '', children }: FormErrorProps) => {
   const context = useContext(FormbotContext);
   const hasNameOnly = !!name && typeof children !== 'function';
   const hasRenderProp = !!name && typeof children === 'function';
@@ -38,5 +38,3 @@ const FormError = ({ name = '', children }: FormErrorProps) => {
     <StyledFormError>{children}</StyledFormError>
   );
 };
-
-export default FormError;

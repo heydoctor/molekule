@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from './Modal';
 import Button from '../Button';
-import Input from '../Form/Input';
+import { Input } from '../Form/Input';
 import Dropdown from '../Dropdown';
 
 export default class ModalDropdownDemo extends React.Component {

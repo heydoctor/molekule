@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Field } from './Field';
-import FormError from './FormError';
+import { FormError } from './FormError';
 import Icon from '../Icon';
 import Flex from '../Flex';
 import Label from './Label';

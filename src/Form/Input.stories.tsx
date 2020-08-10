@@ -1,9 +1,11 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { object, select, boolean } from '@storybook/addon-knobs/react';
+import { object, select, boolean } from '@storybook/addon-knobs';
 import { Formbot } from './Formbot';
 import Button from '../Button';
 import { Input } from './Input';
+
+const ButtonAsAny = Button as any;
 
 export default {
   title: 'Components|Forms/Input',
@@ -23,7 +25,7 @@ export const Controlled = () => {
       <Formbot
         initialValues={{ value: '' }}
         validations={{
-          value: value => {
+          value: (value: any) => {
             if (value !== 'secretpassword') {
               throw new Error('Try typing "secretpassword"');
             }
@@ -38,9 +40,9 @@ export const Controlled = () => {
               error={errors.value}
               onChange={onChange}
             />
-            <Button mt={2} type="submit">
+            <ButtonAsAny mt={2} type="submit">
               Submit
-            </Button>
+            </ButtonAsAny>
           </form>
         )}
       </Formbot>
@@ -65,7 +67,7 @@ export const FloatingLabel = () => <Input {...defaultInputProps} floating />;
 
 export const Disabled = () => <Input {...defaultInputProps} disabled />;
 
-export const Error = () => <Input {...defaultInputProps} error="This is an error message" />;
+export const ErrorComponent = () => <Input {...defaultInputProps} error="This is an error message" />;
 
 export const Styles = () => (
   <Input

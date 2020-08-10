@@ -8,13 +8,13 @@ import { Context } from './Formbot';
  */
 const PureInput = React.memo(({ Component, ...props }: any) => <Component {...props} />);
 
-interface EasyInputProps {
+export interface EasyInputProps {
   name?: string;
   Component?: any;
   shouldRenderError?: boolean;
 }
 
-function EasyInput<T>({ name, Component, shouldRenderError = true, ...props }: EasyInputProps & T) {
+function EasyInput<T extends EasyInputProps>({ name, Component, shouldRenderError = true, ...props }: T) {
   const state: any = useContext(Context);
 
   if (!state) {
@@ -41,15 +41,8 @@ function EasyInput<T>({ name, Component, shouldRenderError = true, ...props }: E
   );
 }
 
-// const foo = function<T>(a: T): T {
-//   return a;
-// };
-
-function createEasyInput<T>(Component: any) {
-  return forwardRef((props, ref) => {
-    // eslint-disable-next-line babel/new-cap
-    return EasyInput<T>({ Component, forwardedRef: ref, ...props });
+export function createEasyInput<T extends EasyInputProps>(Component: any) {
+  return forwardRef<any, T>((props: any, ref) => {
+    return <EasyInput<T> Component={Component} forwardedRef={ref} {...props} />;
   });
 }
-
-export default EasyInput;

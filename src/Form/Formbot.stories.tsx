@@ -5,7 +5,7 @@ import { Formbot, Context } from './Formbot';
 import { Form } from './Form';
 import { Field } from './Field';
 import { Fieldset } from './Fieldset';
-import FormError from './FormError';
+import { FormError } from './FormError';
 import PhoneInput from './PhoneInput';
 import DateInput from './DateInput';
 import Select from './Select';
@@ -149,7 +149,7 @@ export const FullExample = () => {
 
               <Input name="email" placeholder="Email" label="Email" shouldRenderError={false} />
               <FormError name="email">
-                {error => <span style={{ color: 'navy' }}>Hi, I am a custom error: {error}</span>}
+                {(error: any) => <span style={{ color: 'navy' }}>Hi, I am a custom error: {error}</span>}
               </FormError>
 
               <PhoneInput name="phone" placeholder="Phone Number" label="Phone" />
@@ -167,9 +167,9 @@ export const FullExample = () => {
               <Switch name="switch1" />
             </Fieldset>
 
-            <ButtonAsAny htmlType="submit" type="primary" size="ButtonAsAny">
+            <ButtonAsAny htmlType="submit" type="primary" size="sm">
               Submit
-            </Button>
+            </ButtonAsAny>
 
             <Values />
           </Form>
