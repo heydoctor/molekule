@@ -6,13 +6,13 @@ import { createEasyInput } from './EasyInput';
 import { getNextCursorPosition } from '../utils';
 
 export const getRawMaxLength = pattern => {
-  const formatter = new DateFormatter(pattern);
+  const formatter = new DateFormatter(pattern, '1900-01-01', '2099-12-31');
   const blocks = formatter.getBlocks();
   return blocks.reduce((sum, block) => sum + block, 0);
 };
 
 const formatDate = (pattern, delimiter, dateString = '') => {
-  const formatter = new DateFormatter(pattern);
+  const formatter = new DateFormatter(pattern, '1900-01-01', '2099-12-31');
 
   // Process our date string, bounding values between 1 and 31, and prepending 0s for
   // for single digit blocks that can't have 2 numbers, e.g. 5
