@@ -4511,10 +4511,10 @@ chownr@^1.1.1, chownr@^1.1.2:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
   integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
 
-chromatic@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-4.0.2.tgz#78eb4ff9fcec1c7155329cbf9235196bd9a0e8c9"
-  integrity sha512-7Et2J6pPEyGqeBdzeDP5rCHyc9gH9VqyTY6pL1p59fxa6k3b+FWqrLA0RXFCk0R8btUKRXPun9a4tTu486G+ZQ==
+chromatic@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-4.0.3.tgz#3788bdb78b6323190dae2e9714dc0e5934926a45"
+  integrity sha512-TmtYAblzPxbEhH8vpQvL3aqQ/K2AkxraMliaIdORmOyVHmV4qM1aQHP2zPj4yTSdZ5/Tap5zOPW1xODrkQcI4Q==
   dependencies:
     "@babel/preset-react" "^7.9.4"
     "@babel/runtime" "^7.9.2"
@@ -4528,6 +4528,7 @@ chromatic@^4.0.2:
     enhanced-resolve "^4.1.1"
     env-ci "^5.0.2"
     esm "^3.2.25"
+    execa "^4.0.0"
     fake-tag "^2.0.0"
     fs-extra "^9.0.0"
     is-url "^1.2.4"
@@ -4607,10 +4608,10 @@ clean-stack@^2.0.0:
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
   integrity sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==
 
-cleave.js@~1.4.10:
-  version "1.4.10"
-  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.4.10.tgz#40505827f07c148be6822522504901fca278a445"
-  integrity sha512-7AWnh+6pgQbbRT+e7WnK/yc+U50zhtQZklvEcKDiFDpfcu3kb300BdV7FMYtGOIsAzD5TKy7KH38ZwgyWyFE2Q==
+cleave.js@~1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/cleave.js/-/cleave.js-1.6.0.tgz#0e4e011943bdd70c67c9dcf4ff800ce710529171"
+  integrity sha512-ivqesy3j5hQVG3gywPfwKPbi/7ZSftY/UNp5uphnqjr25yI2CP8FS2ODQPzuLXXnNLi29e2+PgPkkiKUXLs/Nw==
 
 cli-boxes@^1.0.0:
   version "1.0.0"
@@ -9645,10 +9646,10 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-libphonenumber-js@^1.7.13:
-  version "1.7.51"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.51.tgz#e84901179a154c8074f9c01214dd80b859598d74"
-  integrity sha512-YrmFi5rLnSMKp2tM0FkjIHGAlHyUo8pRP8u4DeMseX+gXDY96q7sgfy/Ty54nv0BqObYKzPJBUq4LMMNESjfBA==
+libphonenumber-js@^1.7.52:
+  version "1.7.56"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.7.56.tgz#1f206c69acb112a43134141e2331a737cdfcb8a0"
+  integrity sha512-7ArN9sSVs9bzX72+HeryCrmI68w1ry3Sd67+BmbPxbaCU+ZpuB2R9YT/YTsTUFYbxkp933vpQUP5E/1TJ9WvTQ==
   dependencies:
     minimist "^1.2.5"
     xml2js "^0.4.17"
@@ -14310,10 +14311,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.7.4:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
+typescript@^3.9.4:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 uglify-js@^2.6.1:
   version "2.8.29"
