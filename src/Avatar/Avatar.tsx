@@ -21,7 +21,7 @@ const getInitials = (name = '') =>
     .map(w => w[0])
     .join('');
 
-interface AvatarProps {
+export interface AvatarProps {
   /**
    * We'll take the first letter of the first two words to create the initials
    */

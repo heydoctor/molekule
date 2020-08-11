@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { space, SpaceProps } from 'styled-system';
 import { getComponentVariant, createComponent, getComponentSize } from '../utils';
 
-interface BadgeProps extends SpaceProps {
+export interface BadgeProps extends SpaceProps {
   variant?: string;
   size?: string;
   children?: React.ReactNode;

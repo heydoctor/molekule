@@ -86,13 +86,13 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   </AccordionItemContainer>
 );
 
-interface AccordionProps {
+export interface AccordionProps {
   items: AccordionItemProps[];
   solo?: boolean;
   contentContainerStyle?: React.CSSProperties;
 }
 
-interface AccordionStaticMembers {
+export interface AccordionStaticMembers {
   Item: typeof AccordionItem;
 }
 
