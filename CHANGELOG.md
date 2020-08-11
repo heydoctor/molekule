@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.3.5"></a>
+## 5.3.5 (2020-08-11)
+
+
+
 <a name="5.3.4"></a>
 ## 5.3.4 (2020-08-10)
 
