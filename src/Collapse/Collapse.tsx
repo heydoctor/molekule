@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { css } from 'styled-components';
 import { Transition } from 'react-transition-group';
+import { TransitionStatus } from 'react-transition-group/Transition';
 import { createComponent } from '../utils';
-
-type TransitionStatus = 'exited' | 'entering' | 'exiting' | 'entered' | 'unmounted';
 
 const getTransitionStyle = (state: TransitionStatus, duration: number) => {
   switch (state) {
