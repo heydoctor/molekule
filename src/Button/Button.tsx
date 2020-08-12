@@ -1,6 +1,6 @@
 import React from 'react';
 import { css, keyframes } from 'styled-components';
-import { space } from 'styled-system';
+import { space, SpaceProps } from 'styled-system';
 import { getComponentVariant, getComponentSize, createComponent } from '../utils';
 import Flex from '../Flex';
 import Icon, { IconProps } from '../Icon';
@@ -39,7 +39,7 @@ const loadingCss = (height: number, color: string) => css`
   }
 `;
 
-export interface ButtonProps {
+export interface ButtonProps extends SpaceProps {
   variant?: string;
   size?: string;
   outline?: boolean;

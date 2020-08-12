@@ -142,7 +142,7 @@ export default class Collapse extends Component<CollapseProps, CollapseState> {
         <Transition
           {...props}
           in={isOpen}
-          timeout={duration}
+          timeout={duration!}
           onEnter={this.onEnter}
           onEntering={this.onEntering}
           onEntered={this.onEntered}
