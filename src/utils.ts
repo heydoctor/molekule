@@ -34,12 +34,12 @@ const getComponentClassName = (
   name: string
 ) => `${className || ''} ${classPrefix}-${name} ${variant ? `${classPrefix}-${name}-${variant}` : ''}`.trim();
 
-interface CreateComponentProps {
+interface CreateComponentProps<T> {
   name: string;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>;
   as?: React.ComponentType<any>;
   style?: ((props: any) => CSSProp) | CSSProp;
-  props?: (props: any) => any;
+  props?: (props: T) => any;
 }
 
 export const createComponent = <
@@ -51,7 +51,7 @@ export const createComponent = <
   as,
   style,
   props: getBaseProps = () => ({}),
-}: CreateComponentProps) => {
+}: CreateComponentProps<T>) => {
   const component = styled<O>((as || tag) as any);
 
   return component.attrs<T>((props: any) => {

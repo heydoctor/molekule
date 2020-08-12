@@ -24,7 +24,16 @@ export interface BoxProps
     LayoutProps,
     FlexboxProps,
     PositionProps,
-    BackgroundProps {}
+    BackgroundProps {
+  color?:
+    | string
+    | (string & (string | number | symbol | null)[])
+    | (string & {
+        [x: string]: string | number | symbol | undefined;
+        [x: number]: string | number | symbol | undefined;
+      })
+    | undefined; // typing issue
+}
 
 const Box = createComponent<BoxProps>({
   name: 'Box',

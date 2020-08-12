@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { css } from 'styled-components';
-import Box from '../Box';
+import Box, { BoxProps } from '../Box';
 import { themeGet, createComponent } from '../utils';
 
 export interface CardProps {
@@ -9,7 +8,7 @@ export interface CardProps {
   children?: React.ReactNode;
 }
 
-const StyledCard = createComponent<CardProps, typeof Box>({
+const StyledCard = createComponent<CardProps & BoxProps>({
   name: 'Card',
   as: Box,
   style: ({ shadow, theme }) => css`
@@ -22,25 +21,21 @@ const StyledCard = createComponent<CardProps, typeof Box>({
 });
 
 export interface CardStaticMembers {
-  Footer: any;
-  Body: any;
-  Header: any;
+  Footer: React.ComponentType<BoxProps>;
+  Body: React.ComponentType<BoxProps>;
+  Header: React.ComponentType<BoxProps>;
 }
 
 /** Cards provide a flexible way to encapsulate content with multiple variants and options. */
-const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => (
+const Card = React.forwardRef<HTMLDivElement, CardProps & BoxProps>((props, ref) => (
   <StyledCard ref={ref} {...props} />
-)) as React.ForwardRefExoticComponent<CardProps & React.RefAttributes<HTMLDivElement>> & CardStaticMembers;
-
-Card.propTypes = {
-  shadow: PropTypes.bool,
-};
+)) as React.ForwardRefExoticComponent<CardProps & BoxProps & React.RefAttributes<HTMLDivElement>> & CardStaticMembers;
 
 Card.defaultProps = {
   shadow: false,
 };
 
-Card.Footer = createComponent<{}, typeof Box>({
+Card.Footer = createComponent<BoxProps>({
   name: 'CardFooter',
   as: Box,
   style: css`
@@ -48,7 +43,7 @@ Card.Footer = createComponent<{}, typeof Box>({
   `,
 });
 
-Card.Body = createComponent<{}, typeof Box>({
+Card.Body = createComponent<BoxProps>({
   name: 'CardBody',
   as: Box,
   style: () => css`
@@ -60,7 +55,7 @@ Card.Body = createComponent<{}, typeof Box>({
   `,
 });
 
-Card.Header = createComponent<{}, typeof Box>({
+Card.Header = createComponent<BoxProps>({
   name: 'CardHeader',
   as: Box,
   style: css`

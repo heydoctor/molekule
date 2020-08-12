@@ -33,8 +33,8 @@ const StyledAlert = createComponent<AlertProps>({
 });
 
 /** Alerts are typically used to display meaningful copy to users - typically notifying the user of an important message. */
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(({ variant = 'primary', ...props }, ref) => (
-  <StyledAlert variant={variant} {...props} ref={ref} />
-));
+const Alert = React.forwardRef<HTMLDivElement, AlertProps & React.ComponentProps<'div'>>(
+  ({ variant = 'primary', ...props }, ref) => <StyledAlert variant={variant} {...props} ref={ref} />
+);
 
 export default Alert;

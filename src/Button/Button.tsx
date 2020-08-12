@@ -152,22 +152,26 @@ export interface ButtonStaticMembers {
 }
 
 /** Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more. We include several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control. */
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, leftIcon, leftIconProps, rightIcon, rightIconProps, colorFocus, loading, ...rest }, ref) => (
-    <StyledButton
-      ref={ref}
-      hasText={!!children}
-      leftIcon={leftIcon}
-      rightIcon={rightIcon}
-      colorFocus={colorFocus}
-      isLoading={loading}
-      {...rest}>
-      {leftIcon && renderIcon(leftIcon, leftIconProps)}
-      {children}
-      {rightIcon && renderIcon(rightIcon, rightIconProps)}
-    </StyledButton>
-  )
-) as React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>> & ButtonStaticMembers;
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  ButtonProps & React.ComponentProps<'button'> & React.RefAttributes<HTMLButtonElement>
+>(({ children, leftIcon, leftIconProps, rightIcon, rightIconProps, colorFocus, loading, ...rest }, ref) => (
+  <StyledButton
+    ref={ref}
+    hasText={!!children}
+    leftIcon={leftIcon}
+    rightIcon={rightIcon}
+    colorFocus={colorFocus}
+    isLoading={loading}
+    {...rest}>
+    {leftIcon && renderIcon(leftIcon, leftIconProps)}
+    {children}
+    {rightIcon && renderIcon(rightIcon, rightIconProps)}
+  </StyledButton>
+)) as React.ForwardRefExoticComponent<
+  ButtonProps & React.ComponentProps<'button'> & React.RefAttributes<HTMLButtonElement>
+> &
+  ButtonStaticMembers;
 
 Button.defaultProps = {
   variant: 'primary',

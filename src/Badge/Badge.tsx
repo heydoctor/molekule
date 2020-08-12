@@ -27,7 +27,9 @@ const StyledBadge = createComponent<BadgeProps, 'span'>({
   },
 });
 
-const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => <StyledBadge {...props} ref={ref} />);
+const Badge = React.forwardRef<HTMLSpanElement, BadgeProps & React.ComponentProps<'span'>>((props, ref) => (
+  <StyledBadge {...props} ref={ref} />
+));
 
 Badge.defaultProps = {
   variant: 'info',

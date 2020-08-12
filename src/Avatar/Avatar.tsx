@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from 'styled-components';
-import Box from '../Box';
+import Box, { BoxProps } from '../Box';
 import { createComponent } from '../utils';
 
 // from https://flatuicolors.com/
@@ -50,10 +50,10 @@ export interface AvatarProps {
   /**
    * Background color when initials are used
    */
-  backgroundColor?: number;
+  backgroundColor?: string;
 }
 
-const AvatarContainer = createComponent<AvatarProps, typeof Box>({
+const AvatarContainer = createComponent<AvatarProps & BoxProps>({
   name: 'Avatar',
   as: Box,
   style: ({ size, borderRadius, color, backgroundColor, src, theme }) => css`
@@ -74,7 +74,7 @@ const AvatarContainer = createComponent<AvatarProps, typeof Box>({
   `,
 });
 
-const Avatar: React.FC<AvatarProps> = ({
+const Avatar: React.FC<AvatarProps & BoxProps> = ({
   name = '',
   src,
   backgroundColor,
