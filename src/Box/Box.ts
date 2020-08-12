@@ -17,7 +17,7 @@ import {
 } from 'styled-system';
 import { createComponent } from '../utils';
 
-interface BoxProps
+export interface BoxProps
   extends SpaceProps,
     ColorProps,
     TypographyProps,

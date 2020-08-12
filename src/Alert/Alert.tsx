@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { space } from 'styled-system';
 import { getComponentVariant, createComponent } from '../utils';
 
-interface AlertProps {
+export interface AlertProps {
   variant?: string;
   children?: string | React.ReactNode;
 }
