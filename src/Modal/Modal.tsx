@@ -1,18 +1,16 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { keyframes, css } from 'styled-components';
 import * as animations from 'react-animations';
 import { Transition } from 'react-transition-group';
 import { FocusOn } from 'react-focus-on';
-import Portal from '../Portal';
+import { Portal } from '../Portal';
 import Flex from '../Flex';
 import Icon from '../Icon';
-import Button from '../Button';
 import { createComponent, themeGet } from '../utils';
 
 const ModalContext = createContext({});
 
-const getAnimation = name => keyframes`${animations[name]}`;
+const getAnimation = (name: any) => keyframes`${animations[name]}`;
 
 const ModalContainer = createComponent({
   name: 'ModalContainer',
@@ -33,7 +31,7 @@ const ModalContainer = createComponent({
 });
 const Backdrop = createComponent({
   name: 'ModalBackdrop',
-  style: ({ transitionState }) => css`
+  style: ({ transitionState }: any) => css`
     position: fixed;
     top: 0;
     left: 0;
@@ -59,7 +57,7 @@ const Backdrop = createComponent({
 
 const ModalContent = createComponent({
   name: 'ModalContent',
-  style: ({ minWidth, maxWidth, transitionState, animationIn, animationOut, theme }) => css`
+  style: ({ minWidth, maxWidth, transitionState, animationIn, animationOut, theme }: any) => css`
     position: relative;
     margin: auto;
     min-width: ${minWidth}px;
@@ -84,16 +82,16 @@ const ModalContent = createComponent({
 });
 
 /** Modals are a great way to add dialogs to your site for lightboxes, user notifications, or completely custom content. */
-export function Modal({ children, title, animationDuration, showClose, onClose, open, ...props }) {
+export function Modal({ children, title, animationDuration, showClose, onClose, open, ...props }: any) {
   const [isOpen, setOpen] = useState(open);
-  const modalRef = React.useRef(null);
+  const modalRef = React.useRef<any>(null);
 
   const handleClose = () => {
     setOpen(false);
     onClose();
   };
 
-  const handleContentClick = event => event.stopPropagation();
+  const handleContentClick = (event: any) => event.stopPropagation();
 
   const handleBackdropClick = () => {
     if (!props.closeOnBackdropClick) return;
@@ -102,8 +100,10 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
   };
 
   const scrollToTop = () => {
-    if (modalRef.current && modalRef.current.scroll) {
-      modalRef.current.scroll(0, 0);
+    const scroll = modalRef?.current?.scroll;
+
+    if (scroll) {
+      scroll(0, 0);
     }
   };
 
@@ -111,7 +111,7 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
     if (open !== isOpen) {
       setOpen(open);
     }
-  }, [open]);
+  }, [open, isOpen]);
 
   return (
     <ModalContext.Provider value={{ handleClose }}>
@@ -138,19 +138,6 @@ export function Modal({ children, title, animationDuration, showClose, onClose, 
     </ModalContext.Provider>
   );
 }
-
-Modal.propTypes = {
-  open: PropTypes.bool,
-  showClose: PropTypes.bool,
-  closeOnBackdropClick: PropTypes.bool,
-  closeOnEscape: PropTypes.bool,
-  minWidth: PropTypes.number,
-  maxWidth: PropTypes.number,
-  animationIn: PropTypes.string,
-  animationOut: PropTypes.string,
-  animationDuration: PropTypes.number,
-  onClose: PropTypes.func,
-};
 
 Modal.defaultProps = {
   open: false,
@@ -191,10 +178,11 @@ const ModalHeaderInner = createComponent({
   `,
 });
 
-Modal.Header = ({ title, children, showClose = true }) => {
+Modal.Header = ({ title, children, showClose = true }: any) => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { handleClose } = useContext(ModalContext);
 
-  const handleKeyDown = ({ keyCode }) => {
+  const handleKeyDown = ({ keyCode }: any) => {
     if (keyCode === 13) {
       handleClose();
     }
@@ -243,5 +231,3 @@ Modal.Footer = createComponent({
     border-bottom-right-radius: ${themeGet('radius')}px;
   `,
 });
-
-export default Modal;

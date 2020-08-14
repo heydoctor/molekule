@@ -1,10 +1,10 @@
 import React from 'react';
-import Modal from './Modal';
+import { Modal } from './Modal';
 import Button from '../Button';
 import { Input } from '../Form/Input';
 import Dropdown from '../Dropdown';
 
-export default class ModalDropdownDemo extends React.Component {
+export class ModalDropdownDemo extends React.Component<any, any> {
   state = {
     isModalOpen: false,
   };
@@ -17,6 +17,7 @@ export default class ModalDropdownDemo extends React.Component {
     this.toggle();
 
     setTimeout(() => {
+      // eslint-disable-next-line no-alert
       alert('Oh no! It has been canceled.');
     }, 500);
   };

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { css } from 'styled-components';
-import PropTypes from 'prop-types';
 import { createComponent } from '../utils';
 
 const TabsProvider = createComponent({
   name: 'Tabs',
-  style: ({ vertical }) => css`
+  style: ({ vertical }: any) => css`
     display: flex;
     flex-direction: ${vertical ? 'row' : 'column'};
   `,
@@ -14,7 +13,7 @@ const TabsProvider = createComponent({
 const TabList = createComponent({
   name: 'TabList',
   tag: 'ul',
-  style: ({ vertical, theme }) => css`
+  style: ({ vertical, theme }: any) => css`
     display: flex;
     margin: 0;
     padding: 0;
@@ -40,7 +39,7 @@ const TabListItem = createComponent({
 const Tab = createComponent({
   name: 'Tab',
   tag: 'button',
-  style: ({ vertical, disabled }) => css`
+  style: ({ vertical, disabled }: any) => css`
     appearance: none;
     margin: 0;
     padding: 0;
@@ -67,7 +66,7 @@ const Tab = createComponent({
 const TabTitle = createComponent({
   name: 'TabTitle',
   tag: 'span',
-  style: ({ active, vertical, theme }) => css`
+  style: ({ active, vertical, theme }: any) => css`
     display: block;
     color: ${active ? theme.colors.greyDarkest : theme.colors.greyDark};
     padding: ${vertical ? '8px 12px 8px 8px' : '12px 8px'};
@@ -88,14 +87,7 @@ const TabContent = createComponent({
   `,
 });
 
-class Tabs extends Component {
-  static propTypes = {
-    tabs: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-    active: PropTypes.number,
-    vertical: PropTypes.bool,
-    onChange: PropTypes.func,
-  };
-
+export class Tabs extends Component<any, any> {
   static defaultProps = {
     vertical: false,
   };
@@ -106,13 +98,14 @@ class Tabs extends Component {
 
   componentDidUpdate() {
     if (this.props.active && this.props.active !== this.state.active) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
         active: this.props.active,
       });
     }
   }
 
-  handleTabClick = selected => {
+  handleTabClick = (selected: any) => {
     if (this.props.onChange) {
       this.props.onChange(selected);
     }
@@ -123,7 +116,7 @@ class Tabs extends Component {
   };
 
   renderHeadings() {
-    return this.props.tabs.map((tab, i) => {
+    return this.props.tabs.map((tab: any, i: any) => {
       const id = tab.id || i;
 
       return (
@@ -164,5 +157,3 @@ class Tabs extends Component {
     );
   }
 }
-
-export default Tabs;

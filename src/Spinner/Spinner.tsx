@@ -7,7 +7,7 @@ const spin = keyframes`
   from { transform: rotate(360deg); }
 `;
 
-const Spinner = createComponent({
+export const Spinner = createComponent({
   name: 'Spinner',
   style: ({ size = 15 }) => css`
     height: ${size}px;
@@ -18,5 +18,3 @@ const Spinner = createComponent({
     animation: ${spin} 1.1s infinite linear;
   `,
 });
-
-export default Spinner;
