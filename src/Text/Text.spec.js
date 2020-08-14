@@ -1,6 +1,6 @@
 import React from 'react';
 import { renderWithTheme } from '../test/utils';
-import { Text } from './Text';
+import Text from './Text';
 
 describe('Text', () => {
   test('default to <span>', () => {

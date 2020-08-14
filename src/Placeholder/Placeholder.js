@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import Box from '../Box';
 import Button from '../Button';
-import { Spinner } from '../Spinner';
+import Spinner from '../Spinner';
 import { createComponent } from '../utils';
 
 const Container = createComponent({
@@ -19,8 +20,15 @@ const Container = createComponent({
 });
 
 /** Placeholder shows a spinner after a specified delay while content is loaded asynchronously. */
-export class Placeholder extends React.Component<any, any> {
-  delayTimer: any;
+export default class Placeholder extends React.Component {
+  static propTypes = {
+    loading: PropTypes.bool,
+    error: PropTypes.string,
+    delay: PropTypes.number,
+    renderLoading: PropTypes.func,
+    renderError: PropTypes.func,
+    onReload: PropTypes.func,
+  };
 
   static defaultProps = {
     loading: false,
