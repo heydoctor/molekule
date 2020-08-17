@@ -200,6 +200,8 @@ export const Button = React.forwardRef<any, ButtonProps>(
   Group: typeof ButtonGroup;
 }; // Need hacky typing so we can set Group to the object.
 
+Button.Group = ButtonGroup;
+
 Button.defaultProps = {
   variant: 'primary',
   size: 'md',
