@@ -198,7 +198,7 @@ export const Button = React.forwardRef<any, ButtonProps>(
   )
 ) as ForwardRefExoticComponent<PropsWithoutRef<any> & RefAttributes<ButtonProps>> & {
   Group: typeof ButtonGroup;
-};
+}; // Need hacky typing so we can set Group to the object.
 
 Button.defaultProps = {
   variant: 'primary',
