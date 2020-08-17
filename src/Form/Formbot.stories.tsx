@@ -12,7 +12,7 @@ import Select from './Select';
 import CheckboxGroup from './CheckboxGroup';
 import RadioGroup from './RadioGroup';
 import Switch from './Switch';
-import Button from '../Button';
+import { Button } from '../Button';
 import { Input } from './Input';
 
 export default {
@@ -165,9 +165,7 @@ export const FullExample = () => {
               <Switch name="switch1" />
             </Fieldset>
 
-            <Button htmlType="submit" type="primary" size="sm">
-              Submit
-            </Button>
+            <Button htmlType="submit" type="primary" size="sm">Submit</Button>
 
             <Values />
           </Form>

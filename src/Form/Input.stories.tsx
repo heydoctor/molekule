@@ -2,7 +2,7 @@ import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { object, select, boolean } from '@storybook/addon-knobs';
 import { Formbot } from './Formbot';
-import Button from '../Button';
+import { Button } from '../Button';
 import { Input } from './Input';
 
 const ButtonAsAny = Button as any;

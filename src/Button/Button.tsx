@@ -73,7 +73,7 @@ const loadingCss = (height: number, color: string) => css`
   }
 `;
 
-interface ButtonProps {
+export interface ButtonProps {
   variant?: string;
   size?: string;
   outline?: boolean;

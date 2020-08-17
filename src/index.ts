@@ -3,7 +3,7 @@ export { default as Alert } from './Alert';
 export { default as Avatar } from './Avatar';
 export { default as Badge } from './Badge';
 export { default as Box } from './Box';
-export { default as Button } from './Button';
+export * from './Button';
 export { default as Card } from './Card';
 export { default as Checkbox } from './Form/Checkbox';
 export { default as CheckboxGroup } from './Form/CheckboxGroup';
