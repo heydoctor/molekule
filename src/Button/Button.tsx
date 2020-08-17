@@ -1,10 +1,43 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ForwardRefExoticComponent, PropsWithoutRef, RefAttributes } from 'react';
 import { css, keyframes } from 'styled-components';
 import { space } from 'styled-system';
 import { getComponentVariant, getComponentSize, createComponent } from '../utils';
 import Flex from '../Flex';
 import Icon from '../Icon';
+
+const ButtonGroup = createComponent({
+  name: 'ButtonGroup',
+  as: Flex,
+  style: ({
+    vertical = false,
+    theme: { radius, breakpoints },
+    borderRadius = radius || 2,
+    connected = false,
+  }: any) => css`
+    & > button:not(:first-child) {
+      margin-left: 1rem;
+    }
+
+    ${connected &&
+      css`
+        & > button:not(:first-child) {
+          margin-left: 0;
+        }
+        & > button:first-child {
+          border-radius: ${borderRadius}px 0 0 ${borderRadius}px;
+        }
+        & > button:last-child {
+          border-radius: 0 ${borderRadius}px ${borderRadius}px 0;
+        }
+
+        & > :not(:first-child):not(:last-child) {
+          border-radius: 0;
+        }
+      `}
+
+    ${vertical && verticalCss({ breakpoints, vertical, borderRadius })};
+  `,
+});
 
 const spinKeyframes = keyframes`
   from {
@@ -15,7 +48,7 @@ const spinKeyframes = keyframes`
     transform: rotate(360deg);
 }`;
 
-const loadingCss = (height, color) => css`
+const loadingCss = (height: number, color: string) => css`
   color: transparent !important;
   pointer-events: none;
   position: relative;
@@ -40,7 +73,23 @@ const loadingCss = (height, color) => css`
   }
 `;
 
-const StyledButton = createComponent({
+interface ButtonProps {
+  variant?: string;
+  size?: string;
+  outline?: boolean;
+  block?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
+  leftIcon?: string;
+  leftIconProps?: any;
+  rightIcon?: string;
+  rightIconProps?: any;
+  hasText?: any;
+  colorFocus?: any;
+  isLoading?: boolean;
+}
+
+const StyledButton = createComponent<ButtonProps, 'button'>({
   name: 'Button',
   tag: 'button',
   style: ({
@@ -55,7 +104,7 @@ const StyledButton = createComponent({
     isLoading,
     borderRadius = theme.radius,
     colorFocus = theme.colors.colorFocus,
-  }) => {
+  }: any) => {
     const variantStyles = getComponentVariant(theme, 'Button', variant);
     const sizeStyles = getComponentSize(theme, 'Button', size);
 
@@ -129,10 +178,10 @@ const StyledButton = createComponent({
   },
 });
 
-const renderIcon = (icon, props) => <Icon name={icon} {...props} />;
+const renderIcon = (icon: any, props: any) => <Icon name={icon} {...props} />;
 
 /** Custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more. We include several predefined button styles, each serving its own semantic purpose, with a few extras thrown in for more control. */
-const Button = React.forwardRef(
+export const Button = React.forwardRef<any, ButtonProps>(
   ({ children, leftIcon, leftIconProps, rightIcon, rightIconProps, colorFocus, loading, ...rest }, ref) => (
     <StyledButton
       ref={ref}
@@ -147,19 +196,8 @@ const Button = React.forwardRef(
       {rightIcon && renderIcon(rightIcon, rightIconProps)}
     </StyledButton>
   )
-);
-
-Button.propTypes = {
-  variant: PropTypes.string,
-  size: PropTypes.string,
-  outline: PropTypes.bool,
-  block: PropTypes.bool,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  leftIcon: PropTypes.string,
-  leftIconProps: PropTypes.shape(),
-  rightIcon: PropTypes.string,
-  rightIconProps: PropTypes.shape(),
+) as ForwardRefExoticComponent<PropsWithoutRef<any> & RefAttributes<ButtonProps>> & {
+  Group: typeof ButtonGroup;
 };
 
 Button.defaultProps = {
@@ -171,7 +209,7 @@ Button.defaultProps = {
   loading: false,
 };
 
-const verticalCss = ({ breakpoints, vertical, borderRadius }) => {
+const verticalCss = ({ breakpoints, vertical, borderRadius }: any) => {
   const maybeNumber = parseInt(vertical, 10);
   const fallback = breakpoints[vertical] || breakpoints.sm;
   const breakpoint = Number.isInteger(maybeNumber) ? `${maybeNumber}px` : fallback;
@@ -193,34 +231,3 @@ const verticalCss = ({ breakpoints, vertical, borderRadius }) => {
     }
   `;
 };
-
-Button.Group = createComponent({
-  name: 'ButtonGroup',
-  as: Flex,
-  style: ({ vertical = false, theme: { radius, breakpoints }, borderRadius = radius || 2, connected = false }) => css`
-    & > button:not(:first-child) {
-      margin-left: 1rem;
-    }
-
-    ${connected &&
-      css`
-        & > button:not(:first-child) {
-          margin-left: 0;
-        }
-        & > button:first-child {
-          border-radius: ${borderRadius}px 0 0 ${borderRadius}px;
-        }
-        & > button:last-child {
-          border-radius: 0 ${borderRadius}px ${borderRadius}px 0;
-        }
-
-        & > :not(:first-child):not(:last-child) {
-          border-radius: 0;
-        }
-      `}
-
-    ${vertical && verticalCss({ breakpoints, vertical, borderRadius })};
-  `,
-});
-
-export default Button;

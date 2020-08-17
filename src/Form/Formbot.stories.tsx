@@ -15,8 +15,6 @@ import Switch from './Switch';
 import Button from '../Button';
 import { Input } from './Input';
 
-const ButtonAsAny = Button as any;
-
 export default {
   title: 'Components|Forms/Formbot',
   component: Formbot,
@@ -39,7 +37,7 @@ export const Basic = () => (
       <Input name="password" label="Password" />
 
       <Field>
-        <ButtonAsAny type="submit">Sign In</ButtonAsAny>
+        <Button type="submit">Sign In</Button>
       </Field>
     </Form>
   </Formbot>
@@ -64,7 +62,7 @@ export const AsyncValidation = () => (
       <Input name="random" label="random" />
 
       <Field>
-        <ButtonAsAny type="submit">Sign In</ButtonAsAny>
+        <Button type="submit">Sign In</Button>
       </Field>
     </Form>
   </Formbot>
@@ -167,9 +165,9 @@ export const FullExample = () => {
               <Switch name="switch1" />
             </Fieldset>
 
-            <ButtonAsAny htmlType="submit" type="primary" size="sm">
+            <Button htmlType="submit" type="primary" size="sm">
               Submit
-            </ButtonAsAny>
+            </Button>
 
             <Values />
           </Form>
