@@ -12,7 +12,7 @@ import { createComponent, findNextFocusableElement, findPreviousFocusableElement
 
 const DropdownContext = React.createContext({});
 
-type Placement =
+export type Placement =
   | 'top-start'
   | 'top'
   | 'top-end'
@@ -52,10 +52,10 @@ const Trigger = createComponent({
   `,
 });
 
-interface DropdownProps {
+export interface DropdownProps {
   placement?: Placement;
   trigger: any;
-  render: (p?: any) => React.ReactNode;
+  render?: (p?: any) => React.ReactNode;
   autoclose?: boolean;
   offset?: string;
   boundariesElement?: Element | 'viewport' | 'scrollParent' | 'window';
@@ -64,11 +64,11 @@ interface DropdownProps {
   zIndex?: number;
   transitionDuration?: number;
   transitionTimingFunction?: string;
-  portalNode: any;
+  portalNode?: any;
   styles?: any;
 }
 
-interface DropdownStaticMembers {
+export interface DropdownStaticMembers {
   Divider: any;
   Title: any;
   Item: any;
