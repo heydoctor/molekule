@@ -1,14 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'styled-components';
-import Box, { BoxProps } from '../Box';
+import Box from '../Box';
 import { themeGet, createComponent } from '../utils';
 
-export interface CardProps {
-  shadow?: boolean;
-  children?: React.ReactNode;
-}
-
-const StyledCard = createComponent<CardProps & BoxProps>({
+const StyledCard = createComponent({
   name: 'Card',
   as: Box,
   style: ({ shadow, theme }) => css`
@@ -20,22 +16,18 @@ const StyledCard = createComponent<CardProps & BoxProps>({
   `,
 });
 
-export interface CardStaticMembers {
-  Footer: React.ComponentType<BoxProps>;
-  Body: React.ComponentType<BoxProps>;
-  Header: React.ComponentType<BoxProps>;
-}
-
 /** Cards provide a flexible way to encapsulate content with multiple variants and options. */
-const Card = React.forwardRef<HTMLDivElement, CardProps & BoxProps>((props, ref) => (
-  <StyledCard ref={ref} {...props} />
-)) as React.ForwardRefExoticComponent<CardProps & BoxProps & React.RefAttributes<HTMLDivElement>> & CardStaticMembers;
+const Card = React.forwardRef((props, ref) => <StyledCard ref={ref} {...props} />);
+
+Card.propTypes = {
+  shadow: PropTypes.bool,
+};
 
 Card.defaultProps = {
   shadow: false,
 };
 
-Card.Footer = createComponent<BoxProps>({
+Card.Footer = createComponent({
   name: 'CardFooter',
   as: Box,
   style: css`
@@ -43,7 +35,7 @@ Card.Footer = createComponent<BoxProps>({
   `,
 });
 
-Card.Body = createComponent<BoxProps>({
+Card.Body = createComponent({
   name: 'CardBody',
   as: Box,
   style: () => css`
@@ -55,7 +47,7 @@ Card.Body = createComponent<BoxProps>({
   `,
 });
 
-Card.Header = createComponent<BoxProps>({
+Card.Header = createComponent({
   name: 'CardHeader',
   as: Box,
   style: css`

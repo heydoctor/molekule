@@ -1,14 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'styled-components';
 import { space } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 import { getComponentVariant, createComponent } from '../utils';
 
-export interface AlertProps {
-  variant?: string;
-  children?: string | React.ReactNode;
-}
-
-const StyledAlert = createComponent<AlertProps>({
+const StyledAlert = createComponent({
   name: 'Alert',
   style: ({ variant, theme }) => {
     const variantStyles = getComponentVariant(theme, 'Alert', variant);
@@ -27,14 +24,21 @@ const StyledAlert = createComponent<AlertProps>({
       }
 
       ${variantStyles}
-      ${space}
+      ${space};
     `;
   },
 });
 
 /** Alerts are typically used to display meaningful copy to users - typically notifying the user of an important message. */
-const Alert = React.forwardRef<HTMLDivElement, AlertProps & React.ComponentProps<'div'>>(
-  ({ variant = 'primary', ...props }, ref) => <StyledAlert variant={variant} {...props} ref={ref} />
-);
+const Alert = React.forwardRef((props, ref) => <StyledAlert {...props} ref={ref} />);
+
+Alert.propTypes = {
+  variant: PropTypes.string,
+  ...propTypes.space,
+};
+
+Alert.defaultProps = {
+  variant: 'primary',
+};
 
 export default Alert;

@@ -1,7 +1,6 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { text } from '@storybook/addon-knobs';
 import Alert from './Alert';
+import { text } from '@storybook/addon-knobs';
 
 export default {
   title: 'Components|Alert',
@@ -18,7 +17,7 @@ export const Basic = () => {
       </Alert>
       <Alert variant="info">This is a generic informational message.</Alert>
       <Alert variant="danger">
-        <strong>Oops!</strong> Something went wrong.
+        <strong>Oops!</strong> Something wen't wrong.
       </Alert>
       <Alert variant="warning">
         <strong>Caution!</strong> There be dragons.

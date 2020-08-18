@@ -1,15 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'styled-components';
-import { space, SpaceProps } from 'styled-system';
+import { space } from 'styled-system';
+import propTypes from '@styled-system/prop-types';
 import { getComponentVariant, createComponent, getComponentSize } from '../utils';
 
-export interface BadgeProps extends SpaceProps {
-  variant?: string;
-  size?: string;
-  children?: React.ReactNode;
-}
-
-const StyledBadge = createComponent<BadgeProps, 'span'>({
+const StyledBadge = createComponent({
   name: 'Badge',
   tag: 'span',
   style: ({ variant, theme, size }) => {
@@ -20,16 +16,20 @@ const StyledBadge = createComponent<BadgeProps, 'span'>({
       font-family: inherit;
       font-weight: bold;
 
-      ${variantStyles}
-      ${sizeStyles}
-      ${space}
+      ${variantStyles};
+      ${sizeStyles};
+      ${space};
     `;
   },
 });
 
-const Badge = React.forwardRef<HTMLSpanElement, BadgeProps & React.ComponentProps<'span'>>((props, ref) => (
-  <StyledBadge {...props} ref={ref} />
-));
+const Badge = React.forwardRef((props, ref) => <StyledBadge {...props} ref={ref} />);
+
+Badge.propTypes = {
+  variant: PropTypes.string,
+  size: PropTypes.string,
+  ...propTypes.space,
+};
 
 Badge.defaultProps = {
   variant: 'info',

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'styled-components';
-import Box, { BoxProps } from '../Box';
+import Box from '../Box';
 import { createComponent } from '../utils';
 
 // from https://flatuicolors.com/
@@ -21,39 +22,7 @@ const getInitials = (name = '') =>
     .map(w => w[0])
     .join('');
 
-export interface AvatarProps {
-  /**
-   * We'll take the first letter of the first two words to create the initials
-   */
-  name?: string;
-
-  /**
-   * The size of the Avatar
-   */
-  size?: number;
-
-  /**
-   * The image source of the Avatar
-   */
-  src?: string;
-
-  /**
-   * Border radius of the Avatar
-   */
-  borderRadius?: string | number;
-
-  /**
-   * Colors of the initials
-   */
-  color?: string;
-
-  /**
-   * Background color when initials are used
-   */
-  backgroundColor?: string;
-}
-
-const AvatarContainer = createComponent<AvatarProps & BoxProps>({
+const AvatarContainer = createComponent({
   name: 'Avatar',
   as: Box,
   style: ({ size, borderRadius, color, backgroundColor, src, theme }) => css`
@@ -74,25 +43,47 @@ const AvatarContainer = createComponent<AvatarProps & BoxProps>({
   `,
 });
 
-const Avatar: React.FC<AvatarProps & BoxProps> = ({
-  name = '',
-  src,
-  backgroundColor,
-  size = 25,
-  borderRadius = '100%',
-  color = 'white',
-  ...props
-}) => (
+const Avatar = ({ name = '', src, backgroundColor, ...props }) => (
   <AvatarContainer
-    size={size}
-    borderRadius={borderRadius}
-    color={color}
+    {...props}
     src={src}
     backgroundColor={backgroundColor || defaultColors[name.length % defaultColors.length]}
-    aria-label={name}
-    {...props}>
+    aria-label={name}>
     {src ? null : getInitials(name)}
   </AvatarContainer>
 );
+
+Avatar.propTypes = {
+  /**
+   * We'll take the first letter of the first two words to create the initials
+   */
+  name: PropTypes.string,
+
+  /**
+   * The size of the Avatar
+   */
+  size: PropTypes.number,
+
+  /**
+   * Border radius of the Avatar
+   */
+  borderRadius: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+
+  /**
+   * Colors of the initials
+   */
+  color: PropTypes.string,
+
+  /**
+   * Background color when initials are used
+   */
+  backgroundColor: PropTypes.string,
+};
+
+Avatar.defaultProps = {
+  size: 25,
+  borderRadius: '100%',
+  color: 'white',
+};
 
 export default Avatar;

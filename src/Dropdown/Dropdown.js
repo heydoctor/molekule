@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { FocusOn } from 'react-focus-on';
 import { Transition } from 'react-transition-group';
-import { TransitionStatus } from 'react-transition-group/Transition';
 import { Manager, Reference, Popper } from 'react-popper';
 import { css, keyframes } from 'styled-components';
 import Box from '../Box';
@@ -12,21 +12,7 @@ import { createComponent, findNextFocusableElement, findPreviousFocusableElement
 
 const DropdownContext = React.createContext({});
 
-type Placement =
-  | 'top-start'
-  | 'top'
-  | 'top-end'
-  | 'right'
-  | 'right-start'
-  | 'right-end'
-  | 'bottom-start'
-  | 'bottom'
-  | 'bottom-end'
-  | 'left-start'
-  | 'left'
-  | 'left-end';
-
-export const PLACEMENT_TRANSITION_ORIGINS: Record<Placement, string> = {
+export const PLACEMENT_TRANSITION_ORIGINS = {
   'top-start': '0 100%',
   top: '50% 100%',
   'top-end': '100% 100%',
@@ -52,45 +38,23 @@ const Trigger = createComponent({
   `,
 });
 
-interface DropdownProps {
-  placement?: Placement;
-  trigger: any;
-  render: (p?: any) => React.ReactNode;
-  autoclose?: boolean;
-  offset?: string;
-  boundariesElement?: Element | 'viewport' | 'scrollParent' | 'window';
-  positionFixed?: boolean;
-  width?: number | string;
-  zIndex?: number;
-  transitionDuration?: number;
-  transitionTimingFunction?: string;
-  portalNode: any;
-  styles?: any;
-}
-
-interface DropdownStaticMembers {
-  Divider: any;
-  Title: any;
-  Item: any;
-}
-
 /** Easily display contextual overlays using custom trigger elements. Dropdowns positioning system uses [Popper.js](https://github.com/FezVrasta/popper.js). Refer to their documentation for placement and option overrides. */
-const Dropdown: React.FC<DropdownProps> & DropdownStaticMembers = ({
-  autoclose = true,
-  placement = 'bottom-start',
-  positionFixed = false,
-  boundariesElement = 'viewport',
-  offset = '0, 10',
-  portalNode,
-  styles = {},
+export default function Dropdown({
+  autoclose,
+  placement,
+  positionFixed,
+  boundariesElement,
+  offset,
   trigger,
   render,
   children,
+  portalNode,
+  styles = {},
   ...menuProps
-}) => {
-  const popperRef = useRef<any>();
-  const menuRef = useRef<any>();
-  const triggerRef = useRef<any>();
+}) {
+  const popperRef = useRef();
+  const menuRef = useRef();
+  const triggerRef = useRef();
 
   const [isOpen, setOpen] = useState(false);
 
@@ -98,7 +62,7 @@ const Dropdown: React.FC<DropdownProps> & DropdownStaticMembers = ({
   const close = () => setOpen(false);
   const toggle = () => (isOpen ? close() : open());
 
-  const handleTrigger = (e: any) => {
+  const handleTrigger = e => {
     // Allow all clicks and, for non-button elements, Enter and Space to toggle Dropdown
     // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role#Required_JavaScript_Features
     if (e.type === 'click' || (e.type === 'keypress' && (e.which === 13 || e.which === 32))) {
@@ -112,24 +76,23 @@ const Dropdown: React.FC<DropdownProps> & DropdownStaticMembers = ({
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => {
-        if (menuRef?.current) menuRef.current.focus();
+        if (menuRef.current) menuRef.current.focus();
       });
     }
   }, [isOpen]);
 
   useKeyPress('Escape', () => {
     if (isOpen) {
-      if (triggerRef?.current) triggerRef.current.focus();
+      if (triggerRef.current) triggerRef.current.focus();
       close();
     }
   });
 
-  useKeyPress(ARROW_KEYS, (event: any) => {
+  useKeyPress(ARROW_KEYS, event => {
     if (isOpen && menuRef.current) {
       event.preventDefault();
       const focusArgs = [menuRef.current, document.activeElement];
-      const nextFocusable: any =
-        // @ts-ignore
+      const nextFocusable =
         event.key === 'ArrowUp' ? findPreviousFocusableElement(...focusArgs) : findNextFocusableElement(...focusArgs);
 
       if (nextFocusable) {
@@ -138,7 +101,7 @@ const Dropdown: React.FC<DropdownProps> & DropdownStaticMembers = ({
     }
   });
 
-  const handleMenuBlur = (e: any) => {
+  const handleMenuBlur = e => {
     if (autoclose && menuRef.current && !menuRef.current.contains(e.relatedTarget)) {
       close();
     }
@@ -196,7 +159,6 @@ const Dropdown: React.FC<DropdownProps> & DropdownStaticMembers = ({
                       <DropdownMenu
                         ref={menuInner => {
                           menuRef.current = menuInner;
-                          // @ts-ignore
                           ref(menuInner);
                         }}
                         style={style}
@@ -221,9 +183,34 @@ const Dropdown: React.FC<DropdownProps> & DropdownStaticMembers = ({
       </Manager>
     </DropdownContext.Provider>
   );
+}
+
+Dropdown.propTypes = {
+  placement: PropTypes.oneOf(Object.keys(PLACEMENT_TRANSITION_ORIGINS)),
+  trigger: PropTypes.element.isRequired,
+  render: PropTypes.func,
+  autoclose: PropTypes.bool,
+  offset: PropTypes.string,
+  boundariesElement: PropTypes.string,
+  positionFixed: PropTypes.bool,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  zIndex: PropTypes.number,
+  transitionDuration: PropTypes.number,
+  transitionTimingFunction: PropTypes.string,
+  portalNode: PropTypes.instanceOf(typeof Element !== 'undefined' ? Element : Object),
 };
 
-export default Dropdown;
+Dropdown.defaultProps = {
+  placement: 'bottom-start',
+  autoclose: true,
+  offset: '0, 10',
+  positionFixed: false,
+  boundariesElement: 'viewport',
+  width: 'auto',
+  zIndex: 10,
+  transitionDuration: 225,
+  transitionTimingFunction: 'cubic-bezier(0.25, 0.1, 0.17, 1.2)',
+};
 
 const scaleIn = keyframes`
   from {
@@ -236,16 +223,7 @@ const scaleIn = keyframes`
   }
 `;
 
-interface DropdownMenuProps {
-  width: number | string;
-  placement: Placement;
-  zIndex: number;
-  transitionState: TransitionStatus;
-  transitionDuration: number;
-  transitionTimingFunction: string;
-}
-
-const DropdownMenu = createComponent<Partial<DropdownMenuProps>>({
+const DropdownMenu = createComponent({
   name: 'DropdownMenu',
   props: () => ({
     tabIndex: 0,
@@ -292,15 +270,7 @@ Dropdown.Title = createComponent({
   `,
 });
 
-interface StyledDropdownItemProps {
-  disabled: boolean;
-  color: string;
-  icon: any;
-  iconProps: any;
-  selected: boolean;
-}
-
-const StyledDropdownItem = createComponent<Partial<StyledDropdownItemProps>>({
+const StyledDropdownItem = createComponent({
   name: 'DropdownItem',
   props: ({ disabled }) => ({
     tabIndex: disabled ? -1 : 0,
@@ -362,23 +332,7 @@ const StyledIcon = createComponent({
   `,
 });
 
-interface DropdownItemProps {
-  closeOnClick?: boolean;
-  onClick?: () => void;
-  children?: React.ReactNode;
-  icon?: any;
-  iconProps?: any;
-}
-
-const DropdownItem: React.FC<DropdownItemProps> = ({
-  closeOnClick = true,
-  onClick,
-  children,
-  icon,
-  iconProps = {},
-  ...props
-}) => {
-  // @ts-ignore
+Dropdown.Item = ({ closeOnClick = true, onClick, children, icon, iconProps = {}, ...props }) => {
   const { close } = useContext(DropdownContext);
   const handleClick = () => {
     if (closeOnClick) {
@@ -395,5 +349,3 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
     </StyledDropdownItem>
   );
 };
-
-Dropdown.Item = DropdownItem;
