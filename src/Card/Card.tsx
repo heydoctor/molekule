@@ -43,13 +43,15 @@ Card.Footer = createComponent<BoxProps>({
   `,
 });
 
+const cardFooterClass = Card.Footer.toString();
+
 Card.Body = createComponent<BoxProps>({
   name: 'CardBody',
   as: Box,
   style: () => css`
     padding: 16px;
 
-    & + ${Card.Footer} {
+    & + ${cardFooterClass} {
       padding-top: 0px;
     }
   `,
