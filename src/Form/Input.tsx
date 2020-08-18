@@ -34,6 +34,7 @@ export interface InputProps {
   onFocus?: any;
   onBlur?: any;
   onChange?: any;
+  onKeyDown?: any;
   minRows?: number;
   rows?: number;
   maxRows?: number;

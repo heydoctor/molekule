@@ -1,4 +1,4 @@
-import React, { ForwardRefExoticComponent, PropsWithChildren, RefAttributes, } from 'react';
+import React, { ForwardRefExoticComponent, PropsWithChildren, RefAttributes } from 'react';
 import { css } from 'styled-components';
 import Box, { BoxProps } from '../Box';
 import { createComponent } from '../utils';
@@ -18,9 +18,5 @@ const Flex = React.forwardRef<HTMLDivElement, any>((props, ref) => (
 )) as ForwardRefExoticComponent<PropsWithChildren<BoxProps> & RefAttributes<HTMLDivElement>>;
 
 Flex.displayName = 'Flex';
-
-Flex.propTypes = {
-  ...Box.propTypes,
-};
 
 export default Flex;
