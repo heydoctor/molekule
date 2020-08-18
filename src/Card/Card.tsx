@@ -57,6 +57,8 @@ Card.Body = createComponent<BoxProps>({
   `,
 });
 
+const cardBodyClass = Card.Body.toString();
+
 Card.Header = createComponent<BoxProps>({
   name: 'CardHeader',
   as: Box,
@@ -64,7 +66,7 @@ Card.Header = createComponent<BoxProps>({
     padding: 16px;
     font-weight: 700;
 
-    & + ${Card.Body} {
+    & + ${cardBodyClass} {
       padding-top: 0px;
     }
   `,
